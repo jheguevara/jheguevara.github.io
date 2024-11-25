@@ -22,6 +22,24 @@ margin-top: 20px;
 .data-table {
 width: 45%;
 }
+ .stat-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .stat-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -81,10 +99,21 @@ width: 45%;
 
 
 
-<section id="testimonials" class="section testimonials style2 admin-visible">
+<section id="testimonials" class="section testimonials style2 admin-visible pt-20">
         <div class="container">
 
-
+  <div class="row justify-content-center">
+            <div class="col-lg-6 d-flex">
+                <div class="stat-box flex-fill">
+                    <div class="stat-title">Total Opportunities Created</div>
+                    <div id="totalJobsCount" class="stat-number">0</div>
+                </div>
+                <div class="stat-box flex-fill">
+                    <div class="stat-title">Total Jobs Run</div>
+                    <div id="createdOpportunitiesCount" class="stat-number">0</div>
+                </div>
+            </div>
+        </div>
   <div class="row">
     <div class="col-lg-4 col-md-6 mb-4">
       <canvas id="dailySignups" width="300" height="250"></canvas>
@@ -432,6 +461,33 @@ width: 45%;
     </section>
 
 <script>
+   function countUp(elementId, targetValue, duration) {
+            let startValue = 0;
+            let increment = targetValue / (duration / 10);
+            let currentValue = startValue;
+
+            const interval = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(interval);
+                }
+                document.getElementById(elementId).innerText = Math.floor(currentValue);
+            }, 10);
+        }
+
+        // Fetch data from the API
+        async function fetchStats() {
+            try {
+                const response = await fetch("https://counts.milesahead.team/api/opportunities/stats");
+                const data = await response.json();
+                countUp("totalJobsCount", data.totalJobsCount, 2000); // Animate over 2 seconds
+                countUp("createdOpportunitiesCount", data.createdOpportunitiesCount, 2000); // Animate over 2 seconds
+            } catch (error) {
+                console.error("Error fetching stats:", error);
+            }
+        }
+
   // Helper function to generate random data within a range
   function getRandomData(num, min, max) {
     return Array.from({ length: num }, () => Math.floor(Math.random() * (max - min + 1)) + min);

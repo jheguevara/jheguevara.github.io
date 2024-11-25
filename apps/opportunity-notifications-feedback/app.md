@@ -12,7 +12,7 @@ priority: 1
 
 <link rel="manifest" href="manifest.json"/>
 
-<script defer="defer" src="static/js/main.2e63f5dd.js"></script>
+<script defer="defer" src="static/js/main.55b07c83.js"></script>
 
 <link href="static/css/main.8fea0362.css" rel="stylesheet">
 

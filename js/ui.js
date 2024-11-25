@@ -54,6 +54,28 @@ const showContent = (id) => {
   document.getElementById(id).classList.remove("hidden");
 };
 
+function checkAndLoadUserData() {
+  const elements = document.querySelectorAll('.MuiButtonBase-root'); // Replace with the appropriate selector
+  let targetElement = null;
+
+  console.log('>>>>>>>>  ' + elements);
+
+  elements.forEach(element => {
+
+    if (element.textContent === 'Connect') {
+      targetElement = element;
+      element.onclick = function () {
+        console.log('You are also clicked');
+
+      };
+    }
+  });
+
+  if (targetElement) {
+    targetElement.setAttribute('id', 'newId'); // Added id attribute
+  }
+}
+
 /**
  * Updates the user interface
  */
@@ -210,4 +232,9 @@ window.onpopstate = (e) => {
 window.onload = () => {
   console.log('>>>>>>>>>>>>>>>>>>>>>>>>   onLoad');
   updateUI();
+  fetchStats();
+  setTimeout(() => {
+    checkAndLoadUserData();
+
+  }, 3000);
 };
