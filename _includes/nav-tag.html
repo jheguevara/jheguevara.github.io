@@ -1,18 +1,13 @@
-<nav class="navbar navbar-expand-lg  " data-wow-delay=".3s">
+<nav class="navbar " data-wow-delay=".3s">
   <a class="navbar-brand logo" href="javascript:void(0);"
     onclick="window.location.href = window.location.origin+ '/pages/apps.html';">
     <img src="/assets/images/align-hcm-logo.png" alt="Logo" />
     <!--img class="alt-logo" src="../assets/images/logo/logo2.svg" alt="Logo" /-->
   </a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="toggler-icon"></span>
-    <span class="toggler-icon"></span>
-    <span class="toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-    <ul id="nav" class="navbar-nav me-auto">
-      <li class="nav-item dropdown auth-visible hidden">
+
+  <div id="navbarSupportedContent">
+    <ul id="nav" class="navbar-nav me-auto row-center">
+      <li class="nav-item auth-visible hidden">
         <a class="nav-link" href="#" id="profileDropDown" data-toggle="dropdown">
           <!-- Profile image should be set to the profile picture from the id token -->
           <img alt="Profile picture" class="nav-user-profile profile-image rounded-circle" width="30" />
@@ -29,11 +24,11 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item dropdown auth-visible hidden">
         <a onclick="onNavClick('/pages/control-panel.html')" class="hidden admin-visible auth-visible">Dashboard</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item dropdown auth-visible hidden">
         <a onclick="onNavClick('/pages/apps.html')" class="auth-visible hidden">Apps</a>
       </li>
 
@@ -130,29 +125,32 @@
 
 
       {% assign show_default_icon = false %}
-      <li class="nav-item">
+      <li class="nav-item dropdown auth-invisible hidden">
         <a href="#" id="qsLoginBtn" onclick="login()" class="auth-invisible hidden">Log in</a>
+      </li>
+      <li class="nav-item dropdown auth-visible hidden">
+
         <a href="#" id="qsLogoutBtn" class="auth-visible hidden" onclick="logout()">Log out</a>
+      </li>
 
-
-        <div class="page hidden" id="content-profile">
-          <div class="container">
-            <div class="row align-items-center profile-header">
-              <div class="col-md-2">
-                <img alt="User's profile picture" class="rounded-circle img-fluid profile-image mb-3 mb-md-0" />
-              </div>
-              <div class="col-md">
-                <h2 class="user-name"></h2>
-                <p class="lead text-muted user-email"></p>
-              </div>
+      <div class="page hidden" id="content-profile">
+        <div class="container">
+          <div class="row align-items-center profile-header">
+            <div class="col-md-2">
+              <img alt="User's profile picture" class="rounded-circle img-fluid profile-image mb-3 mb-md-0" />
             </div>
-
-            <div class="row">
-              <pre class="rounded">
-                <code id="profile-data" class="json"></code></pre>
+            <div class="col-md">
+              <h2 class="user-name"></h2>
+              <p class="lead text-muted user-email"></p>
             </div>
           </div>
+
+          <div class="row">
+            <pre class="rounded">
+                <code id="profile-data" class="json"></code></pre>
+          </div>
         </div>
+      </div>
   </div>
 
   </li>
