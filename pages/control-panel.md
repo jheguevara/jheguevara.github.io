@@ -600,7 +600,7 @@ authenticated: true
 
     async function loadFeedbackData(type) {
         try {
-            const response = await fetch(`https://jira.milesahead.team/api/jira/issue?${type ? `filter=${encodeURIComponent(`type=${type}`)}` : ""}`);
+            const response = await fetch(`https://jira.milesahead.today/api/jira/issue?${type ? `filter=${encodeURIComponent(`type=${type}`)}` : ""}`);
             const feedbackData = await response.json();
 
             console.log(feedbackData);
