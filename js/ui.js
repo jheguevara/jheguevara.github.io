@@ -192,8 +192,9 @@ function displayNonAdminFields() {
 }
 
 function onNavClick(path) {
-  if (window.location.pathname !== path) {
-    window.location.replace(path)
+  const pathh = path + '';
+  if (window.location.pathname !== path && pathh.includes('/pages/')) {
+    window.location.href = path;
   }
 }
 
