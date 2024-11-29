@@ -1,0 +1,7 @@
+
+$primary-color: #F8921D;
+$secondary-color: #B3DFC9;
+
+#hero-area, #footer {
+	background: linear-gradient(45deg, $primary-color, $secondary-color);
+}
