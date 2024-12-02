@@ -1,0 +1,11 @@
+//$primary-color: #F8921D;
+$primary-color: #F8921D;
+$secondary-color: #B3DFC9;
+
+#hero-area,  #footer, .scroll-top  {
+	background: linear-gradient(45deg, $primary-color, $secondary-color);
+}
+
+#app-area {
+	background: linear-gradient(45deg, #f5f5f5, #f5f5f5)
+}

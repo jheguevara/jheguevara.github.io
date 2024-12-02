@@ -269,6 +269,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-feed (~> 0.12)
+  jekyll-sass-converter
   minima (~> 2.5)
   rdiscount
   tzinfo (~> 1.2)
