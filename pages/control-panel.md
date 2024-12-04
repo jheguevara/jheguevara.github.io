@@ -10,6 +10,9 @@ authenticated: true
 
 
 ---
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-fns@4.1.0/cdn.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <style>
@@ -46,12 +49,6 @@ authenticated: true
     }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/date-fns@4.1.0/cdn.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo"></script>
-<script src="https://cdn.jsdelivr.net/npm/world-atlas/countries-50m.json"></script>
 
 
 <!-- Start Hero Area -->
@@ -59,6 +56,14 @@ authenticated: true
     <!-- Single Slider -->
     <div class="hero-inner">
         <div class="container">
+
+
+
+
+
+
+
+
             <div class="row ">
                 <div class="col-lg-6 co-12">
                     <div class="home-slider">
@@ -103,6 +108,13 @@ authenticated: true
 
 
 
+
+
+
+
+
+
+
 <section id="testimonials" class="section testimonials style2 admin-visible pt-20">
     <div class="container">
 
@@ -129,6 +141,21 @@ authenticated: true
                 <canvas id="opportunityMatches" width="300" height="250"></canvas>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo"></script>
+        <script src="https://cdn.jsdelivr.net/npm/world-atlas/countries-50m.json"></script>
 
 
         <div class="row gy-4">
@@ -313,129 +340,148 @@ authenticated: true
             fetchBounceRate();
         </script>
 
+
+
+
+
+
+
+
+
+
+
         <div class="row "></div>
-        <div>
+        <div class="row">
             <!-- Feedback By App Table -->
-            <div class="flex flex-row gap-x-3 mb-6">
-                <div class="flex-auto flex-col w-1/2">
-                    <h4>Feedback By App</h4>
-                    <div class="overflow-x-scroll mb-6">
-                        <table id="FeedbackTable" class="table-auto border-collapse w-full">
-                            <thead class="bg-gray-200">
-                                <tr>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">App Name</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Submitter</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Ranking</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Description</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Received Date</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Completion Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Rows will be inserted here dynamically -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="FeedbackTablePagination" class="flex justify-between items-center mt-2">
-                        <button class="px-4 py-2 bg-gray-300 rounded"
-                            onclick="changePage('FeedbackTable', -1)">Previous</button>
-                        <span id="FeedbackTablePageInfo" class="text-gray-700"></span>
-                        <button class="px-4 py-2 bg-gray-300 rounded"
-                            onclick="changePage('FeedbackTable', 1)">Next</button>
-                    </div>
+            <div class="w-full">
+                <div class="flex p-2 mb-2 rounded border justify-self-center gap-x-3 items-center justify-center">
+                    <button id="feedback-toggle" class="px-4 py-2 bg-gray-300 rounded" onclick="changeTable('feedback')">Feedback</button>
+                    <button id="service-toggle" class="px-4 py-2 rounded" onclick="changeTable('service')">Service Tickets</button>
                 </div>
-
-                <div class="flex-auto flex-col w-1/2">
-                    <h4>Service Tickets</h4>
-                    <div class="overflow-x-scroll mb-6">
-                        <table id="TaskTable" class="table-auto border-collapse w-full">
-                            <thead class="bg-gray-200">
-                                <tr>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">App Name</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Submitter</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Ranking</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Description</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Received Date</th>
-                                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Completion Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Rows will be inserted here dynamically -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="TaskTablePagination" class="flex justify-between items-center mt-2">
-                        <button class="px-4 py-2 bg-gray-300 rounded"
-                            onclick="changePage('TaskTable', -1)">Previous</button>
-                        <span id="TaskTablePageInfo" class="text-gray-700"></span>
-                        <button class="px-4 py-2 bg-gray-300 rounded" onclick="changePage('TaskTable', 1)">Next</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title style2">
-                        <span>Applications Dashboard</span>
-                        <h2>Control Panel</h2>
-                        <p>Welcome to your control panel.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                {% for page in site.pages %}
-                {% if page.path contains 'apps/' and page.control-panel %}
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="single-testimonial">
-                        <div class="top-section">
-
-                            {% assign show_default_icon = true %}
-
-                            {% if page.authenticated %}
-                            <i class="lni lni-lock" title="Authentication Required"></i>
-                            {% assign show_default_icon = false %}
-                            {% endif %}
-
-                            {% if page.control-panel %}
-                            <i class="lni lni-cog" title="Control Panel"></i>
-                            {% assign show_default_icon = false %}
-                            {% endif %}
-
-                            {% if page.subscription-product %}
-                            <i class="lni lni-user" title="Personal Subscription Required"></i>
-                            {% assign show_default_icon = false %}
-                            {% endif %}
-
-                            {% if page.corporate-subscription %}
-                            <i class="lni lni-network" title="Corporate Subscription Required"></i>
-                            {% assign show_default_icon = false %}
-                            {% endif %}
-
-                            {% if page.enterprise %}
-                            <i class="lni lni-apartment" title="Enterprise Access Required"></i>
-                            {% assign show_default_icon = false %}
-                            {% endif %}
-
-                            {% if show_default_icon %}
-                            <i class="lni lni-world" title="All Access"></i>
-                            {% endif %}
-
-                            <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+                <div class="flex mb-6">
+                    <div id="feedback-table" class="flex flex-col w-full">
+                        <!-- <h4>Feedback By App</h4> -->
+                        <div class="overflow-x-scroll mb-6">
+                            <table id="FeedbackTable" class="table-auto border-collapse w-full">
+                                <thead class="bg-gray-200">
+                                    <tr>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">App Name</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Submitter</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Ranking</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Description</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Received Date</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Completion Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows will be inserted here dynamically -->
+                                </tbody>
+                            </table>
                         </div>
-                        <p>{{ page.blurb }}</p>
+                        <div id="FeedbackTablePagination" class="flex justify-between items-center mt-2">
+                            <button class="px-4 py-2 bg-gray-300 rounded"
+                                onclick="changePage('FeedbackTable', -1)">Previous</button>
+                            <span id="FeedbackTablePageInfo" class="text-gray-700"></span>
+                            <button class="px-4 py-2 bg-gray-300 rounded"
+                                onclick="changePage('FeedbackTable', 1)">Next</button>
+                        </div>
                     </div>
-
+    
+                    <div id="service-table" class="flex flex-col hidden w-full">
+                        <!-- <h4>Service Tickets</h4> -->
+                        <div class="overflow-x-scroll mb-6">
+                            <table id="TaskTable" class="table-auto border-collapse w-full">
+                                <thead class="bg-gray-200">
+                                    <tr>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">App Name</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Submitter</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Ranking</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Description</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Received Date</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Completion Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows will be inserted here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="TaskTablePagination" class="flex justify-between items-center mt-2">
+                            <button class="px-4 py-2 bg-gray-300 rounded"
+                                onclick="changePage('TaskTable', -1)">Previous</button>
+                            <span id="TaskTablePageInfo" class="text-gray-700"></span>
+                            <button class="px-4 py-2 bg-gray-300 rounded" onclick="changePage('TaskTable', 1)">Next</button>
+                        </div>
+                    </div>
                 </div>
-                {% endif %}
-                {% endfor %}
-
-
             </div>
         </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title style2">
+                    <span>Applications Dashboard</span>
+                    <h2>Control Panel</h2>
+                    <p>Welcome to your control panel.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            {% for page in site.pages %}
+            {% if page.path contains 'apps/' and page.control-panel %}
+            <div class="col-lg-4 col-md-6 col-12">
+
+                <div class="single-testimonial">
+                    <div class="top-section">
+
+                        {% assign show_default_icon = true %}
+
+                        {% if page.authenticated %}
+                        <i class="lni lni-lock" title="Authentication Required"></i>
+                        {% assign show_default_icon = false %}
+                        {% endif %}
+
+                        {% if page.control-panel %}
+                        <i class="lni lni-cog" title="Control Panel"></i>
+                        {% assign show_default_icon = false %}
+                        {% endif %}
+
+                        {% if page.subscription-product %}
+                        <i class="lni lni-user" title="Personal Subscription Required"></i>
+                        {% assign show_default_icon = false %}
+                        {% endif %}
+
+                        {% if page.corporate-subscription %}
+                        <i class="lni lni-network" title="Corporate Subscription Required"></i>
+                        {% assign show_default_icon = false %}
+                        {% endif %}
+
+                        {% if page.enterprise %}
+                        <i class="lni lni-apartment" title="Enterprise Access Required"></i>
+                        {% assign show_default_icon = false %}
+                        {% endif %}
+
+                        {% if show_default_icon %}
+                        <i class="lni lni-world" title="All Access"></i>
+                        {% endif %}
+
+                        <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+                    </div>
+                    <p>{{ page.blurb }}</p>
+                </div>
+
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+    </div>
 </section>
 
 <script>
@@ -603,7 +649,6 @@ authenticated: true
             const response = await fetch(`https://jira.milesahead.today/api/jira/issue?${type ? `filter=${encodeURIComponent(`type=${type}`)}` : ""}`);
             const feedbackData = await response.json();
 
-            console.log(feedbackData);
             const tableId = `${type}Table`;
             const tableBody = document.getElementById(tableId).querySelector('tbody');
             tableBody.innerHTML = ''; // Clear any existing rows
@@ -628,6 +673,10 @@ authenticated: true
             tableData[tableId].currentPage = 1;
 
             updatePagination(tableId);
+
+            if (feedbackData.length <= rowsPerPage) {
+                document.getElementById(`${type}TablePagination`).classList.add("hidden")
+            }
         } catch (error) {
             console.error('Error loading feedback data:', error);
         }
@@ -662,6 +711,22 @@ authenticated: true
         if (newPage > 0 && newPage <= totalPages) {
             tableData[tableId].currentPage = newPage;
             updatePagination(tableId);
+        }
+    }
+
+    function changeTable(table) {
+        if (table === "service") {
+            document.getElementById("service-table").classList.remove("hidden")
+            document.getElementById("feedback-table").classList.add("hidden")
+
+            document.getElementById("service-toggle").classList.add("bg-gray-300")
+            document.getElementById("feedback-toggle").classList.remove("bg-gray-300")
+        } else {
+            document.getElementById("service-table").classList.add("hidden")
+            document.getElementById("feedback-table").classList.remove("hidden")
+            
+            document.getElementById("service-toggle").classList.remove("bg-gray-300")
+            document.getElementById("feedback-toggle").classList.add("bg-gray-300")
         }
     }
 
