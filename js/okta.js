@@ -80,19 +80,30 @@ window.onload = async () => {
   try {
     console.log('OKTA >>  onLOAD');
     document.getElementById('preloader').style.display = 'block';
-    await configureClient();
-    const isAuthenticated = await auth0Client.isAuthenticated();
+    const isLoggedIn = sessionStorage.getItem('user');
     document.getElementById('preloader').style.display = 'none';
-    if (isAuthenticated) {
+    if (isLoggedIn !== null) {
       console.log('LOGGING IN   ');
-
-      const user = await auth0Client.getUser();
-      setCookie("name", user.email, 7)
-      setCookie("user", JSON.stringify(user), 7)
-      sessionStorage.setItem('user', JSON.stringify(user))
+      const user = JSON.parse(isLoggedIn);
       console.log('USER:  ' + JSON.stringify(user.name));
-      window.location.replace('/pages/apps.html')
+      //   window.location.replace('/pages/apps.html')
+      const isAdmin = user.role === 'admin';
 
+      console.log("Checking to see if admin " + isAdmin);
+      eachElement(".profile-image", (e) => (e.src = user.picture));
+      eachElement(".auth-invisible", (e) => e.classList.add("hidden"));
+      eachElement(".auth-visible", (e) => e.classList.remove("hidden"));
+
+      if (isAdmin) {
+        console.log("User is admin");
+
+        eachElement(".admin-invisible", (e) => e.classList.add("hidden"));
+        eachElement(".admin-visible", (e) => e.classList.remove("hidden"));
+
+      } else {
+        console.log("Run this if the user is authenticated but not admin.");
+        displayNonAdminFields();
+      }
       return;
     } else {
       document.querySelectorAll('.auth-invisible').forEach(field => {

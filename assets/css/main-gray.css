@@ -5182,8 +5182,7 @@ ol {
   }
 
   .navbar-nav .nav-item a {
-    color: #BBBBBB;
-    border: 1px solid #eee;
+    color: #000000;
     display: block;
     border-radius: 4px;
     padding: 0;

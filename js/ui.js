@@ -156,23 +156,6 @@ const updateUI = async () => {
 
     }
 
-    /*****/
-
-    // } else {
-    //   console.log("User is NOT authenticated apparently. Making tags hidden for unauth...");
-    //   console.log("Can we double-check auth here?");
-    //   eachElement(".auth-invisible", (e) => e.classList.remove("hidden"));
-    //   eachElement(".auth-visible", (e) => e.classList.add("hidden"));
-
-
-    //   const nonAdminFields = document.querySelectorAll('[data-role="admin"]');
-
-    //   nonAdminFields.forEach(field => {
-    //     field.classList.toggle('hidden', !field.classList.contains('admin-invisible'));
-    //     field.classList.toggle('hidden', field.classList.contains('admin-visible'));
-    //   });
-    // }
-
     const isAdmin = user.role === 'admin';
 
     console.log("Checking to see if admin " + isAdmin);
@@ -180,15 +163,8 @@ const updateUI = async () => {
     if (isAdmin) {
       console.log("User is admin");
 
-      // Add 'hidden' class to elements with 'admin-invisible' class
-      document.querySelectorAll('.admin-invisible').forEach(field => {
-        field.classList.add('hidden');
-      });
-
-      // Remove 'hidden' class from elements with 'admin-visible' class
-      document.querySelectorAll('.admin-visible').forEach(field => {
-        field.classList.remove('hidden');
-      });
+      eachElement(".admin-invisible", (e) => e.classList.add("hidden"));
+      eachElement(".admin-visible", (e) => e.classList.remove("hidden"));
 
     } else {
       console.log("Run this if the user is authenticated but not admin.");
@@ -216,8 +192,9 @@ function displayNonAdminFields() {
 }
 
 function onNavClick(path) {
-  if (window.location.pathname !== path) {
-    window.location.replace(path)
+  const pathh = path + '';
+  if (window.location.pathname !== path && pathh.includes('/pages/')) {
+    window.location.href = path;
   }
 }
 
