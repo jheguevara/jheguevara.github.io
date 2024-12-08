@@ -62,7 +62,7 @@
         // Fetch data from the API
         async function fetchStats() {
             try {
-                const response = await fetch("https://app.milesahead.team/api/opportunities/stats");
+                const response = await fetch("https://app.milesahead.today/api/opportunities/stats");
                 const data = await response.json();
                 countUp("totalJobsCount", data.totalJobsCount, 2000); // Animate over 2 seconds
                 countUp("createdOpportunitiesCount", data.createdOpportunitiesCount, 2000); // Animate over 2 seconds
