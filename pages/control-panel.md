@@ -185,7 +185,7 @@ authenticated: true
         </div>
 
         <script>
-            const apiBaseUrl = "https://ga.milesahead.team/api";
+            const apiBaseUrl = "https://ga.milesahead.today/api";
 
             // Visitors Over Time Chart
             async function fetchVisitorsOverTime() {
@@ -503,7 +503,7 @@ authenticated: true
     // Fetch data from the API
     async function fetchStats() {
         try {
-            const response = await fetch("https://counts.milesahead.team/api/opportunities/stats");
+            const response = await fetch("https://counts.milesahead.today/api/opportunities/stats");
             const data = await response.json();
             countUp("totalJobsCount", data.totalJobsCount, 2000); // Animate over 2 seconds
             countUp("createdOpportunitiesCount", data.createdOpportunitiesCount, 2000); // Animate over 2 seconds
