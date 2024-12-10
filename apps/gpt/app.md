@@ -48,7 +48,7 @@ priority: 1
             document.getElementById("response").textContent = "Fetching response...";
             
             try {
-                const response = await fetch("https://api.milesahead.today/api/query", {
+                const response = await fetch("https://api.milesahead.today/api/chatgpt/query", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
