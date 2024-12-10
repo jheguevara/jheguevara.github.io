@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.milesahead.team/api';
+const BASE_URL = 'https://jira.milesahead.today/api';
 
 const jiraUrl = BASE_URL + '/jira/issue';
 
