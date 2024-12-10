@@ -37,7 +37,8 @@ priority: 1
 <br>
 <button id="submitBtn">Submit</button>
 <div id="response">Response will appear here...</div>
-
+<a href="/gpt0.png">.</a>
+<a href="/gpt1.png">.</a>
 <script>
 document.getElementById("submitBtn").addEventListener("click", async function () {
     const query = document.getElementById("queryInput").value.trim();
