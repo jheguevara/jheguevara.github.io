@@ -92,7 +92,7 @@ priority: 4
 <div id="form-container" class="container hidden">
     <h1>Please Provide Feedback</h1>
     <form id="ticketForm" 
-    action="https://api.milesahead.team/api/jira/issue"
+    action="https://jira.milesahead.today/api/jira/issue"
     method="POST">
         <label for="title">Support Ticket Title *</label>
         <input type="text" id="title" name="summary" placeholder="Enter a brief title for the issue (e.g., Payroll processing error, Login failure)" required>
