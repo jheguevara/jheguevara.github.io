@@ -209,7 +209,7 @@ window.onpopstate = (e) => {
 window.onload = () => {
   console.log('>>>>>>>>>>>>>>>>>>>>>>>>   onLoad');
   updateUI();
-  fetchStats();
+  //fetchStats();
   setTimeout(() => {
     checkAndLoadUserData();
 
