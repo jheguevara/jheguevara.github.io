@@ -2,7 +2,7 @@
 layout: minimal-app
 title: "GPT"
 blurb: "We'll get you the answers your looking for."
-
+authenticated: true
 top-level-link: true
 priority: 1
 ---
