@@ -44,26 +44,7 @@
       <!-- Authenticated version of the LI -->
       <li class="nav-item wow">
         <a href="#" class="auth-invisible hidden">&nbsp;</a>
-
-        {% if post.subscription-product %}
-        <!--comment 4 -->
-        <!-- Display code with subscription-product -->
-        <span class="subs-visible hidden" data-subscription="{{ post.subscription-product }}">
-          <a href="{{ post.url }}" class="auth-visible">{{ post.title }}</a>
-          <i class="lni lni-user" title="Personal Subscription Required"></i>
-          <!-- Uncomment the next line if the lock icon is needed -->
-          <!-- <span class="material-icons subs-visible hidden" data-subscription="{{ post.subscription-product }}">lock_open</span> -->
-        </span>
-
-        <span class="subs-invisible" data-subscription="{{ post.subscription-product }}">
-          <a href="/products/{{ post.subscription-product }}" class="auth-visible chatbot-subscription-link">{{
-            post.title }}</a>
-        </span>
-
-        {% else %}
-        <!-- Display default code without subscription-product -->
         <a href="{{ post.url }}" class="auth-visible">{{ post.title }}</a>
-        {% endif %}
       </li>
       {% else %}
       <!-- Regular version of the LI -->
