@@ -5,7 +5,7 @@ title: "GPT"
 blurb: "We'll get you the answers your looking for."
 access: "internal-user"
 authenticated: true
-top-level-link: true
+top-level-link: false
 priority: 1
 ---
 
@@ -50,7 +50,7 @@ document.getElementById("submitBtn").addEventListener("click", async function ()
     document.getElementById("response").textContent = "Fetching response...";
     
     try {
-	const response = await fetch("https://api.milesahead.today/api/chatgpt/query", {
+	const response = await fetch("https://api.milesahead.today/api/chatgpt/query2", {
 	    method: "POST",
 	    headers: {
 		"Content-Type": "application/json"
