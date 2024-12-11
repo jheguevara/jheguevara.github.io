@@ -9,153 +9,117 @@ top-level-link: false
 priority: 1
 ---
 
-<style>
-#pricing_table {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f7f8fc;
-    padding: 40px 20px;
-    color: #333;
-}
-
-#pricing_table .section-title span {
-    display: block;
-    color: #ffac4b;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-#pricing_table .section-title h2 {
-    text-align: center;
-    font-size: 32px;
-    color: #333;
-}
-
-#pricing_table .section-title p {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-#pricing_table .single-table {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#pricing_table .table-head h3 {
-    font-size: 24px;
-    color: #333;
-}
-
-#pricing_table .table-head .discount {
-    color: #28a745;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#pricing_table .table-head h4 {
-    color: #888;
-    margin-top: 10px;
-}
-
-#pricing_table .table-content p {
-    font-size: 16px;
-    color: #555;
-    margin: 10px 0;
-}
-
-#pricing_table .table-bottom .choose-plan-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #ffac4b, #28a745);
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-#pricing_table .table-bottom .choose-plan-btn:hover {
-    opacity: 0.9;
-}
-</style>
-
 <!-- Start Pricing Table Area -->
 <section id="pricing_table" class="pricing-table section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <span>Pricing Plan</span>
-                    <h2>Choose Your Plan</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <span>Pricing Plan</span>
+                        <h2>Choose Your Plan</h2>
+                        <p>There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single Table -->
+                    <div class="single-table pricingTable" data-plan="Gold Level">
+                        <!-- Table Head -->
+                        <div class="table-head">
+                            <div class="price">
+              <h3 class="heading">Gold</h3>
+			   <div class="price">
+                                <p class="amount"><span class="price-value">$149</span></p>
+                            </div>
+              
+              <span class="month">monthly</span>
+                            </div>
+                            <div class="title">
+                                <h4>Small Pack</h4>
+                            </div>
+                        </div>
+	   <div class="pricingContent table-list">
+              <ul><li><i class="ti-check"></i> 88 GB Disk Space</li><li><i class="ti-check"></i> 99 Email Accounts</li><li><i class="ti-check"></i> 22 subdomains</li><li><i class="ti-check"></i> 11 Domains</li></ul>
+            </div>
+                        <!-- End Table Head -->
+                        <!-- Table List -->
+                        <!-- End Table List -->
+                        <!-- Table Bottom -->
+                        <div class="button">
+                            <a class="btn" href="#">Choose Plan <i class="lni lni-arrow-right"></i></a>
+                        </div>
+                        <!-- End Table Bottom -->
+                    </div>
+                    <!-- End Single Table-->
+                </div>
+                                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single Table -->
+                    <div class="single-table pricingTable" data-plan="Platinum Level">
+                        <!-- Table Head -->
+                        <div class="table-head">
+                            <div class="price">
+              <h3 class="heading">Platinum</h3>
+			   <div class="price">
+                                <p class="amount"><span class="price-value">$200</span></p>
+                            </div>
+              
+              <span class="month">monthly</span>
+                            </div>
+                            <div class="title">
+                                <h4>Medium Pack</h4>
+                            </div>
+                        </div>
+	   <div class="pricingContent table-list">
+              <ul><li><i class="ti-check"></i> 500GB Disk Space</li><li><i class="ti-check"></i> 150 Email Accounts</li><li><i class="ti-check"></i> 100 subdomains</li><li><i class="ti-check"></i> 15 Domains</li></ul>
+            </div>
+                        <!-- End Table Head -->
+                        <!-- Table List -->
+                        <!-- End Table List -->
+                        <!-- Table Bottom -->
+                        <div class="button">
+                            <a class="btn" href="#">Choose Plan <i class="lni lni-arrow-right"></i></a>
+                        </div>
+                        <!-- End Table Bottom -->
+                    </div>
+                    <!-- End Single Table-->
+                </div>
+                                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Single Table -->
+                    <div class="single-table pricingTable" data-plan="Diamond Level">
+                        <!-- Table Head -->
+                        <div class="table-head">
+                            <div class="price">
+              <h3 class="heading">Diamond</h3>
+			   <div class="price">
+                                <p class="amount"><span class="price-value">$500</span></p>
+                            </div>
+              
+              <span class="month">monthly</span>
+                            </div>
+                            <div class="title">
+                                <h4>Large Pack</h4>
+                            </div>
+                        </div>
+	   <div class="pricingContent table-list">
+              <ul><li><i class="ti-check"></i> 1150GB Disk Space</li><li><i class="ti-check"></i> 250 Email Accounts</li><li><i class="ti-check"></i> 1000 subdomains</li><li><i class="ti-check"></i> 55 Domains</li></ul>
+            </div>
+                        <!-- End Table Head -->
+                        <!-- Table List -->
+                        <!-- End Table List -->
+                        <!-- Table Bottom -->
+                        <div class="button">
+                            <a class="btn" href="#">Choose Plan <i class="lni lni-arrow-right"></i></a>
+                        </div>
+                        <!-- End Table Bottom -->
+                    </div>
+                    <!-- End Single Table-->
                 </div>
             </div>
         </div>
-        <div class="row">
-            <!-- Gold Plan -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-table">
-                    <div class="table-head">
-                        <h3>Gold</h3>
-                        <p class="discount">Discounted!</p>
-                        <p>Log in for pricing.</p>
-                        <h4>Small Pack</h4>
-                    </div>
-                    <div class="table-content">
-                        <p>2 Productivity Apps</p>
-                        <p>10 Users</p>
-                    </div>
-                    <div class="table-bottom">
-                        <a href="#" class="choose-plan-btn">Choose Plan →</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Platinum Plan -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-table">
-                    <div class="table-head">
-                        <h3>Platinum</h3>
-                        <p class="discount">Discounted!</p>
-                        <p>Call for pricing.</p>
-                        <h4>Medium Pack</h4>
-                    </div>
-                    <div class="table-content">
-                        <p>5 Productivity Apps</p>
-                        <p>25 Users</p>
-                    </div>
-                    <div class="table-bottom">
-                        <a href="#" class="choose-plan-btn">Choose Plan →</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Diamond Plan -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-table">
-                    <div class="table-head">
-                        <h3>Diamond</h3>
-                        <p class="discount">Discounted!</p>
-                        <p>Log in for pricing.</p>
-                        <h4>Large Pack</h4>
-                    </div>
-                    <div class="table-content">
-                        <p>10 Productivity Apps</p>
-                        <p>Unlimited Users</p>
-                    </div>
-                    <div class="table-bottom">
-                        <a href="#" class="choose-plan-btn">Choose Plan →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
-<!-- End Pricing Table Area -->
-
+<!--/ End Pricing Table Area -->
 
 
 
