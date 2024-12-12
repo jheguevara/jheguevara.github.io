@@ -62,9 +62,12 @@ async function login() {
     // window.location.replace('/pages/apps.html')
 
     const idToken = await auth0Client.getIdTokenClaims();
-    console.log('ID Token:', idToken.__raw); // The raw JWT
-
-    setCookie("oktaIdToken", idToken.__raw, 7)
+    if (idToken && idToken.__raw) {
+      console.log("ID Token:", idToken.__raw);
+      setCookie("oktaIdToken", idToken.__raw, 7);
+    } else {
+      console.error("ID Token is undefined or null");
+    }
 
     return;
   }
