@@ -91,7 +91,7 @@ const updateUI = async () => {
         null,
         2
       );
-      console.log("User:  " + JSON.stringify(user.role));
+      console.log("User2:  " + JSON.stringify(user.role));
       document.querySelectorAll("pre code").forEach(hljs.highlightBlock);
 
       eachElement(".profile-image", (e) => (e.src = user.picture));

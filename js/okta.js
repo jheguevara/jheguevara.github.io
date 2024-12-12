@@ -57,7 +57,7 @@ async function login() {
     setCookie("name", user.email, 7)
     setCookie("user", JSON.stringify(user), 7)
     sessionStorage.setItem('user', JSON.stringify(user))
-    console.log('USER:  ' + JSON.stringify(user.name));
+    console.log('USER1:  ' + JSON.stringify(user.name));
     // window.location.replace('/pages/apps.html')
 
     const idToken = await auth0Client.getIdTokenClaims();
