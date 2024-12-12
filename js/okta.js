@@ -58,7 +58,12 @@ async function login() {
     setCookie("user", JSON.stringify(user), 7)
     sessionStorage.setItem('user', JSON.stringify(user))
     console.log('USER:  ' + JSON.stringify(user.name));
-    window.location.replace('/pages/apps.html')
+    // window.location.replace('/pages/apps.html')
+
+    const idToken = await auth0Client.getIdTokenClaims();
+    console.log('ID Token:', idToken.__raw); // The raw JWT
+
+    setCookie("oktaIdToken", idToken.__raw, 7)
 
     return;
   }
