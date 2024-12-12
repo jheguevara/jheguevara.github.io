@@ -94,10 +94,10 @@ priority: 4
 </style>
 
 <div>
-<div id="form-container" class="container hidden">
+<div id="form-container" class="container">
     <h4>Create New Ticket</h4>
     <form id="ticketForm" 
-    action="https://api.milesahead.team/api/jira/issue"
+    action="https://jira.milesahead.today/api/jira/issue"
     method="POST"
     class="column"
     >
@@ -153,16 +153,18 @@ priority: 4
 
     document.getElementById('ticketForm').addEventListener('submit', function(event) {
         event.preventDefault(); // prevent default form submission
+    const user =  JSON.parse(sessionStorage.getItem('user'));
 
         // Gather form data from form fields
         const formData = {
             summary: document.getElementById('title').value,
             serviceName: document.getElementById('category').value,
-            userName: document.getElementById('feedback-username').value,
-            userEmail: document.getElementById('feedback-useremail').value,
+            userName: user.name,
+            userEmail: user.email,
             issueDescription: document.getElementById('description').value,
             priority: document.getElementById('priority').value,
-            issueType: "Task" 
+            issueType: "Task",
+            rating: 0 
         };
 
         // Send the JSON data to the API endpoint
