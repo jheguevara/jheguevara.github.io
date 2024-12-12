@@ -40,7 +40,7 @@ const configureClient = async () => {
 
 
 async function login() {
-
+  console.log(`login() called`)
   try {
     await configureClient();
     await auth0Client.loginWithPopup();
@@ -53,6 +53,7 @@ async function login() {
 
   if (isAuthenticated) {
     const user = await auth0Client.getUser();
+    console.log(`user = ${user}`)
     setCookie("name", user.email, 7)
     setCookie("user", JSON.stringify(user), 7)
     sessionStorage.setItem('user', JSON.stringify(user))
