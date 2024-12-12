@@ -1,7 +1,7 @@
 let auth0Client;
 
 function setCookie(name, value, days) {
-  console.log("Setting the cookie...");
+  console.log(`Setting the cookie for ${name}`);
   var expires = "";
   if (days) {
     var date = new Date();
@@ -10,6 +10,7 @@ function setCookie(name, value, days) {
   }
   // Secure flag is necessary when running on HTTPS (like GitHub Pages)
   document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax; Secure";
+  console.log(`Done setting the cookie for ${name}`);
 }
 
 function deleteCookie(name) {
@@ -57,7 +58,7 @@ async function login() {
     setCookie("name", user.email, 7)
     setCookie("user", JSON.stringify(user), 7)
     sessionStorage.setItem('user', JSON.stringify(user))
-    console.log('USER1:  ' + JSON.stringify(user.name));
+    console.log('USER:  ' + JSON.stringify(user.name));
     // window.location.replace('/pages/apps.html')
 
     const idToken = await auth0Client.getIdTokenClaims();
