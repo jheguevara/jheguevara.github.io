@@ -64,7 +64,8 @@ async function login() {
     const idToken = await auth0Client.getIdTokenClaims();
     if (idToken && idToken.__raw) {
       console.log("ID Token2:", idToken.__raw);
-      setCookie("oktaIdToken", idToken.__raw, 7);
+      sessionStorage.setItem('oktaIdToken', idToken.__raw)
+      // setCookie("oktaIdToken", idToken.__raw, 7);
     } else {
       console.error("ID Token is undefined or null");
     }
