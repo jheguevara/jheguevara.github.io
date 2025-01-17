@@ -1,0 +1,104 @@
+---
+layout: default 
+title: "845 - A company has two batch processing appli"
+---
+
+
+[.question]
+== 845-64a1df08aa736d27b1db92ec.
+
+
+****
+
+[.query]
+--
+A company has two batch processing applications that consume financial data about the day's stock transactions.
+Each transaction needs to be stored durably and the order of transactions needs to be guaranteed so that the billing and audit batch processing applications can process the data.
+The billing application firstly processes the transaction information and after several hours, the audit application access to the same data.
+After the transaction information for the day is processed, the information no longer needs to be stored.
+What is the best way to architect this application so that the above requirements are achieved? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Use SQS for storing the transaction messages. When the billing batch process consumes each message, have the application create an identical message and place it in a different SQS for the audit application to use several hours later.
+* [ ] B. Use SQS for storing the transaction messages; when the billing batch process performs first and consumes the message, write the code in a way that does not remove the message after consumed, so it is available for the audit application several hours later. The audit application can consume the SQS message and remove it from the queue when completed.
+* [ ] C. Store the transaction information in a DynamoDB table. The billing application can read the rows while the audit application will read the rows then remove the data.
+* [*] D. Use Kinesis to store the transaction information. The billing application consumes data from the stream and then the audit application consumes the same data several hours later.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The main architectural considerations in this scenario are: (1) each transaction needs to be stored durably (no loss of any transaction), (2)they should be processed in serial order, (3) guaranteed delivery of each record to the audit and billing batch processing, and (4) the processing of the record by two application is done with a time gap of several hours.
+Based on the considerations above, it seems that we must use Amazon Kinesis Data Streams which enables real-time processing of streaming big data.
+It provides ordering of records and the ability to read and/or replay records in the same order to multiple Amazon Kinesis Applications.
+The Amazon Kinesis Client Library (KCL) delivers all records for a given partition key to the same record processor, making it easier to build multiple applications reading from the same Amazon Kinesis data stream (for example, to perform counting, aggregation, and filtering).
+Option A is incorrect because (a) the onus of ensuring that each message is copied to the audit queue is on the application, and (b) this option is not fail-proof.
+i.e.
+If the application fails to copy the message between the queue, there is no logic to put the message back to the billing queue.
+Option B is incorrect because even though it uses SQS, there is an overhead of ensuring that the message is processed properly by the billing and audit processes.
+When the billing process is processing the message, the message is unavailable for the audit process.
+Also, there is a possibility of processing the same record (message) multiple times by the instances processing it (there is no way to know if the record has been already processed).
+Option C is incorrect because it adds the overhead of delivery guarantee on the application itself.
+Also, the use of DynamoDB in this scenario is not a cost-effective solution.
+To store the transaction data in real-time data, Kinesis is a better choice.
+Option D is CORRECT because Amazon Kinesis is best suited for applications that need to process large real-time transactional records and have the ability to consume records in the same order a few hours later.
+For example, you have a billing application and an audit application that runs a few hours behind the billing application.
+Because Amazon Kinesis Data Streams stores data for up to 7 days, you can run the audit application up to 7 days behind the billing application.
+More information on when Amazon Kinesis Data Streams and Amazon SQS should be used:
+AWS recommends Amazon Kinesis Data Streams for use cases with requirements that are similar to the following:
+Routing related records to the same record processor (as in streaming MapReduce)
+For example, counting and aggregation are simpler when all records for a given key are routed to the same record processor.
+Ordering of records.
+For example, you want to transfer log data from the application host to the processing/archival host while maintaining the order of log statements.
+Ability for multiple applications to consume the same stream concurrently.
+For example, you have one application that updates a real-time dashboard and another archives data to Amazon Redshift.
+You want both applications to consume data from the same stream concurrently and independently.
+Ability to consume records in the same order a few hours later.
+For example, you have a billing application and an audit application that runs a few hours behind the billing application.
+Because Amazon Kinesis Data Streams stores data for up to 7 days, you can run the audit application up to 7 days behind the billing application.
+AWS recommends Amazon SQS for use cases with requirements that are similar to the following:
+Messaging semantics (such as message-level ack/fail) and visibility timeout.
+For example, you have a queue of work items and want to track each item's successful completion independently.
+Amazon SQS tracks the ack/fail, so the application does not have to maintain a persistent checkpoint/cursor.
+Amazon SQS will delete asked messages and redeliver failed messages after a configured visibility timeout.
+Individual message delay.
+For example, you have a job queue and need to schedule individual jobs with a delay.
+With Amazon SQS, you can configure individual messages to have a delay of up to 15 minutes.
+Leveraging Amazon SQS's ability to scale transparently.
+For example, you buffer requests and the load changes as a result of occasional load spikes or the natural growth of your business.
+Because each buffered request can be processed independently, Amazon SQS can scale transparently to handle the load without any provisioning instructions from you.
+https://aws.amazon.com/kinesis/data-streams/faqs/
+The best way to architect this application to meet the requirements is to use option D: Use Kinesis to store the transaction information. The billing application consumes data from the stream and then the audit application consumes the same data several hours later.
+Here's why:
+Kinesis is a fully managed, scalable, and durable data streaming service that allows real-time processing of streaming data at scale. Kinesis Data Streams can collect and process large amounts of data in real-time and enables applications to read and analyze the data as it arrives. Kinesis is well-suited for this use case because it can provide durable storage and ordering guarantees, and can also be used to process and analyze the data in real-time.
+Option A (Use SQS for storing the transaction messages. When the billing batch process consumes each message, have the application create an identical message and place it in a different SQS for the audit application to use several hours later) is not an ideal solution. Although SQS provides durable storage of messages and can guarantee message order within a queue, it is not designed for real-time data processing. It is also not recommended to create identical messages for each application as this can lead to increased cost and complexity.
+Option B (Use SQS for storing the transaction messages; when the billing batch process performs first and consumes the message, write the code in a way that does not remove the message after consumed, so it is available for the audit application several hours later. The audit application can consume the SQS message and remove it from the queue when completed) is not an optimal solution either. Although this approach ensures that the message is available for both applications, it may lead to issues with message duplication or other data consistency problems. Additionally, it is not efficient or cost-effective to keep the messages in the queue for several hours after they have been processed.
+Option C (Store the transaction information in a DynamoDB table. The billing application can read the rows while the audit application will read the rows then remove the data) is not ideal because it does not provide ordering guarantees or real-time processing capabilities. Although DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability, it is not suitable for real-time data processing or data streams.
+Option D is the best solution because Kinesis provides the durability, ordering guarantees, and real-time processing capabilities required for this use case. The billing application can consume the data from the stream in real-time, and the audit application can consume the same data several hours later. Additionally, Kinesis allows applications to process and analyze the data in real-time, which can be useful for real-time monitoring, alerting, or other applications that need to respond quickly to changes in the data.
+In summary, Kinesis is the best solution for this use case because it provides durable storage, ordering guarantees, real-time processing capabilities, and efficient data handling. It is designed for real-time data streaming and is well-suited for this type of use case.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question56:"link"
+
+

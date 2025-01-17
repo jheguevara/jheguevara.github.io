@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "884 - An AWS customer is deploying an applicat"
+---
+
+
+[.question]
+== 884-64a1df14aa736d27b1db931e.
+
+
+****
+
+[.query]
+--
+An AWS customer is deploying an application in a separate, highly constrained execution environment ( enclaves ) composed of an auto-scaling group of EC2 Instances.
+The customer's security policy requires that every outbound connection from these instances to any other service within the customer's Virtual Private Cloud must be authenticated using a unique X.509 certificate that contains the specific instance ID.
+
+
+--
+
+[.list]
+--
+* [*] A. Configure an IAM Role that grants access to an Amazon S3 object containing a signed certificate and configure an Auto Scaling group to launch instances with this role. Have the instances bootstrap, get the certificate from Amazon S3 upon first boot.
+* [ ] B. Embed a certificate into the Amazon Machine Image that is used by the Auto Scaling group Have the launched instances, generate a certificate signature request with the instance’s assigned instance-id to the AWS KMS for signature.
+* [*] C. Configure the AutoScaling group to send an SNS notification of the launch of a new instance to the AWS Certificate Manager. Create a signed certificate using AWS Certificate Manager (ACM).
+* [ ] D. Configure the launched instances to generate a new certificate upon first boot. Have the AWS KMS poll the Auto Scaling group for associated instances and send new instances a certificate signature (that contains the specific instance-id).
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+This scenario requires (a) an x.509 certificate per instance created in the auto-scaling group, (b) the certificate should be unique that contains the instance id.
+Option A is incorrect because (a) storing the signed certificate in S3 is a bad idea as it will not be unique for each instance id, and (b) S3 is not a key management service and cannot generate such certificates.
+Option B is incorrect because you need to generate the instance id first before generating the certificate that will be unique for that instance id.
+Therefore, embedding a certificate in the image and then launching the instance will not be useful at all.
+Option C is correct because once the new instance is launched, the ASG is configured to send the notification through SNS to the ACM.
+The ACM then generates the new certificate.
+Nitro enclaves and ACM:
+Manager (ACM) for Nitro Enclaves allows you to use public and private SSL/TLS certificates with your web applications and web servers running on Amazon EC2 instances with AWS Nitro Enclaves.
+SSL/TLS certificates are used to secure network communications and establish the identity of websites over the internet and resources on private networks.
+Previously, when running a web server on an EC2 instance, you would have created SSL certificates and stored them as plaintext on your instance.
+With ACM for Nitro Enclaves, you can now bind AWS Certificate Manager certificates to an enclave and use those certificates directly with your web server without exposing the certificates in plaintext form to the parent instance and its users.
+ACM for Nitro Enclaves removes the time-consuming and error-prone manual process of purchasing, uploading, and renewing SSL/TLS certificates.
+ACM for Nitro Enclaves creates secure private keys, distributes the certificate and its private key to your enclave, and manages certificate renewals.
+With ACM for Nitro Enclaves, the certificate's private key remains isolated in the enclave, preventing the instance, and its users, from accessing it.
+Please also check https://docs.aws.amazon.com/enclaves/latest/user/enclaves-user.pdf#nitro-enclave-refapp (page 39) on how to use ACM for Nitro Enclaves.
+Option D is incorrect because (a) the onus is on the EC2 instances to generate the signed certificate, (b) the requirement is to use a key management service to generate the signed certificate, and (c)AWS KMS does not have any feature to 'poll' any service.
+Please check below AWS Docs for more details.
+https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html https://docs.aws.amazon.com/enclaves/latest/user/enclaves-user.pdf#nitro-enclave-refapp
+The correct answer for this scenario would be option B: Embed a certificate into the Amazon Machine Image that is used by the Auto Scaling group. Have the launched instances generate a certificate signature request with the instance's assigned instance-id to the AWS KMS for signature.
+Here's a detailed explanation of why this is the correct option:
+The requirement is that every outbound connection from these instances to any other service within the customer's Virtual Private Cloud must be authenticated using a unique X.509 certificate that contains the specific instance ID. To achieve this, we need to generate a certificate for each instance and embed it within the instance. This certificate must be signed by a trusted authority to ensure that it is authentic.
+Option A is incorrect because it involves fetching the certificate from Amazon S3 upon first boot, which could potentially be a security risk. The IAM role approach in this option does not provide a way to uniquely identify each instance using a certificate.
+Option C is incorrect because it uses ACM, which is not designed to issue instance-specific certificates. Additionally, the SNS notification approach does not provide a way to uniquely identify each instance using a certificate.
+Option D is incorrect because it involves configuring each instance to generate a new certificate upon first boot. This approach is not practical because it requires the KMS to poll the Auto Scaling group for associated instances, which could be slow and introduce latency issues.
+Option B is the correct approach because it involves embedding a certificate into the Amazon Machine Image that is used by the Auto Scaling group. Each launched instance can then generate a certificate signature request with its assigned instance ID to the AWS KMS for signature. This approach ensures that each instance has a unique certificate and that the certificate is authentic.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question106:"link"
+
+

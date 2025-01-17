@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "837 - A company has developed a Ruby on Rails "
+---
+
+
+[.question]
+== 837-64a1df06aa736d27b1db92e4.
+
+
+****
+
+[.query]
+--
+A company has developed a Ruby on Rails content management platform.
+Currently, OpsWorks has several stacks for dev, staging, and production to deploy and manage the application.
+Now, the company wants to start using Python instead of Ruby.
+How should the company manage the new deployment so that it should revert back to the old application with Ruby if the new deployment starts adversely impacting the existing customers? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Create a new stack that contains the Python application code and manages separate deployments of the application via the secondary stack using the deploy lifecycle action to implement the application code.
+* [*] B. Create a new stack that contains a new layer with the Python code. Route only a small portion of the production traffic to use the new deployment stack. Once the application is validated, slowly increase the production traffic to the new stack using the Canary Deployment. Revert to the old stack, if the new stack deployment fails or does not work.
+* [ ] C. Create a new stack that contains the Python application code. Route all the traffic to the new stack at once so that all the customers get to access the updated application.
+* [ ] D. Update the existing host instances of the application with the new Python code. This will save the cost of having to maintain two stacks, hence cutting down on the costs.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because it mentions how the code would be deployed using the deploy lifecycle event.
+However, it does not mention how the system can revert back to the old application deployment stack if there is any failure.
+Option B is CORRECT because it deploys the new stack via the canary deployment method where the new stack is tested only on a small portion of production traffic first.
+If the new deployment has any errors, it reverses back to the old deployment stack.
+Option C is incorrect.
+Even though you create the new stack, you should always test a small portion of production traffic with the new stack rather than route all the production traffic.
+Option D is incorrect because updating all the production instances at once is risky, and it does not give an option to revert back to the old stack in case of any errors.
+More information on Canary Deployment.
+Canary deployments are a pattern for rolling out releases to a subset of users or servers.
+The idea is first to deploy the change to a small subset of servers, test it, and then roll the change out to the rest of the servers.
+The canary deployment serves as an early warning indicator with less impact on downtime: if the canary deployment fails, the rest of the servers aren't impacted.
+The best option for the company to manage the deployment of the new Python application while still having the option to revert back to the old Ruby application if necessary is option B: Create a new stack that contains a new layer with the Python code. Route only a small portion of the production traffic to use the new deployment stack. Once the application is validated, slowly increase the production traffic to the new stack using the Canary Deployment. Revert to the old stack if the new stack deployment fails or does not work.
+This option provides a controlled deployment process that minimizes the risk of negatively impacting customers. It involves creating a new stack that includes a new layer with the Python code, allowing for a separate deployment process. Initially, only a small portion of production traffic should be routed to the new stack to validate its functionality. This process is called canary deployment, where a small percentage of users are directed to the new stack and monitored for any issues. Once it has been verified that the new application is working correctly, more production traffic can be directed to the new stack until all users are using it. If at any point during this process, issues are detected, the company can quickly revert back to the old stack with Ruby.
+Option A, creating a new stack for Python with separate deployments, does not provide enough control over the deployment process and may cause disruption to customers if there are any issues with the new deployment. Option C, routing all traffic to the new stack at once, poses a significant risk to customer experience if there are issues with the new deployment. Option D, updating the existing host instances with the new Python code, may not be the best option since it eliminates the ability to revert to the old application if there are issues with the new deployment. Additionally, it may not be feasible to update all host instances simultaneously, which could result in downtime and negatively impact customer experience.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question48:"link"
+
+

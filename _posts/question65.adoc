@@ -1,0 +1,92 @@
+---
+layout: default 
+title: "865 - What does the below custom IAM Policy ac"
+---
+
+
+[.question]
+== 865-64a1df0faa736d27b1db9307.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_mtwxkx.png[]
+
+--
+
+
+****
+
+[.query]
+--
+What does the below custom IAM Policy achieve?
+
+
+[source,java]
+----
+1.Choose AMI 2. Choose Instance Type 3. Configure Instance 4. Add Storage 5. Add Tags
+
+Step 1: Choose an Amazon Machine Image (AMI)
+
+@ = Anerror occurred describing your selected AMI
+You are not authorized to perform this operation.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Permits the user start, stop, terminate and describe the existing instances.
+* [ ] B. Permits the user to launch a new instance as well as start, stop, and terminate the existing instances.
+* [ ] C. Permits the user only to describe the instances (read-only), and will not be able to start, stop, or terminate instances, since it overrides the allowed actions of TerminateInstances, RunInstances, StartInstances, and StopInstances in the policy.
+* [ ] D. None of the above.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because, although the policy given in the question allows the access to launch the EC2 instance by including "ec2:RunInstances" in the Actions, it will not allow the user to launch the EC2 instances.
+(Try creating the same policy, attach it to a new user.
+You can log in using that user credentials and see if you can launch an EC2 instance.
+You will not be able to do so.
+You will get the error shown below.)
+In order to allow users to launch an instance, the policy needs to be updated to grant the user more privileges: access to launch using an EC2 key pair, a security group, an Elastic Block Store (EBS) volume, and an Amazon Machine Image (AMI)
+To do this, you will have to create a separate statement for the RunInstances action.
+Option B is incorrect because, as mentioned above, the user will not be able to launch an EC2 instance and will get an error (shown below) about not having the permission to do so.
+Option C is incorrect because the user can start, stop, and terminate existing instances with this policy.
+Option D is incorrect because the user will be able to start, stop and terminate existing EC2 instances.
+For more information on EC2 resource-level permissions, please visit the below URL and for further explanation as to why only the TerminateInstances, StopInstances, and StartInstances actions are allowed, please visit the below URL-
+https://aws.amazon.com/blogs/security/demystifying-ec2-resource-level-permissions/
+The provided IAM policy allows us to control access to various AWS resources and actions for users and groups within our AWS account.
+The policy in question contains four actions that are allowed for EC2 instances: StartInstances, StopInstances, TerminateInstances, and DescribeInstances.
+Here is an explanation of each answer choice:
+A. This answer choice is incorrect because it only allows the user to perform actions on existing instances but doesn't allow the user to launch a new instance.
+B. This answer choice is correct because it allows the user to perform all actions on EC2 instances, including launching a new instance as well as starting, stopping, and terminating existing instances.
+C. This answer choice is incorrect because it only allows the user to describe instances but doesn't allow the user to perform any other actions on EC2 instances.
+D. This answer choice is incorrect because one of the answer choices is correct.
+Therefore, the correct answer is B, which permits the user to launch a new instance as well as start, stop, and terminate the existing instances.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question83:"link"
+
+

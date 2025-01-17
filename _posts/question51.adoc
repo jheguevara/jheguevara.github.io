@@ -1,0 +1,106 @@
+---
+layout: default 
+title: "851 - An auditor needs access to logs that rec"
+---
+
+
+[.question]
+== 851-64a1df0aaa736d27b1db92f2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_odsufu.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An auditor needs access to logs that record all the API events on AWS.
+The auditor only needs read-only access to the log files and does not need access to each AWS account.
+The company has multiple AWS accounts, and the auditor needs access to all the logs for all the accounts.
+What is the best way to configure access for the auditor to view event logs from all accounts? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+Create Trail
+
+Trail name* | CloudTrailt
+
+Apply trail to all regions @ Yes © No
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the CloudTrail service in each AWS account, and make the logs delivered to an S3 bucket on each account, while granting the auditor permissions to the bucket via roles in the secondary accounts and a single primary IAM account that can assume a read-only role in the secondary AWS accounts.
+* [ ] B. Configure the CloudTrail service in the primary AWS account and configure consolidated billing for all the secondary accounts. Then grant the auditor access to the S3 bucket that receives the CloudTrail log files.
+* [ ] C. Configure the CloudTrail service in each AWS account and enable consolidated logging inside of CloudTrail.
+* [*] D. Configure the CloudTrail service in each AWS account and have the logs delivered to a single S3 bucket in a separate account. Provide the auditor to access only to this bucket.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+You can have CloudTrail deliver log files from multiple AWS accounts into a single Amazon S3 bucket.
+For example, you have four AWS accounts with account IDs 111111111111, 222222222222, 333333333333, and 444444444444, and you want to configure CloudTrail to deliver log files from all four of these accounts to a bucket belonging to account 111111111111
+To accomplish this, complete the following steps in order:
+Turn on CloudTrail in the account where the destination bucket will belong (111111111111 in this example)
+Do not turn on CloudTrail in any other accounts yet.
+Update the bucket policy on your destination bucket to grant cross-account permissions to CloudTrail.
+Turn on CloudTrail in the other accounts you want (222222222222, 333333333333, and 444444444444 in this example)
+Configure CloudTrail in these accounts to use the same bucket belonging to the account that you specified in step 1 (111111111111 in this example).
+The AWS CloudTrail service provides an option to deliver the log files for all the regions in a single S3 bucket.
+This feature is very useful when you need to access the logs related to all the resources in multiple regions for all the AWS accounts via a single S3 bucket.
+Please see the images below.
+Option A is incorrect because delivering the logs in multiple buckets is an unnecessary overhead.
+Instead, you can have CloudTrail deliver the logs to a single S3 bucket.
+Option B is incorrect because consolidated billing will not help the auditor to get the records of all the API events in AWS.
+Option C is incorrect because there is no consolidated logging feature in AWS CloudTrail.
+Option D is CORRECT because it delivers the logs pertaining to different AWS accounts to a single S3 bucket in the primary account and grants the auditor access to it.
+More information on this topic regarding CloudTrail:
+You can have CloudTrail deliver log files from multiple AWS accounts into a single Amazon S3 bucket.
+For example, if you have four AWS accounts with account IDs A, B, C, and D, and you can configure CloudTrail to deliver log files from all four of these accounts to a bucket belonging to account A.
+See the link below-
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html
+The correct answer is D. Configure the CloudTrail service in each AWS account and have the logs delivered to a single S3 bucket in a separate account. Provide the auditor with access only to this bucket.
+Explanation: The CloudTrail service is used to track API events on AWS. It can be configured in each AWS account to log all API events. However, since the company has multiple AWS accounts, it may be challenging to provide the auditor with access to all the logs for all the accounts. Here are the reasons why the other options are not the best way to configure access for the auditor to view event logs from all accounts:
+Option A: Configure the CloudTrail service in each AWS account, and make the logs delivered to an S3 bucket on each account, while granting the auditor permissions to the bucket via roles in the secondary accounts and a single primary IAM account that can assume a read-only role in the secondary AWS accounts.
+This option requires granting access to the auditor for each S3 bucket on each account, which can be cumbersome and difficult to manage. Also, it can be difficult to keep the access permissions consistent across all the accounts.
+Option B: Configure the CloudTrail service in the primary AWS account and configure consolidated billing for all the secondary accounts. Then grant the auditor access to the S3 bucket that receives the CloudTrail log files.
+Consolidated billing is a feature that allows you to consolidate billing for multiple AWS accounts. However, it does not provide access to CloudTrail logs. Also, since CloudTrail is not enabled in each account, it will not provide comprehensive logs for all the accounts.
+Option C: Configure the CloudTrail service in each AWS account and enable consolidated logging inside of CloudTrail.
+This option enables you to consolidate logs from multiple AWS accounts into a single S3 bucket, but it does not provide access to the auditor. Additionally, this option requires configuring CloudTrail in each account and enabling consolidated logging, which can be time-consuming and complicated to manage.
+Option D: Configure the CloudTrail service in each AWS account and have the logs delivered to a single S3 bucket in a separate account. Provide the auditor with access only to this bucket.
+This option enables you to consolidate logs from multiple AWS accounts into a single S3 bucket and provides access to the auditor to view logs from all the accounts. The logs can be delivered to a single S3 bucket in a separate account, which makes it easier to manage access permissions for the auditor. Also, it provides comprehensive logs for all the accounts, which is crucial for auditing purposes.
+In summary, the best way to configure access for the auditor to view event logs from all accounts is to configure the CloudTrail service in each AWS account and have the logs delivered to a single S3 bucket in a separate account. Provide the auditor with access only to this bucket.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question62:"link"
+
+

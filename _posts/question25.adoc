@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "825 - Your company has received a contract to "
+---
+
+
+[.question]
+== 825-64a1df02aa736d27b1db92d5.
+
+
+****
+
+[.query]
+--
+Your company has received a contract to augment a legacy enterprise file sharing system for a large media house.
+As of now, the company is using an on-premises private file sharing solution that is integrated with its directory service and uses a web-based intranet application to share files.
+With growing remote staff, the company needs support for mobile devices so that remote staff can work offline as well.
+Please suggest a valid option to architect the system with the given requirements.
+
+
+--
+
+[.list]
+--
+* [*] A. Migrate all the files to S3 and build a web and mobile application to share the files. Use IAM for user access management.
+* [ ] B. Migrate the existing system to EC2 with Autoscaling and save all the files to S3. Use AD Connector for user access management.
+* [*] C. Use the AWS WorkDocs and integrate it with the on-premise directory server using the AD Connector.
+* [ ] D. Use Simple AD integration with IAM, and use S3 bucket level policies to share the files via S3. On S3, enable the Static website hosting for web access.
+
+--
+****
+
+[.answer]
+Correct Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: C.
+Option A and B are INCORRECT because this will require a full-scale development of web and mobile application.
+Option C is CORRECT as AWS WorkDocs provides all the necessary resources to create an enterprise-level file sharing solution.
+It can integrate with Enterprise Directory Service as well.
+Option D is INCORRECT because with S3 bucket level policies and static website hosting, it will not be sufficient to build the required solution.
+The requirement is to augment a legacy enterprise file sharing system for a large media house that uses an on-premises private file sharing solution integrated with its directory service and a web-based intranet application to share files. The company needs support for mobile devices, allowing remote staff to work offline. Based on this requirement, the best option is to use AWS WorkDocs.
+AWS WorkDocs is a fully managed, secure content creation, storage, and collaboration service that provides a centralized location to store and manage documents. WorkDocs integrates with existing directory services, such as AD Connector, to provide a familiar user and administrative experience. WorkDocs can be accessed through web browsers, mobile devices, and desktop clients, making it suitable for remote staff to work offline.
+Option A suggests migrating all files to S3 and building a web and mobile application to share the files using IAM for user access management. This option doesn't take into account the integration with the existing directory service and the web-based intranet application. Migrating all files to S3 may also require additional effort to maintain directory services and file access controls.
+Option B suggests migrating the existing system to EC2 with Autoscaling and saving all files to S3. This option doesn't provide an offline capability for remote staff to work. It also requires more effort to set up and maintain the EC2 instances and autoscaling group.
+Option D suggests using Simple AD integration with IAM and using S3 bucket level policies to share files via S3. On S3, enable Static website hosting for web access. This option also doesn't take into account the offline capability for remote staff to work. It may also require additional effort to maintain directory services and file access controls.
+Therefore, option C, using AWS WorkDocs and integrating it with the on-premise directory server using the AD Connector, is the best option. AWS WorkDocs provides a familiar user and administrative experience, integrates with the existing directory service, and allows remote staff to work offline using mobile devices. It also provides easy-to-use web access and eliminates the need to manage infrastructure or file access controls.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question32:"link"
+
+

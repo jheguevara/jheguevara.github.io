@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "826 - A 3tier ecommerce web application is cur"
+---
+
+
+[.question]
+== 826-64a1df03aa736d27b1db92d6.
+
+
+****
+
+[.query]
+--
+A 3-tier e-commerce web application is currently deployed on-premises and will be migrated to AWS for greater scalability and elasticity.
+The web server currently shares read-only data using a network distributed file system.
+The app server tier uses a clustering mechanism for discovery and shared session state that depends on IP multicast.
+The database tier uses shared-storage clustering to provide database failover capability and uses several read replicas for scaling.
+Data on all servers and the distributed file system directory is backed up weekly on a separate backup server.
+Which of the following AWS storage and database architectures meets the requirements of the application?
+
+
+--
+
+[.list]
+--
+* [*] A. Web servers store read-only data in S3, and copy it from S3 to root volume at boot time. App servers share state using a combination of DynamoDB and IP unicast. Database use RDS with multi-AZ deployment and one or more Read Replicas. Backup web and app servers weekly via snapshots. Use the snapshots to create the AMIs ( data copied to EC2 instances from the dedicated backup servers ). Back up the database via DB snapshots.
+* [ ] B. Web servers store read-only data in S3, and copy it from S3 to root volume at boot time. App servers share state using a combination of DynamoDB and IP unicast. Database use RDS with multi-AZ deployment and one or more Read Replicas. Backup web servers, app servers, and database weekly to Glacier using snapshots.
+* [ ] C. Web servers store read-only data in S3 and copy it from S3 to root volume at boot time. App servers share state using a combination of DynamoDB and IP unicast. Database use RDS with multi-AZ deployment. Backup web and app servers weekly via AMIs. Back up the database via DB snapshots.
+* [ ] D. Web servers store read-only data in an EC2 NFS server and mount to each web server at boot time. App servers share state using a combination of DynamoDB and IP multicast. Database use RDS with multi-AZ deployment and one or more Read Replicas. Backup web and app servers weekly via AMIs, and back up the database via DB snapshots.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The main requirements of this scenario are: (1) the application should be scalable and elastic, (2) app servers should be able to share the state, (3) need read replicas, and (4) weekly backup of the data.
+Option A is CORRECT because (a) the overall architecture is highly available, elastic, and scalable, (b) web servers share state using DynamoDB and IP unicast that is supported by AWS, (c) it supports read replicas, and (d) weekly backup for servers using AMIs and data using DB snapshots.
+Option B is incorrect because you cannot backup data to Glacier using snapshots.
+Option C is incorrect because it does not address the requirement of having read replicas for elasticity and scalability.
+Option D is incorrect because it is not suitable to store the read-only data in EC2
+S3 should be selected as it is a more available and durable storage service.
+For more information on this topic, please visit the link below.
+https://d0.awsstatic.com/whitepapers/Storage/AWS%20Storage%20Services%20Whitepaper-v9.pdf
+Option A is the correct answer. This option provides a combination of AWS storage and database services that meet the requirements of the application.
+Web servers store read-only data in S3, and this data is copied from S3 to the root volume at boot time. This ensures that each web server has the necessary data to operate. This approach allows for greater scalability and fault tolerance, as new web servers can be launched and terminated easily, and they will automatically have the required data available.
+The app servers share state using DynamoDB and IP unicast. DynamoDB is a highly available and scalable NoSQL database service that can be used to store session data. IP unicast is a unidirectional communication protocol that can be used to share state across app servers.
+The database tier uses RDS with a multi-AZ deployment and one or more read replicas. RDS is a managed database service that provides high availability and durability. The multi-AZ deployment ensures that the database is available even if one of the availability zones fails. The read replicas provide scalability for read-heavy workloads.
+Web and app servers are backed up weekly via snapshots. Snapshots are point-in-time copies of an Amazon EBS volume, and they are stored in Amazon S3. These snapshots can be used to create Amazon Machine Images (AMIs). The AMIs can then be used to launch new instances of the web and app servers.
+The database is backed up via DB snapshots. DB snapshots are also point-in-time copies, but they are specific to RDS instances. These snapshots can be used to restore the database to a specific point in time.
+Option B is incorrect because it proposes backing up the web servers, app servers, and database to Glacier using snapshots. Glacier is a low-cost storage service designed for long-term backup and archive storage. It is not suitable for regular backups, as it has a longer retrieval time than S3.
+Option C is incorrect because it proposes backing up the web and app servers via AMIs. While AMIs can be used to launch new instances of the servers, they are not ideal for regular backups. This is because creating and storing AMIs is more time-consuming and resource-intensive than creating snapshots.
+Option D is incorrect because it proposes using an EC2 NFS server to store read-only data for the web servers. This approach does not provide the same level of scalability and fault tolerance as S3. Additionally, it proposes using IP multicast to share state across app servers. IP multicast is not supported in VPCs, which can limit the ability to scale the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question33:"link"
+
+

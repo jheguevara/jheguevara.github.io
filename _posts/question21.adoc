@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "821 - A legacy application with a license is a"
+---
+
+
+[.question]
+== 821-64a1df01aa736d27b1db92d1.
+
+
+****
+
+[.query]
+--
+A legacy application with a license is attached to a single MAC address.
+An EC2 instance can receive a new MAC address while launching new instances.
+How can you ensure that your EC2 instances can maintain a single MAC address for licensing? Choose the correct option.
+
+
+--
+
+[.list]
+--
+* [*] A. Create an ENI and assign it to the EC2 instance. The ENI will have a static MAC address and can be detached and reattached to a new instance if the current instance becomes unavailable.
+* [ ] B. Private subnets have static MAC addresses. Launch the EC2 instance in a private subnet and, if required, use a NAT to serve data over the internet.
+* [ ] C. Configure a manual MAC address for each EC2 instance and report that to the licensing company.
+* [ ] D. AWS cannot have a fixed MAC address; the best solution is to create a dedicated VPN/VGW gateway to serve data from the legacy application.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Tip: Whenever a question has a scenario where you need to use a fixed MAC address for EC2 instances, always think about using Elastic Network Interface (ENI).
+If a static MAC address is assigned to an ENI, it remains unchanged.
+As long as the EC2 has that ENI, its MAC address will not change.
+Option A is CORRECT because, as mentioned above, as ENI with static MAC address can be assigned to the EC2 instance.
+If the instance becomes unavailable or needs to be replaced, the ENI can be detached and re-attached to another EC2 while maintaining the same MAC address.
+Option B is incorrect because subnets have CIDR, not static MAC addresses.
+Option C is incorrect because if the EC2 instance fails or becomes unavailable, its MAC address cannot be reused with another EC2 instance.
+Option D is incorrect because you can avail of ENI in order to have a static MAC address for the EC2 instances.
+More information on ENI on AWS Documentation:
+Create a Low Budget High Availability Solution.
+If one of your instances serving a particular function fails, its network interface can be attached to a replacement or hot standby instance pre-configured for the same role in order to recover the service rapidly.
+For example, you can use a network interface as your primary or secondary network interface to a critical service such as a database instance or a NAT instance.
+If the instance fails, you (or more likely, the code running on your behalf) can attach the network interface to a hot standby instance.
+Because the interface maintains its private IP addresses, Elastic IP addresses, and MAC address, network traffic begins flowing to the standby instance as soon as you attach the network interface to the replacement instance.
+Users experience a brief loss of connectivity between the time the instance fails and when the network interface is attached to the standby instance, but no changes to the VPC route table or your DNS server are required.
+Best Practices for Configuring Network Interfaces.
+For more information on elastic network interfaces, please visit the below URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html
+The correct answer to ensure that EC2 instances can maintain a single MAC address for licensing is Option A: Create an ENI and assign it to the EC2 instance. The ENI will have a static MAC address and can be detached and reattached to a new instance if the current instance becomes unavailable.
+Explanation: When launching an EC2 instance, the MAC address of the instance will be randomly generated. This can be problematic if a legacy application requires a fixed MAC address for licensing purposes. The solution to this problem is to use an Elastic Network Interface (ENI).
+An ENI is a virtual network interface that can be attached to an EC2 instance. When an ENI is created, it is assigned a static MAC address, which can be specified during the creation of the ENI. Once an ENI is created and attached to an EC2 instance, the instance will use the static MAC address assigned to the ENI.
+If the EC2 instance needs to be replaced or terminated, the ENI can be detached from the instance and attached to a new instance. This ensures that the new instance will use the same MAC address as the previous instance, which is required for licensing purposes.
+Option B is incorrect because private subnets do not have static MAC addresses. A subnet is a range of IP addresses in a VPC, and each instance in the subnet will have its own MAC address.
+Option C is not a feasible solution because configuring a manual MAC address for each EC2 instance is not practical, especially in large-scale deployments.
+Option D is also incorrect because creating a VPN or Virtual Private Gateway (VGW) has nothing to do with maintaining a fixed MAC address for licensing purposes. A VPN or VGW is used to establish a secure and encrypted connection between an on-premises network and a VPC in AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question28:"link"
+
+

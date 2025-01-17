@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "894 - You are implementing a URL whitelisting "
+---
+
+
+[.question]
+== 894-64a1df18aa736d27b1db9330.
+
+
+****
+
+[.query]
+--
+You are implementing a URL whitelisting system for a company that wants to restrict outbound HTTPS connections to specific domains from their EC2-hosted applications.
+You deploy a single t2.micro EC2 instance running proxy software and configure it to accept traffic from all subnets and EC2 instances in the VPC.
+You configure the proxy to only pass through traffic to domains that you define in its whitelist configuration.
+
+
+--
+
+[.list]
+--
+* [*] A. You are running the proxy on an undersized EC2 instance type. So network throughput is not sufficient for all instances to download their updates in time.
+* [ ] B. You have not allocated enough storage to the EC2 instance running the proxy. So the network buffer is filling up causing some requests to fail.
+* [ ] C. You are running the proxy in a private subnet but have not allocated enough EIP’s to support the needed network throughput through the Internet Gateway (IGW).
+* [ ] D. The route table for the subnets containing the affected EC2 instances is not configured to direct network traffic for the software update locations to the proxy.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A
+This scenario contains the following main points: (1) there is a single EC2 instance running proxy software that either acts as or connects to a NAT instance.
+The NAT instances are not AWS managed; they are user-managed; so, it may become the bottleneck, (2) there is a whitelist maintained so that limited outside access is given to the instances inside VPC, (3) the URLs in the whitelist are correctly maintained.
+Hence, whitelist is not an issue, (4) only some machines are having download problems with some updates.
+i.e.
+some updates are successful on some machines.
+This indicates that there is no setup issue, but most likely, it is the proxy instance that is a bottleneck and under-performing or inconsistently performing.
+As the proxy instance is not part of an auto-scaling group, its size must be definitely the issue.
+Option A is CORRECT because due to the limited size of the proxy instance, its network throughput might not be sufficient to provide service to all the VPC instances (as only some of the instances are not able to download the updates).
+Option B is incorrect because limited storage on the proxy instance should not cause other instances of any problems in downloading the updates.
+Option C is incorrect because proxy instances are supposed to be in a public subnet, but the allocation of EIPs should not cause any issues for other instances in the VPC.Option D is incorrect because none of the instances would get the updates if this were the case.
+However, some of the instances could get the updates.
+So this cannot be the case.
+The correct answer to this question is D. The route table for the subnets containing the affected EC2 instances is not configured to direct network traffic for the software update locations to the proxy.
+The scenario presented in the question is about implementing a URL whitelisting system to restrict outbound HTTPS connections to specific domains from EC2-hosted applications. To achieve this, a proxy software is deployed on a t2.micro EC2 instance and configured to only pass through traffic to domains defined in its whitelist configuration.
+One possible issue with this setup is that the software updates for the EC2 instances might fail. To understand why, we need to look at the network traffic flow.
+When an EC2 instance needs to download a software update, it sends a request to the Internet Gateway (IGW) to reach the update server. The IGW routes the request to the appropriate update server and sends back the response to the EC2 instance. In the current setup, the proxy instance is the only EC2 instance that is allowed to connect to the update server, so the request from the affected EC2 instance needs to be routed through the proxy.
+However, if the route table for the subnets containing the affected EC2 instances is not configured to direct network traffic for the software update locations to the proxy, the requests will bypass the proxy and fail. This is because the EC2 instances will send the requests directly to the IGW instead of going through the proxy.
+Therefore, the correct answer is D, which suggests that the route table for the subnets containing the affected EC2 instances needs to be configured to direct network traffic for the software update locations to the proxy. This will ensure that all requests from the EC2 instances to the update server go through the proxy and are allowed only if the domain is in the whitelist configuration.
+Answers A, B, and C are not relevant to the issue presented in the scenario. Answer A talks about network throughput issues, which are not related to the problem of software updates failing. Answer B mentions storage allocation, which is not relevant to network traffic routing. Answer C talks about EIP allocation, which is also not relevant to network traffic routing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question124:"link"
+
+

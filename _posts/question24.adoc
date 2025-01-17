@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "824 - A company needs to configure a NAT insta"
+---
+
+
+[.question]
+== 824-64a1df02aa736d27b1db92d4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_as7fk3.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company needs to configure a NAT instance for its internal AWS applications to be able to download patches and package software.
+Currently, they are running a NAT instance that is using the floating IP scripting configuration to create fault tolerance for the NAT.
+What is the best way to configure the NAT instance with fault tolerance?
+
+
+--
+
+[.list]
+--
+* [*] A. Create one NAT instance in a public subnet and create a route from the private subnet to the NAT instance.
+* [ ] B. Create two NAT instances in a public subnet and create a route from the private subnet to each NAT instance for fault tolerance.
+* [*] C. Create a NAT instance in a public subnet with application running in private subnet in an AZ. Create a similar architecture in another AZ and create a route from the private subnet to each NAT instance residing in these AZ`s for fault tolerance.
+* [ ] D. Create two NAT instances in two separate private subnets.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because you would need at least two NAT instances for fault tolerance.
+Option B is incorrect because if you put both NAT instances in a single public subnet and that subnet becomes unavailable or unreachable to the other instances, the architecture would not be fault tolerant.
+Option C is CORRECT because you should place two NAT instances in two separate public subnets, and create routes from instances via each NAT instance for achieving fault tolerance.
+Option D is incorrect because you should not be putting the NAT instances in the private subnet as they need to communicate with the internet.
+They should be in the public subnet.
+More information on NAT instances:
+One approach to this situation is to leverage multiple NAT instances that can take over for each other if the other NAT instance should fail.
+This walkthrough and associated monitoring script (nat_monitor.sh) provide instructions for building an HA scenario where two NAT instances in separate Availability Zones (AZ) continuously monitor each other.
+If one NAT instance fails, this script enables the working NAT instance to take over outbound traffic and attempts to fix the failed instance by stopping and restarting it.
+Below is a diagram for fault tolerant NAT instances.
+For more information on fault-tolerant NAT gateways, please see the below link-
+https://aws.amazon.com/articles/2781451301784570
+Sure, I'll be happy to explain in detail the options provided and which one is the best way to configure the NAT instance with fault tolerance.
+A. Create one NAT instance in a public subnet and create a route from the private subnet to the NAT instance. This option involves creating a single NAT instance in a public subnet, which will act as a gateway for the private subnet to download patches and package software. The private subnet will have a route to the NAT instance, allowing traffic to be forwarded to the internet. This approach has a single point of failure since there is only one NAT instance. If the instance fails, the private subnet will not be able to download patches and package software, and there will be no fault tolerance.
+B. Create two NAT instances in a public subnet and create a route from the private subnet to each NAT instance for fault tolerance. This option involves creating two NAT instances in a public subnet, and the private subnet will have a route to both NAT instances. This approach provides fault tolerance since if one instance fails, the other instance can take over. However, managing two NAT instances can be complex, and there is a possibility of asymmetric routing.
+C. Create a NAT instance in a public subnet with the application running in a private subnet in an AZ. Create a similar architecture in another AZ and create a route from the private subnet to each NAT instance residing in these AZ's for fault tolerance. This option involves creating a NAT instance in a public subnet and running the application in a private subnet in one AZ. The same architecture is created in another AZ, and the private subnet has a route to both NAT instances. This approach provides fault tolerance since if one AZ goes down, the other AZ can take over. Additionally, there is no need to manage two NAT instances, which simplifies the architecture.
+D. Create two NAT instances in two separate private subnets. This option involves creating two NAT instances in two separate private subnets, which will act as gateways for the private subnet to download patches and package software. However, this approach is not a recommended solution since the NAT instances will not have a direct connection to the internet, and additional routing configuration is required to allow traffic to be forwarded to the internet. Additionally, there is no fault tolerance since both NAT instances are in separate subnets.
+In conclusion, the best way to configure the NAT instance with fault tolerance is option C. This option provides fault tolerance, and there is no need to manage two NAT instances, which simplifies the architecture. Additionally, this option provides a direct connection to the internet, eliminating the need for additional routing configuration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question31:"link"
+
+

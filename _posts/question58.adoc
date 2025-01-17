@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "858 - Your company has built a workload manage"
+---
+
+
+[.question]
+== 858-64a1df0daa736d27b1db92fe.
+
+
+****
+
+[.query]
+--
+Your company has built a workload management solution for a deepwater drilling company.
+The application sends the workload detail before each shift starts.
+Due to the recent change in the regulations, there has to be a worklog file that needs to be sent to each Shift Manager at the time of shift start.
+As per the requirements, the file can only be accessed by the targeted user and it should only be allowed to access within a given shift timeline and needs to be password protected as well.
+Because there is a very short deadline, the management has tasked you to come up with a reliable, secure and cost-effective solution.
+
+
+--
+
+[.list]
+--
+* [*] A. Use S3 to store the files inside individual folders for shift managers in a single bucket. Enable the S3 Website Hosting and control the access via bucket policy.
+* [*] B. Use Amazon WorkDocs to share files with shift managers via email. Set the expiration date and password on the link.
+* [*] C. Upload the files to EBS and build an application which can run on EC2 to share the files with AWS Simple Email Service.
+* [ ] D. Upload the files to S3 and develop a custom application which can be hosted on S3. Use the AWS Cognito to allow the restricted, time-based access.
+
+--
+****
+
+[.answer]
+Correct Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer: B.
+Option A is INCORRECT because bucket policy and static web hosting will not be enough to cater to all the requirements like restricted time-based access.
+Option B is CORRECT because Workdocs supports features to share restricted, time-based files.
+And with the downloadable clients, it would be easy for the users to access those files.
+Options C and D are INCORRECT.
+Although it is possible to build a solution with the given requirements, it would be a waste of resources to build a custom application that can already be served with AWS Workdocs.
+Among the given options, the best solution for this scenario would be to upload the files to S3 and develop a custom application that can be hosted on S3. AWS Cognito should be used to allow the restricted, time-based access.
+Explanation: Option A is not a good choice because while S3 allows you to store and control access to your data, it is not a good fit for hosting websites or web applications, especially ones that require custom authentication and authorization. Furthermore, using the S3 website hosting feature would expose the data to the internet, which is not recommended for this use case.
+Option B is also not the best choice because it requires manual sharing of files and setting expiration dates and passwords on the link. This approach is not scalable, and it can be time-consuming, especially if there are many shift managers to share files with.
+Option C is not a good choice either because EBS is designed for block-level storage for EC2 instances, and it is not ideal for file storage and sharing. Furthermore, building a custom application on EC2 for sharing files can be complex and time-consuming, especially if the application needs to be secure and scalable.
+Option D is the best choice because it leverages the strengths of S3 for storing files, Cognito for user authentication and authorization, and the ability to develop a custom application to meet the specific needs of the use case. The custom application can be built using AWS Lambda and API Gateway, which are serverless services that can scale automatically and have built-in security features. The application can also be configured to only allow access during the specific shift timeline, ensuring that the data is protected and available only to authorized users.
+In conclusion, Option D is the best solution for this scenario because it provides a scalable, secure, and cost-effective solution for storing, sharing, and controlling access to the worklog files for the shift managers.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question74:"link"
+
+

@@ -1,0 +1,114 @@
+---
+layout: default 
+title: "885 - Your company has recently extended its o"
+---
+
+
+[.question]
+== 885-64a1df15aa736d27b1db9320.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_ncagbh.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company has recently extended its on-premises data center into a VPC on AWS to add burst computing capacity as needed.
+The data center has already used an identity provider (IDP)
+Members of your Network Operations Center need to be able to go to the AWS Management Console and administer Amazon EC2 instances as necessary.
+You don't want to create new IAM users for each member and make those users sign in again to the AWS Management Console.
+Which option below will meet the needs of your NOC members?
+
+
+[source,java]
+----
+Your Organization (Identity Provider)
+
+Browser interface
+
+se
+ed
+to
+wy
+wr? Portal/identity provider
+(IdP)
+IdP returns SAML
+assertion
+LDAP identity
+store
+User browses
+
+S\
+
+AWS (Service Provider)
+
+AWS SSO endpoint sTs
+
+=|
+AWS Management Console
+
+/
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use OAuth 2.0 to retrieve temporary AWS security credentials to enable your members to sign in to the AWS Management Console.
+* [ ] B. Use Web Identity Federation to retrieve AWS temporary security credentials to enable your members to sign in to the AWS Management Console.
+* [*] C. Use your on-premises SAML 2.0-compliant identity provider (IDP) to grant the members federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint.
+* [ ] D. Use your on-premises SAML 2.0-compliant identity provider (IDP) to retrieve temporary security credentials to enable members to sign in to the AWS Management Console.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+This scenario has two requirements: (a) temporary access to AWS resources be given to certain users or applications (NOC members in this case), and (b) you are not supposed to create new IAM users for the NOC members to log into AWS console.
+This scenario is handled by a concept named "Federated Access"
+Read this for more information on federated access: https://aws.amazon.com/identity/federation/ .
+Read this article for more information on how to establish federated access to the AWS resources.
+https://aws.amazon.com/blogs/security/how-to-establish-federated-access-to-your-aws-resources-by-using-active-directory-user-attributes/
+Option A is incorrect because OAuth 2.0 is not applicable in this scenario as we are not using Web Identity Federation.
+It is used with public identity providers such as Facebook, Google, etc.
+Option B is incorrect because the key point here is that you need to give access to AWS Management Console to only the members of your Network Operations Center using on-premises SSO to avoid signing in again.
+The users should not be using Facebook or Google IDs to login.
+Option C is CORRECT because (a) it gives federated access to the NOC members to AWS resources by using SAML 2.0 identity provider, and (b) it uses on-premises single sign on (SSO) endpoint to authenticate users and gives them access tokens before providing the federated access.
+Option D is incorrect because, even though it uses SAML 2.0 identity provider, we need to grant SSO access to the AWS management console and retrieving temporary security credentials is irrelevant here.
+See this diagram that explains the Federated Access using SAML 2.0.
+The correct answer for this question is C. Use your on-premises SAML 2.0-compliant identity provider (IDP) to grant the members federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint.
+Explanation: The scenario presented in the question requires a solution that allows members of the NOC to access and administer Amazon EC2 instances in the AWS Management Console without creating new IAM users for each member and requiring them to sign in again to the AWS Management Console.
+Option A is incorrect because OAuth 2.0 is an authorization protocol used for third-party applications to access user data on a resource server without the need for the user to share their credentials with the third-party application. While OAuth 2.0 can be used to retrieve temporary AWS security credentials, it is not the best solution for granting members of the NOC access to the AWS Management Console.
+Option B is incorrect because Web Identity Federation is used to grant access to AWS resources to users who have authenticated with a web identity provider, such as Facebook or Google. While Web Identity Federation can be used to retrieve AWS temporary security credentials, it is not the best solution for granting members of the NOC access to the AWS Management Console.
+Option D is incorrect because using an on-premises SAML 2.0-compliant IDP to retrieve temporary security credentials would require members of the NOC to sign in again to the AWS Management Console using those credentials. This is not what the scenario requires.
+Option C is the correct answer because it allows the on-premises SAML 2.0-compliant IDP to grant the members of the NOC federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint. Federated access means that members of the NOC can use their existing credentials to access the AWS Management Console without the need to create new IAM users or sign in again. AWS SSO allows organizations to manage access to multiple AWS accounts and business applications through a single sign-on experience. By configuring the on-premises SAML 2.0-compliant IDP with AWS SSO, the members of the NOC can use their existing credentials to access the AWS Management Console.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question108:"link"
+
+

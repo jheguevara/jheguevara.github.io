@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "847 - A multitier application is being hosted "
+---
+
+
+[.question]
+== 847-64a1df09aa736d27b1db92ee.
+
+
+****
+
+[.query]
+--
+A multi-tier application is being hosted on a single EC2 instance in a VPC without an ELB.
+You have been instructed to set it up with separate SSL certificates for each tier.
+Which of the following would be the best method to achieve this while leaving the application running on a single EC2 instance?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an EC2 instance that has multiple network interfaces with multiple elastic IP addresses.
+* [ ] B. Create an EC2 instance that has both an ACL and the security group attached to it and have separate rules for each IP address.
+* [ ] C. Create an EC2 instance that has multiple subnets attached to it and each will have a separate IP address.
+* [ ] D. Create an EC2 instance with a NAT address.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+It can be useful to assign multiple IP addresses to an instance in your VPC to do the following.
+(1) Host multiple websites on a single server by using multiple SSL certificates on a single server and associating each certificate with a specific IP address.
+(2) Operate network appliances, such as firewalls or load balancers, that have multiple IP addresses for each network interface.
+(3) Redirect internal traffic to a standby instance if your instance fails by reassigning the secondary IP address to the standby instance.
+Option A is CORRECT because, as mentioned above, if you have multiple elastic network interfaces (ENIs) attached to the EC2 instance, each network IP can have a component running with a separate SSL certificate.
+Option B is incorrect because having separate rules in the security group as well as NACL does not mean that the instance supports multiple SSLs.
+Option C is incorrect because an EC2 instance cannot have multiple subnets.
+Option D is incorrect because the NAT address is not related to supporting multiple SSLs.
+For more information on Multiple IP Addresses, please refer to the link below.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html
+To set up separate SSL certificates for each tier of a multi-tier application running on a single EC2 instance in a VPC without an ELB, the best method would be to use option A - create an EC2 instance that has multiple network interfaces with multiple elastic IP addresses.
+Option A: Create an EC2 instance that has multiple network interfaces with multiple elastic IP addresses
+This option involves creating multiple network interfaces and assigning each interface a separate Elastic IP address. Each network interface can be assigned to a separate security group, which can be configured to allow traffic to the specific tier of the application that it is serving.
+SSL certificates can then be configured for each network interface, which will allow traffic to be encrypted between the client and the corresponding tier of the application.
+Option B: Create an EC2 instance that has both an ACL and the security group attached to it and have separate rules for each IP address
+This option involves using a single network interface for the EC2 instance and attaching both an ACL and a security group to it. Separate rules can be configured for each IP address to allow traffic to the specific tier of the application that it is serving.
+However, SSL certificates cannot be configured separately for each IP address in this setup.
+Option C: Create an EC2 instance that has multiple subnets attached to it and each will have a separate IP address
+This option involves creating multiple subnets and attaching them to a single EC2 instance. Each subnet will have a separate IP address assigned to it.
+However, this setup does not allow for separate security groups to be assigned to each subnet, and SSL certificates cannot be configured separately for each subnet.
+Option D: Create an EC2 instance with a NAT address
+This option involves using a Network Address Translation (NAT) instance to forward traffic to the appropriate tier of the application. SSL certificates can be configured for the NAT instance to encrypt traffic between the client and the NAT instance.
+However, this setup requires additional configuration and adds complexity to the infrastructure, and may not be the most efficient or cost-effective solution.
+In summary, option A - creating an EC2 instance with multiple network interfaces and multiple elastic IP addresses - is the best method for setting up separate SSL certificates for each tier of a multi-tier application running on a single EC2 instance in a VPC without an ELB.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question58:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "802 - An administrator in your company has cre"
+---
+
+
+[.question]
+== 802-64a1defbaa736d27b1db92b8.
+
+
+****
+
+[.query]
+--
+An administrator in your company has created a VPC with an IPv4 CIDR block 10.0.0.0/24
+Now they want to add additional address space outside of the current VPC CIDR.
+Because there is a requirement to host more resources in that VPC.
+Which of the below requirement can be used to accomplish this? Choose an answer from the below options.
+
+
+--
+
+[.list]
+--
+* [*] A. You cannot change a VPC`s size. Currently, to change the size of a VPC, you must terminate your existing VPC and create a new one.
+* [*] B. Expand your existing VPC by adding secondary IPv4 IP ranges (CIDRs) to your VP.
+* [ ] C. Delete all the subnets in the VPC and expand the VP.
+* [ ] D. Create a new VPC with a greater range and then connect the older VPC to the newer one.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+An existing CIDR for a VPC is not modifiable.
+However, you can add additional CIDR blocks, i.e., up to four secondary IPv4 CIDR blocks to an already existing VPC.Option A is incorrect because you can change the CIDR of VPC by adding up to 4 secondary IPv4 IP CIDRs to your VPC.Option B is CORRECT because you can expand your existing VPC by adding up to four secondary IPv4 IP ranges (CIDRs) to your VPC.Option C is incorrect because deleting the subnets is unnecessary.
+Option D is incorrect because this configuration would peer the VPC.
+It will not alter the existing VPC's CIDR.
+For more information on VPC and its FAQs, please refer to the following links-
+https://aws.amazon.com/about-aws/whats-new/2017/08/amazon-virtual-private-cloud-vpc-now-allows-customers-to-expand-their-existing-vpcs/ https://aws.amazon.com/vpc/faqs/
+Option B is the correct answer:
+To add additional address space outside of the current VPC CIDR, you can expand your existing VPC by adding secondary IPv4 IP ranges (CIDRs) to your VPC. Amazon VPC allows you to expand the IP address range of your VPC by adding secondary IPv4 CIDR blocks to your VPC. This will enable you to use additional IP address space for your resources within the same VPC.
+To add a secondary CIDR block to your VPC, you can follow these steps:
+1. Open the Amazon VPC console.
+2. In the navigation pane, choose Your VPCs.
+3. Select the VPC that you want to add the secondary CIDR block to.
+4. Choose Actions, and then choose Edit CIDRs.
+5. In the Edit CIDRs dialog box, choose Add IPv4 CIDR.
+6. In the Add IPv4 CIDR dialog box, enter the IPv4 CIDR block that you want to add to the VPC.
+7. Choose Save.
+After you add a secondary CIDR block to your VPC, you can create subnets in the new CIDR block. These subnets will be associated with the VPC and can be used for your resources.
+Option A is incorrect because it is possible to expand the IP address range of a VPC by adding secondary CIDR blocks, and it is not necessary to terminate and recreate the VPC.
+Option C is incorrect because deleting all the subnets in a VPC does not expand the VPC's IP address range.
+Option D is incorrect because creating a new VPC is not necessary when you can expand the IP address range of an existing VPC by adding secondary CIDR blocks. Additionally, connecting two VPCs would require setting up VPC peering, which can add complexity to your network configuration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question2:"link"
+
+

@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "812 - Your company asked you to create a mobil"
+---
+
+
+[.question]
+== 812-64a1defeaa736d27b1db92c5.
+
+
+****
+
+[.query]
+--
+Your company asked you to create a mobile application.
+The application is built to work with DynamoDB as the backend and Javascript as the frontend.
+During the application's usage, you notice that sometimes during the daytime, the write requests are throttled because of low provisioned write capacity.
+How can you effectively resolve this problem of the DynamoDB in the easiest way?
+
+
+--
+
+[.list]
+--
+* [*] A. Enable DynamoDB Auto Scaling to meet the requirements.
+* [ ] B. Increase write capacity of DynamoDB to meet the peak loads.
+* [ ] C. Use the SQS service to read messages in the queue and write these to DynamoD.
+* [ ] D. Launch DynamoDB in Multi-AZ configuration with a global index to balance writes.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Option A is correct because users can enable Auto Scaling in DynamoDB.
+Please refer to the below link-
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
+Option B is incorrect because just increasing the write capacity of the DynamoDB table would not satisfy the requirement "effectively manage DynamoDB"
+The problem only happens during the daytime.
+So there is a waste of provisioned resources when there are few requests in the night.
+Option C is incorrect.
+Because you have to create a new SQS queue and modify the related logic for DynamoDB.
+This option is not the easiest one.
+Option D is incorrect because launching a DynamoDB table in a Multi-AZ configuration with a global index would only increase data availability and would not solve the write contention issue.
+---------------------------------------------------------------------------------------
+Note:
+The question is asking "....how to manage DynamoDB"
+The new feature that has been added recently is "autoscaling of dynamodb" which would help to solve this issue.
+Please refer to the link- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html.
+Also attached herewith is the screenshot of the same.
+The issue you're facing is that your DynamoDB write capacity is being throttled during peak usage hours. This means that the current provisioned write capacity is not sufficient to handle the load being placed on the system. There are a few options available to address this issue:
+A. Enable DynamoDB Auto Scaling: This is likely the easiest solution to implement and should address the problem without requiring much effort on your part. DynamoDB Auto Scaling automatically adjusts provisioned capacity up or down based on the actual usage of the table. By enabling Auto Scaling, DynamoDB will automatically increase the provisioned write capacity during peak usage hours to ensure that the system is not throttled.
+B. Increase write capacity of DynamoDB: Another option would be to manually increase the provisioned write capacity of your DynamoDB table to handle the increased load. This option requires you to manually monitor the system during peak usage hours and make adjustments accordingly. However, it may result in higher costs and may not be as flexible as Auto Scaling.
+C. Use the SQS service: This option involves using the Simple Queue Service (SQS) to store write requests that are being throttled by DynamoDB. The requests can then be processed at a later time when the load on the system has decreased. However, this approach may introduce additional latency into the system and may not be suitable for real-time applications.
+D. Launch DynamoDB in Multi-AZ configuration: This option involves deploying your DynamoDB table across multiple Availability Zones (AZs) to improve availability and scalability. Additionally, using a global index can help distribute write requests across multiple partitions, which can help to balance the load and prevent throttling. However, this option may require more effort to implement and may result in higher costs.
+In conclusion, the easiest and most flexible option for addressing your DynamoDB write capacity issue would be to enable DynamoDB Auto Scaling. This approach will automatically adjust the provisioned capacity up or down based on actual usage, ensuring that your system is not throttled during peak usage hours.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question16:"link"
+
+

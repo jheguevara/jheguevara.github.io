@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "819 - You have just developed a new mobile app"
+---
+
+
+[.question]
+== 819-64a1df01aa736d27b1db92cf.
+
+
+****
+
+[.query]
+--
+You have just developed a new mobile application that handles analytics workloads on large-scale datasets stored on Amazon Redshift.
+Consequently, the application needs to access Amazon Redshift tables.
+Your company is asking to expand the scope of the application.
+Which of the following methods would be the best, both practically and security-wise, to access the tables? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Create an IAM user and generate encryption keys for that user. Create a policy for Redshift read-only access. Embed the keys in the application.
+* [ ] B. Create an HSM client certificate in Redshift and authenticate using this certificate.
+* [ ] C. Create a Redshift read-only access policy in IAM and embed those credentials in the application.
+* [*] D. Use roles that allow a web identity federated user to assume a role that allows access to the Redshift table by providing temporary credentials.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Tip: When a service, user, or application needs to access an AWS resource, always prefer creating an IAM Role over creating an IAM User.
+Option A is incorrect because embedding keys in the application to access AWS resources is not a good architectural practice as it creates security concerns.
+Option B is incorrect because the Redshift cluster uses the HSM certificate to connect to the client's HSM to store and retrieve the keys used to encrypt the cluster databases.
+Option C is incorrect because the read-only policy is insufficient and embedding keys in the application to access AWS resource is not a good architectural practice as it creates security concerns.
+Option D is CORRECT because (a) IAM role allows the least privileged access to the AWS resource, (b) web identity federation ensures the identity of the user, and (c) the user is given temporary credentials to access the AWS resource.
+For more information on IAM policies, please refer to the below link-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
+For more information on web identity federation, please refer to the below link-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
+The best approach for accessing Amazon Redshift tables from a mobile application, both from a practical and security standpoint, is to use web identity federation with roles that grant access to Redshift tables using temporary credentials. Therefore, option D is the correct answer.
+Here is a more detailed explanation of each of the options and why option D is the best choice:
+A. Create an IAM user and generate encryption keys for that user. Create a policy for Redshift read-only access. Embed the keys in the application. This option is not the best choice because it requires embedding encryption keys in the application, which is not secure. If someone gains access to the keys, they could use them to access the Redshift tables. In addition, this option would require the application to manage encryption keys, which could be complex and difficult to maintain.
+B. Create an HSM client certificate in Redshift and authenticate using this certificate. This option is not practical for a mobile application because it would require a client certificate to be installed on the mobile device. This would be difficult to manage and not very secure, as certificates can be easily copied and distributed.
+C. Create a Redshift read-only access policy in IAM and embed those credentials in the application. This option is not as secure as option D because it requires embedding IAM credentials in the application. If someone gains access to the credentials, they could use them to access the Redshift tables. In addition, this option would require the application to manage IAM credentials, which could be complex and difficult to maintain.
+D. Use roles that allow a web identity federated user to assume a role that allows access to the Redshift table by providing temporary credentials. This option is the best choice because it uses web identity federation with roles that grant access to Redshift tables using temporary credentials. This approach is both practical and secure. The mobile application can authenticate users using web identity federation with Amazon Cognito, which allows the application to grant access to the Redshift tables without the need to manage IAM credentials or encryption keys. Instead, temporary credentials are issued to the application on behalf of the authenticated user, and those credentials can be used to access the Redshift tables. This approach minimizes the risk of credential compromise and simplifies the management of access to Redshift tables.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question26:"link"
+
+

@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "892 - An AWS customer runs a public blogging w"
+---
+
+
+[.question]
+== 892-64a1df18aa736d27b1db932d.
+
+
+****
+
+[.query]
+--
+An AWS customer runs a public blogging website.
+The site users upload two million blog entries a month.
+The average blog entry size is 200 KB.
+The access rate to blog entries drops to negligible 6 months after publication, and users rarely access a blog entry 1 year after publication.
+Additionally, blog entries have a high update rate during the first 3 months following publication.
+This drops to no updates after 6 months.
+The customer wants to use CloudFront to improve his user's load times.
+Which of the following recommendations would you make to the customer?
+
+
+--
+
+[.list]
+--
+* [*] A. Duplicate entries into two different buckets and create two separate CloudFront distributions where S3 access is restricted only to Cloud Front identity.
+* [ ] B. Create a CloudFront distribution with “US’Europe price class for US/Europe users and a different CloudFront distribution with All Edge Locations’ for the remaining users.
+* [*] C. Create a CloudFront distribution with S3 access restricted only to the CloudFront identity and partition the blog entry’s location in S3 according to the month it was uploaded to be used with CloudFront behaviors.
+* [ ] D. Create a CloudFront distribution with Restrict Viewer Access Forward Query string set to true and minimum TTL of 0.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+CloudFront allows you to configure caching based on a URL path pattern when you create a new distribution.
+By partitioning the S3 bucket by the month, the blog post was created.
+You can control the CloudFront caching behavior of the distribution to optimize cost.
+Refer to page 46 on the below link under the section "Cache Behaviour Settings."
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AmazonCloudFront_DevGuide.pdf
+The scenario here is that (a) blogs have high access/updates rate in the first 3 months of their creation, (b) this rate drops after 6 months.
+The main architectural consideration is that the user's load time of the blog needs to be improved.
+This question is based on making the best use of CloudFront's Cache Behavior.
+You need to understand two things about CloudFront for such scenario: (1) CloudFront is a service that is designed to give geographically distributed users fast access to the content by maintaining the content in the cache that is maintained at multiple edge locations, and (2) using the cache-behavior of CloudFront, you can control the origin and path of the content, time to live (TTL), and control the user access using trusted signers.
+In this scenario, you need to control the content based on the time period at which the blog is published.
+i.e., when a blog is published, you need to cache the update for the first 3 months so that the users can quickly access it.
+After six months from the update, the content can be removed from the cache, as it is rarely accessed.
+Also, you need to make sure that the CloudFront only accesses the content.
+Option A is incorrect because maintaining two separate buckets will not improve the load time for the users.
+Option B is incorrect as the location-wise distribution will not improve the load time for the users.
+Option C is CORRECT because if (a) the content is only accessed by CloudFront, and (b) if the content is partitioned at the origin based on the month it was uploaded.
+You can control the cache behavior accordingly and keep only the latest updated content in the CloudFront cache so that it can be accessed with fast load-time, hence, improving the performance.
+For the contents that are over 6 months, you do not need to put them in the cache.
+Option D is incorrect.
+The scenario states that the customer is running a public access blogging website.
+So there is no need to restrict viewer access.
+For more information on Cloudfront identity, please visit the below links-
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+Option C is the recommended solution in this scenario.
+Explanation:
+Option A: Duplicating entries into two different buckets and creating two separate CloudFront distributions may increase complexity and cost. This approach is not necessary in this scenario and may lead to higher costs for storage and data transfer.
+Option B: Creating two separate CloudFront distributions for different users is not necessary in this scenario. The access rate to blog entries drops to negligible 6 months after publication, and users rarely access a blog entry 1 year after publication, which means the distribution should be able to handle traffic from all regions.
+Option C: Creating a CloudFront distribution with S3 access restricted only to the CloudFront identity and partitioning the blog entry's location in S3 according to the month it was uploaded is the recommended solution in this scenario. By partitioning the blog entries, CloudFront behaviors can be used to set different caching and TTL rules based on the upload month, allowing CloudFront to cache frequently accessed objects and reduce the number of requests to S3. Restricting access to S3 only through CloudFront ensures that objects are accessed only through CloudFront and not directly through S3, which provides better security and control.
+Option D: Creating a CloudFront distribution with "Restrict Viewer Access Forward Query string set to true and minimum TTL of 0" is not necessary in this scenario. This option is used when there is a need to restrict access to specific objects or when there is a need for real-time updates to the content. In this scenario, the access rate drops after six months, and there is no need for real-time updates, so this option is not recommended.
+Therefore, the best solution for this scenario is to create a CloudFront distribution with S3 access restricted only to the CloudFront identity and partition the blog entry's location in S3 according to the month it was uploaded to be used with CloudFront behaviors.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question121:"link"
+
+

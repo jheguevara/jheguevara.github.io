@@ -1,0 +1,107 @@
+---
+layout: default 
+title: "836 - A company has three accounts under conso"
+---
+
+
+[.question]
+== 836-64a1df06aa736d27b1db92e3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_gyrqr5.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company has three accounts under consolidated billing.
+"Production" is the payer account, and "Development" and "Staging" are the linked accounts and they have the reserved instances sharing enabled between them.
+The development account has purchased three reserved instances with instance type of m4.large in Availability Zone us-east-1a.
+However, no instance is running on the development account, but has five m4.large instances running in the staging account and Availability Zone 1a.
+Who can receive the benefit of the reserved instance pricing? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+Here is how consolidated bills are calculated:
+
+1. A Reserved Instance is a capacity reservation. It is not a virtual machine. It is a commitment by a
+‘customer to pay in advance for specific Amazon EC2 or Amazon RDS instance capacity. In return, the
+customer gets a discounted rate over the cost of an On-Demand instance that is created or deleted in
+response to application load. From a technical perspective, there is no difference between a Reserved
+Instance and an On-Demand instance. When a customer launches an instance, AWS checks the
+account records for Reserved Instance purchases that can be applied to that instance.
+
+2. Consolidated Billing customers have multiple accounts that roll up into a single account that is
+designated as the payer account. This group of accounts is often called an account family. Owners of
+payer accounts see all usage incurred by the account family. This activity is aggregated to the payer
+account, and then allocated to the linked accounts that generated the charge in proportion to the
+linked account's usage. In other words, the linked account line items that you see in AWS Cost and
+Usage report and monthly billing (hourly) reports and on the Account Activity page are calculated
+recursively: The charges are calculated at the payer level and then allocated to linked accounts.
+Blended rates appear only on linked account line items.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. All the instances in all the accounts running the m4.large will receive the pricing even if there is only one reserved instance purchase.
+* [ ] B. No account will receive the reservation pricing because the reservation was purchased on the development account, and no instances that match the reservation are running in the development account.
+* [*] C. The reserved instance pricing will be applied to three m4.large instances in the staging account because the staging account runs an instance that matches the reserved instance type.
+* [ ] D. Only the primary account (the consolidated billing primary account) will receive the discounted pricing if the instance is running in the primary billing account.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because the benefit of reserved instance pricing will apply to any three EC2 instances across all the accounts in the Consolidated Billing group.
+Since the staging account - which is part of the "account family" - has 5 EC2 instances running, only 3 of those will receive the reserved pricing benefit.
+Option B is incorrect because even though no EC2 instances are running in the development account, the instances running in the staging account will still receive the reservation pricing benefit since it is part of the Consolidated Billing group.
+Option C is CORRECT because the reserved instance pricing will be applied to three of the m4.large instances in the staging account as they are part of the Consolidated Billing group.
+This needs Reserved Instance sharing to be enabled at the account.
+Option D is incorrect because the reserved Consolidated Billing advantage is applied to all the accounts linked to the primary account, not just the primary account.
+More information on Consolidated Billing Group.
+For more information on consolidating billing, please visit the below links-
+http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidatedbilling-other.html
+In this scenario, the company has three AWS accounts under consolidated billing. The "Production" account is the payer account, and "Development" and "Staging" accounts are linked accounts. The linked accounts have enabled reserved instance sharing.
+The development account has purchased three reserved instances of the m4.large instance type in the us-east-1a Availability Zone. However, currently, no instances are running on the development account. The staging account has five m4.large instances running in the us-east-1a Availability Zone.
+The goal is to determine which account(s) can receive the benefit of the reserved instance pricing. Here are the options:
+A. All the instances in all the accounts running the m4.large will receive the pricing even if there is only one reserved instance purchase.
+This option is incorrect. Although reserved instance sharing is enabled, it only shares the unused reserved instance capacity between the accounts that are part of the consolidated billing family. In this scenario, there are three reserved instances purchased in the development account, and no instances in that account match the reserved instance criteria, so this option cannot apply.
+B. No account will receive the reservation pricing because the reservation was purchased on the development account, and no instances that match the reservation are running in the development account.
+This option is also incorrect. AWS reserves the capacity for the purchased reserved instances, regardless of whether there are matching instances running in the same account. As long as the reserved instances are not being used by any instances, the accounts within the consolidated billing family can benefit from the reserved instance pricing.
+C. The reserved instance pricing will be applied to three m4.large instances in the staging account because the staging account runs an instance that matches the reserved instance type.
+This option is correct. Although the reserved instances were purchased in the development account, the staging account has instances that match the criteria of the reserved instances (m4.large instances in the us-east-1a Availability Zone). Therefore, the reserved instance pricing will apply to the matching instances in the staging account.
+D. Only the primary account (the consolidated billing primary account) will receive the discounted pricing if the instance is running in the primary billing account.
+This option is incorrect. As mentioned earlier, reserved instance sharing allows the unused reserved instance capacity to be shared between the accounts in the consolidated billing family. Therefore, if a linked account has instances that match the reserved instance criteria, it can benefit from the reserved instance pricing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question47:"link"
+
+

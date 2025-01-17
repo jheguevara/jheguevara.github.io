@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "827 - You have a legacy application running th"
+---
+
+
+[.question]
+== 827-64a1df03aa736d27b1db92d7.
+
+
+****
+
+[.query]
+--
+You have a legacy application running that uses an m4.large instance size and cannot scale with Auto Scaling, but only has peak performance 5% of the time.
+This is a huge waste of resources and money.
+So your Senior Technical Manager has set you the task of trying to reduce costs while still keeping the legacy application, having lesser memory requirements, running in the long-term as it should.
+Which of the following will best accomplish the task your manager has assigned you? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Use a "t2.medium - 3 yr RI" burstable performance instance.
+* [ ] B. Use a C4.large instance with enhanced networking.
+* [ ] C. Use two t2.nano instances that have single Root I/O Virtualization.
+* [ ] D. Use t2.nano instance and add spot instances when they are required.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The AWS documentation clearly indicates using T2 EC2 instance types for those instances that often don't use CPU.
+T2
+T2 instances are Burstable Performance Instances that provide a baseline level of CPU performance with the ability to burst above the baseline.
+T2 Unlimited instances can sustain high CPU performance for as long as a workload needs it.
+For most general-purpose workloads, T2 Unlimited instances will provide ample performance without any additional charges.
+If the instance needs to run at higher CPU utilization for a prolonged period, it can also do so at a flat additional charge of 5 cents per vCPU-hour.
+CPU Credits govern the baseline performance and ability to burst.
+T2 instances receive CPU Credits continuously at a set rate depending on the instance size, accumulating CPU Credits when they are idle, and consuming CPU credits when active.
+T2 instances are a good choice for various general-purpose workloads, including microservices, low-latency interactive applications, small and medium databases, virtual desktops, development, build and stage environments, code repositories, and product prototypes.
+For more information, see Burstable Performance Instances.
+For more information on EC2 instance types, please see the below link:
+https://aws.amazon.com/ec2/instance-types/
+Option B is INCORRECT because using a "C4" instance would incur more costs and as per the requirements of the question, we need to reduce the costs.
+Please refer to the below link for instances pricing.
+https://aws.amazon.com/ec2/pricing/on-demand/
+Option C is INCORRECT because although "t2.nano" instance pricing is less, it has only 0.5 GiB of allocated memory, making the legacy application run too slow.
+Option D is INCORRECT because there are chances that the spot instances would not be available when there is a need.
+Therefore, there are chances for the legacy application to break down for want of more instances when needed.
+The best option for reducing costs while keeping the legacy application running with lesser memory requirements is to use a "t2.medium - 3 yr RI" burstable performance instance (Option A).
+Explanation:
+Option A suggests using a "t2.medium" instance with a "3 yr RI" (Reserved Instance). A "t2.medium" instance has 4GB of memory and 2 vCPUs, which is less than the current "m4.large" instance (8GB memory and 2 vCPUs). However, the "t2.medium" instance has a feature called "burstable performance," which means that it can use CPU credits to burst above its baseline performance when needed. This makes it ideal for workloads that have peak performance requirements for a short period of time, as in the case of the legacy application that only requires peak performance 5% of the time.
+Option B suggests using a C4.large instance with enhanced networking. This option does not address the issue of peak performance and may not be cost-effective as the C4 instance family is optimized for compute-intensive workloads that require high performance processors, which may be unnecessary for the legacy application.
+Option C suggests using two t2.nano instances with single Root I/O Virtualization. This option may be cost-effective, but it may not provide enough memory and processing power for the legacy application.
+Option D suggests using a t2.nano instance and adding spot instances when they are required. This option may be cost-effective, but it does not guarantee that the required computing resources will be available when needed, which could impact the performance of the legacy application.
+Therefore, the best option is to use a "t2.medium - 3 yr RI" burstable performance instance (Option A) as it provides a balance of cost and computing resources required for the legacy application, with the added benefit of being able to burst when peak performance is required.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question34:"link"
+
+

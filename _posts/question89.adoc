@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "889 - You are migrating a legacy clientserver "
+---
+
+
+[.question]
+== 889-64a1df17aa736d27b1db932a.
+
+
+****
+
+[.query]
+--
+You are migrating a legacy client-server application to AWS.
+The application responds to a specific DNS domain (e.g., www.example.com) and has a 2-tier architecture, with multiple application servers and a database server.
+Remote clients use TCP to connect to the application servers.
+The application servers need to know the clients' IP address to function properly and are currently taking that information from the TCP socket.
+A decision is made to use a multi-AZ RDS MySQL instance for the database.
+During the migration, you can change the application code.
+But you have to file a change request.
+
+
+--
+
+[.list]
+--
+* [*] A. File a change request to implement Proxy Protocol Support in the application. Use an ELB with a TCP Listener and Proxy Protocol enabled to distribute the load on two application servers in different AZs.
+* [ ] B. File a change request to Implement Cross-Zone support in the application. Use an ELB with a TCP Listener and Cross-Zone Load Balancing enabled to distribute the load on two application servers in different AZs.
+* [ ] C. File a change request to implement Latency Based Routing support in the application. Use Route 53 with Latency Based Routing enabled to distribute the load on two application servers in different AZs.
+* [ ] D. File a change request to implement Alias Resource Support in the application. Use a Route 53 Alias Resource Record to distribute the load on two application servers in different AZs.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+AWS ELB has support for Proxy Protocol.
+It simply depends on a humanly readable header with the client's connection information to the TCP data sent to your server.
+As per the AWS documentation, the Proxy Protocol header helps you identify the IP address of a client when you have a load balancer that uses TCP for back-end connections.
+Because load balancers intercept traffic between clients and your instances, the access logs from your instance contain the load balancer's IP address instead of the originating client.
+You can parse the first line of the request to retrieve your client's IP address and the port number.
+Option A is CORRECT because it implements the proxy protocol and uses ELB with a TCP listener.
+A change request is needed to support the proxy protocol in the application.
+With the proxy protocol in ELB, the backend servers can get the IP addresses of the clients.
+Option B is incorrect because, although implementing cross-zone load balancing provides high availability, it states to use TCP forwarding, which does not support X-Forwarded-For.
+Option C is incorrect because Route53 latency-based routing does not give the IP address of the clients.
+Option D is incorrect because the Route53 Alias record does not give the IP address of the clients.
+For more information on ELB enabling support for TCP, please refer to the links given below.
+https://aws.amazon.com/blogs/aws/elastic-load-balancing-adds-support-for-proxy-protocol/ https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html
+The best answer for this question would be A. File a change request to implement Proxy Protocol Support in the application. Use an ELB with a TCP Listener and Proxy Protocol enabled to distribute the load on two application servers in different AZs.
+Explanation: When migrating a legacy client-server application to AWS, it is important to consider the new infrastructure in place and how it will affect the application's behavior. In this scenario, the application needs to know the clients' IP address to function properly and is currently taking that information from the TCP socket.
+With the migration to AWS, a decision is made to use a multi-AZ RDS MySQL instance for the database. Therefore, to distribute the load on two application servers in different AZs, we need to implement an Elastic Load Balancer (ELB). An ELB is a service that automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones.
+For this scenario, we need to use a TCP listener with Proxy Protocol enabled to ensure that the application servers receive the clients' IP addresses. Proxy Protocol is a Layer 4 protocol that is supported by many load balancers and allows the load balancer to pass the client's IP address to the application server in a TCP packet.
+Option A recommends using a TCP listener with Proxy Protocol enabled to distribute the load on two application servers in different AZs. This approach ensures that the application servers receive the clients' IP addresses and enables the use of a multi-AZ RDS MySQL instance for the database.
+Option B suggests implementing Cross-Zone support in the application. This approach is used to distribute traffic evenly across all instances in all AZs. However, it does not address the issue of the application server needing to know the clients' IP address.
+Option C suggests implementing Latency-Based Routing support in the application. This approach is used to route traffic to the AWS region that provides the lowest latency for the client. However, it does not address the issue of the application server needing to know the clients' IP address.
+Option D suggests implementing Alias Resource Support in the application. This approach is used to route traffic to an Amazon S3 bucket or another AWS resource by using a friendly DNS name. However, it does not address the issue of the application server needing to know the clients' IP address.
+In conclusion, option A is the best answer as it addresses the main issue of the application server needing to know the clients' IP address and enables the use of a multi-AZ RDS MySQL instance for the database.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question118:"link"
+
+

@@ -1,0 +1,102 @@
+---
+layout: default 
+title: "852 - A company is managing a customers applic"
+---
+
+
+[.question]
+== 852-64a1df0aaa736d27b1db92f4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_vk96ww.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company is managing a customer's application which currently includes a three-tier application configuration.
+The first tier manages the web instances and is configured in a public subnet in an AWS VPC.
+The second layer is the application layer.
+As part of the application code, the application instances upload large amounts of data to Amazon S3
+Currently, the private subnets that the application instances are running on have a route to a single t2.micro NAT instance.
+The application, during peak loads, becomes slow, and customer uploads from the application to S3 are not completing and taking a long time.
+Which steps might you take to solve the issue using the most cost-efficient method? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+New VPC Endpoint for S3
+Today we are simplifying access to S3 resources from within a VPC by introducing the concept of a VPC Endpoint. These endpoints are
+easy to configure, highly reliable, and provide a secure connection to S3 that does not require a gateway or NAT instances.
+
+C2 instances running in private subnets of a VPC can now have controlled access to S3 buckets, objects, and API functions that are in
+the same region as the VPC. You can use an $3 bucket policy to indicate which VPCs and which VPC Endpoints have access to your S3
+buckets.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure Auto Scaling for the NAT instance to handle an increase in load.
+* [*] B. Create a VPC S3 endpoint.
+* [ ] C. Increase the NAT instance size; network throughput increases with an increase in instance size.
+* [ ] D. Launch an additional NAT instance in another subnet and replace one of the routes in a subnet with the new instance.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+In this scenario, the NAT instance is the bottleneck which during the peak loads becomes slow.
+The possible solutions are either to scale up or scale out the NAT instance or setup S3 as the endpoint of the VPC.
+So that the VPC can privately and securely connect to the S3 buckets.
+See the images below for setting up the S3 as VPC Endpoint.
+Option A is incorrect because even though placing NAT instances in auto-scale would handle the increase in load, the addition of the NAT instances would not be as cost-efficient as creating an S3 endpoint.
+Option B is CORRECT because, with the S3 Endpoint, the VPC can privately and securely connect to the S3 buckets.
+No additional infrastructure provisioning such as NAT or Gateway is needed, hence saving the cost.
+Option C is incorrect because increasing in NAT instance size would add to the cost.
+Option D is incorrect because provisioning additional NAT instances would add to the cost.
+For more information on VPC endpoints, please refer to the below URLs-
+https://aws.amazon.com/blogs/aws/new-vpc-endpoint-for-amazon-s3/ https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html
+The issue that the company is facing is that the private subnet instances are experiencing performance degradation during peak loads, and the uploads from the application to S3 are slow or not completing. The current configuration has a single t2.micro NAT instance that acts as a gateway for traffic going out to the internet. This NAT instance has a limited amount of network bandwidth, which can become a bottleneck during peak loads.
+To solve the issue, we need to consider the most cost-efficient method that will improve the network throughput for the private subnet instances and enable faster uploads to S3. Let's look at the available options:
+Option A: Configure Auto Scaling for the NAT instance to handle an increase in load.
+This option involves setting up Auto Scaling for the NAT instance. This approach can help handle increased load during peak periods by launching additional instances of the NAT instance. However, this solution may not address the underlying issue of limited network bandwidth, and additional instances may not improve network throughput.
+Option B: Create a VPC S3 endpoint.
+A VPC S3 endpoint is a highly available and scalable service that enables direct connectivity between VPCs and S3 buckets. By creating a VPC endpoint for S3, traffic from the private subnet instances to S3 can bypass the NAT instance and go directly to the S3 service, resulting in faster uploads. This option is a cost-efficient and straightforward solution to the problem.
+Option C: Increase the NAT instance size; network throughput increases with an increase in instance size.
+This option involves upgrading the NAT instance to a larger instance size with better network throughput capabilities. While this option may increase network throughput, it may not be cost-efficient as the company would have to pay for the increased instance size continuously, regardless of the traffic load.
+Option D: Launch an additional NAT instance in another subnet and replace one of the routes in a subnet with the new instance.
+This option involves launching an additional NAT instance in a different subnet and replacing one of the routes in a subnet with the new instance. This solution can improve network throughput by distributing traffic across multiple NAT instances. However, this solution may not be cost-efficient as it requires launching and managing additional instances.
+Conclusion:
+Out of the four available options, Option B is the most cost-efficient solution for the issue. It involves creating a VPC S3 endpoint that enables traffic from the private subnet instances to bypass the NAT instance and go directly to the S3 service. This solution can significantly improve the upload speed to S3 and is a simple and cost-effective approach to solving the problem.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question64:"link"
+
+

@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "815 - A customer runs a multitier web applicat"
+---
+
+
+[.question]
+== 815-64a1deffaa736d27b1db92c9.
+
+
+****
+
+[.query]
+--
+A customer runs a multi-tier web application farm in a virtual private cloud (VPC) that is not connected to their corporate network.
+They are connecting to the VPC over the Internet to manage all of their Amazon EC2 instances running in both the public and private subnets.
+They have only authorized the bastion-security-group with Microsoft Remote Desktop Protocol (RDP) access to the application instance security groups.
+But the company wants to limit further administrative access to all of the instances in the VPC.
+Which of the following Bastion deployment scenarios will meet this requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy a Windows Bastion host on the corporate network that has RDP access to all instances in the VP.
+* [ ] B. Deploy a Windows Bastion host with an Elastic IP address in the public subnet and allow SSH access to the bastion from anywhere.
+* [ ] C. Deploy a Windows Bastion host with an Elastic IP address in the private subnet, and restrict RDP access to the bastion from only the corporate public IP addresses.
+* [*] D. Deploy a Windows Bastion host with an elastic IP address in the public subnet, and allow RDP access to the bastion from only the corporate public IP addresses.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because a bastion host is deployed into the public subnet of a VPC with an Elastic IP address to allow inbound Secure Shell (SSH) access to EC2 instances, but the option does not say which subnet the Bastion host needs to be deployed into ( it just says corporate network )
+Option B is incorrect because only the corporate IP addresses should have SSH access to it, not from anywhere.
+Option C is incorrect because the bastion host needs to be placed in the public subnet, not private.
+Option D is CORRECT because (a) it places the bastion host in the public subnet, and (b) only the corporate IP addresses have RDP access to it.
+For more information on controlling network access to EC2 instances using a bastion server, please see the link below.
+https://aws.amazon.com/blogs/security/controlling-network-access-to-ec2-instances-using-a-bastion-server/
+The customer runs a multi-tier web application farm in a virtual private cloud (VPC) that is not connected to their corporate network. They are connecting to the VPC over the Internet to manage all of their Amazon EC2 instances running in both the public and private subnets.
+To further restrict administrative access to all of the instances in the VPC, the company needs to deploy a bastion host. A bastion host is a special-purpose instance that is designed to provide secure access to the instances in the VPC. The bastion host acts as a proxy to access the instances in the VPC, and all access to the instances must pass through the bastion host.
+Let's analyze each option:
+A. Deploy a Windows Bastion host on the corporate network that has RDP access to all instances in the VPC.
+This option is not feasible as the VPC is not connected to the corporate network, and the customer is already accessing the VPC over the Internet.
+B. Deploy a Windows Bastion host with an Elastic IP address in the public subnet and allow SSH access to the bastion from anywhere.
+This option is not recommended as it allows SSH access from anywhere, which is not secure. Also, the requirement is to restrict further administrative access to all instances in the VPC.
+C. Deploy a Windows Bastion host with an Elastic IP address in the private subnet and restrict RDP access to the bastion from only the corporate public IP addresses.
+This option is a valid solution as it restricts RDP access to the bastion host from only the corporate public IP addresses, making it more secure. Also, by deploying the bastion host in the private subnet, it provides an additional layer of security, as the bastion host is not directly accessible from the Internet.
+D. Deploy a Windows Bastion host with an elastic IP address in the public subnet and allow RDP access to the bastion from only the corporate public IP addresses.
+This option is not recommended as it allows RDP access from the public subnet, which is not secure. Also, the requirement is to restrict further administrative access to all instances in the VPC.
+Therefore, option C is the correct answer as it restricts RDP access to the bastion host from only the corporate public IP addresses and deploys the bastion host in the private subnet, which provides an additional layer of security.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question20:"link"
+
+

@@ -1,0 +1,118 @@
+---
+layout: default 
+title: "875 - Company D has a legacy employee verifica"
+---
+
+
+[.question]
+== 875-64a1df12aa736d27b1db9313.
+
+
+****
+
+[.query]
+--
+Company D has a legacy employee verification product which exists for many years.
+The system has used some old facial recognition technologies by comparing new photos with original ones in a large file system to verify employees.
+It is becoming harder and harder to maintain the system as all product architects have left and technical documents are not well maintained.
+The company decides to migrate the system to AWS and use some new technologies if possible.
+However, they do not want to spend huge efforts on the migration and hope to finish it as soon as possible.
+Which option is the best for the company to choose at a reasonable cost?
+
+
+--
+
+[.list]
+--
+* [*] A. Utilize a popular facial recognition service that has used new biometric matching technology. Put the application in EC2 to handle the facial recognition tasks. Also, migrate the on-premise file system to S3.
+* [*] B. Use Rekognition CLI to develop an application to use AWS Rekognition facial analysis service. For example, “aws rekognition detect-faces” can return a JSON response that contains information for each detected face. It can also compare faces to see if they match.
+* [*] C. Utilize a modern facial recognition SAAS. Put the application in EC2 or lambda to communicate with the SAAS service provider. Also, migrate the on-premise file system to RDS. Make sure that the SAAS provider has access to RDS.
+* [ ] D. Transform all source or target pictures to base64-encoded bytes. Use Rekognition CLI to compare faces such as “aws rekognition compare-faces” by using the pictures with the format of image bytes.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS always recommends exploring new services that can help increase working efficiency.
+Amazon Rekognition is a service that makes it easy to add image analysis to your applications.
+With Rekognition, you can detect objects, scenes, and faces in images.
+You can also search and compare faces.
+Rekognition's API lets you easily build powerful visual search and discovery into your applications.
+With Amazon Rekognition, you only pay for the images you analyze and the face metadata you store.
+There are no minimum fees, and there are no upfront commitments.
+As the question asks for a migration with a reasonable cost, it is not proper to use the SAAS provider.
+The below is a piece of an example response of a DetectFaces API call.
+Lots of information can be returned by Rekognition:
+{
+"FaceDetails": [
+{
+"AgeRange": {
+"High": 43,
+"Low": 26
+},
+"Beard": {
+"Confidence": 97.48941802978516,
+"Value": true.
+},
+"BoundingBox": {
+"Height": 0.6968063116073608,
+"Left": 0.26937249302864075,
+"Top": 0.11424895375967026,
+"Width": 0.42325547337532043
+},
+"Confidence": 99.99995422363281,
+"Emotions": [
+{
+"Confidence": 0.042965151369571686,
+"Type": "DISGUSTED"
+},
+{
+"Confidence": 0.002022328320890665,
+"Type": "HAPPY"
+},
+{
+"Confidence": 0.4482877850532532,
+"Type": "SURPRISED"
+},
+…
+}
+Option A is incorrect: Because the price will be higher than Rekognition.
+It is not the best choice.
+Option B is CORRECT: Because Rekognition can definitely meet the need with a reasonable cost.
+About the facial recognition function of Rekognition, please refer to https://aws.amazon.com/getting-started/tutorials/detect-analyze-compare-faces-rekognition/ The compare-faces CLI reference is in https://docs.aws.amazon.com/cli/latest/reference/rekognition/compare-faces.html.
+Option C is incorrect: Same reason as A.
+Also, RDS is unsuitable for storing photos.
+Option D is incorrect: It is quite similar to option.
+B.
+However, for Rekognition CLI, compare-faces only support source and target pictures in S3
+Refer to the below in https://docs.aws.amazon.com/cli/latest/reference/rekognition/compare-faces.html:
+“If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported.
+The image must be formatted as a PNG or JPEG file.”
+The company D has a legacy employee verification system that uses outdated facial recognition technologies. As the system is becoming harder and harder to maintain, the company decides to migrate the system to AWS and use new technologies if possible. However, the company wants to minimize the cost and effort of migration.
+Option A suggests utilizing a popular facial recognition service that has new biometric matching technology. The application will be put in EC2 to handle facial recognition tasks, and the on-premise file system will be migrated to S3. This option will require a significant amount of work to integrate the facial recognition service with the existing application. The company will also need to consider the cost of the service and the EC2 instances required to handle the application workload.
+Option B suggests using the Rekognition CLI to develop an application that uses AWS Rekognition facial analysis service. The CLI can detect faces and compare them to see if they match. This option requires less effort to implement than option A since the company will be utilizing a pre-built service. However, the company will still need to consider the cost of the Rekognition service and the resources required to run the application.
+Option C suggests utilizing a modern facial recognition SAAS. The application will be put in EC2 or Lambda to communicate with the SAAS provider. The on-premise file system will be migrated to RDS, and the SAAS provider will need access to RDS. This option will require the least amount of effort to implement since the company will be utilizing a pre-built service. However, the company will need to consider the cost of the SAAS provider and the resources required to run the application.
+Option D suggests transforming all source or target pictures to base64-encoded bytes. The Rekognition CLI will be used to compare faces using the pictures in image bytes format. This option will require the least amount of cost, but it will require more effort than option B. The company will need to consider the resources required to transform the pictures to base64-encoded bytes and the resources required to run the application.
+In conclusion, the best option for the company to choose at a reasonable cost would be option B. This option requires less effort to implement than option A, and it provides a pre-built service that can detect faces and compare them to see if they match. The company will still need to consider the cost of the Rekognition service and the resources required to run the application, but it will minimize the cost and effort of migration compared to other options.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question95:"link"
+
+

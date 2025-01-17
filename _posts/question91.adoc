@@ -1,0 +1,93 @@
+---
+layout: default 
+title: "891 - You require the ability to analyze a cus"
+---
+
+
+[.question]
+== 891-64a1df17aa736d27b1db932c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_wxpg8i.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You require the ability to analyze a customer's clickstream data on a website to do the behavioral analysis.
+Your customer needs to know what sequence of pages and ads their customer clicked on.
+This data will be used in real-time to modify the page layouts as customers click through the site to increase stickiness and advertising click-through.
+Which option meets the requirements for capturing and analyzing this data?
+
+
+--
+
+[.list]
+--
+* [*] A. Log clicks in weblogs by URL and store it in Amazon S3, and then analyze with Elastic MapReduce.
+* [*] B. Push web clicks by session to Amazon Kinesis and analyze behavior using Kinesis workers.
+* [ ] C. Write the click events directly to Amazon Redshift and then analyze with SQL.
+* [ ] D. Publish web clicks by session to an Amazon SQS queue, periodically drain these events to Amazon RDS, and analyze with SQL.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Whenever the question presents a scenario where the application needs to analyze real-time data such as clickstream (i.e.massive real-time data analysis), most of the time the best option is Amazon Kinesis.
+It is used to collect and process large streams of data records in real-time.
+You'll create data-processing applications, known as Amazon Kinesis Streams applications.
+A typical Amazon Kinesis Streams application reads data from an Amazon Kinesis stream as data records.
+These applications can use the Amazon Kinesis Client Library, and they can run on Amazon EC2 instances.
+The processed records can be sent to dashboards, used to generate alerts, dynamically change pricing and advertising strategies, or send data to a variety of other AWS services.
+The below diagrams from the AWS documentation shows how you can create custom streams in Amazon Kinesis.
+Refer to page 129 on the below link.
+https://docs.aws.amazon.com/streams/latest/dev/kinesis-dg.pdf
+Application Name.
+The KCL requires an application name that is unique across your applications and across Amazon DynamoDB tables in the same Region.
+It uses the application name configuration value in the following ways: • All workers associated with this application name are assumed to be working together on the same stream.
+These workers may be distributed on multiple instances.
+If you run an additional instance of the same application code, but with a different application name, the KCL treats the second instance as an entirely separate application that is also operating on the same stream.
+• The KCL creates a DynamoDB table with the application name and uses the table to maintain state information (such as checkpoints and worker-shard mapping) for the application.
+Each application has its own DynamoDB table.
+For more information on Kinesis, please visit the below link-
+http://docs.aws.amazon.com/streams/latest/dev/introduction.html
+The scenario described in the question involves analyzing clickstream data in real-time to understand the behavior of website visitors and modify page layouts and ads to increase user engagement and click-through rates. To meet these requirements, we need a solution that can capture and process the clickstream data in real-time, store it securely, and enable analysis using appropriate tools.
+Let's review each of the answer options in detail:
+Option A: Log clicks in weblogs by URL and store it in Amazon S3, and then analyze with Elastic MapReduce.
+This option involves capturing clickstream data in weblogs and storing it in Amazon S3, a scalable and durable object storage service offered by AWS. Then, the data is analyzed using Elastic MapReduce (EMR), which is a fully managed big data processing service that uses Hadoop and Spark to process large amounts of data. This option requires batch processing of the data, which means that the analysis may not be real-time. Moreover, weblogs typically capture a large amount of data, including all HTTP requests, which can be challenging to process and analyze. Hence, this option may not be suitable for real-time analysis of clickstream data.
+Option B: Push web clicks by session to Amazon Kinesis and analyze behavior using Kinesis workers.
+This option involves capturing clickstream data in real-time and processing it using Amazon Kinesis, a fully managed streaming data service offered by AWS. Kinesis enables real-time processing of streaming data and provides various tools for analysis, including Kinesis Data Analytics and Kinesis Data Firehose. The data is pushed to Kinesis by session, which means that it can be analyzed in near-real-time, providing insights into customer behavior and enabling real-time modification of page layouts and ads. Kinesis also allows for scaling up or down based on the volume of incoming data, ensuring that the solution can handle spikes in traffic. This option is suitable for real-time analysis of clickstream data and meets the requirements specified in the scenario.
+Option C: Write the click events directly to Amazon Redshift and then analyze with SQL.
+This option involves capturing clickstream data and storing it directly in Amazon Redshift, a fully managed data warehouse service offered by AWS. Redshift is optimized for querying large amounts of data using SQL and provides various tools for analysis, including Amazon QuickSight and third-party BI tools. However, this option may not be suitable for real-time analysis of clickstream data as it involves writing data directly to the data warehouse, which can be slow and may not provide real-time insights into customer behavior. Moreover, Redshift is optimized for batch processing, which means that it may not be suitable for real-time analysis of streaming data.
+Option D: Publish web clicks by session to an Amazon SQS queue, periodically drain these events to Amazon RDS, and analyze with SQL.
+This option involves capturing clickstream data and publishing it to an Amazon SQS (Simple Queue Service) queue, which is a fully managed message queuing service offered by AWS. Then, the data is periodically drained to Amazon RDS (Relational Database Service), a fully managed relational database service offered by AWS, and analyzed using SQL. This option requires batch processing of the data, which means that it may not provide real-time insights into customer behavior. Moreover, SQS is designed for asynchronous messaging, which may not be suitable for real-time analysis of streaming data.
+In summary, option B is the most suitable option for capturing and analyzing clickstream data in real-time. It involves using Amazon Kinesis to capture and process streaming data, which enables real-time analysis of customer behavior and modification of page layouts and ads in real-time. Options A, C, and D may be suitable for batch processing of clickstream data but may not provide real-time insights into customer behavior.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question120:"link"
+
+

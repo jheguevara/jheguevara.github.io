@@ -1,0 +1,77 @@
+---
+layout: default + 
+title: "842"
+---
+
+
+[.question]
+== 842-64a1df08aa736d27b1db92e9.
+
+
+****
+
+[.query]
+--
+
+
+
+--
+
+[.list]
+--
+* [*] A. Configure the RDS instance as the master and enable replication over the open internet using a secure HTTPS endpoint to the on-premises server.
+* [ ] B. RDS cannot replicate to an on-premises database server directly. Instead, first, configure the RDS instance to replicate to an EC2 instance with core MySQL, and then configure replication over a secure VPN/VPG connection.
+* [ ] C. Create a Data Pipeline that exports the MySQL data each night and securely downloads the data from an S3 HTTPS endpoint.
+* [*] D. Create an IPSec VPN connection between AWS VPC and the on-premise server. Use the mysqldump utility to transfer the database from the Amazon RDS database to the external MySQL database in the on-premises data center.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect because the HTTPS endpoint is incorrect as RDS uses another port.
+This option also does not use VPN and it is not the most secure way.
+Option B is incorrect because replicating via EC2 instances is very time consuming and very expensive cost-wise.
+Option C is incorrect because Data Pipeline is for batch jobs and not suitable for replicating the RDS DB to an on-premises database.
+Option D is CORRECT because it is feasible to set up the secure IPSec VPN connection between the on-premises server and AWS VPC.
+The mysqldump utility can be used to transfer the database.
+For more information on VPN connections, please visit the below URL:
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html
+Note:
+AWS docs state that,
+Configure an egress rule for the external instance to operate as a Read Replica during the export.
+The egress rule will allow the MySQL Read Replica to connect to the MySQL DB instance during replication.
+Specify an egress rule that allows TCP connections to the port and IP address of the source Amazon RDS MySQL DB instance.
+Please refer to the following links for more information.
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Exporting.NonRDSRepl.html https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-ug.pdf
+The question describes a scenario where a company has an on-premises MySQL database server, and they want to replicate their MySQL data to an Amazon RDS instance running MySQL in the cloud. The replication must be secure, and the company wants to ensure the integrity and availability of their data.
+A. Configure the RDS instance as the master and enable replication over the open internet using a secure HTTPS endpoint to the on-premises server.
+This option is not secure, as it involves transmitting sensitive data over the public internet, which is prone to hacking and other security risks. Additionally, HTTPS is a protocol for secure communication over the internet, but it doesn't provide end-to-end encryption, which means data could still be intercepted or compromised in transit.
+B. RDS cannot replicate to an on-premises database server directly. Instead, first, configure the RDS instance to replicate to an EC2 instance with core MySQL, and then configure replication over a secure VPN/VPG connection.
+This option is more secure as it involves using an EC2 instance with core MySQL to replicate data from RDS to an on-premises database server. The replication is over a secure VPN/VPG connection, which ensures that the data is encrypted and secure during transmission.
+C. Create a Data Pipeline that exports the MySQL data each night and securely downloads the data from an S3 HTTPS endpoint.
+This option involves exporting data from the MySQL database to S3 each night, and then downloading the data securely from an S3 HTTPS endpoint. While this option is secure, it may not be ideal for scenarios where real-time replication is required.
+D. Create an IPSec VPN connection between AWS VPC and the on-premise server. Use the mysqldump utility to transfer the database from the Amazon RDS database to the external MySQL database in the on-premises data center.
+This option is also secure, as it involves using an IPSec VPN connection between AWS VPC and the on-premise server to transfer data using the mysqldump utility. This option is suitable for scenarios where real-time replication is not required, and nightly backups are sufficient.
+In conclusion, the best option for replicating MySQL data from an Amazon RDS instance to an on-premises database server is Option B, which involves replicating data from RDS to an EC2 instance with core MySQL and then transferring the data over a secure VPN/VPG connection.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question53:"link"
+
+

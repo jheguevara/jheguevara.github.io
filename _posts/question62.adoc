@@ -1,0 +1,100 @@
+---
+layout: default 
+title: "862 - A new client may use your company to mov"
+---
+
+
+[.question]
+== 862-64a1df0eaa736d27b1db9303.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_dg47an.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A new client may use your company to move some of their existing Data Center applications and infrastructure to AWS.
+You need to provide an initial scope to this possible new client.
+One of the things you notice concerning the existing infrastructure is that it has a few legacy applications that you are almost certain will not work on AWS.
+Which of the following would be the best strategy to employ regarding the migration of these legacy applications? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+‘On Premises
+
+"AWS Direct Connect,
+
+Joye
+
+VPN Instance
+Instance ‘irtual Private
+
+Public Subnet
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create two VPCs. One containing all the legacy applications and the other containing all the other applications. Make a connection between them with VPC peering.
+* [ ] B. Move the legacy applications onto AWS first before you build any infrastructure. There is sure to be an AWS Machine Image that can run this legacy application.
+* [*] C. Create a hybrid cloud by configuring a VPN tunnel to the on-premises location of the Data Center.
+* [ ] D. Convince the client to look for another solution by de-commissioning these applications and seeking new ones that will run on AWS.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because there is some legacy application that will not work on the AWS platform.
+So creating VPC for such applications will not be possible.
+Option B is incorrect because the scenario explicitly mentions that there are some components of the application (legacy part) that will not work with AWS.
+So, it is highly presumptuous that the legacy application can be run by an AWS Machine Image (legacy application may consist of more than just AMIs).
+Option C is CORRECT because it uses a hybrid approach - where the legacy application stays on-premises.
+It should definitely work as the remaining infrastructure would be on AWS.
+The communication between the two infrastructures would be taken care of by establishing a VPN connection.
+This is certainly the most viable, time, and cost-saving solution among the given options.
+Option D is incorrect because it is the least feasible solution.
+First of all, de-commissioning the legacy application may not be possible for the client, especially when the scenario says that the legacy application will almost surely not work on AWS.
+Still, even if they agree, it would be a big impact on the client in terms of time, cost, and efforts to re-architect the solution to replace the legacy application.
+More information on the hybrid setup:
+The best option is to have a dual-mode wherein you have the legacy apps running on-premise and start migrating the apps which have compatibility in the cloud.
+Have a VPN connection from the on-premise to the cloud for ensuring communication can happen from each environment to the other.
+For the full fundamentals of AWS networking options, please visit the URL-
+https://aws.amazon.com/blogs/apn/amazon-vpc-for-on-premises-network-engineers-part-one/
+The best strategy to employ when faced with legacy applications that may not work on AWS when migrating a client's existing Data Center applications and infrastructure to AWS would be to create a hybrid cloud by configuring a VPN tunnel to the on-premises location of the Data Center.
+Option A, creating two VPCs, is not an ideal solution because it may create unnecessary complexity, increase management overhead, and reduce the flexibility of the overall solution. Additionally, VPC peering has its limitations, such as maximum bandwidth and distance limitations. It's better to have a single VPC to manage and have a consistent security posture.
+Option B, moving the legacy applications onto AWS first before building any infrastructure, may not be a viable option because there is no guarantee that there will be an AWS Machine Image that can run the legacy application. Additionally, this option is not efficient because it creates extra work, as it requires the creation of infrastructure after moving the legacy applications to AWS.
+Option D, convincing the client to look for another solution by decommissioning these applications and seeking new ones that will run on AWS, is not an ideal solution because it may not be possible or feasible for the client to replace these legacy applications. Additionally, it may be more expensive for the client to purchase new applications that can run on AWS compared to migrating the existing ones.
+Therefore, creating a hybrid cloud by configuring a VPN tunnel to the on-premises location of the Data Center is the best option because it provides a secure, reliable, and scalable solution that can accommodate both the legacy applications and the other applications that can be migrated to AWS. This approach also allows the client to gradually migrate their applications and infrastructure to AWS at their own pace, minimizing the risk of disruption to their operations. The VPN tunnel will provide secure connectivity between the on-premises data center and the AWS environment, allowing applications and data to be accessed securely and easily from both locations.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question79:"link"
+
+

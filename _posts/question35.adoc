@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "835 - Your company is planning to move an exis"
+---
+
+
+[.question]
+== 835-64a1df05aa736d27b1db92e1.
+
+
+****
+
+[.query]
+--
+Your company is planning to move an existing portal to AWS.
+Currently, it's running in on-premises.
+It is a 5-year-old portal developed on Java and MySQL 5.6
+Your company is looking to dockerize the application and deploy it in a highly available environment in AWS.
+You also need a serverless compute engine for containers so that you do not need to provision and manage servers.
+Which of the following methods is the most suitable?
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy the Application on Amazon ECS with EC2 Launch Type and leverage Amazon RDS MySQL for the database.
+* [ ] B. Deploy the Application on Amazon EC2 and leverage the Amazon Aurora MySQL for the database.
+* [ ] C. Containerize the Java based application, store Container image in Docker Hub and deploy it in ECS with EC2 Launch Type. Leverage Amazon Aurora MySQL for the database.
+* [*] D. Containerize the Java based application, store Container image in ECR and deploy it in ECS with AWS Fargate Launch Type. Leverage Amazon Aurora MySQL for the database.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Option A is incorrect because the Client is looking to dockerize the App in a serverless environment.
+Amazon ECS with EC2 Launch Type is not the best case here.
+Option B is incorrect because the Client is looking for dockerizing the App in a serverless environment.
+Amazon EC2 is not the best case here.
+Option C is incorrect because ECS with EC2 Launch Type is not a serverless environment.
+Option D is CORRECT because ECS with AWS Fargate Launch Type provides a highly available and serverless environment.
+This option meets the requirements of the question.
+Reference:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-dg.pdf https://www.youtube.com/watch?v=4xqOoRPrnAw https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-containers-to-aws-
+Based on the requirements provided, option D appears to be the most suitable solution for deploying the portal in a highly available environment in AWS. Here's why:
+Option A involves deploying the application on Amazon ECS with EC2 launch type and leveraging Amazon RDS MySQL for the database. Although ECS can be used to deploy containers and RDS can provide a managed MySQL database service, it still requires managing the underlying EC2 instances for the ECS cluster. This is not a serverless compute engine, which is one of the requirements.
+Option B involves deploying the application on Amazon EC2 and leveraging Amazon Aurora MySQL for the database. While Aurora provides a highly available and scalable MySQL-compatible database, it still requires managing the underlying EC2 instances for the application server. This is not a serverless compute engine, which is one of the requirements.
+Option C involves containerizing the Java-based application, storing the container image in Docker Hub, and deploying it in ECS with EC2 launch type. This is similar to option A, with the difference being that the container image is stored in Docker Hub instead of Amazon ECR. While this is an option, it does not provide a serverless compute engine, which is one of the requirements.
+Option D involves containerizing the Java-based application, storing the container image in Amazon ECR, and deploying it in ECS with AWS Fargate launch type. Fargate is a serverless compute engine for containers, which means that it eliminates the need to manage the underlying EC2 instances. It also provides automatic scaling, load balancing, and high availability. Using Amazon Aurora MySQL as the database provides a highly available and scalable database solution that is fully managed by AWS. This is the most suitable option based on the given requirements.
+In summary, option D (Containerize the Java based application, store Container image in ECR and deploy it in ECS with AWS Fargate Launch Type. Leverage Amazon Aurora MySQL for the database) is the most suitable option for deploying the portal in a highly available environment in AWS because it provides a serverless compute engine for containers and a highly available and scalable database solution that is fully managed by AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question45:"link"
+
+

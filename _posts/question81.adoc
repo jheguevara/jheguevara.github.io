@@ -1,0 +1,98 @@
+---
+layout: default 
+title: "881 - An enterprise wants to use a 3rd party S"
+---
+
+
+[.question]
+== 881-64a1df14aa736d27b1db931b.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_nhcxl7.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An enterprise wants to use a 3rd party SaaS application hosted by another AWS account.
+The SaaS application needs to have access to issue several API commands to discover Amazon EC2 resources running within the enterprise's account.
+The enterprise has internal security policies that require any outside access to their environment must conform to the principles of least privilege.
+There must be controls in place to ensure that any other third party cannot use the SaaS vendor's credentials.
+
+
+[source,java]
+----
+Select Role Type
+
+© AWS Service Roles
+© Role for Cross-Account Access
+
+> Provide access between AWS accounts you own.
+Allows IAM users from one of your other AWS accounts to access this account.
+
+» Provide access between your AWS account and a 3rd party AWS account
+‘Allows IAM users from a 3rd party AWS account to access this account and enforces use of External ID.
+
+© Role for Identity Provider Access
+----
+
+
+--
+
+[.list]
+--
+* [*] A. From the AWS Management Console, navigate to the Security Credentials page and retrieve the access and secret key for your account.
+* [ ] B. Create an IAM user within the enterprise account and assign a user policy to the IAM user that allows only the actions required by the SaaS application. Create new access and secret key for the user and provide these credentials to the SaaS provider.
+* [*] C. Create an IAM role for cross-account access that allows the SaaS provider’s account to assume the role and assign it a policy that allows only the actions required by the SaaS application.
+* [ ] D. Create an IAM role for EC2 instances, assign it a policy that allows only the actions required for the Saas application to work, provide the role ARN to the SaaS provider to be used when launching their application instances.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+When a user, a resource, an application, or any service needs to access an AWS service or resource, always prefer creating an appropriate role with the least privileged access or only required access, rather than using any other credentials such as keys.
+Option A is incorrect because you should never share your access and secret keys.
+Option B is incorrect because (a) when a user is created, even though it may have the appropriate policy attached to it, its security credentials are stored in the EC2 which can be compromised, and (b) creation of the appropriate role is always the better solution rather than creating a user.
+Option C is CORRECT because AWS's role creation allows cross-account access to the application to access the necessary resources.
+See the image and explanation below.
+Many SaaS platforms can access AWS resources via Cross-account access created in AWS.
+If you go to Roles in your identity management, you will see the ability to add a cross-account role.
+Option D is incorrect because the role is to be assigned to the application and its resources, not the EC2 instances.
+For more information on the cross-account role, please visit the below URL-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
+The correct answer is C.
+Explanation: To allow a third-party SaaS application hosted by another AWS account to access Amazon EC2 resources running within the enterprise's account, while conforming to the principles of least privilege, we should create an IAM role for cross-account access.
+This is because using IAM roles instead of IAM users provides better security and ensures that the credentials of the SaaS vendor are not shared with any other third party. The IAM role can be assumed by the SaaS provider's account, which will provide temporary security credentials that are automatically rotated and are limited in scope to only the actions required by the SaaS application.
+Option A is incorrect because it involves retrieving the access and secret key for the enterprise account, which would mean sharing the enterprise account credentials with the SaaS provider, which goes against the principle of least privilege.
+Option B is also incorrect because it involves creating an IAM user with access and secret keys, which again would mean sharing long-term credentials with the SaaS provider.
+Option D is also incorrect because it involves creating an IAM role for EC2 instances, which is not appropriate for granting access to an external third-party SaaS application.
+Therefore, the correct answer is C. Create an IAM role for cross-account access that allows the SaaS provider's account to assume the role and assign it a policy that allows only the actions required by the SaaS application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question103:"link"
+
+

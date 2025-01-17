@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "888 - A benefits enrollment company hosts a 3t"
+---
+
+
+[.question]
+== 888-64a1df16aa736d27b1db9327.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_gak95i.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A benefits enrollment company hosts a 3-tier web application running in a VPC on AWS which includes a NAT (Network Address Translation) instance in the public Web tier.
+There is enough provisioned capacity for the expected workload for the new fiscal year benefit enrollment period plus some extra overhead.
+Enrollment proceeds nicely for two days, but the web tier becomes unresponsive upon investigation using CloudWatch and other monitoring tools.
+It is discovered that there is a huge and unanticipated amount of inbound traffic coming from a set of 15 specific IP addresses over port 80 from a country where the benefits company has no customers.
+The web tier instances are so overloaded that benefit enrollment administrators cannot even SSH into them.
+Which activity would be useful in defending against this attack?
+
+
+[source,java]
+----
+‘summary Inbound Rules Outbound Rules Subnet Associations Tags
+
+Allows inbound traffic. Because network ACLs are stateless, you must create inbound and outbound rules.
+
+View: | All rules v
+Rule # Type Protocol PortRange Source Allow /
+100 HTTP (60) TCP (6) 80 0.00.00 ALLOW
+150 NFS (2049) TCP (6) 2049 54.209.0.0/16 DENY
+200 ‘Custom TCP Rule TCP (6) 1024-65535 0.00.00 ALLOW
+
+ALL Traffic ALL ALL 0.00.00 DENY
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create a custom route table associated with the web tier and block the attacking IP addresses from the IGW (Internet Gateway).
+* [ ] B. Change the EIP (Elastic IP Address) of the NAT instance in the web tier subnet and update the Main Route Table with the new EIP.
+* [ ] C. Create 15 Security Group rules to block the attacking IP addresses over port 80.
+* [*] D. Create an inbound NACL (Network Access Control List) associated with the web tier subnet with deny rules to block the attacking IP addresses.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+In this scenario, the attack comes from a set of certain IP addresses over a specific port from a specific country.
+You are supposed to defend against this attack.
+In such questions, always think about two options: Security groups and Network Access Control List (NACL)
+Security Groups operate at the individual instance level, whereas NACL operates at the subnet level.
+You should always fortify the NACL first, as it is encounter first during the communication with the instances in the VPC.Option A is incorrect because IP addresses cannot be blocked using the route table or IGW.
+Option B is incorrect because changing the NAT instance's EIP cannot block the incoming traffic from a particular IP address.
+Option C is incorrect because (a) you cannot deny port access using security groups, and (b) by default all requests are denied; you open access for a particular IP address or range.
+You cannot deny access to particular IP addresses using security groups.
+Option D is CORRECT because (a) you can add deny rules in NACL and block access to certain IP addresses.
+See an example below.
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html
+The correct answer for this scenario is D. Create an inbound NACL (Network Access Control List) associated with the web tier subnet with deny rules to block the attacking IP addresses.
+Explanation: In this scenario, the web tier instances are experiencing an overload due to a huge and unanticipated amount of inbound traffic coming from a set of 15 specific IP addresses over port 80. The first step in defending against this attack is to block the attacking IP addresses. There are different ways to do this, but the most effective approach is to use a Network Access Control List (NACL) associated with the web tier subnet.
+A Network Access Control List is a stateless firewall that controls traffic in and out of a subnet. NACLs operate at the subnet level, which means that any traffic that passes through the subnet must first go through the NACL. In this case, we can create an inbound NACL associated with the web tier subnet with deny rules to block the attacking IP addresses. This will prevent the traffic from reaching the web tier instances, thus freeing up resources and allowing the benefit enrollment administrators to SSH into the instances and investigate further.
+Creating a custom route table associated with the web tier and blocking the attacking IP addresses from the Internet Gateway (IGW) is not a viable option because the NAT instance in the web tier subnet is already acting as a gateway to the Internet. Changing the EIP (Elastic IP Address) of the NAT instance in the web tier subnet and updating the Main Route Table with the new EIP is also not a viable option because it does not address the root cause of the problem, which is the unanticipated inbound traffic from the attacking IP addresses. Creating 15 Security Group rules to block the attacking IP addresses over port 80 is also not a viable option because Security Groups operate at the instance level, not at the subnet level, and creating 15 rules can be tedious and error-prone. It is better to use a Network Access Control List in this case.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question115:"link"
+
+

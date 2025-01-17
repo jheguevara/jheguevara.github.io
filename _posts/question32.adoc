@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "832 - A startup company is designing an applic"
+---
+
+
+[.question]
+== 832-64a1df05aa736d27b1db92de.
+
+
+****
+
+[.query]
+--
+A startup company is designing an application that needs to handle an unexpected amount of load and allow site visitors to read data from a DynamoDB table, which contains the results of an online polling system.
+At any given time, as many as 5,000 requests need to be handled by the application.
+The company has limited budget.
+How can this application be developed most cost-effectively?
+
+
+--
+
+[.list]
+--
+* [*] A. Use the JavaScript SDK and build a static HTML page, hosted inside an Amazon S3 bucket; use CloudFront and Route 53 to serve the website, which uses JavaScript client-side language to communicate with DynamoD.
+* [ ] B. Create a CloudFront distribution that serves the HTML web page but sends the visitors to an Auto Scaling ELB application pointing to EC2 instances.
+* [ ] C. Deploy an Auto Scaling application with Elastic Load Balancer pointing to EC2 instances that use a server-side SDK to communicate with the DynamoDB table.
+* [ ] D. Create a Lambda script that pulls the most recent DynamoDB polling result and creates a custom HTML page in S3 as per the user request ( one lambda execution per each user request ) and use CloudFront and Route 53 to serve the static website.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The most important design consideration of this question is to have a cost-effective architecture that provides an application that can communicate with DynamoDB.Option A is CORRECT because (a) to show the polling results, a static HTML page that is stored in S3 bucket is sufficient (b) CloudFront and Route53 are AWS managed services that are highly available and scalable, and (c) it uses the JavaScript to communicate with DynamoDB.Option B is incorrect because (a)it will require many EC2 instances to handle the load of incoming traffic, and (b) setting up the EC2 instances and ELB is not a cost-effective solution compared to the static web page in S3.
+Option C is incorrect because architecting this with ELB and EC2 instances will not be as cost-effective as the static HTML page - that communicates with DynamoDB - hosted in S3.
+Option D is incorrect.
+Lambda uses a default safety throttle for the number of concurrent executions across all functions in a given region per account.
+Currently, the concurrent lambda execution limit is 1000 (soft limit ), and we need to handle ten times the traffic at any point in time.
+Please note that this soft limit can be increased by contacting AWS support.
+This would take some time after AWS approval and implementing the same and therefore involves cost.
+Besides, using a Lambda function to create a static page per user may have some performance issues.
+For more information on AWS s3, please refer to the below link-
+http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+The most cost-effective way to develop the application that can handle an unexpected amount of load and allow site visitors to read data from a DynamoDB table with limited budget is to use the JavaScript SDK and build a static HTML page, hosted inside an Amazon S3 bucket; use CloudFront and Route 53 to serve the website, which uses JavaScript client-side language to communicate with DynamoDB.
+Option A is the most cost-effective solution for the following reasons:
+1.
+Static HTML page: A static HTML page does not require a server-side component to generate the page dynamically. Instead, the content is pre-built and delivered as is, which reduces the load on the servers and speeds up the delivery of the website.
+2.
+Amazon S3 bucket: Hosting the website in an S3 bucket is cost-effective because S3 is a low-cost object storage service that can scale to accommodate large amounts of data. Additionally, S3 integrates with CloudFront, which can cache and distribute content globally, reducing the load on the application servers and improving the user experience.
+3.
+JavaScript SDK: Using the JavaScript SDK allows the application to communicate directly with DynamoDB from the client-side, eliminating the need for a server-side SDK. This further reduces the cost of the application by minimizing the server-side infrastructure required to handle the load.
+4.
+CloudFront and Route 53: CloudFront and Route 53 can be used to distribute the website globally and route traffic to the closest available server, further improving the user experience and reducing the load on the application servers.
+Option B is not cost-effective because it requires an Auto Scaling ELB application pointing to EC2 instances. EC2 instances are more expensive than S3 and require server-side infrastructure, which adds to the cost of the application.
+Option C is not cost-effective because it requires an Auto Scaling application with Elastic Load Balancer pointing to EC2 instances that use a server-side SDK to communicate with the DynamoDB table. Again, this requires more server-side infrastructure than option A, which increases the cost of the application.
+Option D is not cost-effective because it requires a Lambda script to be executed for each user request, which can quickly become expensive as the number of requests increases. Additionally, the cost of generating custom HTML pages dynamically can quickly add up, further increasing the cost of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question42:"link"
+
+

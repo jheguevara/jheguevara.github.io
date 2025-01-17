@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "870 - You are running an online gaming server "
+---
+
+
+[.question]
+== 870-64a1df10aa736d27b1db930d.
+
+
+****
+
+[.query]
+--
+You are running an online gaming server, with one of its requirements being a need for a high IOPS of write performance on its EBS volumes.
+Given the fact that each EBS volume cannot provision the required IOPS, which of the following would be a reasonable solution if instance bandwidth is not an issue? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Create a RAID 0 configuration with several EBS volumes.
+* [ ] B. Use ephemeral storage which gives a much larger IOPS write performance.
+* [ ] C. Use Auto Scaling to use spot instances when required to increase the IOPS write performance when required.
+* [ ] D. Create a Placement Group with several EBS volumes.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because creating a RAID 0 array allows you to achieve a higher performance level for a file system than you can provision on a single Amazon EBS volume, and the resulting size of a RAID 0 array is the sum of the sizes of the volumes within it.
+The bandwidth is the sum of the available bandwidth of the volumes within it.
+Option B is incorrect because ephemeral storage may not always have consistent and reliable I/O performance given by PIOPS EBS Volumes.
+Option C is incorrect because (a) instance bandwidth is not an issue, and (b) auto-scaling with spot instances will not increase the IOPS of the EBS volumes.
+Option D is incorrect because launching the instances in a placement group does not increase the IOPS of the EBS volumes.
+It only increases the overall network performance.
+More information on EBS with RAID Configuration.
+With Amazon EBS, you can use any of the standard RAID configurations that you can use with a traditional bare metal server, as long as the operating system for your instance supports that particular RAID configuration.
+This is because all RAID is accomplished at the software level.
+For greater I/O performance than you can achieve with a single volume, RAID 0 can stripe multiple volumes together; for on-instance redundancy, RAID 1 can mirror two volumes together.
+An example of better throughout with RAID 0 configuration is also given in the AWS documentation.
+The resulting size of a RAID 0 array is the sum of the sizes of the volumes within it, and the bandwidth is the sum of the available bandwidth of the volumes within it.
+The resulting size and bandwidth of a RAID 1 array are equal to the size and bandwidth of the volumes in the array.
+For example, two 500 GiB Amazon EBS io1 volumes with 4,000 provisioned IOPS each will create a 1000 GiB RAID 0 array with an available bandwidth of 8,000 IOPS and 1,000 MB/s of throughput or a 500 GiB RAID 1 array with an available bandwidth of 4,000 IOPS and 500 MB/s of throughput.
+For more information on RAID configuration, please visit the below URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html
+The correct answer to the given scenario is A. Create a RAID 0 configuration with several EBS volumes.
+Explanation:
+EBS volumes are used as the primary storage device for EC2 instances in AWS. EBS volumes can deliver high-performance storage for workloads that require high IOPS. However, there are limits to the amount of IOPS that a single EBS volume can provision.
+To achieve high IOPS write performance, one of the solutions is to create a RAID 0 configuration with several EBS volumes. RAID 0 is a disk configuration that uses multiple disks in parallel to achieve high performance. When you create a RAID 0 configuration with several EBS volumes, the IOPS performance of the volumes is added together, providing high IOPS write performance for your application.
+Using ephemeral storage (option B) can be an alternative for storing data that can be easily recreated in case of failure or can be replicated across multiple instances. However, ephemeral storage is not a suitable option for storing critical data as it is volatile and can be lost if the instance is terminated.
+Auto Scaling (option C) can be used to scale your application horizontally by adding or removing EC2 instances based on demand. However, Auto Scaling does not provide a solution for achieving high IOPS write performance.
+Creating a Placement Group (option D) is used to deploy EC2 instances in a single Availability Zone to achieve low-latency network performance. Placement Groups do not provide a solution for achieving high IOPS write performance on EBS volumes.
+Therefore, the correct solution to achieve high IOPS write performance is to create a RAID 0 configuration with several EBS volumes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question89:"link"
+
+

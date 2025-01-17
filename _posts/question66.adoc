@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "866 - A company is running a production load R"
+---
+
+
+[.question]
+== 866-64a1df0faa736d27b1db9308.
+
+
+****
+
+[.query]
+--
+A company is running a production load Redshift cluster for a client.
+The client has an RTO objective of one hour and an RPO of one day.
+While configuring the initial cluster, what configuration would best meet the client's recovery needs for this specific Redshift cluster configuration? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Enable automatic snapshots on the cluster in the production region FROM the disaster recovery region. So snapshots are available in the disaster recovery region and can be launched in the event of a disaster.
+* [*] B. Enable automatic snapshots and configure automatic snapshot copy from the current production cluster to the disaster recovery region.
+* [ ] C. Enable automatic snapshots on a Redshift cluster. In the event of a disaster, a failover to the backup region is needed. Manually copy the snapshot from the primary region to the secondary region.
+* [ ] D. Create the cluster configuration and enable Redshift replication from the cluster running in the primary region to the cluster running in the secondary region. In the event of a disaster, change the DNS endpoint to the secondary cluster’s leader node.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option A is incorrect because it copies the snapshot from the destination region (disaster recovery region).
+Option B is CORRECT because it copies the snapshot from the source region (production) to the destination region (disaster recovery region).
+Option C is incorrect because you do not need to copy the manual snapshots (as it is an overhead)
+Redshift copies the snapshot from source to destination region.
+Option D is incorrect because Redshift replicates the data to another region using snapshots.
+Once the snapshot is copied from the source to the destination region, you need to restore the cluster from the snapshot and use its DSN.
+More information on Amazon Redshift Snapshots.
+Snapshots are point-in-time backups of a cluster.
+There are two types of snapshots: automated and manual.
+Amazon Redshift stores these snapshots internally in Amazon S3 using an encrypted Secure Sockets Layer (SSL) connection.
+If you need to restore from a snapshot, Amazon Redshift creates a new cluster and imports data from the snapshot that you specify.
+When you restore from a snapshot, Amazon Redshift creates a new cluster and makes the new cluster available before all of the data is loaded, so you can begin querying the new cluster immediately.
+The cluster streams data on demand from the snapshot in response to the active queries then loads the remaining data in the background.
+Amazon Redshift periodically takes snapshots and tracks incremental changes to the cluster since the last snapshot.
+Amazon Redshift retains all of the data required to restore a cluster from a snapshot.
+For more information on RedShift snapshots, please visit the below URL-
+http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+To meet the recovery needs of the client for the Redshift cluster, it is essential to ensure that the data is available for recovery in the event of a disaster. In this scenario, the client has an RTO objective of one hour and an RPO of one day. RTO stands for Recovery Time Objective, which is the maximum acceptable downtime for the system, and RPO stands for Recovery Point Objective, which is the maximum amount of data loss that is acceptable.
+Among the given options, the best configuration that meets the client's recovery needs for this specific Redshift cluster configuration is option B, which is to enable automatic snapshots and configure automatic snapshot copy from the current production cluster to the disaster recovery region.
+Enabling automatic snapshots will ensure that the data in the Redshift cluster is backed up regularly, and in the event of a disaster, the cluster can be restored to a recent point in time using the latest snapshot. Configuring automatic snapshot copy to the disaster recovery region will ensure that the snapshots are available in the secondary region and can be launched in the event of a disaster.
+This configuration meets the client's RPO objective of one day as automatic snapshots are taken regularly, and data loss would be limited to the period between the last snapshot and the time of the disaster. Additionally, the RTO objective of one hour can be met by launching the snapshot in the disaster recovery region and redirecting traffic to the secondary region.
+Option A is not the best configuration as it only copies snapshots to the disaster recovery region and does not configure automatic snapshot copy. This means that if a disaster occurs, the snapshots will need to be manually copied from the primary region to the secondary region, which may result in additional downtime.
+Option C is also not the best configuration as it requires manual copying of the snapshot to the secondary region in the event of a disaster, which may result in additional downtime and potentially impact the RTO objective.
+Option D involves creating a secondary cluster and replicating data from the primary cluster to the secondary cluster. While this provides an additional layer of redundancy, it is not necessary to meet the client's recovery needs as it can be accomplished by configuring automatic snapshot copy to the disaster recovery region. Additionally, this option may be more complex and costly to implement.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question84:"link"
+
+

@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "808 - You decide to create a bucket on AWS S3 "
+---
+
+
+[.question]
+== 808-64a1defdaa736d27b1db92c1.
+
+
+****
+
+[.query]
+--
+You decide to create a bucket on AWS S3 called 'mybucket' and then perform the following actions in the order that they are listed here.
+
+
+--
+
+[.list]
+--
+* [*] A. There will be 1 version ID for file1, 2 version IDs for file2, and 1 version ID for file3.
+* [*] B. The version ID for file1 will be null. There will be 2 version IDs for file2, and 1 version ID for file3.
+* [ ] C. There will be 1 version ID for file1, the version ID for file2 will be null, and there will be 1 version ID for file3.
+* [ ] D. All file version ID`s will be null because versioning must be enabled before uploading objects to `mybucket`.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Objects stored in your bucket before you set the versioning state have a version ID of null.
+When you enable versioning, existing objects in your bucket do not change.
+What changes is how Amazon S3 handles the objects in future requests.
+Option A is incorrect because the version ID for file1 would be null.
+Option B is CORRECT because the file1 was put in the bucket before the versioning was enabled.
+Hence, it will have a null version ID.
+The file2 will have two version IDs, and file3 will have a single version ID.Option C is incorrect because file2 cannot have a null version ID as the versioning was enabled before putting it in the bucket.
+Option D is incorrect because once the versioning is enabled, all the files put after that will not have a null version ID.
+But file1 was put before versioning was enabled.
+So it will have null as its version ID.For more information on S3 versioning, please visit the below link.
+http://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
+In AWS S3, versioning can be enabled for a bucket to preserve, retrieve, and restore every version of an object stored in the bucket. Versioning can help you to protect against accidental overwrites, deletions, and malicious actions.
+For the given scenario, assuming versioning is enabled on the bucket mybucket, the following actions are performed:
+1. An object named file1 is uploaded to the bucket mybucket.
+2. file2 is uploaded to the bucket mybucket, but with the same key as file1.
+3. file2 is uploaded again to the bucket mybucket, but with a different key.
+4. file3 is uploaded to the bucket mybucket.
+Based on these actions, the following are the possible outcomes:
+A. There will be 1 version ID for file1, 2 version IDs for file2, and 1 version ID for file3. - This is not correct, as file2 was uploaded twice, so there should be 2 version IDs for file1.
+B. The version ID for file1 will be null. There will be 2 version IDs for file2, and 1 version ID for file3. - This is the correct answer, as file2 was uploaded twice, so there should be 2 version IDs for file2.
+C. There will be 1 version ID for file1, the version ID for file2 will be null, and there will be 1 version ID for file3. - This is not correct, as file2 was uploaded twice, so there should be 2 version IDs for file2.
+D. All file version IDs will be null because versioning must be enabled before uploading objects to mybucket. - This is not correct, as versioning can be enabled after objects are uploaded to a bucket. However, if versioning is not enabled, then all objects will have a null version ID.
+Therefore, the correct answer is B: The version ID for file1 will be null. There will be 2 version IDs for file2, and 1 version ID for file3.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question11:"link"
+
+

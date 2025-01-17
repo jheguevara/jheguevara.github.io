@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "868 - A company has a Redshift cluster for pet"
+---
+
+
+[.question]
+== 868-64a1df10aa736d27b1db930b.
+
+
+****
+
+[.query]
+--
+A company has a Redshift cluster for petabyte-scale data warehousing.
+The data within the cluster is easily reproducible from additional data stored on Amazon S3
+The company wants to reduce the overall cost of running this Redshift cluster.
+Which scenario would meet best for the needs of the running cluster? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Disable automated backups. Create a read-replica in another region for disaster recovery.
+* [*] B. Enable automated snapshots but set the retention period to a lower number to reduce storage costs.
+* [ ] C. Implement daily backups but do not enable multi-region copy to save data transfer costs.
+* [ ] D. Disable manual snapshots on the cluster.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Snapshots are point-in-time backups of a cluster.
+There are two types of snapshots: automated and manual.
+Amazon Redshift stores these snapshots internally in Amazon S3 using an encrypted Secure Sockets Layer (SSL) connection.
+If you need to restore from a snapshot, Amazon Redshift creates a new cluster and imports data from the snapshot that you specify.
+Option A is incorrect because AWS Redshift does not have the concept of read replica.
+Option B is CORRECT because
+"There is no additional charge for backup storage up to 100% of your provisioned storage for an active data warehouse cluster"
+Therefore, if we reduce to a 1-day retention period for the backup, we can save costs too.
+Refer link: https://aws.amazon.com/redshift/pricing/
+Option C is incorrect because implementing daily backup is going to be more expensive than option.
+B.Option D is incorrect because we cannot get disabled manual snapshots.
+In this scenario, we need to reconfigure the automated snapshots.
+For more information on Redshift snapshots, please visit the below URL-
+http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+The correct answer for reducing the overall cost of running a Redshift cluster is Option B: Enable automated snapshots but set the retention period to a lower number to reduce storage costs.
+Explanation: Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. It allows you to store and analyze large amounts of data using SQL queries. Redshift provides various features like backups, snapshots, and replication to ensure high availability, durability, and disaster recovery.
+In this scenario, the company wants to reduce the overall cost of running the Redshift cluster. The data within the cluster is easily reproducible from additional data stored on Amazon S3. Therefore, the company can use automated snapshots to reduce storage costs.
+Option A, to disable automated backups and create a read-replica in another region for disaster recovery, is not a cost-effective solution. Read replicas can be used to improve performance, but they do not reduce storage costs. Moreover, disabling automated backups can put data at risk.
+Option C, to implement daily backups but do not enable multi-region copy to save data transfer costs, is not a recommended solution. Multi-region copy is important for disaster recovery and business continuity. It ensures that your data is available even if there is a disruption in the primary region.
+Option D, to disable manual snapshots on the cluster, is not recommended because manual snapshots can be used to capture a point-in-time backup of the cluster. This is important for disaster recovery and to protect against accidental data loss.
+Therefore, the best solution to reduce the overall cost of running the Redshift cluster is to enable automated snapshots but set the retention period to a lower number to reduce storage costs. This will ensure that the data is protected against accidental deletion or corruption while also reducing storage costs.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question87:"link"
+
+

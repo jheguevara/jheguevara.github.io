@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "857 - Regarding encryption on data stored on y"
+---
+
+
+[.question]
+== 857-64a1df0caa736d27b1db92fd.
+
+
+****
+
+[.query]
+--
+Regarding encryption on data stored on your databases, namely Amazon RDS, which of the following statements is true? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Encryption cannot be enabled on RDS instances using the AWS console.
+* [*] B. Encryption can be enabled on RDS instances to encrypt the underlying storage. This will, by default, also encrypt snapshots as they are created. No additional configuration needs to be made on the client-side for this to work.
+* [ ] C. Encryption can be enabled on RDS instances to encrypt the underlying storage, and this will by default also encrypt snapshots as they are created. However, some additional configuration needs to be made on the client-side for this to work.
+* [ ] D. Encryption can be enabled on RDS instances to encrypt the underlying storage, but you cannot encrypt snapshots as they are created.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Tip for the exam: You can encrypt your Amazon RDS instances and snapshots at rest by enabling the encryption option for your Amazon RDS DB instance (only certain EC2 instance types support encryption, more information is given below)
+Data that is encrypted at rest includes the underlying storage for a DB instance, its automated backups, Read Replicas, and snapshots.
+Option A is incorrect because the RDS instance encryption can be done through the AWS console.
+Option B is CORRECT because once the encryption is enabled, its automated backups, read replicas, and snapshots are automatically encrypted without the need for any additional settings.
+Option C is incorrect because no additional configurations need to be made from the client side, once the encryption is enabled.
+Option D is incorrect because, as mentioned above, the snapshots get automatically encrypted once the encryption is turned-on on the RDS instance.
+For more information on RDS encryption, please visit the below URL-
+http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
+See the list of instance types that support the encryption-
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Availability
+The correct answer is B: Encryption can be enabled on RDS instances to encrypt the underlying storage. This will, by default, also encrypt snapshots as they are created. No additional configuration needs to be made on the client-side for this to work.
+Amazon RDS (Relational Database Service) is a managed database service provided by Amazon Web Services (AWS). It allows users to easily deploy, operate, and scale relational databases in the cloud. RDS supports various popular database engines, such as MySQL, PostgreSQL, Oracle, and SQL Server.
+Encryption is a security feature that protects sensitive data by converting it into an unreadable format that can only be deciphered with a secret key. AWS provides various encryption options for RDS to help customers protect their data at rest and in transit.
+To enable encryption on RDS, users can choose to use either AWS-managed keys or customer-managed keys. AWS-managed keys are managed by AWS Key Management Service (KMS), a fully managed service that makes it easy to create and control encryption keys. Customer-managed keys, on the other hand, are managed by the user and can be imported into KMS for use with RDS.
+Option A is incorrect because encryption can be enabled on RDS instances using the AWS console. In fact, it is one of the easiest ways to enable encryption on RDS. When creating an RDS instance, users can select the option to enable encryption and choose the encryption key to use.
+Option C is incorrect because there is no additional configuration needed on the client-side for encryption to work. Once encryption is enabled on an RDS instance, it will automatically encrypt all data stored on the underlying storage, including backups and snapshots.
+Option D is incorrect because encryption can also be enabled on snapshots as they are created. By default, RDS will encrypt snapshots using the same encryption key used for the underlying storage. Users can also choose to use a different encryption key for snapshots.
+In summary, encryption can be enabled on RDS instances to encrypt the underlying storage, and this will automatically encrypt backups and snapshots. Users can choose to use either AWS-managed or customer-managed keys. There is no additional configuration needed on the client-side for encryption to work.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question73:"link"
+
+

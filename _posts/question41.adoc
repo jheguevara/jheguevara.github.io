@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "841 - Youre running a financial application on"
+---
+
+
+[.question]
+== 841-64a1df07aa736d27b1db92e8.
+
+
+****
+
+[.query]
+--
+You're running a financial application on an EC2 instance.
+Data stored in the EBS volumes is critical and you want to make it fault-tolerant.
+Which of the following options provides the most fault-tolerant configuration?
+
+
+--
+
+[.list]
+--
+* [*] A. Mirror the data using RAID 1 configuration, which provides fault tolerance on EBS volumes.
+* [ ] B. Nothing is required since EBS volumes are durability backed up to additional hardware in the same availability zone.
+* [ ] C. Mirror the data using RAID 5 configuration to improve the I/O performance on EBS volumes.
+* [ ] D. Stripe multiple EBS volumes together with RAID 0, which provides fault tolerance on EBS volumes.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT because, as mentioned above, RAID 1 configuration maintains the exact copy of the data (via mirroring) in a backup EBS volume that can be used in case of the failure of the main volume, providing redundancy and fault tolerance.
+Option B is incorrect because, although each Amazon EBS volume is automatically replicated within its Availability Zone, it is done so to protect it from any component failure from the AWS side.
+It does not withstand any failures at the user level.
+It is the user's responsibility to replicate the data that is stored on the EBS volume.
+EBS volumes are not automatically backed up to additional hardware in the same availability zone.
+You will need to set up your backup strategy when using EBS volumes.
+EBS Snapshot Doc: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html.
+Option C is incorrect because RAID 5 does not improve the fault tolerance.
+RAID 5 and RAID 6 are not recommended for Amazon EBS because these RAID modes' parity write operations consume some of the IOPS available to your volumes.
+Option D is incorrect because RAID 0 configuration helps improve the performance but does not provide redundancy or mirroring of the data across disks.
+As a result of having data striped across all disks, any failure will result in total data loss.
+More information on RAID Configurations with EBS volumes:
+As per the AWS documentation, it is clearly given to use RAID 1 configuration for fault tolerance of EBS volumes.
+With Amazon EBS, you can use any of the standard RAID configurations that you can use with a traditional bare metal server, as long as the operating system for your instance supports that particular RAID configuration.
+This is because all RAID is accomplished at the software level.
+For greater I/O performance than you can achieve with a single volume, RAID 0 can stripe multiple volumes together; for on-instance redundancy, RAID 1 can mirror two volumes together.
+For more information on RAID configuration, please visit the below URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html
+Option A is partially correct in that RAID 1 configuration provides fault tolerance by mirroring the data across two EBS volumes. However, it is not the most fault-tolerant option because it only protects against the failure of one EBS volume. If both EBS volumes fail at the same time, the data will be lost.
+Option B is incorrect. Although EBS volumes are durable and backed up to additional hardware in the same availability zone, this does not provide fault tolerance in case of a failure of the EBS volume or the EC2 instance itself.
+Option C is incorrect because RAID 5 configuration does not provide fault tolerance on EBS volumes. RAID 5 is a striping method that provides improved I/O performance by distributing data across multiple EBS volumes. It does offer some protection against the failure of one EBS volume, but not against the failure of multiple EBS volumes.
+Option D is incorrect because RAID 0 does not provide any fault tolerance. It is a striping method that combines multiple EBS volumes into one logical volume, providing improved I/O performance but no protection against failure.
+The most fault-tolerant configuration for critical data stored in EBS volumes would be to use a combination of RAID 1 mirroring and a multi-Availability Zone (multi-AZ) deployment. Multi-AZ deployment involves running the application and storing the data on EBS volumes in multiple availability zones. In case of a failure in one availability zone, the application can automatically switch to the EBS volumes in another availability zone, ensuring continuous availability of the application and data.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question52:"link"
+
+

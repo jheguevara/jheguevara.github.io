@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "820 - Your company has HQ in Tokyo and branch "
+---
+
+
+[.question]
+== 820-64a1df01aa736d27b1db92d0.
+
+
+****
+
+[.query]
+--
+Your company has HQ in Tokyo and branch offices worldwide and uses logistics software with a multi-regional deployment on AWS in Japan, Europe and USA.
+The logistic software has a 3-tier architecture and currently uses MySQL 5.6 for data persistence.
+Each region has deployed its own database.
+In the HQ region, you run an hourly batch process reading data from every region to compute cross-regional reports sent by email to all offices.
+This batch process must be completed as fast as possible to optimize logistics quickly.
+How do you build the database architecture to meet the requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. For each regional deployment, use MySQL on EC2 with a master in the region and use S3 to copy data files hourly to the HQ region.
+* [ ] B. For each regional deployment, use MySQL on EC2 with a master in the region and send hourly EBS snapshots to the HQ region.
+* [ ] C. For each regional deployment, use RDS MySQL with a master in the region and send hourly RDS snapshots to the HQ region.
+* [*] D. For each regional deployment, use RDS MySQL with a master in the region and a read replica in the HQ region.
+* [ ] E. Use Direct Connect to connect all regional MySQL deployments to the HQ region and reduce network latency for the batch process.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - D.
+The problem in the scenario is that an hourly batch process is currently run at the HQ region that reads the data from every region to compute cross-regional reports.
+This is a slow process and needs to be quickened.
+The most ideal scenario would be to have the replicated database in the HQ region updated asynchronously.
+Option A is incorrect because copying the data hourly to HQ region would be slow compared to the best option, which is.
+D.Option B is incorrect because (a) taking hourly EBS snapshots would affect the database's performance in its master region, and (b)copying the snapshots hourly across the region would be a slow process.
+Option C is incorrect because (a) taking hourly RDS snapshots would affect the database's performance in its master region, and (b)sending the snapshots hourly across the region would be a slow and very costly process.
+Option D is CORRECT because (a) it creates a read replica in the HQ region updated asynchronously.
+This way, generating the reports would be very quick, and (b) it does not affect the databases' performance in their respective master region.
+Option E is incorrect because AWS Direct Connect is useless when there is no on-premise datacenter involved.
+For more information on cross-region read replicas, please visit the link below.
+https://aws.amazon.com/blogs/aws/cross-region-read-replicas-for-amazon-rds-for-mysql/
+The requirement is to optimize logistics quickly by completing the hourly batch process as fast as possible. The current architecture uses MySQL 5.6 for data persistence and has a 3-tier architecture with regional deployments in Japan, Europe, and USA. Each region has its own database. The data needs to be aggregated from all regions in the HQ region to compute cross-regional reports sent by email to all offices.
+Option A suggests using MySQL on EC2 with a master in each regional deployment and using S3 to copy data files hourly to the HQ region. This option requires managing EC2 instances, replication, and backups. Moreover, it does not provide a real-time data replication mechanism, and copying data files hourly can cause data loss and inconsistency.
+Option B suggests using MySQL on EC2 with a master in each regional deployment and sending hourly EBS snapshots to the HQ region. This option also requires managing EC2 instances, replication, and backups. Sending EBS snapshots is faster than copying data files, but it can still cause data loss and inconsistency.
+Option C suggests using RDS MySQL with a master in each regional deployment and sending hourly RDS snapshots to the HQ region. RDS provides managed database services, which eliminates the need for managing EC2 instances, replication, and backups. RDS snapshots are faster and provide better data consistency than EBS snapshots or copying data files. However, sending RDS snapshots can cause a network overhead and may not provide real-time data replication.
+Option D suggests using RDS MySQL with a master in each regional deployment and a read replica in the HQ region. This option provides real-time data replication with low network overhead. RDS read replicas can handle read traffic and improve query performance, which can help optimize logistics quickly. However, RDS read replicas lag behind the master, and this can cause data inconsistency.
+Option E suggests using Direct Connect to connect all regional MySQL deployments to the HQ region and reduce network latency for the batch process. Direct Connect provides a dedicated network connection between regions, which can reduce network latency and improve data transfer speed. However, Direct Connect requires additional configuration and may not provide real-time data replication.
+Out of these options, the best choice is Option D. Using RDS MySQL with a master in each regional deployment and a read replica in the HQ region provides real-time data replication with low network overhead, read traffic handling, and query performance improvement. It also eliminates the need for managing EC2 instances, replication, and backups. The RDS service takes care of all the heavy lifting, including backups, software patching, and maintenance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question27:"link"
+
+

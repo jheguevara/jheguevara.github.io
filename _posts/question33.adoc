@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "833 - You are migrating an existing applicatio"
+---
+
+
+[.question]
+== 833-64a1df05aa736d27b1db92df.
+
+
+****
+
+[.query]
+--
+You are migrating an existing application to AWS cloud that would be communicating with EC2 instances in the VPC.
+You need to make this application highly available.
+The application currently relies on hard-coded host names for communication between the various tiers.
+You have migrated the application and configured multi-tier using the internal elastic load balancer for serving traffic.
+The load balancer host name is "demo-app.us-east-1.elb.amazonaws.com"
+The current hard coded host name in your application for internal communication between your multi-tier application is "demolayer.example.com"
+How can you architect a solution for high availability?
+
+
+--
+
+[.list]
+--
+* [*] A. Create an environment variable passed to the EC2 instances using "user-data" with the ELB host name "demo-app.us-east-1.elb.amazonaws.com"
+* [*] B. Create a PRIVATE resource record set using Route53 with a host name of "demolayer.example.com" and an ALIAS record to "demo-app.us-east-1.elb.amazonaws.com"
+* [ ] C. Create a PUBLIC resource record set using Route53 with a host name of "demolayer.example.com" and an ALIAS record to "demo-app.us-east-1.elb.amazonaws.com"
+* [ ] D. Add a CNAME record to the existing on-premise DNS server with a value of "demo-app.us-east-1.elb.amazonaws.com". Create a PUBLIC resource record set using Route53 with a host name of "applayer.example.com" and an ALIAS record to "demo-app.us-east-1.elb.amazonaws.com"
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Since demolayer.example.com is an internal DNS record, the best way is Route 53 to create an internal resource record.
+One can then point the resource record to the create ELB.While ordinary Amazon Route 53 resource record sets are standard DNS resource record sets, alias resource record sets provide an Amazon Route 53-specific extension to DNS functionality.
+Instead of an IP address or a domain name, an alias resource record set contains a pointer to a CloudFront distribution, an Elastic Beanstalk environment, an ELB Classic or Application Load Balancer, an Amazon S3 bucket that is configured as a static website, or another Amazon Route 53 resource record set in the same hosted zone.
+Option A is incorrect because it does not mention how to map between the existing hard-coded hostname and the ELB hostname.
+Option B is CORRECT because it creates an internal ALIAS recordset where it defines the mapping between the hard-coded hostname and the ELB hostname that is to be used.
+Options C and D are incorrect because they should create a private recordset, not public since the mapping between the hard-coded hostname and ELB hostname should be done internally.
+For more information on alias and non-alias records, please refer to the below link-
+http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
+The best answer for this question would be B. Create a PRIVATE resource record set using Route53 with a host name of "demolayer.example.com" and an ALIAS record to "demo-app.us-east-1.elb.amazonaws.com".
+Explanation:
+The scenario is that an existing application is being migrated to AWS cloud and needs to be made highly available. The application is multi-tiered and currently relies on hard-coded host names for communication between tiers.
+To make the application highly available, an Elastic Load Balancer (ELB) is configured to serve traffic. The load balancer's hostname is "demo-app.us-east-1.elb.amazonaws.com". However, the existing hard-coded hostname in the application is "demolayer.example.com". Therefore, a solution is needed to ensure that communication between tiers of the application continues to function properly.
+Option A suggests passing the ELB hostname to the EC2 instances using "user-data". This approach could work but has limitations. It requires modifying the configuration of each EC2 instance, which may not be scalable or practical. Additionally, if the ELB's hostname changes for any reason, all the EC2 instances would need to be updated accordingly.
+Option B suggests creating a PRIVATE resource record set in Route53. This approach is preferred because it allows for decoupling the hostname of the ELB from the application itself. The PRIVATE resource record set is not publicly accessible and is only visible within the VPC. This approach ensures that the communication between tiers remains private and secure.
+Option C suggests creating a PUBLIC resource record set in Route53. This approach is not recommended since it would expose the hostname of the ELB publicly. This could be a security concern, and it is not necessary since the communication between tiers is internal to the VPC.
+Option D suggests adding a CNAME record to an existing on-premise DNS server. This approach is not recommended since it would introduce additional complexity to the architecture. It is preferable to use Route53 since it is a fully managed service that integrates well with other AWS services.
+In conclusion, the best approach for ensuring high availability in this scenario is to create a PRIVATE resource record set using Route53 with a host name of "demolayer.example.com" and an ALIAS record to "demo-app.us-east-1.elb.amazonaws.com". This approach ensures that communication between tiers remains private, secure, and decoupled from the ELB hostname.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question43:"link"
+
+

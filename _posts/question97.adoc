@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "897 - You are running a news website in the EU"
+---
+
+
+[.question]
+== 897-64a1df19aa736d27b1db9333.
+
+
+****
+
+[.query]
+--
+You are running a news website in the EU-west-1 region that updates every 15 minutes.
+The website has a worldwide audience.
+It uses an Auto Scaling group behind an Elastic Load Balancer and an Amazon RDS database.
+Static content resides on Amazon S3 and is distributed through Amazon CloudFront.
+Your Auto Scaling group is set to trigger a scale-up event at 60% CPU utilization.
+You use an Amazon RDS extra large DB instance with 10,000 Provisioned IOPS.
+Its CPU utilization is around 80%
+Freeable memory is in the 2 GB range.
+Web analytics reports show that the average load time of your web pages is around 1.5 to 2 seconds, but your SEO consultant wants to bring down the average load time to under 0.5 seconds.
+Which of the following option would NOT help to improve page load times for your users?
+
+
+--
+
+[.list]
+--
+* [*] A. Lower the scale-up trigger of your Auto Scaling group to 30%, so it scales more aggressively.
+* [ ] B. Add an Amazon ElastiCache caching layer to your application for storing sessions and frequent DB queries.
+* [ ] C. Configure Amazon CloudFront dynamic content support to enable caching of re-usable content from your site.
+* [ ] D. Configure read replicas for RDS Database Instance.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+In this scenario, there are three major points of consideration.
+(1) news website updates every 15 minutes,
+(2) current average load time is high, and.
+(3) the performance of the website should be improved (i.e., read performance needs improvement).
+When the questions ask for performance improvement solutions for read-heavy applications, always see if any of the options contain caching solutions such as ElastiCache, CloudFront, or Read Replicas.
+Option A (why option A is correct): Lowering scale up trigger of ASG will not help to improve the page load time of users.
+Option B is INCORRECT because using an ElastiCache for storing sessions as well as for frequent DB queries would reduce the load on the database.
+This would help to increase the read performance.
+Since the question is asking for a NOT recommended option, this option is INCORRECT.
+Option C is incorrect because it uses CloudFront, a network of globally distributed "edge-locations" that caches the content and improves user experience.
+Option D is incorrect because scaling up the RDS read replicas will help improve read performance.
+The correct answer is A. Lower the scale-up trigger of your Auto Scaling group to 30%, so it scales more aggressively.
+Explanation:
+To improve page load times for your users, you need to focus on reducing the latency of your application. Latency can be reduced by reducing the round-trip time (RTT) between the user's browser and the web server.
+Option A: Lower the scale-up trigger of your Auto Scaling group to 30%, so it scales more aggressively. This option would not help to improve page load times for your users because it would cause the Auto Scaling group to spin up additional instances even when they are not needed. This could result in unnecessary cost and complexity without any significant improvement in latency.
+Option B: Add an Amazon ElastiCache caching layer to your application for storing sessions and frequent DB queries. ElastiCache can be used to cache frequently accessed data and reduce the number of round-trips to the RDS database. By reducing the RTT, ElastiCache can help to improve the page load times for your users.
+Option C: Configure Amazon CloudFront dynamic content support to enable caching of re-usable content from your site. CloudFront can cache frequently accessed content and serve it from edge locations around the world, reducing the RTT and improving page load times for users. This option can also help to reduce the load on the origin server.
+Option D: Configure read replicas for RDS Database Instance. Read replicas can be used to offload read traffic from the primary RDS instance and reduce the load on it. By reducing the load on the primary instance, read replicas can help to improve the page load times for your users.
+In conclusion, option A would not help to improve page load times for your users, while options B, C, and D can all help to reduce the latency and improve page load times.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question127:"link"
+
+

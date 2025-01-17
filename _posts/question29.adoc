@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "829 - Your company is running a microserviceba"
+---
+
+
+[.question]
+== 829-64a1df03aa736d27b1db92d9.
+
+
+****
+
+[.query]
+--
+Your company is running a microservice-based application.
+They are using DynamoDB to store the data and AWS API Gateway for managing the Rest APIs.
+They are also using Lambda non-proxy integration.
+The development team recently made a change to one Rest API method.
+After that, the API does not seem to work as expected.
+You have been asked to troubleshoot the issue.
+Which is the correct statement?
+
+
+--
+
+[.list]
+--
+* [*] A. You can’t change the Rest APIs in AWS API Gateway.
+* [*] B. As the development team has recently done the change in the method of the Rest API. They should Redeploy the API.
+* [ ] C. As the development team has recently done the change in the stage of the Rest API. They should Redeploy the API.
+* [ ] D. You should change the Cache time-to-live (TTL) value and update the Lambda Code.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: B.
+Option A is incorrect because we can make changes in the Rest APIs in AWS API Gateway.
+Option B is Correct because updates to the method require Redeployment of the API.
+Option C is Incorrect because an update to the stage doesn't require the Redeployment of the API.
+Option D is incorrect because it's not mentioned in the question that they are using the caching.
+Reference:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/updating-api.html https://www.youtube.com/watch?v=9ElpSPXk-g8
+The correct statement in this scenario is B. As the development team has recently made a change in the method of the Rest API, they should redeploy the API.
+AWS API Gateway is a fully managed service that makes it easy for developers to create, deploy, and manage APIs. It allows developers to create Rest APIs, WebSocket APIs, and HTTP APIs that can connect to AWS services or any publicly available HTTP endpoint.
+DynamoDB is a fast and flexible NoSQL database service provided by AWS. It allows developers to store and retrieve any amount of data, and it automatically scales up or down to handle any amount of traffic.
+Lambda is a serverless computing service provided by AWS that allows developers to run code without provisioning or managing servers. With Lambda, developers can write code in different programming languages, such as Python, Java, and Node.js, and execute it in response to triggers, such as changes in data in DynamoDB or events from API Gateway.
+In this scenario, the development team has made a change to one Rest API method, and the API does not seem to work as expected. This could be due to a number of reasons, such as an incorrect configuration of the API Gateway or Lambda, an error in the Lambda code, or a problem with the data in DynamoDB.
+To troubleshoot the issue, the first step is to identify the root cause of the problem. This could involve checking the API Gateway logs, the Lambda logs, and the DynamoDB logs to see if there are any errors or issues. Once the root cause is identified, the appropriate action can be taken to resolve the issue.
+In this scenario, the correct statement is B. As the development team has recently made a change in the method of the Rest API, they should redeploy the API. Redeploying the API will update the API Gateway configuration and ensure that the new method is correctly configured and integrated with the Lambda function. This will also ensure that any changes to the Lambda code are properly deployed and executed.
+Changing the cache time-to-live (TTL) value and updating the Lambda code, as suggested in option D, may not be the correct action to take in this scenario, as the issue may be related to the API Gateway configuration or the way the API is integrated with the Lambda function. Therefore, it is important to identify the root cause of the issue before taking any action.
+Option A, stating that you can't change Rest APIs in AWS API Gateway, is incorrect. API Gateway allows developers to create, deploy, and manage APIs, including making changes to the Rest APIs as needed.
+Option C, stating that the development team should redeploy the API because they made a change in the stage of the Rest API, may not be the correct action to take in this scenario, as it is unclear whether the change was made in the stage or the method of the API. However, if the change was made in the stage, redeploying the API would be the correct action to take.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question36:"link"
+
+

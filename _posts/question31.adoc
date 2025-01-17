@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "831 - Youre building a mobile application game"
+---
+
+
+[.question]
+== 831-64a1df04aa736d27b1db92dc.
+
+
+****
+
+[.query]
+--
+You're building a mobile application game.
+The application needs permissions for each user to communicate and store data in DynamoDB tables.
+What is the best method for granting each mobile device that installs your application to access DynamoDB tables for storage when required? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. During the install and game configuration process, each user creates an IAM credential and assigns the IAM user to a group with proper permissions to communicate with DynamoD.
+* [ ] B. Create an IAM group that only gives access to your application and the DynamoDB tables. Then, when writing to DynamoDB, simply include the unique device ID to associate the data with that specific user.
+* [*] C. Create an IAM role with the proper permission policy to communicate with the DynamoDB table. Use web identity federation, which assumes the IAM role using AssumeRoleWithWebIdentity, when the user signs in, granting temporary security credentials using STS.
+* [ ] D. Create an Active Directory server and an AD user for each mobile application user. When the user signs in to the AD sign-on, allow the AD server to federate using SAML 2.0 to IAM and assign a role to the AD user which is assumed with AssumeRoleWithSAML.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because IAM Roles are preferred over IAM Users because IAM Users have to access the AWS resources using access and secret keys, which is a security concern.
+Option B is not a feasible configuration.
+Option C is CORRECT because it (a) creates an IAM Role with the needed permissions to connect to DynamoDB, (b) it authenticates the users with Web Identity Federation, and (c) the application accesses the DynamoDB with temporary credentials that are given by STS.
+Option D is incorrect because creating the Active Directory (AD) server and using AD for authenticating are unnecessary and costly.
+See the note below for more information on AssumeRoleWithWebIdentity API.
+When you write such an app, you'll make requests to AWS services that must be signed with an AWS access key.
+However, we strongly recommend that you do not embed or distribute long-term AWS credentials with apps that users download to a device, even in an encrypted store.
+Instead, build your app to request temporary AWS security credentials dynamically when needed using web identity federation.
+The supplied temporary credentials map to an AWS role that has only the permissions needed to perform the tasks required by the mobile app.
+For more information on web identity federation, please refer to the below link-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
+The best method for granting each mobile device that installs your application to access DynamoDB tables for storage when required is option C, which involves creating an IAM role with the proper permission policy to communicate with the DynamoDB table and using web identity federation to grant temporary security credentials using STS when the user signs in.
+Explanation:
+Option A is not recommended because IAM users are intended for long-term use and not suited for mobile devices that may change frequently. Additionally, creating IAM credentials for each user during game configuration can be time-consuming and difficult to manage.
+Option B may be a viable solution, but it requires the developer to manage the mapping of device IDs to IAM users, which can be challenging and error-prone.
+Option C is the recommended approach as it uses web identity federation, which allows your application to authenticate users through popular identity providers such as Amazon, Facebook, and Google, among others. By assuming an IAM role with the proper permissions to communicate with DynamoDB, the user is granted temporary security credentials that can be used to access DynamoDB. This approach ensures that the mobile device can access the DynamoDB table without the need for a long-lived IAM user, and it is secure as the temporary security credentials are limited in time.
+Option D is not a recommended solution for mobile applications as it involves creating an Active Directory server and an AD user for each mobile application user. This approach is more suited for enterprise-level applications and not mobile games. Additionally, it involves more complexity and maintenance overhead.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question39:"link"
+
+
