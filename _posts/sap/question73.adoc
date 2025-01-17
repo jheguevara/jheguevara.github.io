@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "873 - BCJC is running Oracle DB workloads on A"
+---
+
+
+[.question]
+== 873-64a1df11aa736d27b1db9310.
+
+
+****
+
+[.query]
+--
+BCJC is running Oracle DB workloads on AWS.
+Currently, they are running the Oracle RAC (Real Application Cluster) configuration on the AWS public cloud.
+You've been tasked with configuring snapshots on the RAC cluster to enable durability.
+What is the best method for configuring snapshots to become backups eventually?
+
+
+--
+
+[.list]
+--
+* [*] A. Create manual snapshots of the RDS backup and write a script that runs the manual snapshot.
+* [ ] B. Enable Multi-AZ failover on the RDS RAC cluster to reduce the RPO and RTO in the event of disaster or failure.
+* [*] C. Create a script that runs snapshots against the EBS volumes to create backups.
+* [ ] D. Enable automated backups on the RDS RAC cluster; enable auto snapshot copy to a backup region to reduce RPO and RTO.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Currently, Oracle Real Application Cluster (RAC) is not supported as per the AWS documentation.
+However, you can deploy scalable RAC on Amazon EC2 using the recently-published tutorial and Amazon Machine Images (AMI)
+So, to create the snapshots (for an eventual backup), you need to save a point-in-time view of the EC2 that is deployed for RAC in the form of a snapshot and create a script that runs snapshots against the EBS volumes, and run it against the snapshot.
+Options A, B, and D are all incorrect because RDS does not support Oracle RAC.Option C is CORRECT because Oracle RAC is supported via the deployment using Amazon EC2
+Hence, for the data backup, you can create a script that takes the snapshots of the EBS volumes.
+For more information on Oracle RAC on AWS, please visit the below URLs-
+https://aws.amazon.com/about-aws/whats-new/2015/11/self-managed-oracle-rac-on-ec2/ https://aws.amazon.com/articles/oracle-rac-on-amazon-ec2/ https://aws.amazon.com/blogs/database/amazon-aurora-as-an-alternative-to-oracle-rac/
+Option D is the correct answer for configuring snapshots on the RAC cluster to enable durability.
+Explanation:
+Oracle RAC (Real Application Cluster) is a popular database clustering technology used to improve scalability, availability, and performance. It is a complex technology that involves multiple nodes and shared storage. To configure snapshots on the RAC cluster, we need to consider the following:
+1.
+Data Durability: We need to ensure that the data is safe and can be recovered in the event of failure or disaster.
+2.
+RPO (Recovery Point Objective): It is the maximum acceptable data loss in the event of a failure. The lower the RPO, the better.
+3.
+RTO (Recovery Time Objective): It is the maximum acceptable downtime in the event of a failure. The lower the RTO, the better.
+Option A is not a recommended method for configuring snapshots. Manual snapshots require human intervention and are prone to errors. We need an automated method to ensure data durability and reduce RPO and RTO.
+Option B is not relevant to configuring snapshots. Multi-AZ failover is a feature of Amazon RDS that provides high availability and automatic failover capability. It does not address the snapshot configuration.
+Option C is not a recommended method for configuring snapshots. Creating snapshots against EBS volumes is a possible method for backing up data, but it does not take into account the complexities of the RAC cluster, such as shared storage.
+Option D is the recommended method for configuring snapshots on the RAC cluster. Enabling automated backups on the RDS RAC cluster provides a consistent and reliable backup mechanism. It also enables the auto snapshot copy feature to copy backups to a backup region, reducing RPO and RTO. With this configuration, backups are taken automatically at a defined interval, ensuring data durability and reducing the risk of data loss in the event of a failure or disaster.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question92:"link"
+
+

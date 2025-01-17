@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "859 - Your security officer has told you that "
+---
+
+
+[.question]
+== 859-64a1df0daa736d27b1db92ff.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_yw6lzg.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your security officer has told you that you need to tighten up the logging of all events that occur on your AWS account.
+He wants to be able to access all events that occur on the account across all regions quickly and in the simplest possible manner.
+He also wants to make sure that he is the only person who can access these events in the most secure way possible.
+Which of the following would be the best solution to assure his requirements are met? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+Create Trail
+
+Trail name* CloudTrail1
+
+Apply trail to allregions @ Yes No
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use CloudTrail to log all events to one S3 bucket. Make this S3 bucket only accessible by your security officer with a bucket policy that restricts access to his user only and adds MFA to the policy for a further security level.
+* [ ] B. Use CloudTrail to log all events to an Amazon Glacier Vault. Make sure the vault access policy only grants access to the security officer`s IP address.
+* [ ] C. Use CloudTrail to send all API calls to CloudWatch and send an email to the security officer every time an API call is made. Make sure the emails are encrypted.
+* [ ] D. Use CloudTrail to log all events to a separate S3 bucket in each region as CloudTrail cannot write to a bucket in a different region. Use MFA and bucket policies on all the different buckets.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The main points to consider in this scenario is: (1)the security officer needs to access all events that occur on the account across all the regions, and (2) only that security officer should have the access.
+Option A is CORRECT because it configures only one S3 bucket for all the CloudTrail log events on the account across all the regions.
+It also restricts access to the security officer only via the bucket policy.
+See the images below:
+Option B is incorrect because it uses Amazon Glacier vaults, an archival solution and is not used to store the CloudTrail logs.
+Option C is incorrect because sending the API calls to CloudWatch is unnecessary.
+Also, notifying the security officer via email is not a good nor a secure architecture.
+Option D is incorrect because CloudTrail provides an option where are all the logs get delivered to a single S3 bucket.
+Putting all the logs in separate buckets is an overhead .
+More information on AWS CloudTrail.
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account.
+With CloudTrail, you can log, continuously monitor, and retain events related to API calls across your AWS infrastructure.
+CloudTrail provides a history of AWS API calls for your account, including API calls made through the AWS Management Console, AWS SDKs, command-line tools, and other AWS services.
+This history simplifies security analysis, resource change tracking, and troubleshooting.
+You can design CloudTrail to send all logs to a central S3 bucket.
+For more information on CloudTrail, please visit the below URL-
+https://aws.amazon.com/cloudtrail/
+The best solution to meet the security officer's requirements is option A: Use CloudTrail to log all events to one S3 bucket. Make this S3 bucket only accessible by your security officer with a bucket policy that restricts access to his user only and adds MFA to the policy for a further security level.
+CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It provides a history of all events that occur within an AWS account, including API calls made by users, AWS Management Console sign-ins, and AWS Management Console actions. By default, CloudTrail logs events in the region where the event occurred.
+Option A proposes to use one S3 bucket to store all CloudTrail logs, making it easier for the security officer to access all the events that occur in the account across all regions in a single location. By using a single bucket, it is easier to manage and secure the logs since you do not have to manage multiple buckets.
+To ensure that only the security officer can access the logs, a bucket policy that restricts access to the security officer's user should be applied. MFA should also be added to the policy to provide an additional layer of security. With MFA, the security officer would have to provide an additional authentication factor in addition to their password to access the S3 bucket, making it difficult for unauthorized access.
+Option B proposes to log all events to an Amazon Glacier Vault, which is a low-cost storage option for long-term data retention. However, Glacier is not optimized for fast access, and accessing logs may take some time. Additionally, restricting access to the vault by IP address is not a secure method since IP addresses can be spoofed or changed, which may lead to unauthorized access.
+Option C proposes to send all API calls to CloudWatch and send an email to the security officer every time an API call is made. While this option may provide an email notification to the security officer for every event, it may generate a large volume of emails, making it difficult to manage. Additionally, email may not be a secure method of communication, and there is a risk that the logs may be intercepted by unauthorized users.
+Option D proposes to log all events to separate S3 buckets in each region, which may lead to more significant overhead in managing the logs, as there would be a need to manage multiple buckets. Additionally, since CloudTrail cannot write to a bucket in a different region, it may not provide the security officer with a complete view of all events that occur across all regions in the account.
+In summary, Option A is the best solution to meet the security officer's requirements, as it provides a centralized and secure location for storing logs, with fine-grained access controls to ensure only the security officer can access the logs, and MFA for added security.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question75:"link"
+
+

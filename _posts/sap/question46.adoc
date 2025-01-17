@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "846 - A company is considering integrating its"
+---
+
+
+[.question]
+== 846-64a1df09aa736d27b1db92ed.
+
+
+****
+
+[.query]
+--
+A company is considering integrating its on-premises resources with AWS in a hybrid architecture without any security threats posed by the internet.
+Their goal is to run the customer-facing data collection processes in AWS.
+They have to transfer a huge volume of data from their on-premises environment to the EC2 instances running in an AWS VPC (with the data being stored in the volumes of the EC2 instances) daily using a high bandwidth connection which may save costs too.
+How can this be accomplished?
+
+
+--
+
+[.list]
+--
+* [*] A. Provision a VPN connection between the on-premise data center and the AWS region using the VPN section of a VP.
+* [*] B. Suggest provisioning a Direct Connect connection between the on-premise data center and the AWS region.
+* [ ] C. Suggest using AWS import/export to transfer the TBs of data while synchronizing the new data as it arrives.
+* [ ] D. Suggest leaving the data required for the application on-premise and use a VPN to query the on-premise database data from EC2 when required.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+In this question, the customer wants to transfer a large amount of data to VPC from the on-premises data center.
+The main architectural considerations are (1) the cost should be low, and (2) the data being transferred is new data every time.
+Option A is incorrect.
+Although setting up a VPN is a cost-effective solution, it may not have sufficient bandwidth for the data being transferred, especially since the data is new every time.
+Also, the data will be transferred over the internet.
+So, the new data adds to the unpredictability of the performance that the VPN connection would yield.
+So, the VPN connection may stay much longer than expected adding to the overall cost.
+Option B is CORRECT because (a) since it is a dedicated connection from on-premises data center to AWS, it takes out the unpredictable nature of the internet out of the equation, and (2) due to the high bandwidth availability, Direct Connect would most probably transfer the large amount of data quickly compared to VPN connection.
+Hence, it may well save the cost for the customer.
+Option C is incorrect because AWS Import/Export is not an ideal option since the data being transferred is new every time, since Import/Export is preferred mainly for first-time data migration and using VPN/Direct Connect later on.
+Option D is incorrect because it is the requirement that the data must be transferred to AWS, hence ruling out the option of leaving the data on-premise.
+For more information on AWS direct connect, browse to the below URL-
+https://aws.amazon.com/directconnect/
+Note: While I agree that the Direct Connect is costly, but compared to other options given, it is certainly the most viable.
+With the dedicated network connectivity and higher bandwidth, the data transfer would get done quicker than the internet.
+With Direct Connect, the initial setup cost would be more.
+But in the long run, it would be the most suitable solution even with regards to keeping the cost low.
+To transfer a large volume of data from on-premises to AWS, while ensuring that there are no security threats posed by the internet, a company can consider the following approaches:
+A. Provision a VPN connection between the on-premise data center and the AWS region using the VPN section of a VPC. This approach involves setting up a Virtual Private Network ( VPN) connection between the on-premises data center and the AWS region. This can be done using the VPN section of a Virtual Private Cloud (VPC) in AWS. Once the VPN connection is established, the company can transfer the data securely between the on-premises environment and the EC2 instances running in the AWS VPC. The VPN connection will ensure that the data is encrypted while in transit, and will help to prevent any unauthorized access to the data.
+B. Suggest provisioning a Direct Connect connection between the on-premise data center and the AWS region. Direct Connect is a dedicated network connection between the on-premises data center and an AWS region. This approach involves setting up a dedicated connection between the on-premises environment and the AWS region, which can provide a high-speed, low-latency connection for data transfer. This can be particularly useful for transferring large volumes of data, as it can be more cost-effective than using a VPN connection. Direct Connect also offers enhanced security, as the data does not travel over the internet, and is instead transmitted over a private network connection.
+C. Suggest using AWS import/export to transfer the TBs of data while synchronizing the new data as it arrives. AWS Import/Export is a service provided by AWS that allows customers to transfer large amounts of data to and from AWS using portable storage devices. This approach involves shipping the data to AWS using physical storage devices, such as hard drives or tapes, which are then imported into AWS using the Import/Export service. This can be a useful option for transferring large volumes of data, as it can be faster than transferring the data over the internet. Once the initial transfer is complete, the company can synchronize any new data as it arrives using a different transfer method, such as a VPN or Direct Connect connection.
+D. Suggest leaving the data required for the application on-premise and use a VPN to query the on-premise database data from EC2 when required. This approach involves leaving the data required for the application on-premises and using a VPN to query the data from EC2 instances running in the AWS VPC when required. This approach can be useful if the company does not need to transfer all of the data to AWS, or if the data is not required to be stored in AWS. However, it may not be the best option if the company requires high-performance access to the data, as accessing the data over a VPN connection can be slower than accessing it locally.
+In conclusion, there are several options available for transferring large volumes of data from an on-premises environment to AWS in a secure manner, including VPN, Direct Connect, AWS Import/Export, and leaving the data on-premises and accessing it using a VPN connection. The best approach will depend on the specific requirements of the company, including the volume of data to be transferred, the level of security required, and the performance requirements of the application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question57:"link"
+
+

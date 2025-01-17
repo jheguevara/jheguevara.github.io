@@ -1,0 +1,63 @@
+---
+layout: default 
+title: "877 - Your department creates a regular analyt"
+---
+
+
+[.question]
+== 877-64a1df12aa736d27b1db9316.
+
+
+****
+
+[.query]
+--
+Your department creates a regular analytics report from your company's log files stored in S3
+The daily EMR jobs produce the PDF reports and the aggregated tables in CSV format as an input to the Redshift data warehouse, and these are accessed frequently.
+You notice that the average EMR hourly usage is more than 25% but less than 50%.
+
+
+--
+
+[.list]
+--
+* [*] A. Use Glacier to store PDF and CSV Data. Add Spot Instances to Amazon EMR jobs. Use Reserved Instances for Amazon Redshift.
+* [*] B. Use standard S3 to store PDF and CSV data. Use a combination of Spot Instances and Reserved Instances for EMR and Reserved Instances for RedShift.
+* [ ] C. Use Glacier to store PDF and CSV Data. Add Spot Instances to Amazon EMR jobs. Use Spot Instances for Amazon Redshift.
+* [ ] D. Use S3-IA to store PDF and CSV Data. Use Reserved Instances to Amazon EMR jobs. Use Reserved Instances for Amazon Redshift.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Options A, C, and D are invalid.
+We need to access the PDF and CSV files daily.
+So S3-IA and glacier are not suitable for this purpose as both of these storage options are not the best for frequent access to files.
+Based on the given scenario, we need to optimize the usage of AWS resources for storing and processing log files stored in S3.
+Option A suggests using Glacier to store PDF and CSV data. However, Glacier is a low-cost storage service designed for data archiving rather than frequently accessed data. It is not suitable for storing data that needs to be accessed frequently. Adding Spot Instances to Amazon EMR jobs will help reduce the cost of processing data, but using Reserved Instances for Amazon Redshift is not an optimal solution since we cannot predict the exact usage of Redshift. Redshift is a fully managed data warehouse service that offers on-demand and reserved instances pricing models. Using on-demand instances will be more cost-effective for Redshift.
+Option B suggests using standard S3 to store PDF and CSV data, which is a suitable solution since we need to access the data frequently. Using a combination of Spot Instances and Reserved Instances for EMR can help reduce the cost of processing data. However, using Reserved Instances for Redshift is not optimal since we cannot predict the exact usage of Redshift.
+Option C suggests using Glacier to store PDF and CSV data, which is not a suitable solution since we need to access the data frequently. Adding Spot Instances to Amazon EMR jobs will help reduce the cost of processing data, but using Spot Instances for Amazon Redshift is not an optimal solution since Redshift requires dedicated and persistent resources.
+Option D suggests using S3-IA to store PDF and CSV data, which is a suitable solution since we need to access the data frequently, and S3-IA is a cost-effective storage service for infrequently accessed data. Using Reserved Instances for Amazon EMR jobs can help reduce the cost of processing data. Using on-demand instances for Amazon Redshift is a more cost-effective solution since we cannot predict the exact usage of Redshift.
+Therefore, option D is the best solution for optimizing the usage of AWS resources for storing and processing log files stored in S3.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question98:"link"
+
+

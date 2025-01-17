@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "813 - As AWS grows most of your clients main c"
+---
+
+
+[.question]
+== 813-64a1deffaa736d27b1db92c7.
+
+
+****
+
+[.query]
+--
+As AWS grows, most of your clients' main concerns seem to be about security, especially when all of their competitors also seem to be using AWS.
+One of your clients asks you whether having a competitor who hosts their EC2 instances on the same physical host would make it easier for the competitor to hack into the client's data.
+Which of the following statements would be the best choice to put your client's mind at rest?
+
+
+--
+
+[.list]
+--
+* [*] A. Different instances running on the same physical machine are isolated from each other via a 256- bit Advanced Encryption Standard (AES-256).
+* [ ] B. Different instances running on the same physical machine are isolated from each other via the hypervisor and via a 256-bit Advanced Encryption Standard (AES-256).
+* [*] C. Different instances running on the same physical machine are isolated from each other via the hypervisor.
+* [ ] D. Different instances running on the same physical machine are isolated from each other via IAM permissions.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Options A and B are incorrect because 256-bit AES is used for encrypting the data.
+Ensuring the isolation of the VMs running on a hypervisor is not its responsibility.
+Option C is CORRECT because it is the hypervisor that hosts the VMs responsible for ensuring that the VMs are isolated from each other despite being hosted on the same underlying hypervisor.
+Option D is incorrect because IAM permissions have nothing to do with the isolation of the VMs running on a hypervisor.
+More information on this topic:
+The shared responsibility model for infrastructure services, such as Amazon Elastic Compute Cloud (Amazon EC2), for example, specifies that AWS manages the security of the following assets:
+• Facilities
+• Physical security of hardware
+• Network infrastructure
+• Virtualization infrastructure.
+https://d0.awsstatic.com/whitepapers/aws-security-best-practices.pdf
+The correct answer to this question is C. Different instances running on the same physical machine are isolated from each other via the hypervisor.
+Explanation: In AWS, when a customer launches an EC2 instance, it runs on a physical host machine, which is managed by AWS. AWS uses a hypervisor to virtualize the physical host machine and create multiple virtual machines on it. Each virtual machine is isolated from the others and operates as if it were running on its own physical machine. This is called "virtualization."
+AWS uses a combination of hardware and software-based security measures to ensure the isolation of each virtual machine on a physical host. The hypervisor is responsible for creating and managing the virtual machines and for providing each virtual machine with its own virtual resources, such as CPU, memory, and storage. The hypervisor ensures that the virtual machines are isolated from each other, so that a security breach in one virtual machine does not affect the others.
+Therefore, the correct answer is C. Different instances running on the same physical machine are isolated from each other via the hypervisor.
+Option A is incorrect because AES-256 is a form of encryption that is used to protect data at rest or in transit, but it does not provide isolation between virtual machines running on the same physical host.
+Option B is incorrect because while the hypervisor is responsible for isolating the virtual machines, AES-256 encryption is not involved in this process.
+Option D is also incorrect because IAM permissions are used to manage access to AWS resources, but they do not provide isolation between virtual machines running on the same physical host.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question18:"link"
+
+

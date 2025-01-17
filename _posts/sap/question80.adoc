@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "880 - You currently operate a web application "
+---
+
+
+[.question]
+== 880-64a1df13aa736d27b1db931a.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_mggfij.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You currently operate a web application in the AWS US-East region.
+The application runs on an auto-scaled layer of EC2 instances and an RDS Multi-AZ database.
+Your IT security compliance officer has tasked you to develop a reliable and durable logging solution to track changes made to your EC2, IAM, and RDS resources.
+The solution must ensure the integrity and confidentiality of your log data.
+Which of the below solutions would you recommend?
+
+
+[source,java]
+----
+CloudTrail Create Trail
+
+Dashboard
+4 Trail name* — CloudTrailForTest
+Event history
+
+| Trails Apply trail to all regions @ Yes © No @
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create a new CloudTrail trail with one new S3 bucket to store the logs in the US-East region. Enable log file validation. Use IAM roles and S3 bucket policies to control the permissions on the S3 bucket.
+* [ ] B. Create a new CloudTrail with one new S3 bucket to store the logs. Configure SNS to send log file delivery notifications to your management system. Use IAM roles and S3 bucket policies on the S3 bucket that stores your logs.
+* [ ] C. Create a new CloudTrail trail with an existing S3 bucket to store the logs and with the option that applies trail to all regions selected. Use S3 ACLs to control the permissions on the S3 bucket.
+* [ ] D. Create three new CloudTrail trails with three new S3 buckets to store the logs one for the AWS Management console, one for AWS SDKs, and one for command line tools. Use IAM roles and S3 bucket policies on the S3 buckets that store your logs.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+For the scenarios where the application is tracking (or needs to track) the changes made by any AWS service, resource, or API, always think about AWS CloudTrail service.
+AWS Identity and Access Management (IAM) is integrated with AWS CloudTrail, a service that logs AWS events made by or on behalf of your AWS account.
+CloudTrail logs authenticated AWS API calls and AWS sign-in events and collected this event information in files delivered to Amazon S3 buckets.
+The most important points in this question are (a) Use of a single S3 bucket, (b) CloudTrail with the option that applies trail to specific regions, (b) Data integrity, and (d) Confidentiality.
+Option A is CORRECT because (a) it uses AWS CloudTrail with the option that applies trail to the US-East region, (b) a single new S3 bucket and IAM Roles so that it has the confidentiality, (c) log file validation is enabled.
+See the AWS CloudTrail setting below which sets the option that applies trail to all regions:
+Options B is incorrect because (a) although it uses AWS CloudTrail, the option that applies trail to all regions is not enabled, and (b) SNS notifications can be overhead in this situation.
+Option C is incorrect because (a) as an existing S3 bucket is used, it may already be accessed to the user, hence not maintaining confidentiality, and (b) it is not using IAM roles.
+Option D is incorrect because (a) although it uses AWS CloudTrail, the option that applies trail to all regions is not enabled, and (b) three S3 buckets are not needed.
+For more information on Cloudtrail, please visit the below URLs-
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events http://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html
+The recommended solution for this scenario would be option A: Create a new CloudTrail trail with one new S3 bucket to store the logs in the US-East region. Enable log file validation. Use IAM roles and S3 bucket policies to control the permissions on the S3 bucket.
+Explanation: CloudTrail is a service that allows you to log and monitor API calls made in your AWS account. It can be used to record changes to resources, such as EC2, IAM, and RDS. CloudTrail can be configured to deliver these logs to an S3 bucket, where they can be stored securely and accessed as needed. Here are the reasons why option A is the recommended solution:
+1.
+Use of a new S3 bucket: The first step is to create a new S3 bucket to store the logs. It is recommended to use a new S3 bucket to avoid any issues with pre-existing data or permissions. By doing this, the logs can be isolated and managed more easily.
+2.
+Enable log file validation: Enabling log file validation ensures the integrity of the log data. This feature creates a digital signature for each log file, making it tamper-proof. This ensures that the logs are not altered, deleted, or injected with malicious code during transit or storage.
+3.
+Use of IAM roles and S3 bucket policies: IAM roles and S3 bucket policies are used to control access to the S3 bucket that stores the logs. IAM roles are used to grant access to the CloudTrail service to write to the S3 bucket. S3 bucket policies are used to restrict access to the logs to specific IAM users or roles. This ensures that only authorized personnel can access the logs.
+Option B is not the recommended solution because it uses SNS to send log file delivery notifications to your management system. This can be an additional layer of complexity, and it may not be necessary for the logging solution.
+Option C is not the recommended solution because it uses an existing S3 bucket, which can increase the risk of accidental or unauthorized deletion of logs. Also, using S3 ACLs to control permissions is not as robust as using IAM roles and S3 bucket policies.
+Option D is not the recommended solution because it creates three new CloudTrail trails and S3 buckets, which can be difficult to manage and monitor. Having separate buckets for different types of logs can create unnecessary complexity and increase the risk of misconfiguration.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question102:"link"
+
+

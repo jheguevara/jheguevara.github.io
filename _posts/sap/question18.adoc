@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "818 - A manufacturing company whose head offic"
+---
+
+
+[.question]
+== 818-64a1df00aa736d27b1db92cd.
+
+
+****
+
+[.query]
+--
+A manufacturing company whose head office is in Sydney, have plants in 16 locations across the world.
+Employees based in these 16 locations have to send their daily development data to AWS for storage and further analysis.
+Data size is expected to be in GBs.
+What is the best way to send the data to AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. They can send through AWS Direct Connect and store the data in Amazon S3.
+* [ ] B. They can store the data in Amazon S3 and send it through Snowball.
+* [*] C. They can send through S3 Transfer acceleration and store the data in Amazon S3.
+* [ ] D. They can store in Amazon Glacier and send through S3 Transfer acceleration.
+
+--
+****
+
+[.answer]
+Answer C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: C.
+Option A is Incorrect because direct connect is ideal for clients who want to establish private connectivity between their on-prem network and AWS for some location.
+This is not the right solution for moving files from multiple locations.
+Option B is Incorrect because snowball is ideal for clients moving a large bunch of data at once.
+Option C is Correct because S3 Transfer acceleration gives the ability to write into the single S3 Bucket from various locations.
+It uses edge locations to move the data.
+Option D is Incorrect because Transfer acceleration doesn't work with the Amazon Glacier storage class.
+Reference:
+https://www.youtube.com/watch?v=J2CVnmUWSi4 https://aws.amazon.com/about-aws/whats-new/2016/04/transfer-files-into-amazon-s3-up-to- https://aws.amazon.com/s3/transfer-acceleration/ https://www.youtube.com/watch?v=HnUqH3hdz4I
+The best way to send the data to AWS in this scenario would be to use option B, i.e., store the data in Amazon S3 and send it through Snowball.
+Here's why:
+Option A: AWS Direct Connect is a good choice if the data transfer needs to be fast, secure, and consistent. However, it requires a dedicated network connection from the customer's data center to AWS. This means that the customer would need to have a data center or a colocation facility near one of the Direct Connect locations to establish the connection. This is not the best option for a manufacturing company with plants in 16 locations across the world. Also, storing the data in Amazon S3 is a separate requirement, which is not met by this option alone.
+Option B: Amazon S3 is a highly scalable object storage service that can store and retrieve any amount of data from anywhere on the web. In this option, the data can be stored in S3 buckets created in each of the 16 locations. Once the data is ready to be transferred to AWS, it can be shipped using a Snowball device. Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of AWS. The Snowball device is shipped to the customer, and they can load the data onto it. Once the data transfer is complete, the device is shipped back to AWS, where the data is loaded into S3.
+Option C: S3 Transfer Acceleration is an Amazon S3 feature that enables faster transfer of files over the internet to Amazon S3. This option is not suitable for this scenario as it does not provide a way to physically transfer large amounts of data to AWS, which is a requirement given the expected data size in GBs.
+Option D: Amazon Glacier is a secure, durable, and low-cost cloud storage service for data archiving and long-term backup. However, it is not suitable for storing frequently accessed data, which is a requirement for daily development data. Also, S3 Transfer Acceleration is not an ideal way to transfer data in this scenario, as explained above.
+Therefore, based on the given scenario, the best option for the manufacturing company would be to store the data in Amazon S3 and send it through Snowball.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question24:"link"
+
+

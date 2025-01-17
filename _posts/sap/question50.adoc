@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "850 - A thirdparty auditor is being brought in"
+---
+
+
+[.question]
+== 850-64a1df0aaa736d27b1db92f1.
+
+
+****
+
+[.query]
+--
+A third-party auditor is being brought in to review security processes and configurations for all of a company's AWS accounts.
+Currently, the company does not use any on-premises identity provider.
+Instead, they rely on IAM accounts in each of their AWS accounts.
+Now the auditor needs read-only access to all AWS resources for each AWS account.
+The auditor has an IAM user in his AWS account.
+Given the requirements, what is the most secure and easiest method for architecting access for the security auditor? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Create an IAM user for each AWS account with read-only permission policies for the auditor, and disable each account when the audit is complete.
+* [ ] B. Configure an on-premise AD server and enable SAML identity federation for single sign-on to each AWS account.
+* [*] C. Create an IAM role with read-only permissions to all AWS services in each AWS account. Allow the auditor IAM user to assume the ARN role for each AWS account.
+* [ ] D. Create a custom identity broker application that allows the auditor to use existing Amazon credentials to log into the AWS environments.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because creating an IAM User for each AWS account is an overhead and less preferred way than creating IAM Role.
+Option B is incorrect because the scenario says that the company does not have any on-premises identity provider.
+This method is not straightforward.
+Option C is CORRECT because it creates an IAM Role with all the necessary permission policies that allow the auditor to assume it while accessing the resources.
+Option D is incorrect because using the IAM Role with the required permissions is the preferred and more secure way of accessing the AWS resources than using the Amazon credentials.
+Also, this option does not use the Security Token Service that gives temporary credentials to log in.
+Hence this is a less secure way of accessing the AWS resources.
+For more information on IAM roles, please refer to the below URL-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+The most secure and easiest method for architecting access for the security auditor in this scenario is to create an IAM role with read-only permissions to all AWS services in each AWS account and allow the auditor IAM user to assume the ARN role for each AWS account. This is option C.
+Explanation:
+Option A: Create an IAM user for each AWS account with read-only permission policies for the auditor, and disable each account when the audit is complete.
+This option requires creating a separate IAM user for each AWS account and granting read-only access to each user for their respective account. However, this approach is not scalable and may result in a lot of administrative overheads, especially if the company has a large number of AWS accounts. Additionally, there is a risk of human error when disabling each account after the audit is complete, which could result in a security breach.
+Option B: Configure an on-premise AD server and enable SAML identity federation for single sign-on to each AWS account.
+This option involves setting up an on-premise AD server and enabling SAML identity federation for single sign-on to each AWS account. However, this approach requires additional infrastructure and management overheads, which may not be practical for the company. Additionally, setting up and configuring SAML identity federation requires additional technical expertise, which the company may not have.
+Option C: Create an IAM role with read-only permissions to all AWS services in each AWS account. Allow the auditor IAM user to assume the ARN role for each AWS account.
+This option involves creating an IAM role with read-only permissions to all AWS services in each AWS account and allowing the auditor IAM user to assume the ARN role for each AWS account. This approach is scalable, easy to manage, and provides granular control over access. Additionally, the company can revoke access to the IAM role once the audit is complete, ensuring no residual access is left behind.
+Option D: Create a custom identity broker application that allows the auditor to use existing Amazon credentials to log into the AWS environments.
+This option involves creating a custom identity broker application that allows the auditor to use existing Amazon credentials to log into the AWS environments. However, this approach requires additional infrastructure and management overheads, which may not be practical for the company. Additionally, creating a custom application introduces additional security risks, which may not be acceptable to the auditor.
+Therefore, option C is the most secure and easiest method for architecting access for the security auditor in this scenario.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question61:"link"
+
+

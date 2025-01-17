@@ -1,0 +1,125 @@
+---
+layout: default 
+title: "807 - You work in a video game company and you"
+---
+
+
+[.question]
+== 807-64a1defdaa736d27b1db92c0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_6.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You work in a video game company, and your team is working on a feature that tells how many times certain web pages have been viewed or clicked.
+You also created an AWS Lambda function to show some key statistics of the data.
+You tested the Lambda function, and it worked perfectly.
+
+
+[source,java]
+----
+Event Source Targets
+
+Build or customize an Event Pattern or set a Schedule to invoke Targets. Select Target to invoke when an event matches your Event Pattern or when schedule
+is triggered.
+
+Event Pattern @ @) Schedule @
+© Add target*
+
+Fixed rate of 5 Minutes v
+
+@ Cronexpression 00 08 * * ? *
+
+Next 10 Trigger Date(s)
+
+1. Fri, 08 Mar 2019 08:00:00 GMT
+2. Sat, 09 Mar 2019 08:00:00 GMT
+3. Sun, 10 Mar 2019 08:00:00 GMT
+4. Mon, 11 Mar 2019 08:00:00 GMT
+5. Tue, 12 Mar 2019 08:00:00 GMT
+6. Wed, 13 Mar 2019 08:00:00 GMT
+7. Thu, 14 Mar 2019 08:00:00 GMT
+8. Fri, 15 Mar 2019 08:00:00 GMT
+9. Sat, 16 Mar 2019 08:00:00 GMT
+
+10. Sun, 17 Mar 2019 08:00:00 GMT
+
+Learn more about CloudWatch Events schedules.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an AWS CloudWatch Events rule that is scheduled using a cron expression. Configure the target as the Lambda function.
+* [ ] B. Create an Amazon Linux EC2 T2 instance and set up a Cron job using Crontab. Use AWS CLI to call your AWS Lambda every 8:00 AM.
+* [*] C. Use Amazon Batch to set up a job with a job definition that runs every 8:00 AM for the Lambda function.
+* [ ] D. In AWS CloudWatch Events console, click “Create Event” using the cron expression “ * ? * * 08 00”. Configure the target as the Lambda function.
+
+--
+****
+
+[.answer]
+Correct Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer- A.
+Potentially, more than one option may work.
+However, this question asks the most cost-efficient and straightforward method that needs to be considered.
+Option A is CORRECT because the AWS CloudWatch Events rule is free and quite easy to begin with.
+To schedule a daily event at 8:00 AM GMT, you just need to set up a cron rule, as given in the below screenshot.
+Option B is incorrect: Because launching a new EC2 instance for this task is not cost-efficient.
+Option C is incorrect: Because this is not something AWS Batch works.
+For AWS Batch, it runs as a containerized application on an Amazon EC2 instance in your computing environment.
+Option D is incorrect: Because firstly, it should be “Create rule” rather than “Create Event”
+Secondly, the Cron expression of “ * ? * * 08 00” is incorrect.
+For More information, Please check below AWS Docs:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+Option A is the correct answer. You should create an AWS CloudWatch Events rule that is scheduled using a cron expression, and configure the target as the Lambda function.
+AWS Lambda is a serverless compute service that allows you to run code without provisioning or managing servers. CloudWatch Events is a service that enables you to respond to events in the AWS ecosystem. By using CloudWatch Events, you can trigger actions in response to events in AWS services.
+In this scenario, you want to track page views and clicks every day at 8:00 AM. Therefore, you need to schedule a CloudWatch Events rule to run at 8:00 AM every day.
+A cron expression is a string that specifies a set of times using the format:
+sqlCopy codeminute hour day-of-month month day-of-week year 
+The following cron expression will run the Lambda function every day at 8:00 AM:
+Copy code0 8 * * ? 
+To create a CloudWatch Events rule that triggers the Lambda function, follow these steps:
+1. Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.
+2. In the navigation pane, choose "Events," and then choose "Create rule."
+3. On the "Create Rule" page, choose "Schedule" for the "Event Source" section.
+4. In the "Schedule expression" section, choose "Cron expression," and then enter the cron expression "0 8 * * ?".
+5. Choose "Add target," and then choose "Lambda function."
+6. In the "Function" section, choose your Lambda function from the drop-down menu.
+7. Choose "Configure details," and then enter a name and description for your rule.
+8. Choose "Create rule" to create the CloudWatch Events rule.
+Option B is incorrect because it involves setting up an EC2 instance and using AWS CLI to call the Lambda function. This approach requires managing and maintaining an EC2 instance, which can be time-consuming and less cost-effective compared to using a serverless approach with AWS Lambda.
+Option C is incorrect because Amazon Batch is not suitable for scheduling recurring tasks like this. Amazon Batch is designed for running batch computing workloads, which typically involve running jobs in parallel across multiple EC2 instances.
+Option D is incorrect because the cron expression provided is not correct. The expression " * ? * * 08 00" is not a valid cron expression. The correct expression to run the Lambda function at 8:00 AM every day is "0 8 * * ?".
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question10:"link"
+
+

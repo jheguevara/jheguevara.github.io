@@ -1,0 +1,147 @@
+---
+layout: default 
+title: "864 - Your company has an ecommerce platform t"
+---
+
+
+[.question]
+== 864-64a1df0faa736d27b1db9306.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_vf2fhs.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company has an e-commerce platform that is expanding all over the globe.
+You have EC2 instances deployed in multiple regions.
+You want to monitor the performance of all of these EC2 instances.
+How will you set up CloudWatch to monitor EC2 instances in multiple regions?
+
+
+[source,java]
+----
+CloudWatch
+
+| Dashboards
+* MyGlobalDashboard 4
+Alarms
+
+Billing
+Events
+Rules
+Event Buses
+Logs
+Metrics
+
+Favorites
+@ Add a dashboard
+
+MyGlobalDashboard
+
+N. Virginia EC2
+
+238k Bytes
+
+1.58k
+
+785
+21:00
+
+@ Networkin
+
+22:00
+
+Add widget
+
+23:00
+
+Actions ¥ Save dashboard
+
+Paris EC2
+
+55k Bytes
+
+13.1k
+
+e7
+21:00
+
+@ NetworkOut
+
+22:00
+
+Mumbai EC2
+
+aaa Bytes
+
+453k
+
+622
+21:00 22:00
+@ NetworkOut
+
+th 3h 12h 1d 3d 1w custom ~
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create separate dashboards in every region.
+* [ ] B. Register instances running on different regions to CloudWatch.
+* [*] C. Have one single dashboard that reports the metrics from CloudWatch pertaining to different regions.
+* [ ] D. This is not possible.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+You can monitor AWS resources in multiple regions using a single CloudWatch dashboard.
+For example, you can create a dashboard that shows CPU utilization for an EC2 instance located in the us-west-2 region with your billing metrics, which are located in the us-east-1 region.
+Please see the following snapshot which shows how a global CloudWatch Dashboard looks.
+For more information on the Cloudwatch dashboard, please refer to the below URLs-
+Nov 8 2019 new anouncement:https://aws.amazon.com/about-aws/whats-new/2019/11/amazon-cloudwatch-launches-cross-account-cross-region-dashboards/
+Cross-region cross-account console:https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html.
+Cross-Account Cross-Region Dashboards with Amazon CloudWatch: https://aws.amazon.com/blogs/aws/cross-account-cross-region-dashboards-with-amazon-cloudwatch/
+To monitor the performance of EC2 instances in multiple regions, you can set up CloudWatch in the following ways:
+1.
+Register instances running on different regions to CloudWatch: You can register your EC2 instances to CloudWatch to monitor their performance. By doing this, you can collect and analyze metrics from all of your EC2 instances in different regions from a single console. You can also use CloudWatch alarms to alert you when certain thresholds are breached. However, to register your instances with CloudWatch, you need to ensure that you have installed the CloudWatch agent on your EC2 instances. This agent collects metrics from the operating system and applications on the instance and sends them to CloudWatch.
+2.
+Create separate dashboards in every region: You can create separate dashboards in each region to monitor the performance of EC2 instances in that region. This approach can help you to focus on the specific performance metrics of instances in a particular region. However, this approach can lead to dashboard sprawl and make it difficult to correlate data across regions.
+3.
+Have one single dashboard that reports the metrics from CloudWatch pertaining to different regions: You can create a single dashboard that reports the metrics from CloudWatch pertaining to different regions. This approach can help you to get an overall picture of the performance of your EC2 instances across multiple regions. However, you need to ensure that you have selected the correct regions while creating the dashboard to avoid confusion.
+4.
+This is not possible: This answer is not correct since CloudWatch allows you to monitor EC2 instances in multiple regions through the above-mentioned methods.
+Therefore, the correct answer is B - Register instances running on different regions to CloudWatch.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question82:"link"
+
+

@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "882 - You are designing a data leak prevention"
+---
+
+
+[.question]
+== 882-64a1df14aa736d27b1db931c.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_9ih19l.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are designing a data leak prevention solution for your VPC environment.
+You want your VPC Instances to be able to access software distribution servers on the Internet for product updates.
+The servers are accessible via the third party via their DNS names.
+You want to make sure that the instances can only access these known servers based on their URLs.
+Which of the following options would you consider?
+
+
+[source,java]
+----
+Firewall Internet
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Place EC2 instances in private subnets and direct the egress traffic to a web proxy server in the public subnet and enforce URL based rules for outbound access.
+* [ ] B. Implement security groups and configure outbound rules to only permit traffic to software servers.
+* [ ] C. Move all your instances into private VPC subnets. Remove default routes from all routing tables and add specific routes to the software servers only.
+* [ ] D. Implement network access control lists to allow traffic from specific destinations, with an implicit deny as a rule.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+There are 3 main considerations in this scenario: (a) the instances in your VPC need internet access, (b) the access should be restricted for product updates only, and (c) all other outbound connection requests must be denied.
+With such scenarios, you should not put your instances in the public subnet as they would have access to the internet without any restrictions.
+So, you should put them in a private subnet, and since there is a need for logic for filtering the requests from client machines, configure a proxy server.
+What is a Proxy Server?
+A proxy server is a server that acts as a mediator between the client(s) that sends requests and the server that receives the requests and replies back.
+If any client requires any resources, it connects to the proxy server, and the proxy server evaluates the request based on its filtering rules.
+If the requests are valid, it connects to the server which receives the request and replies.
+The proxy server also maintains cache; i.e., if any subsequent requests from the same or other clients are received, it returns the result from the cache, saving the trip to and from the server.
+Hence, proxy servers tend to improve performance.
+See the diagram below.
+Option A is CORRECT because a proxy server (a) filters requests from the client and allows only those related to the product updates, and (b) in this case helps to filter all other requests except the ones for the product updates.
+Option B is incorrect because a security group cannot filter requests based on URLs and you cannot specify deny rules.
+Security groups are used only for IPs and NOT for static DNS names.
+Option C is incorrect because even though moving the instances in a private subnet is a good idea, the routing table does not have the filtering logic.
+Option D is incorrect.
+NACL is stateless.
+The default network ACL is configured to allow all traffic to flow in and out of the subnets to which it is associated.
+Option D is only specifying an Inbound rule.
+But for an Inbound rule, it should specify the Source rather than the destination.
+An example of setting up a proxy server can be found via the below URL-
+https://aws.amazon.com/articles/6463473546098546
+Option A: This option suggests placing the EC2 instances in private subnets and directing their egress traffic to a web proxy server in the public subnet. The web proxy server can then enforce URL-based rules for outbound access. This solution would allow for URL-based filtering of outbound traffic while still allowing access to the necessary software servers. However, implementing and maintaining a web proxy server can be complex and costly.
+Option B: Option B suggests implementing security groups and configuring outbound rules to only permit traffic to software servers. This solution would be a simpler and more cost-effective approach than option A, as it does not require the implementation and maintenance of a web proxy server. However, this solution assumes that the software servers have static IP addresses and do not change frequently. If the software servers' IP addresses change frequently, this solution would require constant maintenance to update the security group rules.
+Option C: Option C suggests moving all instances into private VPC subnets, removing default routes from all routing tables, and adding specific routes to the software servers only. This solution would allow for fine-grained control over outbound traffic by restricting all traffic by default and only allowing traffic to the known software servers. However, this solution would be complex to manage, as it would require the constant addition of new routes for any new software servers that need to be accessed.
+Option D: Option D suggests implementing network access control lists (NACLs) to allow traffic from specific destinations, with an implicit deny as a rule. This solution would allow for URL-based filtering of outbound traffic and is a simpler approach than option C. However, this solution would require constant maintenance to update the NACL rules to include any new software servers that need to be accessed.
+Overall, Option A and Option B are the most viable options for implementing URL-based filtering of outbound traffic, depending on the complexity of the environment and the specific requirements of the solution. Option C and Option D could also be viable solutions but require more maintenance and are more complex to manage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question104:"link"
+
+

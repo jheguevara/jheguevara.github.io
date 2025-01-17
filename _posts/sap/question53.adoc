@@ -1,0 +1,84 @@
+---
+layout: default 
+title: "853 - You have created a mobile application th"
+---
+
+
+[.question]
+== 853-64a1df0baa736d27b1db92f6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_qwvkc5.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have created a mobile application that serves data stored in an Amazon DynamoDB table.
+Your primary concern is scalability of the application and ability to handle millions of visitors and data requests.
+As part of your application, the customer needs access to the data located in the DynamoDB table.
+Given the application requirements, what would be the best method to design the application? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+Web Identity Federation (assumeRoleWithWebldentity)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Configure an on-premise AD server utilizing SAML 2.0 to manage the application users inside the on-premise AD server and write code that authenticates against the LD serves. Grant a role assigned to the STS token to allow the end-user to access the required data in the DynamoDB table.
+* [ ] B. Let the users sign into the app using a third-party identity provider such as Amazon, Google, or Facebook. Use the AssumeRoleWith API call to assume the role containing the proper permissions to communicate with the DynamoDB table. Write the application in JavaScript and host the static webpage in an S3 bucket.
+* [ ] C. Let the users sign into the app using a third-party identity provider such as Amazon, Google, or Facebook. Use the AssumeRoleWithWebIdentity API call to assume the role containing the proper permissions to communicate with the DynamoDB table. Write the application in a server-side language using the AWS SDK and host the application in an S3 bucket for scalability.
+* [*] D. Let the users sign in to the app using a third-party identity provider such as Amazon, Google, or Facebook. Use the AssumeRoleWithWebIdentity API call to assume the role containing the proper permissions to communicate with the DynamoDB table. Write the application in JavaScript and host the static webpage in an S3 bucket.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The AssumeRolewithWebIdentity returns a set of temporary security credentials for users who have been authenticated in a mobile or web application with a web identity provider, such as Amazon Cognito, Login with Amazon, Facebook, Google, or any OpenID Connect-compatible identity provider.
+Out of options C and D, Option C is invalid because S3 is used to host static websites and not server side language websites.
+For more information on AssumeRolewithWebIdentity, please visit the below URL-
+http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html
+The best method to design the application, given the requirements of scalability and ability to handle millions of visitors and data requests, would be option D:
+D. Let the users sign in to the app using a third-party identity provider such as Amazon, Google, or Facebook. Use the AssumeRoleWithWebIdentity API call to assume the role containing the proper permissions to communicate with the DynamoDB table. Write the application in JavaScript and host the static webpage in an S3 bucket.
+This option allows for a scalable and secure approach to accessing data stored in an Amazon DynamoDB table through a mobile application. Here's why:
+1.
+Third-party identity provider: Using a third-party identity provider like Amazon, Google, or Facebook allows users to authenticate with the application without needing to create a separate set of credentials. This provides a streamlined user experience and reduces the risk of password-related security issues.
+2.
+AssumeRoleWithWebIdentity API: This API allows the mobile application to request temporary security credentials for the user, based on the identity provider they used to authenticate. These temporary credentials can be used to access the DynamoDB table while still maintaining the security of the application and data.
+3.
+JavaScript and S3: Writing the application in JavaScript and hosting it in an S3 bucket provides a scalable solution that can handle millions of visitors and data requests. S3 can also be configured to serve the static content via CloudFront, which provides a content delivery network (CDN) for increased performance and availability.
+Overall, this solution leverages the security and scalability of AWS services to provide a reliable and secure mobile application that can handle a large volume of traffic and data requests.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question66:"link"
+
+

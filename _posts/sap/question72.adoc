@@ -1,0 +1,100 @@
+---
+layout: default 
+title: "872 - Youre working as a consultant for a comp"
+---
+
+
+[.question]
+== 872-64a1df11aa736d27b1db930f.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_mk0yl4.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You're working as a consultant for a company that has a three-tier application.
+This architecture's application layer sends over 20Gbps of data per second during peak hours to and from Amazon S3
+Currently, you're running two NAT gateways in two subnets to transfer the data from your private application layer to Amazon S3
+You will also need to ensure that the instances receive software patches from a third-party repository.
+What architecture changes should be made, if any? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+New VPC Endpoint for S3
+Today we are simplifying access to S3 resources from within a VPC by introducing the concept of a VPC Endpoint. These endpoints are
+easy to configure, highly reliable, and provide a secure connection to S3 that does not require a gateway or NAT instances.
+
+C2 instances running in private subnets of a VPC can now have controlled access to S3 buckets, objects, and API functions that are in
+the same region as the VPC. You can use an $3 bucket policy to indicate which VPCs and which VPC Endpoints have access to your S3
+buckets.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. NAT gateways support network performance of 10 Gbps and two of them are running: Add a third NAT Gateway to a separate subnet to allow for any increase in demand.
+* [*] B. Create a VPC S3 endpoint which allows for higher bandwidth, throughput as well as tighter security and keep the NAT gateways to receive the software patches from the third party repository.
+* [ ] C. NAT gateways support 10Gbps and two are running: No changes are required to improve this architecture.
+* [ ] D. Remove the NAT gateways and create a VPC S3 endpoint which allows for higher bandwidth throughput as well as tighter security.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+VPC Endpoints for Amazon S3 are easy to configure, highly reliable, and provide a secure connection to S3 that does not require a gateway or NAT instances.
+The EC2 instances running in private subnets of a VPC can now have controlled access to S3 buckets, objects, and API functions in the same region as the VPC.
+You can use an S3 bucket policy to indicate which VPCs and VPC Endpoints have access to your S3 buckets.
+Option A is incorrect because adding a third NAT Gateway for communicating with an S3 bucket is a costly solution compared to creating an S3 endpoint.
+Option B is CORRECT because (a) you can securely connect with S3 via the S3 endpoint, and (b) even though you can connect to the S3 endpoint without requiring a NAT gateway, you still need to keep it because the instances in the VPC needs to receive the software patches from the third-party repository.
+See the image in the More information on VPC Endpoint for S3 section.
+Option C is incorrect because you need to connect to the Amazon S3 via the VPC endpoint as the current NAT gateways may not be sufficient to handle the peak load.
+Option D is incorrect because if you remove the NAT Gateway, the instances in the VPC will not be able to receive the software patches from the third-party repository.
+More information on VPC Endpoint for S3
+VPC endpoints alleviate the need for everything to go through theNAT instance.
+New VPC Endpoint for S3
+Today we are simplifying access to S3 resources from within a VPC by introducing the concept of a VPC Endpoint.
+These endpoints are easy to configure, highly reliable, and provide a secure connection to S3 that does not require a gateway or NAT instances.
+EC2 instances running in private subnets of a VPC can now have controlled access to S3 buckets, objects, and API functions in the same region as the VPC.
+You can use an S3 bucket policy to indicate which VPCs and which VPC Endpoints have access to your S3 buckets.
+For more information on VPC endpoints, please refer to the below URL-
+https://aws.amazon.com/blogs/aws/new-vpc-endpoint-for-amazon-s3/
+The correct answer is B: Create a VPC S3 endpoint which allows for higher bandwidth, throughput as well as tighter security and keep the NAT gateways to receive the software patches from the third party repository.
+Explanation: The architecture currently has two NAT gateways in two subnets to transfer the data from the private application layer to Amazon S3. However, during peak hours, the application layer sends over 20Gbps of data per second, which exceeds the network performance of the NAT gateway that supports only 10 Gbps. This means that the current architecture is not able to handle the data traffic effectively, and it may cause performance issues and delays.
+To address this problem, we need to consider an architecture change that can support higher network performance and throughput. The recommended approach is to create a VPC S3 endpoint that allows the application layer to directly access S3 without having to go through a NAT gateway. The VPC S3 endpoint provides a highly available, scalable, and secure connection to Amazon S3 that can support up to 100 Gbps of data transfer per second.
+By using a VPC S3 endpoint, we can eliminate the network bottleneck caused by the NAT gateway and significantly improve the application's performance. Additionally, using a VPC S3 endpoint provides tighter security as it removes the need for the application layer to have access to the internet to access S3.
+However, we need to keep the NAT gateways to receive software patches from a third-party repository. This is because the VPC S3 endpoint does not provide access to the internet, and we need a way to receive software patches from a third-party repository. The NAT gateways can be used to receive these patches and then distribute them to the application layer.
+Therefore, the correct answer is B: Create a VPC S3 endpoint which allows for higher bandwidth, throughput as well as tighter security and keep the NAT gateways to receive the software patches from the third party repository. This solution provides better performance, security, and reliability for the three-tier application.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question91:"link"
+
+

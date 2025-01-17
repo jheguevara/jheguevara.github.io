@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "899 - A newspaper organization has an onpremis"
+---
+
+
+[.question]
+== 899-64a1df1aaa736d27b1db9335.
+
+
+****
+
+[.query]
+--
+A newspaper organization has an on-premises application that allows the public to search its back catalog and retrieve individual newspaper pages via a website written in Java.
+It also has a commercial search application nearing its end of life.
+They have scanned the old newspapers into JPEGs which is of a total size of 17TB and used Optical Character Recognition (OCR) to populate a commercial search product.
+The organization wants to migrate its archive to AWS and produce a cost-efficient, highly-available and durable architecture.
+Which of the below options is the most appropriate?
+
+
+--
+
+[.list]
+--
+* [*] A. Use S3 to store and serve the scanned files. Install the commercial search application on EC2 Instances and configure it with auto-scaling and an Elastic Load Balancer.
+* [ ] B. Model the environment using CloudFormation. Use an EC2 instance running Apache webserver and an open-source search application, stripe multiple standard EBS volumes together to store the JPEGs and search index.
+* [*] C. Use S3 to store and serve the scanned files. Use CloudSearch for query processing, and use an Auto Scaling group to host the website across multiple availability zones.
+* [ ] D. Use a single-AZ RDS MySQL instance to store the search index for the JPEG images and use an EC2 instance to serve the website and translate user queries into SQL.
+* [ ] E. Use a CloudFront download distribution to serve the JPEGs to the end users. Install the current commercial search product, along with a Java Container for the website on EC2 instances and use Route53 with DNS round-robin.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - C.
+This question presents the following scenarios: (1) type of storage that can store a large amount of data (17TB), (2) the architecture should be cost-effective, highly available, and durable.
+Tip: Whenever a storage service stores a large amount of data with low cost, high availability, and high durability, always think about using S3
+Option A is incorrect because even though it uses S3, it uses the commercial search software at the end of its life.
+Option B is incorrect because striped EBS is not as durable of a solution as S3 and certainly not as cost-effective as S3
+Also, it has maintenance overhead.
+Option C is CORRECT because (a) it uses S3 to store the cost-effective images, (b) for more efficiency, it uses CloudSearch for query processing, and (c) with an Auto Scaling group in multi-AZs, it achieves high availability.
+Option D is incorrect because it does not have high availability with a single AZ RDS instance.
+Option E is incorrect because (a) this configuration is not scalable, and (b) it does not mention any origin for the CloudFront distribution.
+Amazon CloudSearch.
+With Amazon CloudSearch, you can quickly add rich search capabilities to your website or application.
+You don't need to become a search expert or worry about hardware provisioning, setup, and maintenance.
+With a few clicks in the AWS Management Console, you can create a search domain and upload the data that you want to make searchable.
+Amazon CloudSearch will automatically provision the required resources and deploy a highly tuned search index.
+You can easily change your search parameters, fine-tune search relevance, and apply new settings at any time.
+As your volume of data and traffic fluctuates, Amazon CloudSearch seamlessly scales to meet your needs.
+For more information on AWS CloudSearch, please visit the below link-
+https://aws.amazon.com/cloudsearch/
+The most appropriate option for the newspaper organization to migrate its archive to AWS is Option C, which involves using S3 to store and serve the scanned files, CloudSearch for query processing, and an Auto Scaling group to host the website across multiple availability zones.
+Option A is not the best choice because it requires the organization to manage its own search application on EC2 instances, which can be complex and time-consuming. Additionally, auto-scaling and load balancing would increase the cost and complexity of the solution.
+Option B is not the best choice because it involves using an EC2 instance running Apache webserver and an open-source search application, which would require significant management and maintenance. Additionally, striping multiple EBS volumes together would increase the complexity of the storage solution.
+Option D is not the best choice because it involves using a single-AZ RDS MySQL instance, which is not highly available. Additionally, using an EC2 instance to serve the website and translate user queries into SQL would increase the complexity of the solution.
+Option E is not the best choice because it involves using a CloudFront download distribution, which is primarily intended for serving static content, such as images, to end users. Additionally, installing the current commercial search product on EC2 instances would require significant management and maintenance.
+Option C is the most appropriate because it leverages S3 for storage and CloudSearch for query processing, which are both fully managed services that reduce the management and maintenance burden for the organization. Additionally, using an Auto Scaling group to host the website across multiple availability zones ensures high availability and durability. Overall, this option provides a cost-efficient, highly-available, and durable architecture that meets the organization's requirements.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question129:"link"
+
+

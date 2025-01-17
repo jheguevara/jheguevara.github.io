@@ -1,0 +1,117 @@
+---
+layout: default 
+title: "883 - An administrator uses Amazon CloudFormat"
+---
+
+
+[.question]
+== 883-64a1df14aa736d27b1db931d.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_cqqamr.png[]
+
+--
+
+
+****
+
+[.query]
+--
+An administrator uses Amazon CloudFormation to deploy a three-tier web application that consists of a web tier and application tier that will utilize Amazon DynamoDB for storage.
+While creating the CloudFormation template, which of the following would allow the application instance access to the DynamoDB tables without exposing API credentials?
+
+
+[source,java]
+----
+vaNSTenplateFormatVersion": "2010-09-03",
+wRescurees": {
+~RootRole": {
+Type": "ANS: :TAM: Role",
+Properties": {
+“ResuneRolePolicyDocument": {
+“version” : "2012-10-17",
+wseatenent": [ {
+“Eeect": "Allow",
+“Principal”: {
+"Service": [ “ec? .amazonavs.com" ]
+
+[ “sts:AssumeRole” J
+
+“Policyocument": {
+“version” : "2012-10-17",
+wseatenent": [ {
+
+“Eegect": "Allow",
+waction": "*",
+Resource": "4"
+
+hI
+
+Iho
+“RootinstancePzofile": (
+Type": "ANS: :TAM: :TnstanceProfile”,
+Properties": {
+path": "/",
+wRoles": [ {
+Ref": "RootRole”
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an IAM role that only has the read permissions for the required DynamoDB table and associate the Role to the application instances by referencing an instance profile.
+* [ ] B. Use the Parameter section in the Cloud Formation template to have the user input Access and Secret Keys from an already created IAM user that has permissions required to read and write from the required DynamoDB table.
+* [*] C. Create an IAM Role that has the required permission to read and write from the required DynamoDB table and associate the Role to the application instances by referencing an instance profile.
+* [ ] D. Create an Identity and Access Management user in the CloudFormation template that has permissions to read and write from the required DynamoDB table, use the GetAtt function to retrieve the Access and secret keys and pass them to the application instance through user-data.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+The scenario requires the instance to have access to DynamoDB tables without having to use the API credentials.
+In such scenarios, always think of creating IAM Roles rather than IAM Users.
+Option A is incorrect because the IAM Role needs both the read and the write access to the DynamoDB table.
+Option B is incorrect because (a) you should never expose the Access and Secret Keys while accessing the AWS resources, and (b) using IAM Role is the more secure way of accessing the resources than using IAM Users with security credentials.
+Option C is CORRECT.
+Instance profiles (with the correct roles) can be referenced in cloud formation templates.
+These instance profiles are created manually with the correct roles associated with them and can be reused on multiple instances.
+Pre-building instance profiles can provide standardization in naming across the entire infrastructure.
+Option D is incorrect because (a) you should never expose the Access and Secret Keys while accessing the AWS resources, (b) using IAM Role is the more secure way of accessing the resources than using IAM Users with security credentials.
+For more information on granting access to AWS resources via EC2 instance profile property, please visit the below URL-
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-roles.html
+For more information on adding IAM roles in CloudFormation templates, please visit the below URL-
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
+The best way to allow the application instance access to the DynamoDB tables without exposing API credentials is by creating an IAM role that has the necessary permissions to read and write from the required DynamoDB table and then associating that role to the application instances by referencing an instance profile.
+Option A: This is the recommended approach. Creating an IAM role with read-only permissions for the required DynamoDB table and associating the role to the application instances using an instance profile allows the application to access the table securely without exposing any API credentials.
+Option B: Using the Parameter section to have the user input Access and Secret Keys from an already created IAM user that has the permissions required to read and write from the required DynamoDB table is not recommended. This approach exposes the API credentials to the user, which is a security risk.
+Option C: Creating an IAM role with the required permissions to read and write from the required DynamoDB table and associating the role to the application instances by referencing an instance profile is the recommended approach.
+Option D: Creating an Identity and Access Management (IAM) user in the CloudFormation template that has permissions to read and write from the required DynamoDB table, using the GetAtt function to retrieve the Access and secret keys, and passing them to the application instance through user-data is not recommended. This approach exposes the API credentials to the application instance, which is a security risk.
+In conclusion, Option A is the best approach to allow the application instance access to the DynamoDB tables without exposing API credentials.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question105:"link"
+
+

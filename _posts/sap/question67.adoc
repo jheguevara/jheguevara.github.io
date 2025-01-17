@@ -1,0 +1,113 @@
+---
+layout: default 
+title: "867 - A company runs its current application t"
+---
+
+
+[.question]
+== 867-64a1df0faa736d27b1db9309.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_51131.png[]
+
+--
+
+
+****
+
+[.query]
+--
+A company runs its current application that has a million views per day, entirely on-premises.
+However, they expect a big boost in traffic and need to figure out a way to decrease the load to handle the scale.
+Unfortunately, they cannot migrate their application to AWS.
+What could they do with their current on-premises application to help offload some of the traffic and scale to meet the demand cost-effectively? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+Query String Forwarding and Caching
+
+CloudFront can cache different versions of your content based on the values of query string parameters.
+Choose one of the following options:
+
+‘None (Improves Caching)
+
+Choose this option if your origin returns the same version of an object regardless of the values of
+query string parameters. This increases the likelihood that CloudFront can serve a request from the
+‘cache, which improves performance and reduces the load on your origin.
+
+Forward all, cache based on whitelist
+Choose this option if your origin server returns different versions of your objects based on one or
+
+more query string parameters. Then specify the parameters that you want CloudFront to use as a
+basis for caching in the Query String Whitelist (p. 52) field.
+
+Forward all, cache based on all
+
+‘Choose this option if your origin server returns different versions of your objects for all query string
+parameters.
+
+For more information about caching based on query string parameters, including how to improve
+performance, see Caching Content Based on Query String Parameters (p. 241).
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Deploy OpsWorks on-premise to manage the instance to configure on-premise auto-scaling to meet the demand.
+* [ ] B. Upload all static files to Amazon S3 and create a CloudFront distribution serving those static files.
+* [ ] C. Duplicate half your web infrastructure on AWS, offload the DNS to Route 53 and configure weighted-based DNS routing to send half the traffic to AWS.
+* [*] D. Create a CloudFront CDN and enable query string forwarding. Offload the DNS to AWS to handle CloudFront CDN traffic but use on-premise load balancers as the origin.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The main point to consider is that the application should entirely stay on the on-premises server but still leverage AWS offerings for handling the peak traffic and scale on demand.
+CloudFront is the best suited for such a situation because it can use the on-premises server as the custom origin.
+Option A is incorrect because even though OpsWork can work with on-premises servers, setting up the EC2 instances with Auto Scaling would be a costly solution.
+Option B is incorrect because moving static files to S3 is not sufficient ( since the application has a million views per day ) to improve the scalability to handle the peak load.
+How to handle the dynamic contents is not mentioned in this option.
+Option C is incorrect because the requirement explicitly mentions that the application cannot be migrated to AWS.
+Option D is CORRECT because CloudFront - which is an AWS managed - is a highly available, scalable service that can use the on-premises server as the origin.
+By enabling the "Query String Forwarding" with a value of "None" will increase the likelihood that CloudFront can serve a request from the cache, which improves performance and reduces the load on your origin.
+Amazon CloudFront can speed up the distribution of both the static and dynamic web content as it delivers the content through a worldwide network (edge locations).
+Refer to page 52 on the below link-
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AmazonCloudFront_DevGuide.pdf
+The correct answer is D. Create a CloudFront CDN and enable query string forwarding. Offload the DNS to AWS to handle CloudFront CDN traffic but use on-premise load balancers as the origin.
+Explanation: Since the company cannot migrate their application to AWS, they will have to find other ways to decrease the load on their on-premises infrastructure. The key challenge is to handle the expected increase in traffic cost-effectively. One way to do this is to use Amazon CloudFront, a content delivery network (CDN) service provided by AWS.
+CDNs help offload traffic by caching content at edge locations around the world, closer to the end-user, reducing the load on the origin infrastructure. CloudFront can be used to cache and serve both static and dynamic content. In this scenario, we can use CloudFront to cache the static content of the application, such as images, videos, and CSS files, and serve them from edge locations closer to the end-users.
+To implement this solution, the company should first create a CloudFront distribution and enable query string forwarding. Query string forwarding allows CloudFront to cache and serve different versions of the same URL, based on query parameters. This is particularly useful for dynamic content that generates different responses based on query parameters, such as search results or user preferences.
+Next, the company should offload the DNS to AWS by transferring their domain name to Amazon Route 53, AWS's DNS service. Route 53 offers a range of routing policies, including weighted routing, which allows traffic to be split between different endpoints based on weight values. In this scenario, the company can configure a weighted-based DNS routing policy to send a portion of the traffic to CloudFront and the rest to their on-premises infrastructure.
+Finally, the company can use their on-premises load balancers as the origin for CloudFront. This means that CloudFront will fetch the dynamic content from the load balancers, which can distribute the load across the on-premises infrastructure.
+Deploying OpsWorks on-premise (option A) can help automate the management and configuration of the on-premises infrastructure, but it will not offload traffic or help scale the infrastructure cost-effectively.
+Uploading static files to S3 and creating a CloudFront distribution serving those static files (option B) can offload traffic for static content, but it will not help scale the dynamic content of the application.
+Duplicating half of the web infrastructure on AWS and configuring weighted-based DNS routing (option C) can help offload traffic, but it will require duplicating the infrastructure, which may not be cost-effective or feasible for the company.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question85:"link"
+
+

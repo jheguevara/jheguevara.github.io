@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "816 - You have been tasked with creating filel"
+---
+
+
+[.question]
+== 816-64a1df00aa736d27b1db92ca.
+
+
+****
+
+[.query]
+--
+You have been tasked with creating file-level restore on your EC2 instances.
+You already have access to all the frequent snapshots of the EBS volume.
+You need to be able to restore an individual lost file on an EC2 instance within 15 minutes of a reported loss of information.
+The acceptable RPO is several hours.
+How would you perform this on an EC2 instance? Choose an answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Set up a cron that runs aws s3 cp on the files and copy the EBS volume files to S3.
+* [ ] B. Turn off the frequent snapshots of EBS volumes. Create a volume from an EBS snapshot, attach the EBS volume to the EC2 instance at a different mount location, cutover the application to look at the new backup volume and remove the old volume.
+* [*] C. Create a volume from the snapshot to be restored and attach the EBS volume to the same EC2 instance at a different mount location, browse the file system on the newly attached volume and select the file that needs to be restored, copy it from the new volume to the original source volume.
+* [ ] D. Create a new EC2 instance from the recent snapshot and copy all the system files from the new EC2 instance to the old EC2 instance.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Option A is incorrect because there is an assumption that the EC2 instance can read files from S3.
+Option B is incorrect because the old volume connected to the EC2 could have different files compared to the snapshot that we are recovering from (i.e., some files may have been removed, some may have been newly added)
+If that volume is removed, we may lose some files and the final volume will not be in the latest state.
+So, the best solution is to copy the file from the recovery volume and add it to the old connected/backup volume.
+Option C is CORRECT because it mounts the EBS snapshot containing the file - as a volume and copies the file to the already attached volume.
+This way, the already attached volume always stays up-to-date.
+Once the file is copied, the volume - that was attached for copying the file - can be removed.
+With this option, you can restore the individual lost files without removing any new files that the snapshot does not have.
+Option D is INCORRECT because the recent snapshot may not contain the lost file.
+And we only need to restore the lost file so that there is no need to copy all the system files.
+For more information on EBS snapshots, please visit the below URL-
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
+The correct answer to the question is C.
+To restore an individual lost file on an EC2 instance within 15 minutes of a reported loss of information, and given that frequent snapshots of the EBS volume are available, the following steps can be taken:
+1.
+Create a new EBS volume from the snapshot that contains the lost file. This can be done using the AWS Management Console or the AWS CLI.
+2.
+Attach the new EBS volume to the same EC2 instance that experienced the data loss, but at a different mount location. This is important as the original volume may still be in use by the application or operating system.
+3.
+Browse the file system on the newly attached volume and select the lost file that needs to be restored.
+4.
+Copy the lost file from the new EBS volume to the original source volume. This can be done using a command-line tool like cp or a graphical file manager.
+5.
+Verify that the restored file is accessible and functional.
+Note that the acceptable RPO is several hours, which means that the frequency of the EBS snapshots can be adjusted to meet this requirement. It is also important to periodically test the restore process to ensure that it works as expected.
+Option A, setting up a cron job to copy files to S3, is not an ideal solution as it would require frequent copying of all files on the volume, which may not be practical or efficient. Option B, turning off frequent snapshots and creating a new volume from an old snapshot, would result in a longer RPO and potentially longer downtime for the application. Option D, creating a new EC2 instance and copying all system files, is also not an ideal solution as it would require more resources and time than necessary to restore a single lost file.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question21:"link"
+
+

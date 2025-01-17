@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "839 - A company has hired a thirdparty securit"
+---
+
+
+[.question]
+== 839-64a1df07aa736d27b1db92e6.
+
+
+****
+
+[.query]
+--
+A company has hired a third-party security auditor, and the auditor needs read-only access to the required AWS resources and logs of all VPC records and events that will occur on AWS.
+How can the company meet the auditor's requirements without compromising with the security in the AWS environment?
+
+
+--
+
+[.list]
+--
+* [*] A. Create a role that has the required permissions for the auditor.
+* [ ] B. Create an SNS notification that sends the CloudTrail log files to the auditor`s email when CloudTrail delivers the logs to S3 but does not allow the auditor access to the AWS environment.
+* [ ] C. The company should contact AWS as part of the shared responsibility model, and AWS will grant required access to the third-party auditor.
+* [*] D. Enable CloudTrail and specify the S3 bucket for your log file delivery.Create an IAM user who has read-only permission to the required AWS resources, including the VPC logs and the bucket containing CloudTrail logs.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+Option A is incorrect.
+IAM roles are a secure way to grant permissions to entities that you trust.But the entities should be an IAM user in another account or a User from a corporate directory who use identity federation with SAML.
+None of these are specified in the question.
+Option B is incorrect because sending the logs via email is not a good architecture.
+Option C is incorrect because granting the auditor access to AWS resources is not AWS's responsibility.
+It is the AWS user or account owner's responsibility.
+AWS CloudTrail is now enabled by default for ALL CUSTOMERS and will provide visibility into the past seven days of account activity without the need for you to configure a trail in the service to get started.
+But if you want to access your CloudTrail log files directly or archive your logs for auditing purposes, you can still create a trail and specify the S3 bucket for your log file delivery.
+https://aws.amazon.com/blogs/aws/new-amazon-web-services-extends-cloudtrail-to-all-aws-customers/
+More information on AWS CloudTrail.
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account.
+With CloudTrail, you can log, continuously monitor, and retain events related to API calls across your AWS infrastructure.
+CloudTrail provides a history of AWS API calls for your account, including API calls made through the AWS Management Console, AWS SDKs, command-line tools, and other AWS services.
+This history simplifies security analysis, resource change tracking, and troubleshooting.
+For more information on CloudTrail, please visit the below URL-
+https://aws.amazon.com/cloudtrail/
+<h2>Option A: Creating a role with required permissions for the auditor</h2><p>This option is a valid approach to provide read-only access to the third-party auditor. A role with read-only access to the required AWS resources can be created in AWS IAM, and the auditor can assume that role to access the resources. This approach is recommended because it allows the company to manage the access of the third-party auditor through IAM roles. By creating a role, the company can grant temporary access to the auditor, which will automatically expire at a specified time. Additionally, the company can revoke the access of the auditor anytime by removing the IAM role.</p><h2>Option B: Creating an SNS notification that sends the CloudTrail log files to the auditor's email</h2><p>This option is not a good choice for the given scenario. It involves sending log files to the auditor's email address, which could compromise the confidentiality and security of the data. Email is an unsecured communication channel, and the logs may contain sensitive information such as access keys and other credentials. Therefore, this option is not a recommended approach.</p><h2>Option C: Contacting AWS to grant required access to the third-party auditor</h2><p>This option is not a feasible approach because AWS does not provide direct access to third-party auditors. AWS follows the shared responsibility model, where the company is responsible for securing its AWS resources, and AWS is responsible for the security of the cloud infrastructure. Therefore, the company needs to provide access to the third-party auditor using the IAM role or any other suitable approach.</p><h2>Option D: Enabling CloudTrail and specifying the S3 bucket for log file delivery</h2><p>This option is a good approach to provide read-only access to the third-party auditor. By enabling AWS CloudTrail and specifying the S3 bucket for log file delivery, the company can create an audit trail of all the activities in the AWS environment, including VPC records and events. The company can then create an IAM user with read-only permission to the required AWS resources, including the VPC logs and the bucket containing CloudTrail logs. The auditor can then access the logs by assuming the IAM role. This approach is recommended because it provides a secure and auditable way to monitor the AWS environment without compromising the security of the data.</p>
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question50:"link"
+
+

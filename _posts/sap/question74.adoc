@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "874 - Your company has a branch office in Sydn"
+---
+
+
+[.question]
+== 874-64a1df11aa736d27b1db9312.
+
+
+****
+
+[.query]
+--
+Your company has a branch office in Sydney (Australia) that has just purchased the AWS Direct Connect link to connect a local data center to AWS resources in the ap-southeast-2 Region.
+The company also owns lots of AWS EC2 resources in VPCs in the US West Region.
+You want to use the same Direct Connection for your local data center to communicate with these resources in us-west-1
+How would you achieve the requirement?
+
+
+--
+
+[.list]
+--
+* [*] A. The Direct Connection cannot be used for different Regions. You need to create a new connection in the us-west-1 Region.
+* [ ] B. Create a private virtual interface in the ap-southeast-2 Region and use it to connect the AWS Direct Connect connection to the VPCs in us-west-1.
+* [ ] C. Create a public virtual interface in the us-west-1 Region and set up a VPN over the public virtual interface to protect the data.
+* [*] D. Create a Direct Connect gateway as a globally available resource. Use it to connect the AWS Direct Connect connection over a private virtual interface to VPCs in us-west-1.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+A Direct Connect gateway is a globally available resource.
+You can create the Direct Connect gateway in any Region and access it from all other Regions.
+A Direct Connect gateway does not allow gateway associations that are on the same Direct Connect gateway to send traffic to each other (for example, a virtual private gateway to another virtual private gateway).
+A Direct Connect gateway does not prevent traffic from being sent from one gateway association back to the gateway association itself (for example when you have an on-premises supernet route that contains the prefixes from the gateway association)
+Option A is incorrect because the Direct Connection can be used to access public or private services in a remote region.
+Option B is incorrect because you would need to create a Direct Connect gateway in the remote Region (us-west-1) for the connection.
+Option C is incorrect because a public virtual interface is required for accessing public services in the remote region.
+Option D is CORRECT because the Direct Connect gateway can be created as a globally available resource to communicate with private resources in VPCs.
+For more information on accessing a remote AWS Region, please visit the below URL-
+https://docs.aws.amazon.com/directconnect/latest/UserGuide/remote_regions.html https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html
+The correct answer is D: Create a Direct Connect gateway as a globally available resource. Use it to connect the AWS Direct Connect connection over a private virtual interface to VPCs in us-west-1.
+Explanation: Direct Connect is a network service provided by AWS that allows customers to establish a dedicated network connection between their data center and AWS. The connection is established over a private, high-speed, low-latency connection. Direct Connect is available in many regions around the world and is used by many customers to establish a dedicated connection to AWS.
+In this scenario, the company has purchased a Direct Connect link to connect their local data center in Sydney to AWS resources in the ap-southeast-2 region. However, they also have many EC2 resources in VPCs in the us-west-1 region, and they want to use the same Direct Connect link to connect to those resources.
+Option A is incorrect because Direct Connect cannot be used for different regions. Each region requires its own Direct Connect connection.
+Option B is incorrect because a private virtual interface can only be used to connect to resources in the same region as the Direct Connect location. Therefore, a private virtual interface in the ap-southeast-2 region cannot be used to connect to resources in the us-west-1 region.
+Option C is incorrect because a public virtual interface is not secure enough to protect the data. A VPN should be established over a private virtual interface for better security.
+Option D is the correct answer because a Direct Connect gateway is a globally available resource that can be used to connect to resources in different regions. A Direct Connect gateway is a router that can be used to connect to VPCs in different regions over a private virtual interface. In this scenario, the company can create a Direct Connect gateway and use it to connect to their VPCs in the us-west-1 region over a private virtual interface. This would allow them to use the same Direct Connect link to communicate with both the resources in ap-southeast-2 and us-west-1 regions.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question94:"link"
+
+

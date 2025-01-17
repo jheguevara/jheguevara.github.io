@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "848 - You are working as a consultant for a co"
+---
+
+
+[.question]
+== 848-64a1df09aa736d27b1db92ef.
+
+
+****
+
+[.query]
+--
+You are working as a consultant for a company designing a new hybrid architecture to manage part of their application infrastructure in the cloud and on-premise.
+As part of the infrastructure, they need to transfer high amounts of data consistently.
+They require a low latency and high consistency traffic to AWS.
+The company is looking to keep costs as low as possible and is willing to accept slow traffic in the event of primary failure.
+Given these requirements, how would you design a hybrid architecture? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Provision a Direct Connect connection to an AWS region using a Direct Connect partner. Provision a VPN connection as a backup in the event of Direct Connect connection failure.
+* [ ] B. Create a dual VPN tunnel for private connectivity, which increases network consistency and reduces latency. The dual tunnel provides a backup VPN in the case of primary failover.
+* [ ] C. Provision a Direct Connect connection which has automatic failover and backup built into the service.
+* [ ] D. Provision a Direct Connect connection to an AWS region using a Direct Connect provider. Provision a secondary Direct Connect connection as a failover.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+AWS Direct Connect makes it easy to establish a dedicated network connection from your on-premises data center to AWS.
+i.e.
+You can establish private connectivity between AWS and the on-premises data center, which helps to reduce the overall network cost, increase bandwidth throughput, and provide a more consistent network experience than the internet-based connection.
+A VPN connection is a low-cost, appliance-based access to the AWS resources given to the on-premises resources via gateways.
+Compared to AWS Direct Connect, the VPN connection may experience slow connection speed and limited bandwidth due to unpredictability of the internet.
+Since cost is a factor for the backup and the company does not mind the reduced traffic, the backup option can a VPN connection instead of another direct connect solution.
+Option A is CORRECT because it sets up a Direct Connect as the primary connection that provides consistent bandwidth for transferring high amounts of data.
+In case of failure, it sets up a VPN which is a low-cost solution.
+Option B is incorrect because VPN (although set up as dual) does not provide a low latency connection as it still has network unpredictability, and consistency as the Direct Connect would do.
+Option C is incorrect because there is no automatic failover or redundancy in Direct Connect.
+Option D is incorrect because setting up two Direct Connect connections would be costly.
+For more information on AWS direct connect, browse to the below URL-
+https://aws.amazon.com/directconnect/
+The requirement for low latency and high consistency traffic to AWS while keeping costs as low as possible suggests the need for a hybrid architecture that leverages both on-premise and cloud resources. Additionally, the requirement for consistent data transfer suggests the need for a reliable and resilient connectivity solution.
+Option A: Provision a Direct Connect connection to an AWS region using a Direct Connect partner. Provision a VPN connection as a backup in the event of Direct Connect connection failure. This option suggests using Direct Connect, a dedicated network connection between the on-premise data center and the AWS region. This would provide a consistent and reliable connectivity solution with low latency. Direct Connect partner connections can be cost-effective compared to Direct Connect provider connections. However, Direct Connect partner connections may have limitations in terms of bandwidth and may not provide automatic failover in case of primary failure. In this option, a VPN connection is suggested as a backup, which would provide a redundant and secure connection to AWS in case of Direct Connect connection failure. However, the VPN connection may have higher latency and lower consistency than the Direct Connect connection.
+Option B: Create a dual VPN tunnel for private connectivity, which increases network consistency and reduces latency. The dual tunnel provides a backup VPN in the case of primary failover. This option suggests using dual VPN tunnels to provide private connectivity between the on-premise data center and the AWS region. This would provide a reliable and resilient connectivity solution at a lower cost compared to Direct Connect. However, VPN connections may have higher latency and lower consistency compared to Direct Connect. This option also provides a backup VPN tunnel in the case of primary failover, which increases reliability and resilience.
+Option C: Provision a Direct Connect connection which has automatic failover and backup built into the service. This option suggests using Direct Connect, but with automatic failover and backup built into the service. This would provide a highly reliable and resilient connectivity solution with low latency and high consistency. However, this option may be more expensive than the other options.
+Option D: Provision a Direct Connect connection to an AWS region using a Direct Connect provider. Provision a secondary Direct Connect connection as a failover. This option suggests using Direct Connect with a Direct Connect provider. This would provide a reliable and resilient connectivity solution with low latency and high consistency. However, this option may be more expensive than the other options. This option also provides a secondary Direct Connect connection as a failover, which increases reliability and resilience.
+Overall, each option has its advantages and disadvantages, and the choice would depend on the specific requirements and constraints of the project. Options A and B may be more cost-effective but may have limitations in terms of reliability and resilience. Options C and D would provide high reliability and resilience but may be more expensive.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question59:"link"
+
+

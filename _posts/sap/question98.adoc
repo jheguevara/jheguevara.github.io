@@ -1,0 +1,93 @@
+---
+layout: default 
+title: "898 - A large realestate brokerage is explorin"
+---
+
+
+[.question]
+== 898-64a1df19aa736d27b1db9334.
+
+
+****
+
+[.query]
+--
+A large real-estate brokerage is exploring the option of adding a cost-effective location-based alert to their existing mobile application.
+The application backend infrastructure currently runs on AWS.
+Users who opt for this service will receive alerts on their mobile devices regarding real-estate offers in proximity to their location.
+For the alerts to be relevant, delivery time needs to be in the low minute count.
+The existing mobile app has 5 million users across the US.
+Which one of the following architectural suggestions would you make to the customer?
+
+
+--
+
+[.list]
+--
+* [*] A. The mobile application will submit its location details to a web service endpoint using ELB and EC2 instances. DynamoDB will be used to store and retrieve the relevant offers from EC2 instances, which would then communicate with mobile carriers or device providers to push alerts back to the mobile application.
+* [ ] B. Use AWS DirectConnect or VPN to establish connectivity with the mobile carrier. EC2 instances will receive the mobile application`s location details through the mobile carrier. RDS will be used to store and retrieve the relevant offers. EC2 instances will communicate with the mobile carrier to push alerts back to the mobile application.
+* [*] C. SQS ( buffer storage ) would be used to capture the device location details sent from the Mobile application. EC2 instances will process the messages from the SQS queue and retrieve the relevant offers from DynamoD.
+* [ ] D. SNS Mobile Push will be used to send offers to the mobile application.
+* [ ] E. The mobile application will send the device location`s details using the SNS Mobile Push. EC2 instances will retrieve the relevant offers from DynamoD.
+* [ ] F. EC2 instances will communicate with the mobile carrier or the device provider to push alerts back to the mobile application.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+F.
+Answer - C.
+The scenario has the following architectural considerations: (1) the users should get notifications about the real estate in the area near to their location, (2) only subscribed users should get the notification, (3) the notification delivery should be fast, (4) the architecture should be scalable, and (5) it should be cost-effective.
+When the question has considerations for scalability, always think about DynamoDB as it is the most recommended database solution to handle the huge amount of data/records.
+For automated notifications, always think about SNS.
+Option A is incorrect because sending notifications via mobile earners/device providers as alerts is neither feasible nor cost-effective.
+Option B is incorrect because receiving location via Direct Connect and carrier connection is not cost-effective.
+It also does not deal with subscriptions.
+Sending notifications via mobile carriers as the alert is not cost-effective as well.
+Option C is CORRECT because (a) SQS is a highly scalable, cost-effective solution for carrying out utility tasks such as holding the location of millions of users, (b) it uses highly scalable DynamoDB, and (c) it uses the cost-effective AWS SNS Mobile Push service to send push notification messages directly to apps on mobile devices.
+Option D is incorrect because the AWS SNS Mobile Push service is used to send push notification messages to the mobile devices, not to get the mobile devices' location.
+For more information on AWS SNS Mobile Push, please see the diagram and link given below:
+https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html
+Note:
+Option C says that the mobile application will send the device location to the processing EC2 instances using SQS.
+Then the instances would look at the DynamoDB database for offers relevant to the location.
+Then finally, SNS Mobile Push, which is part of SNS, will be used to send offers to the mobile application.
+So it leverages both SQS as well as SNS functionality for different parts of the architecture.
+This is the correct solution to this problem.
+Based on the scenario described, we need to design an architecture that enables the mobile application to receive alerts in real-time regarding real-estate offers in proximity to their location. The solution should be cost-effective and able to handle a large number of users (5 million) across the US.
+Let's analyze each of the architectural suggestions provided and their suitability for the scenario:
+A. The mobile application will submit its location details to a web service endpoint using ELB and EC2 instances. DynamoDB will be used to store and retrieve the relevant offers from EC2 instances, which would then communicate with mobile carriers or device providers to push alerts back to the mobile application.
+This solution involves using ELB and EC2 instances to receive location details from the mobile app and storing and retrieving relevant offers using DynamoDB. While this solution can handle a large number of users, it involves additional communication with mobile carriers or device providers to push alerts back to the mobile app, which could be complex and costly to set up.
+B. Use AWS DirectConnect or VPN to establish connectivity with the mobile carrier. EC2 instances will receive the mobile application's location details through the mobile carrier. RDS will be used to store and retrieve the relevant offers. EC2 instances will communicate with the mobile carrier to push alerts back to the mobile application.
+This solution involves using AWS DirectConnect or VPN to establish connectivity with the mobile carrier and using EC2 instances to receive location details from the mobile app. It also involves using RDS to store and retrieve relevant offers. While this solution may provide more secure communication with the mobile carrier, it could be complex and costly to set up.
+C. SQS ( buffer storage ) would be used to capture the device location details sent from the Mobile application. EC2 instances will process the messages from the SQS queue and retrieve the relevant offers from DynamoDB.
+This solution involves using SQS to capture location details from the mobile app and using EC2 instances to process messages from the SQS queue and retrieve relevant offers from DynamoDB. This solution is suitable for handling a large number of users and provides a scalable and cost-effective solution.
+D. SNS Mobile Push will be used to send offers to the mobile application.
+This solution involves using SNS Mobile Push to send offers to the mobile app. While this solution can handle a large number of users and is scalable, it does not address the need for real-time alerts based on the user's location.
+E. The mobile application will send the device location details using the SNS Mobile Push. EC2 instances will retrieve the relevant offers from DynamoDB.
+This solution involves using SNS Mobile Push to receive location details from the mobile app and using EC2 instances to retrieve relevant offers from DynamoDB. While this solution can handle a large number of users and is scalable, it does not address the need for real-time alerts based on the user's location.
+F. EC2 instances will communicate with the mobile carrier or the device provider to push alerts back to the mobile application.
+This solution involves using EC2 instances to communicate with the mobile carrier or device provider to push alerts back to the mobile app. While this solution may provide more control over the communication with the mobile carrier, it could be complex and costly to set up.
+Based on the analysis, the most suitable architectural suggestion for this scenario would be option C. It provides a scalable and cost-effective solution for handling a large number of users and ensures real-time alerts based on the user's location.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question128:"link"
+
+

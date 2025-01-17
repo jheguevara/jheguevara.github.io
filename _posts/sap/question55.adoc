@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "855 - Japanbased fintech company is running ap"
+---
+
+
+[.question]
+== 855-64a1df0caa736d27b1db92fb.
+
+
+****
+
+[.query]
+--
+Japan-based fintech company is running applications in AWS.
+Those are mission-critical applications, and they want to analyze the application logs using Amazon Redshift.
+The applications forward the logs to a Kinesis Data Firehose.
+What do you suggest to send the records from Kinesis Data Firehose to Redshift?
+
+
+--
+
+[.list]
+--
+* [*] A. Directly configure Amazon Redshift as the destination of the Kinesis Data Firehose Delivery Stream.
+* [ ] B. Use Amazon S3 to store raw data and send the data to Amazon Redshift using Load Command.
+* [ ] C. Directly send the data to Amazon Redshift using an SQS queue.
+* [ ] D. Directly send the data to Amazon Redshift using a custom Lambda fuction.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Option A is Correct because a Kinesis Firehose Delivery Stream can directly configure Amazon Redshift as its destination.
+Option B is incorrect because LOAD is not a valid command to move the data to Amazon Redshift.
+Option C is incorrect because SQS cannot be used to send the data from Kinesis Firehose to Amazon Redshift.
+Option D is incorrect because Lambda cannot be used to send the data from Kinesis Firehose to Amazon Redshift.
+Reference:
+https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html#create-destination-redshift
+For analyzing application logs using Amazon Redshift, the data must first be ingested into the Redshift cluster. Since the applications are forwarding logs to Kinesis Data Firehose, we need to decide on the best method for sending data from Kinesis Data Firehose to Redshift.
+Option A: Directly configure Amazon Redshift as the destination of the Kinesis Data Firehose Delivery Stream. This option is not recommended because direct delivery to Redshift is not supported. Also, it is not a best practice to send data directly from Kinesis Data Firehose to Redshift as it can cause issues such as data inconsistency, data loss, and latency.
+Option B: Use Amazon S3 to store raw data and send the data to Amazon Redshift using Load Command. This option is recommended because it is a best practice to first store raw data in S3 before loading it into Redshift. Kinesis Data Firehose can be configured to store data in S3, and then Redshift can be loaded using the Redshift COPY command to load data from S3. This approach provides greater flexibility and scalability, allowing for multiple data sources to be loaded into Redshift using the same process.
+Option C: Directly send the data to Amazon Redshift using an SQS queue. This option is not recommended because Amazon Redshift does not support direct ingestion from SQS.
+Option D: Directly send the data to Amazon Redshift using a custom Lambda function. This option is not recommended because it requires more development effort to implement and maintain a custom Lambda function. Also, it can result in additional latency in the data pipeline.
+In summary, the best approach for sending data from Kinesis Data Firehose to Redshift is to use Amazon S3 to store raw data and then load the data into Redshift using the COPY command.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question71:"link"
+
+

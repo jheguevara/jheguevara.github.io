@@ -1,0 +1,96 @@
+---
+layout: default 
+title: "814 - You are building a largescale confidenti"
+---
+
+
+[.question]
+== 814-64a1deffaa736d27b1db92c8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_soifjb.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are building a large-scale confidential documentation web server on AWS, and all of the documentation for it will be stored on S3
+One of the requirements is that it cannot be publicly accessible from S3 directly.
+You will need to use CloudFront to accomplish this.
+Which of the methods listed below would satisfy the requirements as outlined? Choose an answer from the options below.
+
+
+[source,java]
+----
+Control Access to Content on Amazon S3
+
+@ Origin Access Identity (OAl)
+© Content can be accessed ONLY via CloudFront
+
+= Why use OAI?
+
++ Ensures content is not leaking
++ S3 URLs not being used anywhere
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create an Identity and Access Management (IAM) user for CloudFront and grant access to the objects in your S3 bucket to that IAM User.
+* [*] B. Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket to that OAI only.
+* [ ] C. Create individual policies for each bucket that stores documents and in that policy grant access to only CloudFront.
+* [ ] D. Create an S3 bucket policy that lists the CloudFront distribution ID as the Principal and the target bucket as the Amazon Resource Name (ARN).
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+There are two main points (1) the files should not be accessed directly via S3 as they are confidential, and (2) the files should be accessible via CloudFront.
+If you want to use CloudFront signed URLs or signed cookies to provide access to objects in your Amazon S3 bucket, you probably also want to prevent users from accessing your Amazon S3 objects using Amazon S3 URLs.
+If users access your objects directly in Amazon S3, they bypass the controls provided by CloudFront signed URLs or signed cookies, for example, control over the date and time that a user can no longer access your content and control over which IP addresses can be used to access the content.
+In addition, if users access objects both through CloudFront and directly by using Amazon S3 URLs, CloudFront access logs are less useful because they're incomplete.
+See the image below:
+Option A is incorrect because it does not give CloudFront exclusive access to the S3 bucket.
+Option B is CORRECT because it gives CloudFront exclusive access to the S3 bucket and prevents other users from accessing the public content of S3 directly via S3 URL.
+Option C is incorrect because you do not need to create any individual policies for each bucket.
+Option D is incorrect because (a) creating a bucket policy is unnecessary and (b) it does not prevent other users from accessing the public content of S3 directly via S3 URL.
+For more information on Origin Access Identity, please see the below link-
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+The correct answer is B. Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket to that OAI only.
+Here is a detailed explanation of why this is the correct answer and why the other options are incorrect:
+A. Creating an Identity and Access Management (IAM) user for CloudFront and granting access to the objects in your S3 bucket to that IAM User does not provide a secure method of restricting access to S3 objects from CloudFront. This is because IAM users are intended for authentication of people or services accessing AWS resources, while CloudFront is a service that needs to access S3 objects on behalf of users who access your web server through CloudFront. Also, IAM users are intended to authenticate for AWS Management Console or AWS API calls and not for a public website.
+C. Creating individual policies for each bucket that stores documents and granting access to only CloudFront is not practical for large-scale environments, as you would need to create a new policy for every new S3 bucket that stores documents, making the process cumbersome and difficult to manage.
+D. Creating an S3 bucket policy that lists the CloudFront distribution ID as the Principal and the target bucket as the Amazon Resource Name (ARN) is not sufficient as it does not provide a secure method of restricting access to S3 objects from CloudFront. With this policy, anyone with knowledge of the CloudFront distribution ID could access the objects in your S3 bucket.
+B. Creating an Origin Access Identity (OAI) for CloudFront and granting access to the objects in your S3 bucket to that OAI only, is the best way to restrict access to the objects in your S3 bucket. When you create an OAI, you provide CloudFront with a special user that CloudFront can use to access the objects in your S3 bucket. This user can only be used by CloudFront, and not by anyone else. By granting access to the objects in your S3 bucket to this special user only, you ensure that the objects can only be accessed through CloudFront, and not directly from S3.
+In summary, creating an Origin Access Identity (OAI) for CloudFront and granting access to the objects in your S3 bucket to that OAI only is the best way to restrict access to the objects in your S3 bucket and satisfy the requirement of not being publicly accessible from S3 directly.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question19:"link"
+
+

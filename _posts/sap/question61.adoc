@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "861 - You are launching your first ElastiCache"
+---
+
+
+[.question]
+== 861-64a1df0eaa736d27b1db9302.
+
+
+****
+
+[.query]
+--
+You are launching your first ElastiCache cache cluster and start using Memcached.
+Which of your following requirement is NOT supported by Memcached? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Your ability to scale your cache horizontally as you grow.
+* [*] B. You can use more advanced data types, such as lists, hashes, and sets.
+* [ ] C. Your need for as simple a caching model as possible.
+* [ ] D. Object caching is your primary goal to offload your database.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+Option B is CORRECT because it is Redis, not Memcached, which supports advanced/complexdata types such as strings, hashes, lists, sets, sorted sets, and bitmaps.
+Options A, C and D are all incorrect because these are the main features of Memcached.
+For the exam, it is very important to remember the differences between Memcached and Redis.
+Both are excellent solutions, but used for different scenarios.
+Please see the notes given below by the AWS documentation:
+Choose Memcached if the following apply to your situation:
+You need the simplest model possible.
+You need to run large nodes with multiple cores or threads.
+You need the ability to scale out/in, adding and removing nodes as demand on your system increases and decreases.
+You need to cache objects, such as a database.
+Choose Redis 2.8.x or Redis 3.2.4 (non-clustered mode) if the following apply to your situation:
+You need complex data types, such as strings, hashes, lists, sets, sorted sets, and bitmaps.
+You need to sort or rank in-memory data-sets.
+You need persistence of your key store.
+You need to replicate your data from the primary to one or more read replicas for read-intensive applications.
+You need automatic failover if your primary node fails.
+You need publish and subscribe (pub/sub) capabilities-to inform clients about events on the server.
+You need backup and restore capabilities.
+You need to support multiple databases.
+For more information on the various caching engines, please visit the below URL-
+http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.Uses.html
+The correct answer is B. "You can use more advanced data types, such as lists, hashes, and sets."
+Memcached is an in-memory key-value store that is designed to cache small, frequently accessed data sets. It is a simple caching system that is easy to set up and use, making it a popular choice for caching in many applications. However, it has some limitations.
+A. Memcached supports horizontal scaling, which means you can add more cache nodes to the cluster as your traffic increases. This allows you to handle more traffic without overloading a single node.
+B. Memcached only supports simple data types such as strings and integers. It does not support more advanced data types such as lists, hashes, and sets.
+C. Memcached has a simple caching model, where you set a key-value pair and retrieve it later. This makes it easy to use and understand.
+D. Memcached is primarily designed for object caching, which means it stores the result of expensive database queries or other expensive computations. This allows you to offload these computations from your database and serve the results from the cache, which can improve the performance of your application.
+In conclusion, while Memcached is a simple and effective caching system, it has some limitations. It does not support more advanced data types such as lists, hashes, and sets.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question78:"link"
+
+

@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "869 - A company is running a web application t"
+---
+
+
+[.question]
+== 869-64a1df10aa736d27b1db930c.
+
+
+****
+
+[.query]
+--
+A company is running a web application that has a high amount of dynamic content.
+The application has MySQL as its database.
+The company is looking to implement a caching solution for clients requesting the application.
+What is the best possible solution and why?
+
+
+--
+
+[.list]
+--
+* [*] A. Offload the DNS to Route 53; Route 53 has DNS servers worldwide and routes the request to the closest region which reduces DNS latency.
+* [*] B. Create an ElastiCache cluster, write code that caches the correct dynamic content and places it in front of the RDS dynamic content. This will reduce the amount of time it takes to request the dynamic content since it is cached.
+* [ ] C. Create a CloudFront distribution, enable query string forwarding and set the TTL to 0. This will keep TCP connections live from CloudFront to the origin, reducing the time it takes for a TCP handshake to occur.
+* [ ] D. Create a CloudFront distribution, disable query string forwarding and set the TTL to 0. This will keep TCP connections live from CloudFront to the origin, reducing the time it takes for a TCP handshake to occur.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+The scenario requires a caching solution which should help to reduce the load time of the dynamic content.
+ElastiCache is the proper caching solution for this use case.
+Option A is INCORRECT because Route 53 helps improving the resolving of the DNS queries for the multi-region application.
+It does not help caching of the dynamic content.
+Option B is CORRECT because ElastiCache is most suited for caching dynamic content.
+This will make sure the read-intensive load is reduced on the database instance.
+Option C is INCORRECT because setting the TTL to 0 in CloudFront does not cache content and is not suited for caching dynamic content.
+Option D is INCORRECT because it is the same answer as above, except query string forwarding is disabled.
+This would block the dynamic content generated at the origin server using the query string parameters.
+https://aws.amazon.com/blogs/aws/amazon-cloudfront-support-for-dynamic-content/
+The best solution for implementing a caching solution for a web application that has a high amount of dynamic content and is using MySQL as its database is to create an ElastiCache cluster and place it in front of the RDS dynamic content.
+Option A is not a suitable solution for implementing a caching solution for clients requesting the application as it is related to DNS resolution and not caching.
+Option C and D suggest creating a CloudFront distribution with a TTL of 0 and keeping TCP connections live from CloudFront to the origin, reducing the time it takes for a TCP handshake to occur. However, these options are not the best fit for a web application with high amounts of dynamic content since CloudFront caches content based on the object's cache key, which is either the URL without query parameters (if query string forwarding is disabled) or the URL with query parameters (if query string forwarding is enabled). Since the web application has a high amount of dynamic content, the URL would change frequently, which makes it less suitable for caching with CloudFront.
+Therefore, the best solution is option B, which involves creating an ElastiCache cluster, writing code that caches the correct dynamic content, and placing it in front of the RDS dynamic content. ElastiCache is a fully managed in-memory data store service that is compatible with popular open-source in-memory data stores like Redis and Memcached. By placing the cache in front of the RDS dynamic content, it will reduce the amount of time it takes to request the dynamic content since it is cached. This solution is ideal for web applications that have high amounts of dynamic content, as it can cache frequently requested data, reducing the load on the database, and improving application performance.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question88:"link"
+
+

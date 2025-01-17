@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "828 - The Dynamic Host Configuration Protocol "
+---
+
+
+[.question]
+== 828-64a1df03aa736d27b1db92d8.
+
+
+****
+
+[.query]
+--
+The Dynamic Host Configuration Protocol (DHCP) provides a standard for passing configuration information to hosts on a TCP/IP network.
+You can have multiple sets of DHCP options, but you can associate only one set of DHCP options with a VPC at a time.
+You have just created your first set of DHCP options, associated it with your VPC but now realize that you have made an error in setting them up and you need to change the options.
+Which of the following options do you need to take to achieve this? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. You need to stop all the instances in the VP.
+* [ ] B. You can then change the options, and they will take effect when you start the instances.
+* [*] C. You can modify the options from the console or the CLI.
+* [ ] D. You must create a new set of DHCP options and associate them with your VP.
+* [ ] E. You can modify the options from the CLI only, not from the console.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - C.
+Option A, B, and D are incorrect because you cannot modify the DHCP options - neither via the console nor via CLI.
+Option C is CORRECT because once you create a set of DHCP options, you cannot modify them.
+You must create a new set of DHCP options and associate it with your VPC.AWS Document says:
+Changing DHCP Options.
+After you create a set of DHCP options, you can't modify them.
+If you want your VPC to use a different set of DHCP options, you must create a new set and associate them with your VPC.
+You can also set up your VPC to use no DHCP options at all.
+You can have multiple sets of DHCP options, but you can associate only one set of DHCP options with a VPC at a time.
+If you delete a VPC, the DHCP options set associated with the VPC are also deleted.
+After you associate a new set of DHCP options with a VPC, any existing instances and all new instances that you launch in the VPC use these options.
+You don't need to restart or relaunch the instances.
+They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease.
+If you want, you can explicitly renew the lease using the operating system on the instance.
+For more information on DHCP Options set, please see the below link-
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html
+The correct answer is C - you can modify the options from the console or the CLI.
+When you create a VPC in AWS, you can associate a set of DHCP options with it to provide network configuration information to instances launched within that VPC. DHCP options typically include information such as the DNS server to use, the domain name, and other network settings.
+According to the question, you have associated a set of DHCP options with your VPC, but you need to make changes to them. Fortunately, you can modify the DHCP options associated with a VPC at any time.
+To modify the DHCP options associated with your VPC, you can do so from the AWS Management Console or the AWS Command Line Interface (CLI). In the console, you can navigate to the DHCP options set you wish to modify and make changes to its settings. Alternatively, you can use the modify-dhcp-options command in the CLI to make the necessary changes.
+You do not need to stop all the instances in the VPC, create a new set of DHCP options, or modify the options from the CLI only. Instead, you can simply modify the existing DHCP options associated with your VPC to update the network configuration information passed to your instances.
+It's worth noting that changes to DHCP options can take some time to propagate to all instances in the VPC, so you may need to wait a few minutes for the changes to take effect.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question35:"link"
+
+

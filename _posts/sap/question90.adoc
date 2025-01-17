@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "890 - You have an application that analyzes im"
+---
+
+
+[.question]
+== 890-64a1df17aa736d27b1db932b.
+
+
+****
+
+[.query]
+--
+You have an application that analyzes images within files.
+For each of the files in the input stream, the application writes to some number of output files.
+The number of input files processed each day is high and concentrated within a few hours of the day.
+
+
+--
+
+[.list]
+--
+* [*] A. Use S3 to store the files. Use SQS to store the elaboration commands. Configure an Auto Scaling group to process the messages in the queue and dynamically adjust the size of the group depending on the length of the SQS queue.
+* [ ] B. Use EBS with Provisioned IOPS (PIOPS) to store I/O files. Use SNS to distribute elaboration commands to a group of hosts working in parallel and Auto Scaling to dynamically size the group of hosts depending on the number of SNS notifications.
+* [ ] C. Use S3 to store I/O files and SNS to distribute elaboration commands to a group of hosts working in parallel. Auto Scaling to dynamically size the group of hosts depending on the number of SNS notifications.
+* [ ] D. Use EBS with Provisioned IOPS (PIOPS) to store I/O files. Use SQS to distribute elaboration commands to a group of hosts working in parallel. Use Auto Scaling to dynamically size the group of hosts depending on the length of the SQS queue.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The scenario in this question is that (a) there are EC2 instances that need to process a high number of input files, (b) currently the processing takes 20 hrs a day, which needs to be reduced, (c) the availability needs to be improved.
+First, let's see whether we should choose S3 or EBS with PIOPS.
+It appears that all the options have auto-scaling in common.
+There will be multiple EC2 instances working in parallel on the input data.
+This should reduce the overall elaboration time, satisfying one of the requirements.
+You can enable Multi-Attach on Amazon EBS Provisioned IOPS io1 volumes to allow a single volume to be concurrently attached to up to sixteen AWS Nitro System-based Amazon Elastic Compute Cloud (Amazon EC2) instances within the same Availability Zone which does not guarantee the availability.
+Whereas S3 provides high availability, which satisfies the other requirements.
+Second, SQS is a great option to do autonomous tasks and can queue service requests, and can be scaled to meet the high demand.
+SNS is a mere notification service and would not hold the tasks.
+Hence, SQS is certainly the correct choice.
+Option A is CORRECT because, as mentioned above, it provides high availability and can store a massive amount of data.
+Auto-scaling of EC2 instances reduces the overall processing time and SQS helps distribute the commands/tasks to EC2 instances.
+Option B is incorrect because, as mentioned above, neither EBS nor SNS is a valid choice in this scenario.
+Option C is incorrect because, as mentioned above, SNS is not a valid choice in this scenario.
+Option D is incorrect because, as mentioned above, EBS is not a valid choice in this scenario.
+The best answer for this scenario is option A. Here is a detailed explanation of why:
+Option A:
+Use S3 to store the files: S3 is a highly scalable and durable object storage service that can handle large volumes of data, making it a good choice for storing files.
+Use SQS to store the elaboration commands: SQS is a fully managed message queuing service that decouples the components of a cloud application, allowing them to run independently and scale quickly. It is a good choice for storing the commands needed for processing the image files.
+Configure an Auto Scaling group to process the messages in the queue and dynamically adjust the size of the group depending on the length of the SQS queue: Auto Scaling enables you to automatically scale out or in the number of EC2 instances based on the demand. By configuring an Auto Scaling group to process the messages in the SQS queue, the number of EC2 instances will scale dynamically based on the length of the queue, ensuring that the processing of the image files is efficient and cost-effective.
+Option B:
+Use EBS with Provisioned IOPS (PIOPS) to store I/O files: EBS is a block-level storage service that provides high-performance storage volumes for EC2 instances. Provisioned IOPS is a type of EBS volume that delivers predictable and consistent performance. However, EBS volumes have a limit on the amount of IOPS they can deliver, and they can become a bottleneck if the I/O workload is too high.
+Use SNS to distribute elaboration commands to a group of hosts working in parallel: SNS is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. It is a good choice for distributing the commands needed for processing the image files.
+Auto Scaling to dynamically size the group of hosts depending on the number of SNS notifications: By configuring an Auto Scaling group to process the SNS notifications, the number of EC2 instances will scale dynamically based on the number of notifications.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question119:"link"
+
+

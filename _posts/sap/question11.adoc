@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "811 - You work in a DevOps team and your team "
+---
+
+
+[.question]
+== 811-64a1defeaa736d27b1db92c4.
+
+
+****
+
+[.query]
+--
+You work in a DevOps team, and your team maintains several applications deployed in AWS.
+At the moment, there are dozens of server certificates stored in IAM.
+These certificates are used for different purposes and have different expiry date.
+You have to renew the certificates before they expire.
+Otherwise, the services will be impacted.
+You want to use another approach to renew and manage these certificates.
+Which method is the best?
+
+
+--
+
+[.list]
+--
+* [*] A. In the IAM console, add a new strategy for server certificates to renew one month before the expiry date automatically.
+* [*] B. Provision and manage the server certificates in AWS Certificate Manager (ACM). The certificates requested from ACM are automatically renewed.
+* [*] C. In IAM console, migrate the certificates from IAM to ACM then ACM can automatically renew the certificates one month before the expiry date.
+* [ ] D. Import all third-party certificates into ACM. ACM is responsible for the automatic renew for both third-party certificates and ACM provided certificates.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+Check https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html on how to manage server certificates in IAM and ACM.
+Option A is incorrect: Because for the imported server certificates in IAM, there is no IAM console to manage them.
+This is one major disadvantage of managing certificates in IAM.
+Option B is CORRECT: Because ACM is a preferred solution.
+Certificates requested by ACM are free and automatically renew.
+Option C is incorrect: Because you cannot migrate the certificates from IAM to ACM directly.
+There is no such console to do that.
+For ACM, you can import third-party certificates to the service.
+Option D is incorrect: Because ACM cannot automatically renew imported third-party certificates.
+You are responsible for monitoring the expiration date.Please check the reference in.
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html
+Out of the four options provided, the best method for renewing and managing server certificates in AWS is to use AWS Certificate Manager (ACM), as stated in option B.
+AWS Certificate Manager (ACM) is a managed service that provides SSL/TLS certificates for use with AWS services and resources. It simplifies the process of provisioning, managing, and deploying SSL/TLS certificates for use with AWS services and resources.
+Option A of adding a new strategy for server certificates to renew one month before the expiry date automatically in the IAM console can be a viable solution, but it does not eliminate the need to manually manage and monitor the certificates.
+Option C of migrating the certificates from IAM to ACM, and then having ACM automatically renew the certificates one month before the expiry date can be a valid solution. However, this option requires additional steps to migrate the certificates, and it may not be feasible for all scenarios.
+Option D of importing all third-party certificates into ACM can be an effective solution, but it may not be practical for organizations with a large number of certificates or those who have specific requirements for third-party certificates.
+Therefore, option B is the best method for managing and renewing server certificates in AWS. ACM automates the process of renewing certificates, eliminating the need for manual intervention. Additionally, ACM integrates with other AWS services, such as Elastic Load Balancing and Amazon CloudFront, making it easy to deploy certificates across multiple resources.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question15:"link"
+
+

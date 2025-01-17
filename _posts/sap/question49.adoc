@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "849 - You have a massive social networking app"
+---
+
+
+[.question]
+== 849-64a1df09aa736d27b1db92f0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_c8ksks.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You have a massive social networking application that is already deployed on the N.Virginia region ( with newly created key pairs ) with around 100 EC2 instances.
+You want to deploy your application to multiple regions for better availability.
+You don't want to handle multiple key pairs and reuse existing key pairs for the N.Virginia region.
+How will you accomplish this?
+
+
+[source,java]
+----
+Services v Resource Groups v
+
+EC2 Dashboard Import Key Pair
+Events
+Tags Q
+
+Reports
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Key pair is not a region level concept, all the keys are available globally.
+* [ ] B. Use copy key command line API to transfer key to different regions.
+* [*] C. Using import key-pair feature using AWS web console.
+* [ ] D. Copy AMI of your EC2 machine between regions and start an instance from that AMI.
+
+--
+****
+
+[.answer]
+Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - C.
+Key pairs across regions are not possible.
+In order to use key pairs across regions, you need to import the key pairs in the respective regions.
+You need to go to the respective region, and from the EC2 dashboard, click on Import Key pair and choose the relevant key pair.
+Option A is incorrect because the key pair is region specific - not global.
+Option B is incorrect because keys cannot be copied across different regions.
+They need to be imported.
+Option C is CORRECT because import key pair functionality enables migrating an EC2 instance from one region to another and use the same PEM key.
+Option D is incorrect because PEM keys cannot be copied to another region as part of the AMI.
+For more information on bringing your own key pair, please refer to the below URL-
+https://aws.amazon.com/blogs/aws/new-amazon-ec2-feature-bring-your-own-keypair/
+Option A is correct. Key pairs in AWS are not tied to any specific region. Instead, they are global resources that can be used across all regions. Therefore, you do not need to create new key pairs for each region where you want to deploy your application.
+Options B, C, and D are not relevant for this scenario since they all deal with copying or importing key pairs or machine images between regions. While these features are useful in some cases, they do not address the specific question of how to reuse an existing key pair across multiple regions.
+To summarize, if you want to deploy your application to multiple regions and use the same key pair, you can simply use the existing key pair that you created in the N.Virginia region. You do not need to create new key pairs for each region, as key pairs are a global resource in AWS.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question60:"link"
+
+

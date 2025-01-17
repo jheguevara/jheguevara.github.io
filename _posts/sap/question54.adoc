@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "854 - Singaporebased College is closed due to "
+---
+
+
+[.question]
+== 854-64a1df0baa736d27b1db92f7.
+
+
+****
+
+[.query]
+--
+Singapore-based College is closed due to covid 19
+College wants to continue Online classes.
+They are also looking for a solution to offer college-based applications/software/Labs to students easily.
+What device-agnostic solution for all college students will you suggest?
+
+
+--
+
+[.list]
+--
+* [*] A. You can suggest using Amazon AppStream 2.0 in VP.
+* [*] B. AmazonAppStream 2.0 price is based on a monthly fee per streaming user and stream resource required for provisioning. Students can access the application through the Amazon WorkSpace.
+* [ ] A. You can suggest using Amazon AppStream 2.0 in VP.
+* [ ] D. Amazon AppStream 2.0 price is based on a monthly fee per streaming user and stream resource required for provisioning. Students can access the application through the browser in their personal system.
+* [ ] E. You can suggest to use Amazon WorkSpace and run them in always ON mode.
+* [ ] F. You can suggest using Amazon AppStream 2.0. Amazon AppStream 2.0 price is based on an hourly fee per streaming user and stream resource required for provisioning. Students can access the application through the browser in their personal system.
+
+--
+****
+
+[.answer]
+Answer B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+A.
+D.
+E.
+F.
+Answer: B.
+Option A is incorrect because using Amazon WorkSpace is not the right solution in this case.
+Option B is Correct because Amazon AppStream offers a desktop-based application through streaming.
+Price is based on a monthly fee per streaming user and stream resource required for provisioning.
+Option C is incorrect becauseAmazon WorkSpace is not the right solution in this case.
+Option D is incorrect because the hourly fee per streaming user is the wrong statement here.
+Reference:
+https://aws.amazon.com/appstream2/pricing/?nc=sn&amp;loc=4 https://aws.amazon.com/blogs/publicsector/fife-school-districts-use-amazon-appstream-2-0-to-provide-equitable-access/
+The best device-agnostic solution for a college to offer applications/software/Labs to students would be to use Amazon AppStream 2.0. Amazon AppStream 2.0 is a fully managed application streaming service that enables students to access applications and software from any device, regardless of their location.
+Option A and F suggest using Amazon AppStream 2.0 in combination with either a virtual private network ( VPN) or a browser on the student's personal system. The difference between the two options is the pricing model. Option B mentions a monthly fee per streaming user and stream resource required for provisioning, while option F mentions an hourly fee. The pricing is determined by the number of students using the service and the resources required to stream the applications.
+Option D suggests using Amazon AppStream 2.0 through the browser on the student's personal system, which is a cost-effective solution compared to option B and F. However, it may not be the best solution for resource-intensive applications that require more processing power.
+Option E suggests using Amazon WorkSpaces, a virtual desktop infrastructure (VDI) solution that provides students with a persistent desktop experience. However, this option requires an "always on" mode which may lead to increased costs.
+Overall, the best solution for a college to offer device-agnostic access to applications, software, and labs to students is to use Amazon AppStream 2.0. The college can choose the pricing model that best suits their needs and the solution is scalable to accommodate increasing demand from students.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question67:"link"
+
+

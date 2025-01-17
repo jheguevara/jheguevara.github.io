@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "803 - A middlesized company is planning to mig"
+---
+
+
+[.question]
+== 803-64a1defbaa736d27b1db92b9.
+
+
+****
+
+[.query]
+--
+A middle-sized company is planning to migrate its on-premises servers to AWS.
+At the moment, they have used various licenses, including windows operating system server, SQL Server, IBM Db2, SAP ERP, etc.
+After migration, the existing licenses should continue to work in EC2
+The IT administrators prefer to use a centralized place to control and manage the licenses to prevent potential non-compliant license usages.
+For example, SQL Server Standard's license only allows 50 vCPUs, which means a rule is needed to limit the number of SQL Servers in EC2
+Which option is correct for the IT administrators to use?
+
+
+--
+
+[.list]
+--
+* [*] A. Create license rules in AWS System Manager for all BYOL licenses. Use the rules to make sure that there are no non-compliant activities. Link the rules when EC2 AMI is created. System Manager console has provided license usage status.
+* [*] B. Define license rules in AWS License Manager for the required licenses. Enforce the license rules in EC2 and track usage in the AWS License Manager console.
+* [*] C. Use a license management blueprint to create a dedicated Lambda to control license usage. Lambda outputs the usage status to Cloudwatch Metrics which can be used by the administrators to track the status.
+* [ ] D. Define and enforce license rules in AWS License Manager for the Microsoft relevant licenses such as windows, SQL Server as only Microsoft licenses are supported. For the other licenses such as IBM Db2, track the license usage in AWS System Manager.
+
+--
+****
+
+[.answer]
+Correct Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - B.
+AWS License Manager is a central place to manage licenses in AWS EC2 and on-premises instances.
+It contains 3 parts to use:
+Define licensing rules.
+Enforce licensing rules.
+Track usage.
+AWS License Manager currently integrates with Amazon EC2, allowing you to track licenses for default (shared-tenancy) EC2 instances, Dedicated Instances, Dedicated Hosts, Spot Instances, and Spot Fleet, and Auto Scaling groups.
+Refer to https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html.
+Option A is incorrect.
+Because AWS License Manager manages the BYOL licenses.
+Although AWS System Manager can work together with AWS License Manager to manage licenses for on-premises servers and non-AWS public clouds, it is not the central place to provide license management.
+Option B is CORRECT: Because AWS License Manager can define licensing rules, track license usage, and enforce controls on license use to reduce the risk of license overages.
+Option C is incorrect: Because the AWS License manager should be considered first for licensing management.
+Option D is incorrect: Because AWS License Manager can manage non-Microsoft licenses.
+According to https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html, license Manager tracks various software products from Microsoft, IBM, SAP, Oracle, and other vendors.
+Option B, "Define license rules in AWS License Manager for the required licenses. Enforce the license rules in EC2 and track usage in the AWS License Manager console," is the correct option for the IT administrators to use.
+AWS License Manager is a service that helps organizations manage their software licenses, including those acquired through bring your own license (BYOL) agreements. By using AWS License Manager, IT administrators can create and enforce license rules for their software licenses in AWS. In this case, the company has several different licenses that they need to manage, so using AWS License Manager will help them to centralize and simplify their license management.
+To use AWS License Manager, the company will need to create license configurations for each of their software licenses. These license configurations define the rules for how the licenses can be used, such as the number of instances or vCPUs that are allowed. Once the license configurations are created, they can be applied to the instances in EC2 to enforce the license rules.
+IT administrators can use the AWS License Manager console to track the usage of their software licenses. The console provides a dashboard that displays license usage and compliance status, as well as reports on license usage over time. This allows the administrators to monitor their license usage and ensure that they are in compliance with their license agreements.
+Option A, "Create license rules in AWS System Manager for all BYOL licenses. Use the rules to make sure that there are no non-compliant activities. Link the rules when EC2 AMI is created. System Manager console has provided license usage status," is not the best option in this case because AWS License Manager is specifically designed for managing software licenses, while AWS System Manager is a more general-purpose management service. While it is possible to create license rules in AWS System Manager, it may not provide the same level of license management and tracking capabilities as AWS License Manager.
+Option C, "Use a license management blueprint to create a dedicated Lambda to control license usage. Lambda outputs the usage status to Cloudwatch Metrics which can be used by the administrators to track the status," is not the best option because it requires more development effort than the other options. While it is possible to create a custom solution for managing licenses using AWS Lambda and CloudWatch, it may be more complex and time-consuming than using AWS License Manager.
+Option D, "Define and enforce license rules in AWS License Manager for the Microsoft relevant licenses such as windows, SQL Server as only Microsoft licenses are supported. For the other licenses such as IBM Db2, track the license usage in AWS System Manager," is not the best option because it requires the company to use multiple tools to manage their licenses. While AWS License Manager may not support all of the company's licenses, it is still the best option for managing the licenses that it does support. Using AWS System Manager to manage the other licenses may not provide the same level of license management and tracking capabilities as AWS License Manager.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question3:"link"
+
+

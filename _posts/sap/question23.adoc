@@ -1,0 +1,93 @@
+---
+layout: default 
+title: "823 - The manufacturing based company is using"
+---
+
+
+[.question]
+== 823-64a1df02aa736d27b1db92d3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_53513.png[]
+
+--
+
+
+****
+
+[.query]
+--
+The manufacturing based company is using SAP S/4 HANA as part of their digital transformation journey.
+They have deployed SAP S/4 HANA on AWS for better performance and to get the cost benefits.
+The On-prem network is connected with AWS via AWS Direct Connect with 500Mbps Connection.
+Currently, 600 employees access the SAP Application using SAP GUI on their local computers from various locations.
+They are facing latency issues in uploading and downloading the data using SAP GUI.
+SAP Admin is also facing challenges to maintain the same version of SAP GUI in all Systems.
+Besides, you want users to only use up-to-date versions of SAP GUI.
+The company wants to overcome this issue very quickly.
+What should they do?
+
+
+[source,java]
+----
+Identity federation
+
+Amazon AppStream 2.0 supports federated sign-in using SAML 2.0. Users can sign in to AppStream 2.0 using their existing credentials,
+and start streaming applications. As an administrator, you can use your existing user directory to control end-user access to applications
+available via AppStream 2.0. You can quickly add or remove access for users or groups, restrict access based on user locations, and enable
+multi-factor authentication. You can enable federated access and controls via any SAML 2.0 compliant identity provider.
+----
+
+
+--
+
+[.list]
+--
+* [*] A. They should increase the Direct Connect speed from 500Mbps to 1Gbps.
+* [ ] B. They should increase the Direct Connect speed from 500Mbps to 1Gbps and also provide AWS WorkSpace to individual employees.
+* [ ] C. They should deploy the SAP GUI the same version on individual systems.
+* [*] D. They should deploy the SAP GUI on Amazon AppStream 2.0.
+
+--
+****
+
+[.answer]
+Answer D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: D.
+Option A is Incorrect because increasing the direct connect speed will not solve the upload and download speed issue and managing the same SAP GUI Version issue as the users are located at various locations.
+Option B is Incorrect because increasing the direct connect speed will not solve the upload and download speed issue and managing the same SAP GUI Version issue as the users are located at various locations.
+Option C is incorrect because it will take time to deploy the same version in 600 systems.
+Option D is Correct because SAP GUI runs on AWS next to the SAP environment, increasing the employee's experience with SAP.
+SAP GUI also helps in maintaining the same version across the systems.
+With this option, users only access up-to-date versions of SAP GUI, and you don't have to deploy updates to every user's computer.Reference:
+https://aws.amazon.com/appstream2/enterprises/?nc=sn&amp;loc=2&amp;dn=3 https://www.youtube.com/watch?v=qAFlv1m3MX0 https://aws.amazon.com/blogs/desktop-and-application-streaming/deploying-sap-gui-on- https://aws.amazon.com/appstream2/features/
+The manufacturing company is facing latency issues while accessing SAP applications using SAP GUI from various locations. In addition, SAP admin is facing challenges in maintaining the same version of SAP GUI in all systems. The company wants to overcome these issues quickly.
+Option A: Increasing Direct Connect speed from 500Mbps to 1Gbps. Increasing Direct Connect speed may improve the network performance, but it may not solve the issue of SAP GUI version mismatch and maintaining the same version across different systems.
+Option B: Increasing Direct Connect speed from 500Mbps to 1Gbps and providing AWS WorkSpace to individual employees. Providing AWS WorkSpace may improve the user experience by providing a centralized location to access SAP GUI, which can be updated by SAP admin easily. However, increasing the Direct Connect speed may not solve the issue of maintaining the same version of SAP GUI.
+Option C: Deploying the SAP GUI the same version on individual systems. Deploying the same version of SAP GUI on all systems may solve the issue of version mismatch, but it may not solve the performance issue, which may still persist.
+Option D: Deploying the SAP GUI on Amazon AppStream 2.0. Deploying SAP GUI on Amazon AppStream 2.0 may solve both the issues of version mismatch and performance. Amazon AppStream 2.0 is a fully managed application streaming service that provides on-demand access to desktop applications. With Amazon AppStream 2.0, the SAP admin can manage a single version of SAP GUI, and users can access it from anywhere using a web browser or supported client. Amazon AppStream 2.0 also provides a scalable infrastructure that can handle variable demand, reducing the need for expensive hardware.
+Therefore, Option D is the best solution for the manufacturing company to overcome the issues they are facing.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question30:"link"
+
+

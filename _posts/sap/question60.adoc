@@ -1,0 +1,92 @@
+---
+layout: default 
+title: "860 - You have created a temporary application"
+---
+
+
+[.question]
+== 860-64a1df0daa736d27b1db9300.
+
+
+****
+
+[.query]
+--
+You have created a temporary application that accepts image uploads, stores them in S3, and records information about the image in RDS.
+After building this architecture and accepting images for the duration required, it's time to delete the CloudFormation template.
+However, your manager has informed you that the RDS data needs to be stored and the S3 bucket with the images needs to remain for archival reasons.
+Your manager has also instructed you to ensure that the application can be restored by a CloudFormation template and run next year during the same period.
+
+
+--
+
+[.list]
+--
+* [*] A. Enable S3 bucket replication on the source bucket to a destination bucket to maintain a copy of all the S3 objects, set the deletion policy for the RDS instance to snapshot.
+* [ ] B. For both the RDS and S3 resource types on the CloudFormation template, set the DeletionPolicy to Retain.
+* [ ] C. Set the DeletionPolicy on the S3 resource to snapshot and the DeletionPolicy on the RDS resource to snapshot.
+* [*] D. Set the DeletionPolicy on the S3 resource declaration in the CloudFormation template to retain, set the RDS resource declaration DeletionPolicy to snapshot.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+The main points in this scenario are: even if the CloudFormation stack is deleted,(1) the RDS data needs to be stored, and (2) the S3 bucket with the images should remain (not be deleted).
+Option A is incorrect because even if the images are backed up to another bucket, the original bucket would be deleted if the CloudFormation stack is deleted.
+One of the requirements is to retain the S3 bucket.
+Option B is incorrect because the DeletionPolicy attribute for RDS should be snapshot, not retain.
+After all, with snapshot option, the backup of the RDS instance would be stored in the form of snapshots (which is the requirement)
+With retain option, CF will keep the RDS instance alive which is unwanted.
+Option C is incorrect because the DeletionPolicy of the S3 bucket should be retain, not snapshot.
+Option D is CORRECT because it correctly sets the DeletionPolicy of retain on the S3 bucket and snapshot on the RDS instance.
+More information on DeletionPolicy on CloudFormation.
+DeletionPolicy options include:
+Retain: You retain the resource in the event of a stack deletion.
+Snapshot: You get a snapshot of the resource before it's deleted.
+This option is available only for resources that support snapshots.
+Delete: You delete the resource along with the stack.
+This is the default outcome if you don't set a DeletionPolicy.
+AWS Document says:
+To keep or copy resources when you delete a stack, you can specify either the Retain or Snapshot policy options.
+With the DeletionPolicy attribute, you can preserve or (in some cases) backup a resource when its stack is deleted.
+You specify a DeletionPolicy attribute for each resource that you want to control.
+If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
+To keep a resource when its stack is deleted, specify Retain for that resource.
+You can use retain for any resource.
+For example, you can retain a nested stack, Amazon S3 bucket, or EC2 instance so that you can continue to use or modify those resources after you delete their stacks.
+Note.
+If you want to modify resources outside of AWS CloudFormation, use a retain policy and then delete the stack.
+Otherwise, your resources might get out of sync with your AWS CloudFormation template and cause stack errors.
+For resources that support snapshots, such as AWS::EC2::Volume, specify Snapshot to have AWS CloudFormation create a snapshot before deleting the resource.
+For more information on Cloudformation deletion policy, please visit the below URL-
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+The correct answer to this scenario is D. Set the DeletionPolicy on the S3 resource declaration in the CloudFormation template to retain, set the RDS resource declaration DeletionPolicy to snapshot.
+Explanation:
+The requirement is to delete the CloudFormation template but retain the S3 bucket with images and RDS data for archival purposes, and ensure that the application can be restored by a CloudFormation template and run next year during the same period. This means that we need to retain the S3 bucket and RDS data while deleting the CloudFormation stack.
+Option A is incorrect because S3 bucket replication is not needed since the requirement is to keep the existing S3 bucket with images. Also, setting the deletion policy of the RDS instance to snapshot is not enough to retain the data; we need to ensure that the RDS instance is not deleted with the CloudFormation stack.
+Option B is incorrect because setting the DeletionPolicy to Retain for both the S3 and RDS resource types would not allow the deletion of the CloudFormation stack, which is required.
+Option C is incorrect because setting the DeletionPolicy on the S3 resource to snapshot and the DeletionPolicy on the RDS resource to snapshot is not a valid option. Snapshot is not a valid value for DeletionPolicy.
+Option D is the correct answer. We need to set the DeletionPolicy on the S3 resource declaration in the CloudFormation template to retain, which will ensure that the S3 bucket with images is not deleted with the CloudFormation stack. For the RDS resource declaration, we need to set the DeletionPolicy to snapshot, which will create a snapshot of the RDS instance before deletion, allowing us to restore it later.
+Therefore, by choosing option D, we can retain the S3 bucket with images and RDS data while ensuring that the CloudFormation stack can be deleted and the application can be restored by a CloudFormation template next year during the same period.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question76:"link"
+
+

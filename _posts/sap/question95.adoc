@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "895 - To serve Web traffic for a popular produ"
+---
+
+
+[.question]
+== 895-64a1df19aa736d27b1db9331.
+
+
+****
+
+[.query]
+--
+To serve Web traffic for a popular product, your chief financial officer and the IT director have purchased 10 large Reserved Instances (RIs), evenly spread across two availability zones.
+Route 53 is used to deliver the traffic to an Elastic Load Balancer (ELB)
+After several months, the product grows even more popular, and you need additional capacity.
+As a result, your company purchases two c5.2xlarge RI.
+You register the two c5.2xlarge instances with your ELB and quickly find while all the instances are at 100% of their capacity, the c5.2xlarge instances have a significant capacity that is unused.
+Which of the following is the most cost-effective solution that uses EC2 capacity most effectively?
+
+
+--
+
+[.list]
+--
+* [*] A. Use a separate ELB for each instance type and distribute the load to ELBs with Route53 Weighted Routing.
+* [ ] B. Configure AutoScaling group and Launch Configuration with ELB to add up to 10 more on-demand large instances when triggered by Cloudwatch shut off c5.2xiarge instances.
+* [*] C. Route traffic to EC2 large and c5.2xlarge instances directly. Using Route 53 latency based routing and health checks shut off EL.
+* [ ] D. Configure ELB with two c5.2xlarge Instances and use the on-demand AutoScaling group for up to two additional c5.2xlarge instances.
+
+--
+****
+
+[.answer]
+Correct Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - A.
+In this question, the problem is that the newly added c5.2xlarge instances are not fully utilized.
+This is happening because the load is spread evenly across all the instances.
+There is no logic to determine how much traffic is to be routed to which instance types.
+Hence, there is a need to add some logic where higher (more-weighted) traffic should be routed to c5.2xlarge instances and light-weighted to the other instances.
+Route 53's weighted routing policy does exactly like this, so you should look for this option.
+Option A is Correct because it first creates separate ELBs, one each for the set of different instance types and uses Route 53's weighted routing policy such that a higher proportion of the load is routed to the ELB that has c5.2xlarge instances and a smaller proportion to the one with smaller instances.
+Option B is incorrect because shutting down c5.2xlarge instances will not effectively use the EC2 capacity.
+You have already paid for the instance so that you would lose money here.
+Option C is incorrect because latency-based routing may not always distribute heavy traffic to a large instance.
+You must use a weighted routing policy.
+Option D is incorrect because this option is not a good use of the existing capacity and would add to the cost.
+For more information on Route 53 weighted routing policy, please visit the URL below.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted
+The most cost-effective solution that uses EC2 capacity most effectively would be option D. Here's why:
+Option A: Use a separate ELB for each instance type and distribute the load to ELBs with Route53 Weighted Routing. This option would require creating a separate ELB for each instance type, which would add complexity to the architecture. Additionally, the Weighted Routing policy only allows traffic to be distributed based on a percentage, so it wouldn't allow for fine-grained control over which instances receive which traffic. This solution could lead to underutilization of instances and potentially higher costs.
+Option B: Configure AutoScaling group and Launch Configuration with ELB to add up to 10 more on-demand large instances when triggered by Cloudwatch shut off c5.2xlarge instances. This option involves using an Auto Scaling group to add more instances when needed. However, the group is set to only launch large instances, which means that the c5.2xlarge instances would not be utilized. Additionally, shutting off the c5.2xlarge instances may not be the most efficient way to manage capacity, as it could lead to uneven distribution of traffic across the remaining instances.
+Option C: Route traffic to EC2 large and c5.2xlarge instances directly. Using Route 53 latency-based routing and health checks shut off EL. This option would require routing traffic directly to each instance type, which would add complexity to the architecture. Additionally, shutting off the ELB may not be the most efficient way to manage capacity, as it could lead to uneven distribution of traffic across the remaining instances.
+Option D: Configure ELB with two c5.2xlarge Instances and use the on-demand AutoScaling group for up to two additional c5.2xlarge instances. This option involves configuring the ELB to use the c5.2xlarge instances and using an Auto Scaling group to add more c5.2xlarge instances when needed. This solution would allow for fine-grained control over which instances receive which traffic and would ensure that all instances are being utilized. Additionally, using an Auto Scaling group with on-demand instances would provide flexibility to handle fluctuations in traffic without over-provisioning.
+In conclusion, option D is the most cost-effective solution that uses EC2 capacity most effectively, as it allows for fine-grained control over which instances receive which traffic, ensures that all instances are being utilized, and provides flexibility to handle fluctuations in traffic without over-provisioning.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question125:"link"
+
+

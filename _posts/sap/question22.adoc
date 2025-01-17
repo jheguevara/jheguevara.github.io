@@ -1,0 +1,113 @@
+---
+layout: default 
+title: "822 - Your company has just set up a new docum"
+---
+
+
+[.question]
+== 822-64a1df01aa736d27b1db92d2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_aws-csap-dt-14.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Your company has just set up a new document server on its AWS VPC, and it has four very important clients that it wants to give access to.
+These clients also have VPCs on AWS, and it is through these VPCs, they will be given access to the document server.
+In addition, each of the clients should not have access to any of the other clients' VPCs.
+Choose the correct answer from the options below.
+
+
+[source,java]
+----
+10.2.0.0716
+200 be 240/86
+
+a”
+1
+
+oP er
+
+A AT216.0016
+
+eee 2001 :db8:1934:2200:156
+
+10.0.0.016 172.17 0.016
+
+£2001:db8:1284:b000:156 a 2001:db8:1234:1100:/56
+
+10.4.0.0116
+2001::db8:1234:7700::/56
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Set up VPC peering between your company`s VPC and each of the clients` VPCs.
+* [ ] B. Set up VPC peering between your company`s VPC and each of the clients` VPCs, but block the IPs from CIDR of the clients` VPCs to deny access between each other.
+* [ ] C. Set up VPC peering between your company`s VPC and each of the clients` VP.
+* [ ] D. Each client should have VPC peering set up between each other to speed up access time.
+* [ ] E. Set up all the VPCs with the same CIDR but have your company`s VPC as a centralized VP.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+Answer - A.
+In this scenario, you are asked how resources from 4 VPCs can access resources from another VPC.
+This is a use case of "Star-Shaped" VPC peering shown in the image below.
+In this configuration, VPCs that have non-overlapping CIDR with your VPC, are peered for the intent of accessing the resources using their private IP addresses.
+Option A is CORRECT because, as mentioned above, the peered VPCs can share and access the resources within each other via their private IP addresses.
+Option B is incorrect because you do not need to block any IP addresses in this scenario.
+Option C is incorrect because the peering among the client VPCs is unnecessary.
+The only peering that is needed is between each client and your VPC.Option D is incorrect because, for VPC Peering, the VPCs should not have overlapping CIDRs.
+So, VPCs having the same CIDR cannot peer.
+For more information on VPC Peering, please see the below link.
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-peering.html
+Note:
+The scenario in question is describing an architecture similar to the one given below.
+VPC A is your company and the rest of the other 6 companies are your clients and you have set up separate VPC peering connection with each of your clients, allowing only them to have communication with your company VPC.
+VPC D can communicate with VPC A.
+VPC B can communicate with VPC A in the above configuration.
+But VPC D cannot communicate with VPC B through VPC peering connection.
+The correct answer for this scenario is option B: Set up VPC peering between your companys VPC and each of the clients VPCs, but block the IPs from the CIDR of the clients' VPCs to deny access between each other.
+Explanation: VPC peering is a way to connect two VPCs together and enable traffic to flow between them as if they were part of the same network. With VPC peering, you can enable communication between your company's VPC and each of the clients' VPCs, and at the same time, restrict access between the clients' VPCs.
+However, it's important to note that by default, VPC peering allows traffic to flow between the peered VPCs, which means that without any additional configuration, the clients would have access to each other's VPCs. To prevent this, option B proposes to block the IPs from the CIDR of the clients' VPCs, which means that traffic will be blocked between the clients' VPCs while allowing access to your company's VPC.
+Option A suggests setting up VPC peering between your company's VPC and each of the clients' VPCs, which is correct. However, it doesn't take into account the need to restrict access between the clients' VPCs.
+Option C is similar to option A and doesn't provide any additional security measures to restrict access between the clients' VPCs.
+Option D is incorrect because it suggests setting up VPC peering between the clients' VPCs, which would create a mesh network that could potentially create security and routing issues.
+Option E is also incorrect because it suggests setting up all the VPCs with the same CIDR, which is not possible. A CIDR (Classless Inter-Domain Routing) block is a range of IP addresses that defines the size of the network. Each VPC must have a unique CIDR block to avoid conflicts.
+In summary, the best solution for this scenario is to set up VPC peering between your company's VPC and each of the clients' VPCs, but block the IPs from the CIDR of the clients' VPCs to deny access between each other.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question29:"link"
+
+

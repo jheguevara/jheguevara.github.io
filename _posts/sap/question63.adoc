@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "863 - You have been given the task of designin"
+---
+
+
+[.question]
+== 863-64a1df0eaa736d27b1db9305.
+
+
+****
+
+[.query]
+--
+You have been given the task of designing a backup strategy for your organization's on-premise storage with the only caveat being that you must use the AWS Storage Gateway.
+There is no requirement for the file protocol.
+Which of the following is the correct/appropriate statement surrounding the most cost-effective storage strategy? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. You should use Gateway-Virtual Tape Library (VTL) as it is the most cost-efficient.
+* [ ] B. You should use Gateway-Cached Volumes. You will have quicker access to the data, and it is a more preferred storage solution than Gateway-Stored Volumes.
+* [ ] C. It doesn`t matter whether you use Gateway-Cached Volumes or Gateway-Stored Volumes as long as you also combine either of these solutions with the Gateway-Virtual Tape Library (VTL).
+* [ ] D. You should use Gateway-Stored Volumes as it is preferable to Gateway-Cached Volumes as a storage medium.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+Option A is CORRECT becasue the VTL is most cost-effective storage option here when compared to Gateway-Cached or the Gateway-Stored Volumes while the user is looking for a backup storage for the on-premises data.
+Option B is incorrect because this is NOT a cost-effective option it keeps only the frequently accessed data (not the entire data) on the on-premises server to get quick access.
+Option C is incorrect because although both Gateway-Cached Volumes and Gateway-Stored Volume can be independently deployed as storage/backup options these are not as cost-effective as the VTL.
+Option D is incorrect because this is also NOT a cost-effective option for storage of data.
+More information on AWS Storage Gateway.
+Volume Gateway - A volume gateway provides cloud-backed storage volumes that you can mount as Internet Small Computer System Interface (iSCSI) devices from your on-premises application servers.
+The gateway supports the following volume configurations:
+Cached volumes - You store your data in Amazon Simple Storage Service (Amazon S3) and retain a copy of frequently accessed data subsets locally.
+Cached volumes offer substantial cost savings on primary storage and minimize the need to scale your storage on-premises.
+You also retain low-latency access to your frequently accessed data.
+Stored volumes - If you need low-latency access to your entire dataset, first configure your on-premises gateway to store all your data locally.
+Then asynchronously back up point-in-time snapshots of this data to Amazon S3
+This configuration provides durable and inexpensive off-site backups that you can recover to your local data center or Amazon EC2
+For example, if you need replacement capacity for disaster recovery, you can recover the backups to Amazon EC2.
+Tape Gateway - With a tape gateway, you can cost-effectively and durably archive backup data in Amazon Glacier.
+A tape gateway provides a virtual tape infrastructure that scales seamlessly with your business needs and eliminates the operational burden of provisioning, scaling, and maintaining a physical tape infrastructure.
+For more information on Storage gateways, please visit the below URLs-
+https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html https://aws.amazon.com/storagegateway/faqs/
+The correct answer for this question is A. You should use Gateway-Virtual Tape Library (VTL) as it is the most cost-efficient.
+AWS Storage Gateway is a hybrid cloud storage service that enables on-premises applications to use cloud storage. It provides three types of storage interfaces: file, volume, and tape. The file interface allows the use of the Amazon S3 object storage service, while the volume and tape interfaces enable the use of Amazon EBS and Amazon S3 Glacier, respectively.
+In this scenario, the requirement is to use AWS Storage Gateway for designing the backup strategy for on-premise storage, without specifying any preference for the file protocol. Therefore, we can use either volume or tape interfaces for backup storage.
+Gateway-Cached Volumes and Gateway-Stored Volumes are both volume interfaces of AWS Storage Gateway. Gateway-Cached Volumes store frequently accessed data on-premises, while storing all data backups on Amazon S3, and offer faster access to the frequently accessed data. Gateway-Stored Volumes, on the other hand, store all data backups on-premises, providing low-latency access to data.
+Gateway-Virtual Tape Library (VTL) is a tape interface of AWS Storage Gateway that enables on-premises applications to use Amazon S3 Glacier and S3 Glacier Deep Archive as a backup target. It emulates a physical tape library with a virtual tape changer and virtual tape drives, allowing customers to store backup data in Amazon S3 Glacier or S3 Glacier Deep Archive using their existing backup workflows.
+For the given scenario, the requirement is for a cost-effective storage strategy. Gateway-Virtual Tape Library (VTL) is the most cost-efficient option for backup storage since it allows the use of Amazon S3 Glacier or S3 Glacier Deep Archive, which are low-cost storage options for data backups. In contrast, Gateway-Cached Volumes and Gateway-Stored Volumes use Amazon S3, which is a higher-cost storage option for data backups.
+Therefore, the correct answer is A. You should use Gateway-Virtual Tape Library (VTL) as it is the most cost-efficient option for backup storage.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question81:"link"
+
+

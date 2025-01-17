@@ -1,0 +1,69 @@
+---
+layout: default 
+title: "843 - You are setting up a video streaming ser"
+---
+
+
+[.question]
+== 843-64a1df08aa736d27b1db92ea.
+
+
+****
+
+[.query]
+--
+You are setting up a video streaming service with the main components of the setup being S3, CloudFront, and Transcoder.
+Your video content will be stored on AWS S3, and it should only be viewed by the subscribers who have paid for the service.
+Your first job is to upload 10 videos to S3 and ensure that they are secure before you even begin to start thinking of streaming the videos.
+The 10 videos have just finished uploading to S3, so you now need to secure them with encryption at rest.
+Which of the following would be the best way to do this? Choose the correct answer from the options below.
+
+
+--
+
+[.list]
+--
+* [*] A. Use AWS CloudHSM appliance with both physical and logical tamper detection and response mechanisms that trigger zeroization of the appliance.
+* [ ] B. Encrypt your data using AES-256. After the object is encrypted, the encryption key you used needs to be stored on AWS CloudFront so that only authenticated users can stream the videos.
+* [ ] C. Set an API flag, or check a box in the AWS Management Console, to have data encrypted in Amazon S3. Create IAM Users to access the videos from S3.
+* [*] D. Use a KMS CMK to encrypt the files. Also, use signed URLs in a CloudFront distribution to serve the S3 contents.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+There are two main considerations in this scenario: (1) the data in S3 should be encrypted "at rest", and (2) only the authenticated users should be able to stream the video.
+Option A is incorrect because AWS CloudHSM is used to generate the user's own encryption keys on the AWS Cloud.
+It does not encrypt any data on S3 at rest.
+Option B is incorrect because, even though it encrypts the data at rest, storing the keys in the CloudFront for private access to the authenticated users is an invalid solution.
+Option C is incorrect because using the IAM approach is not scalable and safe.
+Option D is CORRECT because (a) it uses KMS keys for encrypting and decrypting the data, and (b) it ensures that only the authenticated users will have access to the videos by using the signed URLs on the CloudFront distribution.
+Please check the following references:
+https://aws.amazon.com/blogs/security/how-to-prevent-uploads-of-unencrypted-objects-to-amazon-s3/#more-1038 https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html
+For securing the 10 videos on S3 with encryption at rest, the best option would be to use a KMS (Key Management Service) CMK (Customer Master Key) to encrypt the files and use signed URLs in a CloudFront distribution to serve the S3 contents.
+Option A is not the best choice for encrypting the videos as AWS CloudHSM (Hardware Security Module) is a high-end security option that is typically used for protecting sensitive workloads and data, such as those that are subject to regulatory compliance requirements. It can be overkill for the use case of securing videos on S3.
+Option B is not a good choice as it requires storing the encryption key on CloudFront, which is not secure. Additionally, it does not provide sufficient access control to ensure that only authenticated users can stream the videos.
+Option C is not the best choice for encrypting the videos as it only encrypts the data in S3 and does not provide any access control. IAM users can access the videos in S3, but this does not ensure that only authenticated users can stream the videos.
+Therefore, the best option is to use a KMS CMK to encrypt the files and signed URLs in a CloudFront distribution to serve the S3 contents. KMS provides a simple and secure way to manage keys for encrypting data at rest and in transit. With signed URLs, CloudFront can serve the videos securely and ensure that only authenticated users can access the content. Additionally, signed URLs provide time-limited access, so users cannot share the URL with unauthorized parties.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question54:"link"
+
+

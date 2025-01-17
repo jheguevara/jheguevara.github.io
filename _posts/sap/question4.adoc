@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "804 - A communication company has deployed sev"
+---
+
+
+[.question]
+== 804-64a1defcaa736d27b1db92bc.
+
+
+****
+
+[.query]
+--
+A communication company has deployed several EC2 instances in region ap-southeast-1 which are used to monitor user activities.
+The AWS administrator has configured an EBS lifecycle policy to create a snapshot every day for each EBS volume to preserve data.
+The retention is configured as 5, which means the oldest snapshot will be deleted after 5 days.
+The administrator plans to copy some snapshots manually to another region ap-southeast-2 as these snapshots contain some important data.
+Can these snapshots be retained?
+
+
+--
+
+[.list]
+--
+* [*] A. These new snapshots may be deleted after the retention period, as they are still affected by the retention policy.
+* [ ] B. These new snapshots can be kept only when they are copied to another region. Otherwise, they may be deleted by the retention policy. In this case, the snapshots can be kept.
+* [*] C. These new snapshots can be kept as the retention schedule is not carried over to the copy.
+* [ ] D. The new snapshots in region ap-southeast-2 will be deleted after 5 days unless the delete protection option is enabled.
+
+--
+****
+
+[.answer]
+Correct Answer  C
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Correct Answer - C.
+Copying a snapshot to a new Region is commonly used for geographic expansion, migration, disaster recovery, etc.
+EBS snapshots' lifecycle policies contain some rules.
+One of the rules is that when you copy a policy's snapshot, the new copy is not influenced by the retention schedule.
+Option A is incorrect: Because the new snapshots will be kept.
+Option B is incorrect: Because no matter the new snapshots are in the same region or not, they can be retained.
+Option C is CORRECT: Because the new snapshots are not affected by the original policy.
+Reference is in https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html.
+Option D is incorrect: Because there is no delete protection option for snapshots.
+The correct answer is B: These new snapshots can be kept only when they are copied to another region. Otherwise, they may be deleted by the retention policy. In this case, the snapshots can be kept.
+Explanation: An EBS lifecycle policy is used to create snapshots of EBS volumes automatically and manage the retention of these snapshots. In this scenario, the retention period is set to 5 days, which means that after 5 days, the oldest snapshot will be deleted to make room for a new one.
+The AWS administrator plans to copy some of the snapshots manually to another region, ap-southeast-2. When a snapshot is copied to another region, a new snapshot is created in the destination region. This new snapshot is a separate entity from the original snapshot, and the retention schedule of the original snapshot is not carried over to the copy.
+Therefore, if the administrator wants to keep the snapshots in the ap-southeast-2 region, they must be copied manually from the ap-southeast-1 region. If they are not copied, they will be deleted after the retention period of 5 days.
+Option A is incorrect because the retention policy applies to all snapshots, including the new snapshots created from the original snapshots.
+Option C is incorrect because the retention schedule is not carried over to the copy. Therefore, the copy will not be affected by the retention policy.
+Option D is incorrect because the new snapshots in region ap-southeast-2 are not subject to the retention policy of the original snapshots. However, they will be subject to the retention policy set in the destination region. By default, there is no retention policy in the destination region, so the snapshots will not be deleted automatically unless the delete protection option is enabled.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question6:"link"
+
+

@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "896 - A readonly news reporting site has a web"
+---
+
+
+[.question]
+== 896-64a1df19aa736d27b1db9332.
+
+
+****
+
+[.query]
+--
+A read-only news reporting site has a web application tier in EC2 and a database tier in RDS.
+The website receives large and unpredictable read traffic and automatically responds to these traffic fluctuations.
+Which of the following AWS services are the most suitable to meet the requirements?
+
+
+--
+
+[.list]
+--
+* [*] A. Stateless instances for the web application tier in an auto-scaling group monitored with CloudWatch. RDS configured with read replicas. Add Amazon ElastiCache for RDS.
+* [ ] B. Stateful instances for the web application tier in an auto-scaling group monitored with CloudWatch. RDS with read replicas.
+* [ ] C. Stateful instances for the web application tier in an auto-scaling group monitored with CloudWatch. RDS with Multi-AZ.
+* [ ] D. Stateless instances for the web application tier in an auto-scaling group monitored with CloudWatch. RDS with Multi-AZ.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+The scenario asks for 2 things: (1) a performance improvement solution for read-heavy web tier and database tier.
+Hint: Always see if any of the options contain caching solutions such as ElastiCache, CloudFront, or Read Replicas, and (2) whether to use stateless or stateful instances.
+Stateful instances are not suitable for distributed systems, as they retain the state of connection between client and web server.
+And the database remains engaged as long as the session is active.
+Hence, it increases the load on the server as well as the database.
+Stateless instances, however, are distributed and easy to scale in/scale-out.
+Hence, the stateless application tends to improve the performance of a distributed application.
+Option A is CORRECT because (a) it uses stateless instances, (b) the webserver uses ElastiCache for read operations, (c) it uses CloudWatch which monitors the fluctuations in the traffic and notifies to the auto-scaling group to scale in/scale-out accordingly, and (d) it uses read replicas for RDS to handle the read-heavy workload.
+Option B is incorrect because (a) it uses stateful instances, and (b) it does not use any caching mechanism for web and application tier.
+Option C is incorrect because (a) it uses stateful instances, (b) it does not use any caching mechanism for web and application tier, and (c) multi-AZ RDS does not improve read performance.
+Option D is incorrect because multi-AZ RDS does not improve read performance.
+For more information on ElastiCache and Read Replicas, please refer to the following links-
+https://aws.amazon.com/elasticache/ https://aws.amazon.com/rds/details/read-replicas/
+The most suitable solution for a read-only news reporting site that receives large and unpredictable read traffic with an EC2 web application tier and an RDS database tier is A. Stateless instances for the web application tier in an auto-scaling group monitored with CloudWatch, RDS configured with read replicas, and adding Amazon ElastiCache for RDS.
+Explanation:
+A read-only news reporting site that receives large and unpredictable read traffic requires a scalable and highly available architecture to meet these traffic fluctuations. Therefore, the solution must have a load-balancing mechanism to distribute traffic to multiple instances and handle traffic spikes automatically. The site is read-only, so write traffic is not a concern. The proposed solution includes:
+1. Stateless instances for the web application tier in an auto-scaling group monitored with CloudWatch:
+Stateless instances are ideal for web applications as they can handle traffic from multiple sources and scale horizontally to handle traffic spikes automatically. Auto-scaling group automatically scales the number of instances based on the traffic to ensure that there is always enough capacity to handle the incoming traffic. CloudWatch monitors the instances and triggers the auto-scaling group to add or remove instances based on the pre-defined metrics, such as CPU utilization or network traffic.
+1. RDS configured with read replicas:
+RDS configured with read replicas provides high availability and read scalability to the database tier. Read replicas are copies of the primary database instance that can handle read traffic, offloading the primary database instance and reducing the load on it. This architecture also ensures that read traffic is handled by the read replicas, and write traffic is handled by the primary database instance, improving the overall performance of the system.
+1. Amazon ElastiCache for RDS:
+Amazon ElastiCache for RDS provides a caching layer that can improve the performance of read-heavy workloads. The caching layer stores frequently accessed data in memory, reducing the need to access the database tier for every read request. This architecture improves the overall performance of the system, reduces the load on the database tier, and improves the user experience.
+Option B is incorrect because using stateful instances for the web application tier can cause issues with scaling and availability. Stateful instances store session data, which can make it difficult to scale the application horizontally, and it can also result in data loss if the instance fails.
+Option C is incorrect because RDS with Multi-AZ does not provide read scalability to the database tier. Multi-AZ provides high availability and failover protection, but it does not distribute read traffic to multiple instances.
+Option D is incorrect because using stateless instances for the web application tier with Multi-AZ RDS can cause issues with availability. Multi-AZ provides high availability and failover protection, but it does not distribute read traffic to multiple instances, which can cause performance issues during traffic spikes.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question126:"link"
+
+

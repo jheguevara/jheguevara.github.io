@@ -1,0 +1,99 @@
+---
+layout: default 
+title: "886 - You are designing a photosharing mobile "
+---
+
+
+[.question]
+== 886-64a1df16aa736d27b1db9324.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_t35pmz.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are designing a photo-sharing mobile app.
+The application will store all pictures in a single Amazon S3 bucket.
+Users will upload pictures from their mobile devices directly to Amazon S3 and will be able to view and download their own pictures directly from Amazon S3
+You want to configure security to handle the potential users in the most secure manner possible.
+
+
+[source,java]
+----
+Web Identity Federation (assumeRoleWithWebldentity)
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Create a set of long-term credentials using the AWS Security Token Service with appropriate permissions. Store these credentials in the mobile app and use them to access Amazon S3.
+* [*] B. Set up web identity federation through Amazon Cognito for the mobile app. Use Cognito API operations to get a Cognito token and request temporary security credentials from AWS STS. Use the temporary credentials to access Amazon S3.
+* [ ] C. Record the user’s Information In Amazon DynamoD.
+* [ ] D. When the user uses their mobile app create temporary credentials using AWS Security Token Service with appropriate permissions. Store these credentials in the mobile app’s memory and use them to access Amazon S3. Generate new credentials the next time the user runs the mobile app.
+* [ ] E. Create an IAM user. Assign appropriate permissions to the IAM user Generate an access key and secret key for the IAM user, store them in the mobile app, and use these credentials to access Amazon S3.
+* [ ] F. Create an IAM user. Update the bucket policy with appropriate permissions for the IAM user. Generate an Access Key and Secret Key for the IAM user, store them in the mobile app and use these credentials to access Amazon S3.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+E.
+F.
+Answer - B.
+This scenario requires the mobile application to have access to the S3 bucket.
+There are potentially millions of users and a proper security measures should be taken.
+It is suggested to set up a web identity federation through AWS Cognito.
+You can let users sign in using a well-known third-party identity provider such as log in with Amazon, Facebook, Google, or any OpenID Connect (OIDC) 2.0 compatible provider.
+You can exchange the credentials from that provider for temporary permissions to use resources in your AWS account.
+This is known as the web identity federation approach to temporary access.
+When you use web identity federation for your mobile or web application, you don't need to create custom sign-in code or manage your own user identities.
+Using a web identity federation helps you keep your AWS account secure because you don't have to distribute long-term security credentials, such as IAM user access keys, with your application.
+Option A is incorrect because you should always grant the short-term or temporary credentials for the mobile application.
+This option asks to create long-term credentials.
+Option B is CORRECT because it configures the web identity federation through AWS Cognito by generating temporary security credentials using STS "AssumeRole" function.
+Option C is incorrect because, even though the setup is very similar to option B, it does not create IAM Role with proper permissions, which is essential.
+Option D is incorrect because, it asks to create an IAM User, not the IAM Role - which is not a good solution.
+You should create an IAM Role to access the AWS Resource via the "AssumeRole" function.
+Option E is incorrect because, it asks to create an IAM User, not the IAM Role - which is not a good solution.
+You should create an IAM Role to access the AWS Resource via the "AssumeRole" function.
+For more information on AWS temporary credentials, please refer to the below links-
+http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_cognito.html
+The most secure way to handle potential users in a photo-sharing mobile app that uses Amazon S3 to store photos is to use web identity federation through Amazon Cognito. Option B is the correct answer. Here's why:
+Option A is not secure because it involves storing long-term credentials in the mobile app, which can be easily compromised. If these credentials are compromised, the attacker can gain access to all the photos stored in the S3 bucket.
+Option C is not a valid option as it involves recording the user's information in Amazon DynamoDB, which is a NoSQL database service. Although it is possible to store user information in DynamoDB, it does not provide any security mechanism for controlling access to the S3 bucket.
+Option D involves generating temporary credentials using AWS STS, which is a valid approach. However, storing the credentials in the mobile app's memory is not secure, as they can be easily retrieved by an attacker who gains access to the mobile device.
+Option E involves creating an IAM user and generating access keys and secret keys for the user, which are then stored in the mobile app. This approach is not recommended because access keys and secret keys are long-term credentials that can be easily compromised if they are stored on the mobile device.
+Option F is similar to option E, but it involves updating the bucket policy to grant the IAM user access to the S3 bucket. While this is a valid approach, it is not the most secure way to handle potential users in the mobile app.
+Web identity federation through Amazon Cognito (option B) is the most secure approach because it uses temporary security credentials to access the S3 bucket. This approach involves authenticating users using popular identity providers such as Facebook, Google, or Amazon. Once a user is authenticated, Amazon Cognito issues a temporary token that can be used to request temporary security credentials from AWS STS. These temporary credentials are then used to access the S3 bucket. This approach is more secure because it does not involve storing long-term credentials on the mobile device.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question112:"link"
+
+

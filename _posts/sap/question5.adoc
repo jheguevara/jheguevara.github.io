@@ -1,0 +1,102 @@
+---
+layout: default 
+title: "805 - You are working for a large company
+You "
+---
+
+
+[.question]
+== 805-64a1defcaa736d27b1db92bd.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgckeditor_9_47_00.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are working for a large company.
+You have set up the AWS consolidated billing with a Management account and several member accounts.
+However, the management account's cost allocation report does not use the AWS generated cost allocation tags to organize the resource costs.
+
+
+[source,java]
+----
+Cost Allocation Tags
+AWS-Generated Cost Allocation Tags
+A resource created by tag is an AWS-generated cost allocation tag containing resource creator information that is automatically applied to the resources that you
+
+create. This feature is only available in the Billing & Cost Management console, and will not appear anywhere else in the AWS console, including the Tag Editor.
+
+Activate
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Use the Management account to log in to the AWS console and activate the user-defined tags in the Billing and Cost Management console.
+* [ ] B. For both, the Management account and member accounts, use AWS CLI to activate AWS generated tags for Billing and Cost Management.
+* [ ] C. Log in to the AWS console of both Management account and member accounts, activate the user-defined tags in Billing -> Cost Explorer -> Cost Allocation Tags.
+* [*] D. Log in to the AWS console using the Management account and activate the AWS-generated tags in the Billing and Cost Management console.
+
+--
+****
+
+[.answer]
+Answer  D
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - D.
+AWS provides two types of cost allocation tags: AWS-generated tags and user-defined tags.
+AWS defines, creates, and applies the AWS-generated tags for you, and users define, create, and apply user-defined tags.
+To use the AWS-generated tags, a management account owner must activate them in the Billing and Cost Management console.
+When a management account owner activates the tag, the tag is also activated for all member accounts.
+Option A is incorrect: Because AWS-generated tags should be activated.
+Option B is incorrect: Because AWS-generated tags can only be activated in the management account.
+Option C is incorrect: Same reason as Option.
+B.
+Also, it is not user-defined tags.
+Option D is CORRECT: Because the tag can be activated in “Billing -&gt; Cost Management.
+References:
+https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tags.html
+The correct answer for this question is D. Log in to the AWS console using the Management account and activate the AWS-generated tags in the Billing and Cost Management console.
+Explanation: AWS provides several methods to manage cost allocation and tagging for resources. One of the ways to allocate costs for resources in AWS is through the use of AWS-generated cost allocation tags. Cost allocation tags can be used to organize resources based on their application, environment, owner, or any other attribute that makes sense for your organization.
+In this scenario, the Management account's cost allocation report does not use the AWS generated cost allocation tags to organize the resource costs. To enable AWS-generated tags, you need to activate them in the Billing and Cost Management console using the Management account.
+The Billing and Cost Management console is the central location for managing billing and cost allocation in AWS. To activate the AWS-generated tags, follow these steps:
+1. Log in to the AWS console using the Management account.
+2. Open the Billing and Cost Management console.
+3. Choose Cost allocation tags from the left navigation menu.
+4. Choose Activate AWS Cost Allocation Tags from the top right of the screen.
+5. Select the checkbox to confirm that you understand the cost allocation implications.
+6. Choose Activate.
+This will activate the AWS-generated cost allocation tags for the Management account, and they will be applied to all the member accounts under consolidated billing.
+Option A is incorrect because user-defined tags are not relevant to this scenario. User-defined tags are created by users and applied to resources to help organize and categorize them. They are not used for cost allocation.
+Option B is incorrect because activating AWS-generated tags using the AWS CLI is not necessary for this scenario. Activating tags through the Billing and Cost Management console is the preferred method.
+Option C is incorrect because user-defined tags are not relevant to this scenario. Activating user-defined tags in the Cost Explorer will not enable AWS-generated cost allocation tags.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question7:"link"
+
+

@@ -1,0 +1,103 @@
+---
+layout: default 
+title: "834 - When it comes to KMS which of the follow"
+---
+
+
+[.question]
+== 834-64a1df05aa736d27b1db92e0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/AWS-Certified-Solutions-Architect-Professional/answer/imgquestions_wpulaz.png[]
+
+--
+
+
+****
+
+[.query]
+--
+When it comes to KMS, which of the following best describes how the AWS Key Management Service works? Choose the correct answer from the options below.
+
+
+[source,java]
+----
+How AWS services use your KMS keys
+
+“te
+| Datakey —Enaypted data key KMS
+~- > ®
+= . Mastorkeysin
+
+‘Your appicaton or ‘customer's account
+
+‘AWS service
+
+1. Client calls
+| account.
+
+2. Client request is authenticated based on permissions set on both the user and the key.
+
+3. A unique data encryption key is created and encrypted under the KMS master key.
+
+-| 4. The plaintext and encrypted data key is returned to the client.
+
+{ 5. The plaintext data key is used to encrypt data and is then deleted when practical.
+
+4 6. The encrypted data key is stored; it's sent back to KMS when needed for data decryption.
+
+GenerateDataxey by passing the ID of the KMS master key in your
+----
+
+
+--
+
+[.list]
+--
+* [*] A. AWS KMS supports two kinds of keys — master keys and data keys. Master keys can be used to encrypt and decrypt up to 4 kilobytes of data directly and can also be used to protect data keys. The master keys are then used to encrypt and decrypt customer data.
+* [*] B. AWS KMS supports two kinds of keys — master keys and data keys. Master keys can be used to encrypt and decrypt up to 4 kilobytes of data directly and can also be used to protect data keys. The data keys are then used to encrypt and decrypt customer data.
+* [ ] C. AWS KMS supports two kinds of keys — master keys and data keys. Master keys can be used to encrypt and decrypt up to 4 kilobytes of data directly and can also be used to protect data keys. The data keys are then used to decrypt the customer data, and the master keys are used to encrypt the customer data.
+* [ ] D. AWS KMS supports two kinds of keys — master keys and data keys. Master keys can be used to encrypt and decrypt up to 4 kilobytes of data directly and can also be used to protect data keys. The data keys are then used to encrypt the customer data, and the master keys are used to decrypt the customer data.
+
+--
+****
+
+[.answer]
+Answer  B
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - B.
+AWS KMS supports two types of keys - Master Keys and Data Keys.
+A Data Key is used to encrypt and decrypt the actual data; whereas, the Master Key is used to protect (encrypt and decrypt) the data key and some data up to 4Kb.
+See the image below:
+Based on this, option B is CORRECT.
+For more information on the AWS KMS Concepts, please refer to the link below-
+https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html
+AWS Key Management Service (KMS) is a fully managed service that makes it easy for you to create and control the encryption keys used to encrypt your data. KMS allows you to create, import, and manage cryptographic keys that protect sensitive data across AWS services and your own applications.
+AWS KMS supports two types of keys, which are master keys and data keys. Master keys are the root keys that are used to protect your data keys, and data keys are used to encrypt and decrypt your data.
+The correct answer is option B: AWS KMS supports two kinds of keys - master keys and data keys. Master keys can be used to encrypt and decrypt up to 4 kilobytes of data directly and can also be used to protect data keys. The data keys are then used to encrypt and decrypt customer data.
+Master keys can be used to encrypt and decrypt up to 4 kilobytes of data directly, but it's recommended that you use data keys for encrypting larger amounts of data. Data keys are used to encrypt and decrypt customer data, and they are protected by master keys.
+When you want to encrypt your data, you generate a data key from KMS, and then use that data key to encrypt your data. You can then securely store the encrypted data, knowing that the data key used to encrypt it is protected by KMS. When you need to decrypt the data, you send the encrypted data and the data key to KMS. KMS then uses the appropriate master key to decrypt the data key and returns it to you. You can then use the data key to decrypt the encrypted data.
+KMS integrates with many AWS services, such as Amazon S3, Amazon EBS, Amazon Redshift, and Amazon RDS, to make it easy to encrypt your data. KMS also supports customer-managed CMKs (Customer Master Keys), which allow you to create and manage your own master keys.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question44:"link"
+
+

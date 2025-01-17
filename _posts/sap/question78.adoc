@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "878 - Your website is serving ondemand trainin"
+---
+
+
+[.question]
+== 878-64a1df13aa736d27b1db9318.
+
+
+****
+
+[.query]
+--
+Your website is serving on-demand training videos to your workforce.
+Videos are uploaded monthly in high-resolution MP4 format.
+Your workforce is distributed globally, often on the move and using company-provided tablets that require the HTTP Live Streaming (HLS) protocol to watch a video.
+Your company has no video transcoding expertise, and it required that you may need to pay for a consultant.
+How would you implement the most cost-efficient architecture without compromising the high availability and quality of video delivery?
+
+
+--
+
+[.list]
+--
+* [*] A. Elastic Transcoder to transcode original high-resolution MP4 videos to HLS. Use S3 to host videos and use CloudFront to serve HLS transcoded videos from S3.
+* [ ] B. A video transcoding pipeline running on EC2 using SQS to distribute tasks and Auto Scaling to adjust the number of nodes depending on the length of the queue. Use S3 to host videos with Lifecycle Management to archive all files to Glacier after a few days. Use CloudFront to serve HLS transcoding videos from Glacier.
+* [ ] C. Elastic Transcoder to transcode original high-resolution MP4 videos to HLS. EBS volumes to host videos and EBS snapshots to incrementally backup original rues after a few days. Use CloudFront to serve HLS transcoded videos from EC2.
+* [ ] D. A video transcoding pipeline running on EC2 using SQS to distribute tasks and Auto Scaling to adjust the number of nodes depending on the length of the queue. EBS volumes to host videos and EBS snapshots to incrementally backup original files after a few days. Use CloudFront to serve HLS transcoded videos from EC2.
+
+--
+****
+
+[.answer]
+Answer  A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer - A.
+There are four most important design considerations here: (a) video transcoding expertise, (b) global distribution of the content, (c) cost-effective solution, and (d) no compromise with the high availability and quality of the video delivery.
+Amazon Elastic Transcoder is a media transcoding service in the cloud.
+It is designed to be a highly scalable, easy-to-use, and cost-effective way for developers and businesses to convert (or “transcode”) media files from their source format into versions that will playback on various devices like smartphones, tablets, and PCs.
+Option A is CORRECT because (a) it uses Amazon Elastic Transcoder that converts from MP4 to HLS, (b) S3 Object Lifecycle Management reduces the cost by archiving the files to Glacier, and (c) CloudFront - which is a highly available service - enables the global delivery of the video without compromising the video delivery speed or quality.
+Option B is incorrect because (a) it necessitates the overhead of infrastructure provisioning.
+i.e, deploying of EC2 instances, auto-scaling, SQS queue/pipeline, (b) setting up of EC2 instances to handle global delivery of content is not a cost-efficient solution.
+Option C is incorrect because the use of EBS snapshots is not a cost-effective solution compared to S3 Object Lifecycle Management.
+Option D is incorrect because (a) it necessitates the overhead of infrastructure provisioning.
+i.e, deploying EC2 instances, auto-scaling, SQS queue/pipeline, (b) setting up of EC2 instances to handle global delivery of content is not a cost-efficient solution, and (d) the use of EBS snapshots is not a cost-effective solution compared to S3 Object Lifecycle Management.
+For more information on Elastic transcoder, please visit the below URL-
+https://aws.amazon.com/elastictranscoder/
+CloudFront can then be used to deliver the content to the users from its various edge locations.
+Option A is the most cost-efficient and effective architecture for delivering high-quality videos to a globally distributed workforce using company-provided tablets that require the HTTP Live Streaming (HLS) protocol to watch videos.
+The Elastic Transcoder service can be used to transcode the original high-resolution MP4 videos to HLS format, which is optimized for streaming and can adapt to varying network conditions, device capabilities, and screen sizes. This avoids the need for any video transcoding expertise and the cost of hiring a consultant.
+The videos can be hosted in Amazon S3, which is a highly scalable and durable object storage service. S3 can automatically replicate data across multiple availability zones within a region for high availability and durability. This ensures that the videos are easily accessible and can be delivered reliably to users around the world.
+CloudFront can be used as a content delivery network (CDN) to serve the HLS transcoded videos from S3. CloudFront can cache the videos in edge locations around the world, reducing latency and improving the user experience. CloudFront also supports secure video streaming using SSL/TLS encryption and signed URLs, which can prevent unauthorized access and distribution of the videos.
+Overall, this architecture provides a highly scalable, available, and cost-efficient solution for delivering high-quality videos to a global workforce using HLS-enabled tablets without compromising on the user experience.
+Option B is not the best architecture as it requires a video transcoding pipeline running on EC2, which increases the cost and complexity of the solution. Additionally, archiving all files to Glacier after a few days can lead to longer retrieval times and higher costs, which may not be suitable for delivering on-demand videos to a global workforce.
+Option C is also not ideal as hosting videos on EBS volumes can limit the scalability and availability of the solution, and using EBS snapshots to incrementally backup original files can increase costs and complexity.
+Option D is similar to Option B, but hosting videos on EBS volumes instead of S3 can limit the scalability and availability of the solution, and using EBS snapshots to incrementally backup original files can increase costs and complexity.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question100:"link"
+
+

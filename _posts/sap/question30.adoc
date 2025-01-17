@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "830 - Your company is running an ecommerce app"
+---
+
+
+[.question]
+== 830-64a1df04aa736d27b1db92db.
+
+
+****
+
+[.query]
+--
+Your company is running an e-commerce application in On-prem.
+Your CIO has asked you to build a highly available, low cost, and easy solution to collect the user clickstream data in real-time.
+How are you going to design the solution on AWS?
+
+
+--
+
+[.list]
+--
+* [*] A. Use a Kinesis agent to collect the clickstream data and send data to a Kinesis data stream. Store in Amazon S3 bucket for further analysis.
+* [ ] B. Use Kinesis agent to collect the clickstream data in Kinesis data stream and store it in DynamoDB for further analysis.
+* [ ] C. Use the IoT Core to collect the clickstream data in the Kinesis data stream and store the logs in Dynamo D.
+* [ ] D. Use the Kinesis agent to collect the clickstream data in the Kinesis data stream and store it in Amazon Glacier.
+
+--
+****
+
+[.answer]
+Answer A
+
+[.explanation]
+--
+Click on the arrows to vote for the correct answer
+A.
+B.
+C.
+D.
+Answer: A.
+Option A is CORRECT because the Kinesis agent helps collect the clickstream data in a Kinesis data stream and store it in Amazon S3 Bucket.
+Option B is Incorrect because DynamoDB will not be the right storage for clickstream data.
+Option C is Incorrect because IoT Core can't help in collecting the clickstream data.
+Option D is Incorrect because Glacier is not the right storage class for storing clickstream data.
+Reference:
+https://www.youtube.com/watch?v=TAkcRD6OxPw https://aws.amazon.com/blogs/big-data/create-real-time-clickstream-sessions-and-run- https://docs.aws.amazon.com/streams/latest/dev/writing-with-agents.html
+The best solution for collecting user clickstream data in real-time in a highly available, low-cost, and easy way on AWS would be to use Kinesis Data Streams in combination with an Amazon S3 bucket for further analysis. Therefore, option A is the correct answer.
+Here's how it would work:
+1.
+Kinesis Agent: You would install and configure the Kinesis agent on your servers, which would allow you to capture user clickstream data as it's generated. This agent would be responsible for sending the data to the Kinesis Data Stream.
+2.
+Kinesis Data Stream: The Kinesis Data Stream is a real-time, scalable data stream that can handle large volumes of data. It would receive the user clickstream data from the Kinesis agent and store it in a buffer until it's ready to be processed. This stream can also enable real-time processing of the data and its further distribution to multiple destinations.
+3.
+Amazon S3 Bucket: You would configure an S3 bucket to store the user clickstream data for further analysis. This would be a cost-effective way of storing the data, and it would also make it easy to retrieve and process the data later.
+4.
+Data Analysis: You can use various AWS services like Amazon EMR, Amazon Athena, or Amazon Redshift to analyze the clickstream data and generate insights. Additionally, you can configure alerts, triggers, and dashboards using Amazon CloudWatch or Amazon QuickSight.
+Overall, this solution is scalable, highly available, and cost-effective as you only pay for what you use. It also provides you with flexibility as you can store data in various formats and process it using different tools.
+--
+
+[.ka]
+null
+
+'''
+
+
+
+https://www.exam-answer.com/amazon/sap-c01/question38:"link"
+
+
