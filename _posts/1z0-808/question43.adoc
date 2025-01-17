@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "843 - Given
+Which statement is true Java Certi"
+---
+
+
+[.question]
+== 843-64a19fd1a486623d533448d8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0004700001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which statement is true?
+
+
+[source,java]
+----
+package pl;
+
+public class ace {
+int pi
+private int q:
+protected int r;
+public int s;
+
+3
+
+Test.java
+
+package p2;
+import pl.aAce;
+public class Test extends acc {
+public static void main(string[]
+Ace obj = new Test ();
+}
+
+args)
+
+{
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Both p and s are accessible by obj.
+* [*] B. Only s is accessible by obj.
+* [ ] C. Both r and s are accessible by obj.
+* [ ] D. p, r, and s are accessible by obj.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

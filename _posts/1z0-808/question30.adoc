@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "830 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 830-64a19fcfa486623d533448cb.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+String[] arr = ("A", "BY, "C", "D"};
+for (int i = 0; i < arr.length; i++)
+system.out.print (arr[i] + " "Ji
+if (arr[i].equals("c")) {
+continue;
+
+}
+System. out.println ("Work done");
+
+break;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A B C Work done
+* [ ] B. A B C D Work done
+* [*] C. A Work done
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

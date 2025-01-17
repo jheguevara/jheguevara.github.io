@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "855 - Given the code fragment
+Which three line"
+---
+
+
+[.question]
+== 855-64a19fd4a486623d533448e4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0006200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which three lines fail to compile?
+
+
+[source,java]
+----
+. public static void main(string[]
+
+int ivar = 100;
+
+float fvar = 100.100f;
+
+double
+
+ivar
+fvar
+dvar
+fvar
+dvar
+ivar
+
+dvar
+fvar;
+ivar;
+fvar;
+dvar;
+ivar;
+dvar;
+
+123;
+
+args)
+
+{
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Line 7
+* [ ] B. Line 8
+* [ ] C. Line 9
+* [*] D. Line 10
+* [ ] E. Line 11
+* [*] F. Line 12
+
+--
+****
+
+[.answer]
+ADF
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

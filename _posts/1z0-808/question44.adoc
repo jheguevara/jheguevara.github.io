@@ -1,0 +1,93 @@
+---
+layout: default 
+title: "844 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 844-64a19fd2a486623d533448d9.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0004800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+Base.java
+
+class Base {
+public void test 0 (
+System.out.println ("Base ");
+}
+}
+
+DerivedA. java
+
+class Deriveda extends Base {
+public void test 0 (
+System. out.println("Deriveda ");
+}
+3
+
+DerivedB.java
+
+class DerivedB extends Deriveda {
+public void test 0 {
+System. out.println("DerivedB ");
+}
+public static void main(string[] args) {
+Base bl = new DerivedB();
+
+Base b2 = new DerivedA();
+Base b3 = new DerivedB();
+bl = (Base) b3;
+
+Base b4 = (DerivedA) b3;
+bl.test ();
+
+b4.test ();
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Base DerivedA
+* [ ] B. Base DerivedB
+* [*] C. DerivedB DerivedB
+* [ ] D. DerivedB DerivedA
+* [ ] E. A classcast Exception is thrown at runtime.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

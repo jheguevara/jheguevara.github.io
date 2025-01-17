@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "811 - Given
+Which option enables the code to c"
+---
+
+
+[.question]
+== 811-64a19fcba486623d533448b8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0001300001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which option enables the code to compile?
+
+
+[source,java]
+----
+interface Readable (
+public void readBook();
+public void setBookMark ();
+3
+
+abstract class Book implements Readable { // line nt
+public void readBook() {
+// line n2
+
+)
+
+class EBook extends Book { // line n3
+
+public void readBook() {
+// line n4
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,89 @@
+---
+layout: default 
+title: "858 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 858-64a19fd4a486623d533448e7.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0006600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public class Person {
+String name;
+int age = 25;
+
+public Person(string name) (
+this (); //line ni
+setName (name)
+
+}
+
+public Person(string name, int age) {
+Person (name) ; //line n2
+setage (age) i
+
+}
+
+//setter and getter methods go here
+
+public string show() {
+return name +" "
+
++ age + + number +
+
+}
+
+public static void main(string[] args) {
+Person pl = new Person("Jesse");
+Person p2 = new Person("Walter", 52);
+system, out. print1n (pl.show())#
+system. out. print1n (p2.show()) i
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Jesse 25 Walter 52
+* [*] B. Compilation fails only at line n1
+* [ ] C. Compilation fails only at line n2
+* [ ] D. Compilation fails at both line n1 and line n2
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

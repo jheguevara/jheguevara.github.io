@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "827 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 827-64a19fcea486623d533448c8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003100001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class A (
+public AQ {
+System.out.print ("A ")i
+
+)
+}
+
+class B extends Af
+public B(){ //line ni
+System.out.print ("B ");
+}
+}
+
+class C extends B{
+
+public c(t //line n2
+System.out.print("C ")i
+
+3
+
+public static void main(string[] args) {
+Co = new c0:
+
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. C B A
+* [ ] B. C
+* [*] C. A B C
+* [ ] D. Compilation fails at line n1 and line n2
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

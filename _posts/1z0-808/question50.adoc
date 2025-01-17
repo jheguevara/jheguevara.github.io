@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "850 - Given the code fragment
+Which code fragm"
+---
+
+
+[.question]
+== 850-64a19fd3a486623d533448df.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0005500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which code fragment, when inserted at line n1, enables the App class to print Equal?
+
+
+[source,java]
+----
+public class App {
+public static void main(string[] args) {
+
+String strl = "Java";
+String str2 = new string("java");
+ffline nl
+
+{
+System. out. println ("Equal");
+} else {
+System. out.println ("Not Equal");
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [*] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

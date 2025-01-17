@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "842 - You are developing a banking module
+You "
+---
+
+
+[.question]
+== 842-64a19fd1a486623d533448d7.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0004500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are developing a banking module.
+You have developed a class named ccMask that has a maskcc method.
+Given the code fragment:
+You must ensure that the maskcc method returns a string that hides all digits of the credit card number except the four last digits (and the hyphens that separate each group of four digits)
+Which two code fragments should you use at line n1, independently, to achieve this requirement?
+
+
+[source,java]
+----
+class CCMask {
+public static string maskcc (string creditcard) {
+String x = "KXXX-XXXK-KXKX-"7
+f/fline nl
+3
+
+public static void main(string[] args) {
+System. out. print1n (maskCc ("1234-5678-9101-1121") );
+3
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [*] B. Option B
+* [*] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+BC
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "836 - Given the code fragment
+Which code fragm"
+---
+
+
+[.question]
+== 836-64a19fd0a486623d533448d1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003900002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which code fragment, when inserted at line 9, enables the code to print true?
+
+
+[source,java]
+----
+7. StringBuilder sbl = new StringBuilder ("Duke");
+8. String strl = sbl.tostring();
+
+9. // insert code here
+
+10. System. out. print (str1
+
+str2);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. String str2 = str1;
+* [*] B. String str2 = new String (str1);
+* [ ] C. String str2 = sb1. toString ();
+* [ ] D. String str2 = "Duke";
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

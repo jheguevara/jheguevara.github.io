@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "865 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 865-64a19fd6a486623d533448ee.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0007700001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class Triangle {
+static double area;
+int b = 2, h = 3;
+public static void main(string[] args) {
+
+double p, by hy //line ni
+if (area Oo) {
+b
+h= 43
+p= 0.5;
+3
+area = p * b* hj //line n2
+
+System. out.printin("Area is " + area);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Area is 6.0
+* [ ] B. Area is 3.0
+* [ ] C. Compilation fails at line n1
+* [*] D. Compilation fails at line n2.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

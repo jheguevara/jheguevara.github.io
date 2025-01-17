@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "837 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 837-64a19fd0a486623d533448d2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0004000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public class Test {
+
+static int count = 0
+int i = 0;
+
+public void changecount() {
+while (i <5) {
+itt
+count++;
+
+)
+
+public static void main(string[] args) {
+Test checkl = new Test ();
+Test check2 = new Test ();
+check1. changeCount ()
+check2. changeCount ()
+System. out.print (checkl.count + ": " + check2.count);
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 10 : 10
+* [ ] B. 5 : 5
+* [ ] C. 5 : 10
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

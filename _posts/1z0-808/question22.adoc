@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "822 - Given the following main method
+What is "
+---
+
+
+[.question]
+== 822-64a19fcda486623d533448c3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0002500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following main method:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+int num = 5;
+do {
+System. out. print (num-- +" ");
+} while (num == 0);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 5 4 3 2 1 0
+* [ ] B. 5 4 3 2 1
+* [ ] C. 4 2 1
+* [*] D. 5
+* [ ] E. Nothing is printed.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

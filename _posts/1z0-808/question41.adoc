@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "841 - Given the following code
+What is the out"
+---
+
+
+[.question]
+== 841-64a19fd1a486623d533448d6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0004400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following code:
+What is the output?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+String[] planets = {"Mercury", "Venus", "Earth", "Mars"};
+
+System. out. printin (planets. length);
+system, out. print1n (planets [1].length());
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 4
+* [ ] B. 3
+* [ ] A. 4
+* [ ] D. 5
+* [*] A. 4
+* [ ] F. 4
+
+--
+****
+
+[.answer]
+E
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "829 - Given the code fragment
+Which code fragm"
+---
+
+
+[.question]
+== 829-64a19fcfa486623d533448ca.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003300001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which code fragment, when inserted at line 3, enables the code to print 10:20?
+
+
+[source,java]
+----
+DARN RUNE
+
+public class Test {
+public static void main(string[] args) {
+/* insert code here */
+array[0]=10;
+array[1]=20;
+System. out. print (array[0]+": "tarray[1]);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. int[] array n= new int[2];
+* [*] B. int[] array; array = int[2];
+* [ ] C. int array = new int[2];
+* [ ] D. int array [2] ;
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

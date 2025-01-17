@@ -1,0 +1,74 @@
+---
+layout: default 
+title: "864 - Given
+How many MarkList instances are cr"
+---
+
+
+[.question]
+== 864-64a19fd6a486623d533448ed.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0007600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+How many MarkList instances are created in memory at runtime?
+
+
+[source,java]
+----
+public class MarkList {
+
+int num;
+
+public static void graceMarks (MarkList obj4) {
+obj4.num += 10;
+
+}
+
+public static void main(string[] args) {
+MarkList objl = new MarkList ();
+MarkList obj2
+MarkList obj3
+obj2.num = 60;
+graceMarks (obj2);
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 1
+* [ ] B. 2
+* [ ] C. 3
+* [ ] D. 4
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

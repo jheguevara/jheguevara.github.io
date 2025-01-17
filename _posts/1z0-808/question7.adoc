@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "807 - Given
+And given the code fragment
+What i"
+---
+
+
+[.question]
+== 807-64a19fcaa486623d533448b4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000700001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+And given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+class Vehicle (
+String type = "4W";
+int maxSpeed = 100;
+
+vehicle (string type, int maxSpeed) {
+this.type = type:
+this.maxSpeed = maxSpeed;
+
+)
+
+class Car extends Vehicle {
+String trans;
+
+Car (String trans) { //line ni
+this.trans = trans;
+
+i
+
+Car (String type, int maxSpeed, String trans) {
+super (type, maxSpeed) ;
+this (trans) ; //line n2
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 4W 100 Auto 4W 150 Manual
+* [ ] B. Null 0 Auto 4W 150 Manual
+* [*] C. Compilation fails only at line n1
+* [ ] D. Compilation fails only at line n2
+* [ ] E. Compilation fails at both line n1 and line n2
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "802 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 802-64a19fc9a486623d533448af.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000300001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result if the integer aVar is 9?
+
+
+[source,java]
+----
+if (avart++ < 10) {
+System. out.println(avar + " Hello world!")
+
+} else {
+System.out.println(avar +
+
+Hello Universe!"
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 10 Hello World!
+* [ ] B. Hello Universe!
+* [ ] C. Hello World!
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

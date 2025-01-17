@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "803 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 803-64a19fc9a486623d533448b0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000300002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+String date = LocalDate
+- parse ("2014-05-04")
+. format (DateTimeFormatter.I80_DATE_TIME) ;
+System. out. println (date) ;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. May 04, 2014T00:00:00.000
+* [ ] B. 2014-05-04T00:00: 00. 000
+* [ ] C. 5/4/14T00:00:00.000
+* [*] D. An exception is thrown at runtime.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

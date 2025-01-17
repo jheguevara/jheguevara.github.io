@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "873 - Given the following classes
+Which two op"
+---
+
+
+[.question]
+== 873-64a19fd7a486623d533448f6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following classes:
+Which two options fail to compile when placed at line n1 of the main method?
+
+
+[source,java]
+----
+public class Employee {
+public int salary;
+d
+
+public class Manager extends Employee {
+public int budget;
+}
+
+public class Director extends Manager {
+public int stockoptions;
+}
+
+And given the following main method
+
+public static void main(string[] args) {
+Employee employee = new Employee ();
+Manager manager = new Manager ();
+Director director = new Director ();
+ffline nl
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. employee.salary = 50_000;
+* [ ] B. director.salary = 80_000;
+* [*] C. employee.budget = 200_000;
+* [ ] D. manager.budget = 1_000_000;
+* [*] E. manager.stockOption = 500;
+* [ ] F. director.stockOptions = 1_000;
+
+--
+****
+
+[.answer]
+CE
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,72 @@
+---
+layout: default 
+title: "821 - Given the code fragment
+Which modificati"
+---
+
+
+[.question]
+== 821-64a19fcda486623d533448c2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0002400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which modification enables the code fragment to print TrueDone?
+
+
+[source,java]
+----
+public static void main(string[] args)
+boolean opt = true;
+switch (opt) (
+case true:
+system. out. print ("True");
+break
+default:
+system. out. print ("**#") ;
+
+)
+System. out.printIn ("Done");
+
+{
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Replace line 5 With String opt = "true"; Replace line 7 with case "true":
+* [ ] B. Replace line 5 with boolean opt = l; Replace line 7 with case 1=
+* [ ] C. At line 9, remove the break statement.
+* [ ] D. Remove the default section.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

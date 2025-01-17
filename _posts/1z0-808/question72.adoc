@@ -1,0 +1,97 @@
+---
+layout: default 
+title: "872 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 872-64a19fd7a486623d533448f5.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008300001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class Product {
+
+int id;
+
+String name;
+public Product (int id, string name) {
+
+this.id
+
+id;
+
+this.name = name;
+
+)
+
+And given the code fragment
+
+Product
+Product
+Product
+boolean
+boolean
+
+earns
+
+System.out. print (ans1 +
+
+pl = new Product (101, "Pen")
+
+p2 = new Product (101, "Pen")
+
+p3 = pl
+
+ansl = pl == p2;
+
+ans2 = pl.name.equals (p2.name) ;
+
++ ans2);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. true:true
+* [ ] B. true:false
+* [*] C. false:true
+* [ ] D. false:false.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

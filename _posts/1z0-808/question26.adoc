@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "826 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 826-64a19fcea486623d533448c7.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+List<String> names = new ArrayList<>();
+names. add ("Robb") 7
+names. add ("Bran")
+names. add ("Rick") ;
+names. add ("Bran");
+
+if (names. remove ("Bran")) {
+names. remove ("Jon") +
+
+d
+System. out. print1n (names) ;
+----
+
+
+--
+
+[.list]
+--
+* [*] A. [Robb, Rick, Bran]
+* [ ] B. [Robb, Rick]
+* [ ] C. [Robb, Bran, Rick, Bran]
+* [ ] D. An exception is thrown at runtime.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

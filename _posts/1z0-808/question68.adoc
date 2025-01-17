@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "868 - Given the following code for the classes"
+---
+
+
+[.question]
+== 868-64a19fd6a486623d533448f1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following code for the classes MyException and Test:
+What is the result?
+
+
+[source,java]
+----
+public class MyException extends RuntimeException (}
+
+public class Test {
+public static void main(string[] args) {
+try (
+methodl () +
+}
+catch (MyException ne) {
+system. out. print ("A");
+}
+3
+public static void method1() { // line nl
+try (
+throw Math. random() > 0.5 2new MyException() :new RuntimeException();
+3
+catch (RuntimeException re) {
+System. out. print ("B");
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A
+* [*] B. B
+* [ ] C. Either A or B
+* [ ] D. A B
+* [ ] E. A compile time error occurs at line n1
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

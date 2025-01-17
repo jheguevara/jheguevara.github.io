@@ -1,0 +1,63 @@
+---
+layout: default 
+title: "857 - Given the code fragment
+Which option rep"
+---
+
+
+[.question]
+== 857-64a19fd4a486623d533448e6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0006400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which option represents the state of the num array after successful completion of the outer loop?
+
+
+[source,java]
+----
+int num[][] = new int [1] [3];
+for (int i = 0; i < num.length; i++) {
+for (int j = 0; j < num[i].length; j++) {
+numfi] [i] = 10;
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Option A
+* [ ] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

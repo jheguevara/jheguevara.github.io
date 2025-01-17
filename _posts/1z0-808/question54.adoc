@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "854 - Given the definitions of the MyString cl"
+---
+
+
+[.question]
+== 854-64a19fd4a486623d533448e3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0006000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the definitions of the MyString class and the Test class:
+What is the result?
+
+
+[source,java]
+----
+MyString.java
+
+package pli
+class MyString {
+String msg;
+MyString (string msg)
+this.msg = msg;
+3
+}
+
+Test.java
+
+package pli
+public class Test {
+
+public static void main(string[] args) {
+
+system. out. println ("Hello
+system. out. println ("Hello
+
+"+ new StringBuilder ("Java SE 8"));
+"+ new MyString("Java SE 8"));
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

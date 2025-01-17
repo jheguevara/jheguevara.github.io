@@ -1,0 +1,44 @@
+---
+layout: default 
+title: "870 - Which two are benefits of polymorphism J"
+---
+
+
+[.question]
+== 870-64a19fd7a486623d533448f3.
+
+
+****
+
+[.query]
+--
+Which two are benefits of polymorphism?
+
+
+--
+
+[.list]
+--
+* [ ] A. Faster code at runtime
+* [*] B. More efficient code at runtime
+* [ ] C. More dynamic code at runtime
+* [*] D. More flexible and reusable code
+* [ ] E. Code that is protected from extension by other classes.
+
+--
+****
+
+[.answer]
+BD
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

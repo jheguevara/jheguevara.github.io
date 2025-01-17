@@ -1,0 +1,70 @@
+---
+layout: default 
+title: "823 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 823-64a19fcda486623d533448c4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0002500002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+int
+int
+int
+int
+int
+System. out. println (4);
+
+anova x
+
+(b <c )? br cs
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 100
+* [ ] B. 101
+* [ ] C. 102
+* [ ] D. 103
+* [*] E. Compilation fails.
+
+--
+****
+
+[.answer]
+E
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

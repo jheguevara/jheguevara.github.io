@@ -1,0 +1,83 @@
+---
+layout: default 
+title: "806 - Given the code fragment
+Which two modifi"
+---
+
+
+[.question]
+== 806-64a19fcaa486623d533448b3.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which two modifications, made independently, enable the code to compile?
+
+
+[source,java]
+----
+abstract class Planet {
+protected void revolve() { //line
+
+)
+
+abstract void rotate (); //line
+}
+
+class Earth extends Planet {
+void revolve() { //line
+
+)
+
+protected void rotate() { //line
+}
+
+nl
+
+n2
+
+n3
+
+n4
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Make the method at line n1 public.
+* [ ] B. Make the method at line n2 public.
+* [*] C. Make the method at line n3 public.
+* [*] D. Make the method at line n3 protected.
+* [ ] E. Make the method at line n4 public.
+
+--
+****
+
+[.answer]
+CD
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

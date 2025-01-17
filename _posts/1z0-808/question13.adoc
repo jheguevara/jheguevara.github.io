@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "813 - Given
+Which code fragment should you use"
+---
+
+
+[.question]
+== 813-64a19fcba486623d533448ba.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0001500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+Which code fragment should you use at line n1 to instantiate the dvd object successfully?
+
+
+[source,java]
+----
+class CD {
+
+int or;
+ep(int r){
+this. rsr;
+
+)
+)
+
+class DVD extends CD {
+
+int c;
+DvD(int r, int c) {
+#? line m1
+
+y
+t
+And given the code fragment
+
+DVD dvd = new DVD(10,20);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "876 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 876-64a19fd8a486623d533448f9.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class Caller {
+
+private void init () {
+
+System. out .printin(“Initialized”
+
+private void start ()
+
+{
+init);
+
+System.out.println (“Started”) ;
+}
+
+public class TestCall {
+
+public static void main(string[] args)
+Caller c — new Caller();
+c.start();
+
+c.init()
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. An exception is thrown at runtime.
+* [ ] B. Initialized Started Initialized
+* [ ] C. Initialized Started
+* [*] D. Compilation fails.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "833 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 833-64a19fcfa486623d533448ce.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class Alpha {
+int ns;
+static int s;
+Alpha (int ns) {
+if (¢ < ns) {
+Ss = ns;
+this.ns = ns;
+
+)
+)
+void doPrint() {
+
+System.out.println("ns = "4+ ns + "s = "4 8);
+}
+
+)
+And,
+
+public class Testa {
+public static void main(string[] args) {
+Alpha refl = new Alpha(50);
+Alpha ref2 = new Alpha(125);
+Alpha ref3 = new Alpha(100);
+refl.doPrint
+ref2.doPrint ();
+ref3.doPrint ();
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [*] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

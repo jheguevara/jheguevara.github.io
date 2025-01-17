@@ -1,0 +1,90 @@
+---
+layout: default 
+title: "853 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 853-64a19fd3a486623d533448e2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0005900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class Vehicle {
+int x;
+vehicle () {
+this(10); // line ni
+)
+Vehicle (int x) {
+this. = x;
+)
+)
+
+class Car extends Vehicle {
+int
+carQ {
+super ();
+this (20); // line n2
+
+)
+Car (int y) {
+this.y
+
+}
+public string tostring() {
+return super.x + ":" + this.y;
+}
+}
+
+And given the code fragment
+And given the code fragment
+
+Vehicle y = new Car();
+System. out. printin(y);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 10:20
+* [ ] B. 0:20
+* [ ] C. Compilation fails at line n1
+* [*] D. Compilation fails at line n2
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

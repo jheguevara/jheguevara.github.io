@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "834 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 834-64a19fd0a486623d533448cf.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+int ii = 0;
+int 43-73
+for Gi = 0; ii < jj - 1) di = Gi + 2) ¢
+System.out.print (ii +" ");
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 2 4
+* [ ] B. 0 2 4 6
+* [*] C. 0 2 4
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "848 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 848-64a19fd2a486623d533448dd.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0005300001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[]
+string[][] arr
+for (int i = 0;
+
+args) {
+
+((TA", "BM, "O"), ("D", "EM));
+i < arr.length; i++) {
+for (int j = 0; j < arr[i].length;
+
+ath) ¢
+System.out.print(arrlilli] +"):
+if (arr[il[j]-equals("B")) {
+
+break;
+
+}
+}
+
+continue;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. A B C
+* [ ] B. A B C D E
+* [*] C. A B D E
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

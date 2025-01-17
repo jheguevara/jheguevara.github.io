@@ -1,0 +1,65 @@
+---
+layout: default 
+title: "875 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 875-64a19fd8a486623d533448f8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008700001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+int n [] [] iil, 3}, {2, 3}
+for (int i n.length-1; i >= 0; i--) {
+for (int y : n[i]) {
+system.out.print (y);
+
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 1324
+* [ ] B. 2413
+* [*] C. 3142
+* [ ] D. 4231
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

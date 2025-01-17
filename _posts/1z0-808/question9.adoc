@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "809 - Given the following two classes
+How shou"
+---
+
+
+[.question]
+== 809-64a19fcaa486623d533448b6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0001000001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following two classes:
+How should you write methods in the ElectricAccount class at line n1 so that the member variable bill is always equal to the value of the member variable kwh multiplied by the member variable rate? Any amount of electricity used by a customer (represented by an instance of the customer class) must contribute to the customer's bill (represented by the member variable bill) through the method useElectricity method.
+An instance of the customer class should never be able to tamper with or decrease the value of the member variable bill.
+
+
+[source,java]
+----
+public class Customer {
+Electricaccount acct = new ElectricAccount ();
+
+public void useElectricity (double kwh) {
+acct. addkWwh (kWh) 3
+}
+
+public class Blectricaccount {
+private double kwh;
+private double rate = 0.07;
+private double bill;
+
+ffline nl
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+AC
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

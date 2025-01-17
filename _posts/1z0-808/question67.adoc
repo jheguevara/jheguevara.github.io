@@ -1,0 +1,68 @@
+---
+layout: default 
+title: "867 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 867-64a19fd6a486623d533448f0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0007900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class App {
+
+public static void main(string[] args) {
+
+Boolean[] bool = new Boolean[2];
+bool[0] = new Boolean (Boolean. parseBoolean ("true") );
+bool[1] = new Boolean (null);
+
+system. out.print1n(bool[0] + " " + bool[1])
+----
+
+
+--
+
+[.list]
+--
+* [*] A. True false
+* [ ] B. True null
+* [ ] C. Compilation fails
+* [ ] D. A NullPointerException is thrown at runtime.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

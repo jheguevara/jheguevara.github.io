@@ -1,0 +1,78 @@
+---
+layout: default 
+title: "801 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 801-64a19fc8a486623d533448ae.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class Product {
+double price;
+)
+
+public class Test {
+public void updatePrice (product product, double price) {
+price = price * 2;
+product.price = product.price + price;
+}
+public static void main(string[] args) {
+Product prt = new Product ();
+prt.price = 200;
+double newPrice = 100;
+
+Test t = new Test ();
+t.updatePrice (prt, newPrice);
+system.out.println(prt.price +
+
++ newPrice);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 200.0 : 100.0
+* [ ] B. 400.0 : 200.0
+* [*] C. 400.0 : 100.0
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

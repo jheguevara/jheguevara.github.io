@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "817 - Given the following class
+And given the "
+---
+
+
+[.question]
+== 817-64a19fcca486623d533448be.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0001900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following class:
+And given the following main method, located in another class:
+Which three lines, when inserted independently at line n1, cause the program to print a 0 balance?
+
+
+[source,java]
+----
+public class Checkingaccount {
+
+public int amount;
+
+public Checkingaccount (int amount) {
+this.amount = amount;
+
+3
+
+public int getamount () (
+return amount;
+
+}
+
+public void changeamount (int x) {
+amount += x7
+
+7
+----
+
+
+--
+
+[.list]
+--
+* [*] A. this.amount = 0;
+* [ ] B. amount = 0;
+* [*] C. acct (0) ;
+* [*] D. acct.amount = 0;
+* [ ] E. acct. getAmount () = 0;
+* [ ] F. acct.changeAmount(0);
+* [ ] G. acct.changeAmount(-acct.amount); H. acct.changeAmount(-acct.getAmount());
+
+--
+****
+
+[.answer]
+ACD
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

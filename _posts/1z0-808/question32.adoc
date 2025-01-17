@@ -1,0 +1,62 @@
+---
+layout: default 
+title: "832 - Given the code from the GreetingJava fil"
+---
+
+
+[.question]
+== 832-64a19fcfa486623d533448cd.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code from the Greeting.Java file:
+Which set of commands prints Hello Duke in the console?
+
+
+[source,java]
+----
+public class Greeting {
+public static void main(string[] args) {
+System.out.println ("Hello " + args[0]);
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

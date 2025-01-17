@@ -1,0 +1,67 @@
+---
+layout: default 
+title: "871 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 871-64a19fd7a486623d533448f4.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+int numsi[] = new int [3];
+
+int nums2[] = (1, 2, 3, 4, 5)i
+
+nums1 = nums2;
+
+for (int x : nums1)¢
+System.out.print (x + "2";
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 1:2:3:4:5:
+* [ ] B. 1:2:3:
+* [ ] C. Compilation fails.
+* [ ] D. An ArrayoutofBoundsException is thrown at runtime.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

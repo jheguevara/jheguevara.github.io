@@ -1,0 +1,64 @@
+---
+layout: default 
+title: "814 - Given the code fragment
+Which option can"
+---
+
+
+[.question]
+== 814-64a19fcba486623d533448bb.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0001600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which option can replace xxx to enable the code to print 135?
+
+
+[source,java]
+----
+int all = (1, 2, 3, 4, 5):
+for (XXX) {
+
+System. out. print (ale]) +
+}
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. int e = 0; e < = 4; e++
+* [*] B. int e = 0; e < 5; e + = 2
+* [ ] C. int e = 1; e < = 5; e + = 1
+* [ ] D. int e = 1; e < 5; e+ =2
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

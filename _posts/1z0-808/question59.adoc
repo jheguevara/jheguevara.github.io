@@ -1,0 +1,85 @@
+---
+layout: default 
+title: "859 - Given the following code for a Planet ob"
+---
+
+
+[.question]
+== 859-64a19fd5a486623d533448e8.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0006700001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following code for a Planet object:
+What is the output?
+
+
+[source,java]
+----
+public class Planet {
+public string name;
+public int moons;
+
+public Planet (string name, int moons) {
+
+this.name = name;
+
+this.moons = moons;
+)
+
+And the following main method
+
+public static void main(string[] args) {
+Planet [] planets = {
+
+new Planet ("Mercury", 0),
+new Planet ("Venus", 0),
+new Planet ("Earth", 1),
+new Planet ("Mars", 2)
+
+Me
+
+system. out. print1n (planets) ;
+system, out. print1n (planets [2]) +
+system. out. println (planets [2] .moons) ;
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D
+* [ ] E. Option E.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

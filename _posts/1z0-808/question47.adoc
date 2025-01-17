@@ -1,0 +1,94 @@
+---
+layout: default 
+title: "847 - Given the code fragments
+Which code frag"
+---
+
+
+[.question]
+== 847-64a19fd2a486623d533448dc.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0005200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragments:
+Which code fragment, when inserted at line n1, enables the code to print Hank?
+
+
+[source,java]
+----
+Person. java
+
+public class Person {
+String name;
+int age;
+
+public Person(string n, int a) {
+name =n;
+age = a;
+
+}
+
+public string getName () {
+return name;
+}
+
+public int getage(Q {
+return age;
+}
+3
+
+Test.java
+
+public static void checkage(List<Person> list, Predicate<Person> predicate) {
+for (Person p: list) {
+if (predicate.test (p)) {
+System.out.println(p.name +" ");
+
+)
+
+public static void main(string[] args) {
+List<Person> iList = Arrays.asList (new Pergon("Hank", 45),
+new Person("Charlie", 40),
+new Person("Smith", 38));
+ffline nl
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. checkAge (iList, ( ) -> p. get Age ( ) > 40);
+* [ ] B. checkAge(iList, Person p -> p.getAge( ) > 40);
+* [*] C. checkAge (iList, p -> p.getAge ( ) > 40);
+* [ ] D. checkAge(iList, (Person p) -> { p.getAge() > 40; });
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

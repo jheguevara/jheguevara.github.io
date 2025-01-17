@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "820 - Given the code fragment
+Which modificati"
+---
+
+
+[.question]
+== 820-64a19fcda486623d533448c1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0002300001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which modification enables the code to print 54321?
+
+
+[source,java]
+----
+. public static void main(string[] args) {
+
+int x = 5;
+while (isAvailable(x)) {
+System. out. print (x);
+
+. public static boolean isAvailable (int x)
+
+return x-- > 0 ? true: false;
+}
+
+{
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Replace line 6 with System, out. print (--x) ;
+* [ ] B. At line 7, insert x --;
+* [ ] C. Replace line 6 with --x; and, at line 7, insert system, out. print (x);
+* [ ] D. Replace line 12 With return (x > 0) ? false: true;
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

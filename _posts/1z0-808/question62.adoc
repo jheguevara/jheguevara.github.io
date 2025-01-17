@@ -1,0 +1,76 @@
+---
+layout: default 
+title: "862 - Given the following class declarations  "
+---
+
+
+[.question]
+== 862-64a19fd5a486623d533448eb.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0007500001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the following class declarations: -> public abstract class Animal -> public interface Hunter -> public class Cat extends Animal implements Hunter -> public class Tiger extends Cat Which answer fails to compile?
+
+
+[source,java]
+----
+A) ArrayList<Animal> myList
+myList.add(new Tiger ());
+
+new ArrayList<>();
+
+B) ArrayList<Hunter> myList
+myList.add(new Cat ());
+
+new ArrayList<>();
+
+C) ArrayList<Hunter> myList = new ArrayList<>();
+myList.add(new Tiger ()) i
+
+D) ArrayList<Tiger> myList = new ArrayList<>();
+myList.add(new Cat ());
+
+E) ArrayList<Animal> myList = new ArrayLIst<>();
+myList.add(new Cat ());
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D
+* [*] E. Option E.
+
+--
+****
+
+[.answer]
+E
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

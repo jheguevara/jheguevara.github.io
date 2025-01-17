@@ -1,0 +1,86 @@
+---
+layout: default 
+title: "816 - Given the code fragment from three files"
+---
+
+
+[.question]
+== 816-64a19fcca486623d533448bd.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0001700001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment from three files:
+Which code fragment, when inserted at line 2, enables the code to compile?
+
+
+[source,java]
+----
+SalesMan.java
+
+package sales;
+public class Salesman ( }
+
+Product.java
+
+package sales. products;
+public class Product {( }
+
+Market. java:
+
+. package market;
+
+.// insert code here
+
+public class USsMarket
+SalesMan sm;
+
+L
+2
+3.
+4.
+5 Product pi
+6
+
+{
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D
+* [*] E. Option E.
+
+--
+****
+
+[.answer]
+E
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

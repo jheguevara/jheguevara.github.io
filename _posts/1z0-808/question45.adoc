@@ -1,0 +1,82 @@
+---
+layout: default 
+title: "845 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 845-64a19fd2a486623d533448da.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0004900001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) (
+= new Arraybist ();
+
+ArrayList myList =
+string[] myArray;
+try (
+while (true) {
+nyList.add ("My string"):
+d
+)
+
+catch (RuntimeException re) |
+System. out. println ("Caught a RuntimeException");
+
+?
+catch (Bxception ¢) ¢
+system, out. printin
+
+Caught an Exception");
+
+)
+System. out.print1n ("Ready to use");
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Execution terminates in the first catch statement, and caught a RuntimeException is printed to the console.
+* [ ] B. Execution terminates in the second catch statement, and caught an Exception is printed to the console.
+* [*] C. A runtime error is thrown in the thread "main".
+* [ ] D. Execution completes normally, and Ready to use is printed to the console.
+* [ ] E. The code fails to compile because a throws keyword is required.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

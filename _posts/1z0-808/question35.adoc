@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "835 - Given the code fragment
+Assume that the "
+---
+
+
+[.question]
+== 835-64a19fd0a486623d533448d0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003800002.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Assume that the system date is June 20, 2014
+What is the result?
+
+
+[source,java]
+----
+LocalDate datel = LocalDate
+LocalDate date2
+LocalDate date3 = LocalDate
+system. out. println("datel
+system. out, println("date2 =
+system. out, print1n ("date3
+
+now ()
+LocalDate.
+
+of (2014, 6,
+
++ datel);
++ date2);
++ date3);
+
+20);
+
+- parse ("2014-06-20",
+
+DateTimeFormatter.I80_DATE);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [ ] B. Option B
+* [ ] C. Option C
+* [*] D. Option D.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

@@ -1,0 +1,77 @@
+---
+layout: default 
+title: "828 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 828-64a19fcea486623d533448c9.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0003200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+class X (
+static int i;
+int 9:
+public static void main(string[] args) {
+X xl = new X0
+X x2 = new Xi;
+
+H1.i = 3p
+xl = 4;
+x2.i = 5;
+
+#2.4 = 6;
+System, out. print1n (
+xLid¢ " "+
+xLgj¢" "4
+u2.G +" "+
+
+x2.4)3
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. 3 4 5 6
+* [ ] B. 3 4 3 6
+* [*] C. 5 4 5 6
+* [ ] D. 3 6 4 6
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

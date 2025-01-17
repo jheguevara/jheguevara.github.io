@@ -1,0 +1,71 @@
+---
+layout: default 
+title: "861 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 861-64a19fd5a486623d533448ea.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0007400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class TestScope {
+
+public static void main(string[] args) {
+int varl = 200;
+system. out. print (doCale(varl)) i
+system.out.print(" "+varl);
+
+i
+
+static int doCale(int varl){
+varl = varl * 2;
+return
+----
+
+
+--
+
+[.list]
+--
+* [*] A. 400 200
+* [ ] B. 200 200
+* [ ] C. 400 400
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

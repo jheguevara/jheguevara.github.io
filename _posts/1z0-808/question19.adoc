@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "819 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 819-64a19fcda486623d533448c0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0002200001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public class Test{
+
+void readCard(int cardNo) throws Exception {
+System. out. println ("Reading Card");
+}
+
+void checkCard(int cardNo) throws RuntimeBxception { // line nl
+system. out. println ("Checking Card");
+}
+
+public static void main(string[] args) {
+Test ex = new Test ();
+int cardNo = 12344;
+ex. checkCard (cardNo) ; //line n2
+ex. readCard (cardNo) ; //line n3
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Reading Card Checking Card
+* [ ] B. Compilation fails only at line n1.
+* [ ] C. Compilation fails only at line n2.
+* [*] D. Compilation fails only at line n3.
+* [ ] E. Compilation fails at both line n2 and line n3.
+
+--
+****
+
+[.answer]
+D
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

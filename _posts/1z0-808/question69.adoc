@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "869 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 869-64a19fd7a486623d533448f2.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008100001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class App {
+String mystr = "7007";
+
+public void dostuff (string str) {
+int myNum = 0;
+try (
+String mystr = str;
+myNum = Integer. parseInt (mystr) +
+} catch (NumberFormatException ne) {
+System.err. println ("Error");
+}
+System. out. println (
+"myStr: "+ myste + ", myNum:
+
++ myNum)
+,
+
+public static void main(string[] args) {
+App obj = new App();
+obj. dostuft ("9009") ¢
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. myStr: 9009, myNum: 9009
+* [ ] B. myStr: 7007, myNum: 7007
+* [*] C. myStr: 7007, myNum: 9009
+* [ ] D. Compilation fails.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

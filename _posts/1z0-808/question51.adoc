@@ -1,0 +1,80 @@
+---
+layout: default 
+title: "851 - Given
+What is the result Java Certificat"
+---
+
+
+[.question]
+== 851-64a19fd3a486623d533448e0.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0005600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given:
+What is the result?
+
+
+[source,java]
+----
+public class SumTest {
+
+public static void dosum(Integer x, Integer y) (
+System.out.println ("Integer sum is "+ (x + y))i
+}
+
+public static void doSum(double x, double y) {
+System.out.println ("double sum is "+ (x + y))3
+i
+
+public static void dosum(float x, float y) {
+System.out.println("float sum is "+ (x + y))i
+}
+
+public static void doSum(int x, int y) {
+System.out.println("int sum is "+ (x + y)):
+}
+
+public static void main(string[] args) {
+dosum (10, 20);
+dosum (10.0, 20.0);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Option A
+* [*] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+B
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

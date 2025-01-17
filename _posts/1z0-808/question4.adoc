@@ -1,0 +1,66 @@
+---
+layout: default 
+title: "804 - Given the code fragment
+What is the resu"
+---
+
+
+[.question]
+== 804-64a19fc9a486623d533448b1.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000400001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+What is the result?
+
+
+[source,java]
+----
+public static void main(string[] args) {
+Short sl = 200;
+Integer s2 = 400;
+Long $3 = (long) sl + 82; //line ni
+String #4 = (string) (83 * 82); //line n2
+System.out.println ("Sum is "+ $4);
+----
+
+
+--
+
+[.list]
+--
+* [ ] A. Sum is 600
+* [ ] B. Compilation fails at line n1.
+* [*] C. Compilation fails at line n2.
+* [ ] D. A ClassCastException is thrown at line n1.
+* [ ] E. A ClassCastException is thrown at line n2.
+
+--
+****
+
+[.answer]
+C
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

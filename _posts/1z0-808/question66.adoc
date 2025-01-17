@@ -1,0 +1,73 @@
+---
+layout: default 
+title: "866 - Given the code fragment
+Which three code"
+---
+
+
+[.question]
+== 866-64a19fd6a486623d533448ef.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0007800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which three code fragments can be independently inserted at line n1 to enable the code to print one?
+
+
+[source,java]
+----
+public class Test {
+public static void main(string[] args) {
+ffline nl
+switch (x) {
+case 1:
+
+system. out. println ("one");
+break;
+
+case 2:
+system. out. println ("two");
+break;
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Byte x = 1;
+* [*] B. short x = 1;
+* [ ] C. String x = "1";
+* [ ] D. Long x = 1;
+* [ ] E. Double x = 1;
+* [*] F. Integer x = new Integer ("1");
+
+--
+****
+
+[.answer]
+ABF
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

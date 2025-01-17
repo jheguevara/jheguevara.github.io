@@ -1,0 +1,75 @@
+---
+layout: default 
+title: "825 - Given the code fragment
+Which two modifi"
+---
+
+
+[.question]
+== 825-64a19fcea486623d533448c6.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0002800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which two modifications, when made independently, enable the code to print joe:true: 100.0?
+
+
+[source,java]
+----
+public class Employee {
+String name;
+boolean contract;
+double salary;
+Employee () {
+ff line nl
+}
+public string tostring() {
+return name + ":" + contract + ":" + salary;
+
+3
+public static void main(string[] args) {
+Employee e = new Employee ();
+ff line n2
+System. out. print (e);
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D
+* [ ] E. Option E.
+
+--
+****
+
+[.answer]
+AC
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

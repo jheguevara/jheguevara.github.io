@@ -1,0 +1,79 @@
+---
+layout: default 
+title: "860 - You are asked to develop a program for a"
+---
+
+
+[.question]
+== 860-64a19fd5a486623d533448e9.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0006900004.png[]
+
+--
+
+
+****
+
+[.query]
+--
+You are asked to develop a program for a shopping application, and you are given the following information: -> The application must contain the classes Toy, EduToy, and ConsToy.
+The Toy class is the superclass of the other two classes.
+-> The int caicuiatePrice (Toy t) method calculates the price of a toy.
+-> The void printToy (Toy t) method prints the details of a toy.
+Which definition of the Toy class adds a valid layer of abstraction to the class hierarchy?
+
+
+[source,java]
+----
+© A) public abstract class Toy{
+public abstract int calculatePrice (Toy t);
+public void printtoy(Toy t) { /* code goes here */ }
+)
+
+© B) public abstract class Toy {
+public int calculatePrice (Toy t) ;
+public void printToy (Toy t) 3
+)
+
+© C) public abstract class Toy {
+public int calculatePrice (Toy t);
+public final void printToy (Toy t){ /* code goes here */ }
+)
+
+© D) public abstract class Toy {
+public abstract int calculatepPrice (Toy t) { /* code goes here */ }
+public abstract void printToy (Toy t) { /* code goes here */ }
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Option A
+* [ ] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

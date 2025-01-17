@@ -1,0 +1,81 @@
+---
+layout: default 
+title: "808 - Given the code fragment
+Which two modifi"
+---
+
+
+[.question]
+== 808-64a19fcaa486623d533448b5.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0000800001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Given the code fragment:
+Which two modifications should you make so that the code compiles successfully?
+
+
+[source,java]
+----
+. class X {
+
+public void printFilecontent ()
+/* code goes here */
+throw new IOException () +
+
+3
+
+3
+public class Test {
+
+{
+
+public static void main(string[]
+
+X xobj = new XO;
+xobj.printFilecontent ();
+
+args)
+
+{
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Option A
+* [ ] B. Option B
+* [*] C. Option C
+* [ ] D. Option D
+* [ ] E. Option E.
+
+--
+****
+
+[.answer]
+AC
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+

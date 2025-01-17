@@ -1,0 +1,94 @@
+---
+layout: default 
+title: "874 - Which one of the following code examples"
+---
+
+
+[.question]
+== 874-64a19fd8a486623d533448f7.
+
+
+
+[.image]
+--
+
+image::https://eaeastus2.blob.core.windows.net/optimizedimages/static/images/Java-SE-8-Programmer/question/img0008600001.png[]
+
+--
+
+
+****
+
+[.query]
+--
+Which one of the following code examples uses valid Java syntax?
+
+
+[source,java]
+----
+public
+
+class Boat {
+
+public static void main (String [] args) {
+
+System.out.printin
+,
+
+class Cake {
+
+(“I £loat.”)7
+
+public static void main (String [] ) {
+
+System.out.printin
+,
+
+class Dog {
+
+(“Chocolate”
+
+public void main (string [] args) {
+
+System.out.printin
+,
+
+class Bank {
+
+(squirrel.”
+
+public static void main (String () args) {
+
+System.out.printin
+,
+
+(“Earn interest.”);
+----
+
+
+--
+
+[.list]
+--
+* [*] A. Option A
+* [ ] B. Option B
+* [ ] C. Option C
+* [ ] D. Option D.
+
+--
+****
+
+[.answer]
+A
+
+[.explanation]
+--
+null
+--
+
+[.ka]
+null
+
+'''
+
+
